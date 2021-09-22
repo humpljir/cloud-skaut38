@@ -19,7 +19,7 @@
 
 .main-wrapper.menu-open .window {
     position: relative;
-    filter: contrast(0.5) brightness(0.9) saturate(0);
+    filter: contrast(0.3) brightness(1.8) saturate(0);
     pointer-events: none;
 
 }
@@ -55,10 +55,9 @@
 }
 
 .main-wrapper .menu-wrapper .menu-formbox {
-    padding: 20px 0;
     overflow: hidden;
     border-radius: var(--menu-border-radius);
-    background-color: #dadadacc;
+    background-color: var(--menu-bg-color);
     backdrop-filter: blur(4px);
 }
 
@@ -71,23 +70,28 @@
 }
 
 .main-wrapper .menu-wrapper .menu-formbox .form-visible input {
-        position: relative;
-        margin: 24px 0 18px 0;
-        padding: 10px 20px;
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-        border: none;
-        border-radius: 0;
-        border-bottom: 1px solid #aaa;
-        background-color: transparent;
-        color: var(--main-fg-color);
+    position: relative;
+    padding: 36px 20px 10px 20px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #aaa;
+    background-color: transparent;
+    color: var(--main-fg-color);
+    font-size: var(--menu-input-font-size);
 }
 
 .main-wrapper .menu-wrapper .menu-formbox .form-visible input:focus {
-    border-color: transparent;
     outline: none;
-    background-color: #fff;
+    background-color: #0000000f;
+}
+
+.main-wrapper .menu-wrapper .menu-formbox .form-visible a {
+    margin: 20px;
+    display: block;
+    font-size: var(--menu-a-font-size);
 }
 
 .main-wrapper .menu-wrapper .menu-button-wrapper {
@@ -96,9 +100,20 @@
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
     border-radius: var(--menu-border-radius);
-    background-color: #dadadacc;
+    background-color: var(--menu-bg-color);
     backdrop-filter: blur(4px);
     border: none;
-    padding: 13px;
+    padding: 18px;
     flex-grow: 1;
+    font-weight: 700;
+}
+
+.main-wrapper .menu-wrapper .menu-button-wrapper .menu-button-submit {
+    background-color: #007fecb0;
+    color:var(--main-bg-color);
+}
+
+.main-wrapper .menu-wrapper .menu-button-wrapper .menu-button:focus-visible {
+outline: none;
+filter: brightness(0.86);
 }

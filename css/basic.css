@@ -1,10 +1,14 @@
 :root {
     --main-bg-color: #fff;
     --main-fg-color: #000;
-    --menu-bg-color: #dadadacc;
+    --menu-bg-color: #dadadaa1;
+
+    --general-font-size: 16px;
 
     --main-spacing: 16px;
 
+    --menu-input-font-size: 13px;
+    --menu-a-font-size: 11px;
     --menu-border-radius: 10px;
     --menu-spacing: 6px;
 }
@@ -13,4 +17,10 @@ html,
 body {
     margin: 0;
     scroll-behavior: smooth;
+    font-family: 'Nunito',
+        sans-serif;
+    font-weight: 400;
+    font-size: var(--general-font-size);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
