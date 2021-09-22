@@ -1,0 +1,95 @@
+html,
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.main-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-wrapper .window {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: filter 0.4s ease;
+    background-color: #fff;
+    color: #000;
+}
+
+.main-wrapper.menu-open .window {
+    position: relative;
+    filter: contrast(0.5) brightness(0.9) saturate(0);
+
+}
+
+.main-wrapper .window .window-inner {
+    padding: 30px;
+    transition: transform 0.4s ease;
+}
+
+.main-wrapper.menu-open .window .window-inner {
+    transform: scale(0.99);
+}
+
+.main-wrapper .menu-wrapper {
+    position: absolute;
+    box-sizing: border-box;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.main-wrapper .menu-wrapper .menu-spacer {
+    position: relative;
+    width: 12px;
+    height: 12px;
+}
+
+.main-wrapper.menu-open .menu-wrapper {
+    transform: translateY(0);
+}
+
+.main-wrapper .menu-wrapper .menu-formbox {
+    padding: 20px;
+    border-radius: 40pt;
+    background-color: #dadadacc;
+    backdrop-filter: blur(4px);
+}
+
+.main-wrapper .menu-wrapper .menu-formbox form {
+    display: none;
+}
+
+.main-wrapper .menu-wrapper .menu-formbox form.form-visible {
+    display: block;
+}
+
+.main-wrapper .menu-wrapper .menu-formbox .form-visible input {
+    position: relative;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+}
+
+.main-wrapper .menu-wrapper .menu-button-wrapper {
+    display: flex;
+}
+
+.main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
+    border-radius: 40pt;
+    background-color: #dadadacc;
+    backdrop-filter: blur(4px);
+    border: none;
+    padding: 13px;
+    flex-grow: 1;
+}
