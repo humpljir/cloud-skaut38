@@ -1,0 +1,16 @@
+:root {
+    --main-bg-color: #fff;
+    --main-fg-color: #000;
+    --menu-bg-color: #dadadacc;
+
+    --main-spacing: 16px;
+
+    --menu-border-radius: 12px;
+    --menu-spacing: 6px;
+}
+
+html,
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+}

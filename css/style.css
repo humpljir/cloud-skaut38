@@ -1,9 +1,3 @@
-html,
-body {
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
 .main-wrapper {
     position: relative;
     width: 100vw;
@@ -20,11 +14,13 @@ body {
     transition: filter 0.4s ease;
     background-color: #fff;
     color: #000;
+    pointer-events: all;
 }
 
 .main-wrapper.menu-open .window {
     position: relative;
     filter: contrast(0.5) brightness(0.9) saturate(0);
+    pointer-events: none;
 
 }
 
@@ -43,15 +39,15 @@ body {
     right: 0;
     bottom: 0;
     width: 100%;
-    padding: 12px;
+    padding: var(--main-spacing);
     transform: translateY(100%);
     transition: transform 0.4s ease;
 }
 
 .main-wrapper .menu-wrapper .menu-spacer {
     position: relative;
-    width: 12px;
-    height: 12px;
+    width: var(--menu-spacing);
+    height: var(--menu-spacing);
 }
 
 .main-wrapper.menu-open .menu-wrapper {
@@ -60,7 +56,7 @@ body {
 
 .main-wrapper .menu-wrapper .menu-formbox {
     padding: 20px;
-    border-radius: 40pt;
+    border-radius: var(--menu-border-radius);
     background-color: #dadadacc;
     backdrop-filter: blur(4px);
 }
@@ -86,7 +82,7 @@ body {
 }
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
-    border-radius: 40pt;
+    border-radius: var(--menu-border-radius);
     background-color: #dadadacc;
     backdrop-filter: blur(4px);
     border: none;
