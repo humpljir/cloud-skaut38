@@ -30,7 +30,7 @@
 
 .main-wrapper.menu-open .window .window-inner {
     transform: scale(0.99);
-pointer-events: none;
+    pointer-events: none;
 }
 
 .main-wrapper .menu-wrapper {
@@ -69,9 +69,25 @@ pointer-events: none;
     display: block;
 }
 
+.main-wrapper .menu-wrapper .menu-formbox form .file-upload {
+        position: relative;
+}
+
+.main-wrapper .menu-wrapper .menu-formbox form .file-upload input {
+    display: none;
+}
+
+.main-wrapper .menu-wrapper .menu-formbox form .file-upload div {
+    text-decoration: underline;
+    color: var(--hyperlink-color);
+    margin: 20px;
+    display: block;
+    font-size: var(--menu-a-font-size);
+}
+
 .main-wrapper .menu-wrapper .menu-formbox .form-visible input {
     position: relative;
-    padding: 36px 20px 10px 20px;
+    padding: 30px 20px 10px 20px;
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -110,10 +126,10 @@ pointer-events: none;
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button-submit {
     background-color: #007fecb0;
-    color:var(--main-bg-color);
+    color: var(--main-bg-color);
 }
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button:focus-visible {
-outline: none;
-filter: brightness(0.86);
+    outline: none;
+    filter: brightness(0.86);
 }

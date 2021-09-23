@@ -2,6 +2,7 @@
     --main-bg-color: #fff;
     --main-fg-color: #000;
     --menu-bg-color: #dadadaa1;
+    --hyperlink-color:#1a4ed2;
 
     --general-font-size: 16px;
 
@@ -21,6 +22,10 @@ body {
         sans-serif;
     font-weight: 400;
     font-size: var(--general-font-size);
+}
+
+a {
+    color: var(--hyperlink-color);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
