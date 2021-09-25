@@ -1,3 +1,5 @@
+//const {storage} = require('./index.html');
+
 function closeMenu() {
     document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
@@ -14,8 +16,8 @@ function openMenu(target) {
 
 function drawDirectories() {
     var fileSystem = "";
-    storage.array.forEach(element => {
-        var dir = "<div>"+element.name+"</div>";
+    storage.forEach(element => {
+        var dir = '<button class="dir-box" style="--dir-color:' + element.color + '">' + element.name + '</button>';
        fileSystem+=dir;
     });
     document.getElementById("blank-canvas").innerHTML = fileSystem;
@@ -23,8 +25,8 @@ function drawDirectories() {
 
 function initialize() {
 drawDirectories();
-
-
+console.log("test");
+console.log(storage);
 }
 
 initialize();
