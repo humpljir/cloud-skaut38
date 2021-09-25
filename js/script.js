@@ -7,5 +7,7 @@ function openMenu(target) {
         element.classList.remove("form-visible");
     });
     document.getElementById(target).classList.add("form-visible");
+    document.getElementById("menu-submit-button").innerHTML = document.getElementById(target).getAttribute("data-submit-label");
+    document.getElementById("menu-submit-button").setAttribute("form",target);
     document.getElementById("main-wrapper-div").classList.add("menu-open");
 }
