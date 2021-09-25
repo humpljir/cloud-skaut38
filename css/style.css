@@ -55,12 +55,12 @@
 }
 
 .main-wrapper .window .window-scroll .window-inner {
-    padding: 30px;
+    padding: 15px;
     transition: transform 0.4s ease;
     pointer-events: all;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .main-wrapper.menu-open .window .window-scroll .window-inner {
@@ -73,9 +73,10 @@
     background-color: var(--dir-color);
     border: 4px solid var(--dir-color);
     margin: 8px;
-    min-width: 200px;
-    flex-grow: 1;
-    padding: 10px 30px 50px 10px;
+    width: 120px;
+    height: 100px;
+    /* flex-grow: 1; */
+    padding: 10px 20px 50px 10px;
     box-sizing: border-box;
     color: #fff;
     font-weight: 800;
@@ -87,7 +88,7 @@
 
 .main-wrapper .window .window-scroll .window-inner .dir-box:focus {
     border: 4px solid var(--main-bg-color);
-    box-shadow: 2px 6px 20px #00000055;
+    box-shadow: 2px 6px 20px #00000070;
     outline: none;
 }
 
