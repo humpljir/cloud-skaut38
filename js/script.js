@@ -11,3 +11,20 @@ function openMenu(target) {
     document.getElementById("menu-submit-button").setAttribute("form",target);
     document.getElementById("main-wrapper-div").classList.add("menu-open");
 }
+
+function drawDirectories() {
+    var fileSystem = "";
+    storage.array.forEach(element => {
+        var dir = "<div>"+element.name+"</div>";
+       fileSystem+=dir;
+    });
+    document.getElementById("blank-canvas").innerHTML = fileSystem;
+}
+
+function initialize() {
+drawDirectories();
+
+
+}
+
+initialize();
