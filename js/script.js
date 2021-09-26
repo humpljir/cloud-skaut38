@@ -17,8 +17,22 @@ function openMenu(target) {
 function drawDirectories() {
     var fileSystem = "";
     storage.forEach(element => {
-        var dir = '<button class="dir-box" style="--dir-color:' + element.color + '">' + element.name + '</button>';
+        var dir = '<button class="dir-box" style="--dir-color:' + element.color + '" data-dir-id:"'+element.id+'" onclick=drawFiles(this.getAttribute("data-dir-id"))>' + element.name + '</button>';
        fileSystem+=dir;
+    });
+    document.getElementById("blank-canvas").innerHTML = fileSystem;
+}
+
+function drawFiles(dirID) {
+    const filesList = storage.find(function (post, index) {
+        if (storage.id == dirID)
+            return true;
+    });
+
+    var fileSystem = "";
+    filesList.content.forEach(element => {
+        var dir = '<button class="file-box">' + element.name + '</button>';
+        fileSystem += dir;
     });
     document.getElementById("blank-canvas").innerHTML = fileSystem;
 }
