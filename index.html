@@ -295,7 +295,24 @@
                     </svg>
                 </button>
                 </div>
-                <div class="top-bar-line"></div>
+                <div class="top-bar-line">
+                    <button class="top-bar-display" data-state=0>
+                        <div class="display-0"><svg width="100%" height="100%" viewBox="0 0 737.71572 737.71571"
+                                version="1.1" id="svg8">
+                                <g id="layer1" transform="translate(-133.67386,-411.83794)">
+                                    <path id="rect2361-7-5-9-28-3"
+                                        style="opacity:0.99813;fill-opacity:1;stroke:none;stroke-width:108.075;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:108.075, 108.075;stroke-dashoffset:0;stroke-opacity:1"
+                                        d="m 133.67386,411.83794 v 343.2333 h 343.2339 v -343.2333 z m 394.4824,0 v 343.2333 h 343.2333 v -343.2333 z m -394.4824,394.48185 v 343.23391 h 343.2339 V 806.31979 Z m 394.4824,0 v 343.23391 h 343.2333 V 806.31979 Z" />
+                            </g></svg></div>
+                        <div class="display-1"><svg width="100%" height="100%" viewBox="0 0 737.71572 737.71571"
+                                version="1.1" id="svg8">
+                                <g id="layer1" transform="translate(-133.67386,-411.83794)">
+                                    <path id="rect2566"
+                                        style="opacity:0.99813;fill-opacity:1;stroke:none;stroke-width:45.969;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:45.969, 45.969;stroke-dashoffset:0;stroke-opacity:1"
+                                        d="M 133.67386,411.83794 V 557.83058 H 279.66597 V 411.83794 Z m 197.23912,0 V 557.83058 H 871.38746 V 411.83794 Z M 133.67386,609.07913 V 755.07126 H 279.66597 V 609.07913 Z m 197.23912,0 V 755.07176 H 871.38746 V 609.07913 Z M 133.67386,806.31981 V 952.31244 H 279.66597 V 806.31981 Z m 197.23912,5e-4 V 952.31244 H 871.38746 V 806.32031 Z M 133.67386,1003.561 v 145.9926 H 279.66597 V 1003.561 Z m 197.23912,0 v 145.9926 H 871.38746 V 1003.561 Z" />
+                            </g></svg></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="menu-wrapper" id="menu-wrapper-div">
@@ -372,10 +389,10 @@
         </div>
         <div class="icon-bar-wrapper">
             <div class="icon-bar" id="icon-bar-div">
-                <button class="icon-bar-button" style='background: linear-gradient(30deg, #8C9496, #6b6b6b)'></button>
-                <button class="icon-bar-button" style='background: linear-gradient(40deg, #A4778B, #6b6b6b)'></button>
-                <button class="icon-bar-button" style='background: linear-gradient(50deg, #6D4E62, #6b6b6b)'></button>
-                <button class="icon-bar-button" style='background: linear-gradient(60deg, #40433F, #6b6b6b)'></button>
+                <button class="icon-bar-button" style='background: linear-gradient(30deg, #8C9496, #6b6b6b)' onclick='openMenu("create-dir")'><img src="img/icon_add_dir.svg"></button>
+                <button class="icon-bar-button" style='background: linear-gradient(40deg, #A4778B, #6b6b6b)' onclick='openMenu("form-upload")'><img src="img/icon_add_file.svg"></button>
+                <button class="icon-bar-button" style='background: linear-gradient(50deg, #6D4E62, #6b6b6b)' onclick='openMenu("picture-upload")'><img src="img/icon_add_img.svg"></button>
+                <button class="icon-bar-button" style='background: linear-gradient(60deg, #40433F, #6b6b6b)' onclick='openMenu("form-login")'><img src="img/icon_settings.svg"></button>
             </div>
         </div>
     </div>
