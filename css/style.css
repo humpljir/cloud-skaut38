@@ -33,7 +33,7 @@
     box-shadow: 0px 5px 10px #0000001c;
     box-sizing: border-box;
     z-index: 1;
-    transition: height 0.4s ease;
+    transition: height 0.2s ease;
 }
 
 .main-wrapper .window .top-bar .top-bar-line {
@@ -48,9 +48,6 @@
     transform: translateY(-50%);
     height: 14px;
     box-sizing: border-box;
-}
-
-.main-wrapper .window .top-bar .top-bar-line .top-bar-title svg {
 }
 
 .main-wrapper .window .top-bar .top-bar-line .top-bar-button {
@@ -124,6 +121,18 @@
     align-items: flex-start;
     /* flex-grow: 1;*/
 }
+.main-wrapper .window .window-scroll .window-inner .dir-box::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100vw + 100vh);
+        height: calc(100vw + 100vh);
+        background-color: inherit;
+        opacity: 0.2;
+        border-radius: 50%;
+}
 
 .main-wrapper .window .window-scroll .window-inner .dir-box:focus {
     border: 4px solid var(--main-bg-color);
@@ -152,7 +161,7 @@
     overflow: hidden;
     border-radius: var(--menu-border-radius);
     background-color: var(--menu-bg-color);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
 }
 
 .main-wrapper.menu-open .menu-wrapper {
@@ -240,9 +249,9 @@
 }
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
-    border-radius: var(--menu-border-radius);
-    background-color: var(--menu-bg-color);
-    backdrop-filter: blur(4px);
+     border-radius: var(--menu-border-radius);
+     background-color: var(--menu-bg-color);
+     backdrop-filter: blur(8px);
     border: none;
     padding: 18px;
     flex-grow: 1;
@@ -250,7 +259,7 @@
 }
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button-submit {
-    background-color: #007fecb0;
+    background-color: #007fec;
     color: var(--main-bg-color);
 }
 
