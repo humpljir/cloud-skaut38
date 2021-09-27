@@ -41,6 +41,18 @@
     height: 40px;
 }
 
+.main-wrapper .window .top-bar .top-bar-line .top-bar-title {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 14px;
+    box-sizing: border-box;
+}
+
+.main-wrapper .window .top-bar .top-bar-line .top-bar-title svg {
+}
+
 .main-wrapper .window .top-bar .top-bar-line .top-bar-button {
     height: 100%;
     position: absolute;
@@ -48,7 +60,7 @@
     right: 0;
     border: none;
     background: transparent;
-    padding: 6px 14px 0 14px;
+    padding: 6px 18px 0 14px;
     opacity: 1;
     transition: opacity 0.2s;
 }
