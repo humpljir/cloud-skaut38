@@ -2,6 +2,7 @@
 
 function closeMenu() {
     document.getElementById("main-wrapper-div").classList.remove("menu-open");
+    document.getElementById("main-wrapper-div").classList.remove("icon-bar-hide");
 }
 
 function openMenu(target) {
@@ -12,6 +13,7 @@ function openMenu(target) {
     document.getElementById("menu-submit-button").innerHTML = document.getElementById(target).getAttribute("data-submit-label");
     document.getElementById("menu-submit-button").setAttribute("form",target);
     document.getElementById("main-wrapper-div").classList.add("menu-open");
+    document.getElementById("main-wrapper-div").classList.add("icon-bar-hide");
 }
 
 function drawDirectories() {
