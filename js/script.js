@@ -4,7 +4,7 @@ const hideTopBarOffset = 80;
 
 function closeMenu() {
     document.getElementById("main-wrapper-div").classList.remove("menu-open");
-    document.getElementById("main-wrapper-div").classList.remove("icon-bar-hide");
+    document.getElementById("main-wrapper-div").classList.remove("hide");
 }
 
 function openMenu(target) {
@@ -20,6 +20,10 @@ function openMenu(target) {
 
 function openTopbar() {
     document.getElementById("main-wrapper-div").classList.add("top-bar-open");
+}
+
+function toggleDisplayStyle() {
+    document.getElementById("main-wrapper-div").classList.toggle("display-as-tiles");
 }
 
 function drawDirectories() {
