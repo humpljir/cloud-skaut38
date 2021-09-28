@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="2656.0051mm"
+   height="743.00732mm"
+   viewBox="0 0 2656.0052 743.00734"
+   version="1.1"
+   id="svg8">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="rect2361-7-5-9-28-3"
+     style="opacity:0.99813;fill:#000000;fill-opacity:1;stroke:none;stroke-width:408.472;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:408.472, 408.472;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 0 0 L 0 1297.2598 L 1297.2617 1297.2598 L 1297.2617 0 L 0 0 z M 1490.957 0 L 1490.957 1297.2598 L 2788.2168 1297.2598 L 2788.2168 0 L 1490.957 0 z M 7250.2363 20 L 7250.2363 571.7832 L 7802.0176 571.7832 L 7802.0176 20 L 7250.2363 20 z M 7995.707 20 L 7995.707 571.7832 L 10038.445 571.7832 L 10038.445 20 L 7995.707 20 z M 7250.2363 765.47852 L 7250.2363 1317.2598 L 7802.0176 1317.2598 L 7802.0176 765.47852 L 7250.2363 765.47852 z M 7995.707 765.47852 L 7995.707 1317.2617 L 10038.445 1317.2617 L 10038.445 765.47852 L 7995.707 765.47852 z M 0 1490.9551 L 0 2788.2168 L 1297.2617 2788.2168 L 1297.2617 1490.9551 L 0 1490.9551 z M 1490.957 1490.9551 L 1490.957 2788.2168 L 2788.2168 2788.2168 L 2788.2168 1490.9551 L 1490.957 1490.9551 z M 7250.2363 1510.9551 L 7250.2363 2062.7383 L 7802.0176 2062.7383 L 7802.0176 1510.9551 L 7250.2363 1510.9551 z M 7995.707 1510.957 L 7995.707 2062.7383 L 10038.445 2062.7383 L 10038.445 1510.957 L 7995.707 1510.957 z M 7250.2363 2256.4336 L 7250.2363 2808.2168 L 7802.0176 2808.2168 L 7802.0176 2256.4336 L 7250.2363 2256.4336 z M 7995.707 2256.4336 L 7995.707 2808.2168 L 10038.445 2808.2168 L 10038.445 2256.4336 L 7995.707 2256.4336 z "
+     transform="scale(0.26458335)" />
+</svg>
