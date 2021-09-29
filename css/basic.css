@@ -2,7 +2,7 @@
     --main-bg-color: #fff;
     --main-fg-color: #000;
     --menu-bg-color: #c2c2c2c9;
-    --hyperlink-color:#1a4ed2;
+    --hyperlink-color: #1a4ed2;
 
     --general-font-size: 16px;
 
@@ -16,7 +16,14 @@
 
 html,
 body {
-    margin: 0;
+    position: fixed;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     scroll-behavior: smooth;
     font-family: 'Nunito',
         sans-serif;
