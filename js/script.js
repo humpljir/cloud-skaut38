@@ -4,7 +4,7 @@ const hideTopBarOffset = 80;
 
 function closeMenu() {
     document.getElementById("main-wrapper-div").classList.remove("menu-open");
-    document.getElementById("main-wrapper-div").classList.remove("hide");
+    document.getElementById("main-wrapper-div").classList.remove("icon-bar-hide");
 }
 
 function openMenu(target) {
