@@ -141,8 +141,12 @@
 }
 
 .main-wrapper.menu-open .window .window-scroll .window-inner {
-    transform: scale(0.99);
+    transform: scale(0.9);
     pointer-events: none;
+}
+
+.main-wrapper.menu-open .window .window-scroll {
+    overflow-y: hidden;
 }
 
 .main-wrapper .window .window-scroll .window-inner .dir-box {
@@ -353,7 +357,7 @@
     width: 52px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(323deg, #818181, #a7a7a7);
+    background: linear-gradient(323deg, #f9f9f9, #ffffff);
 }
 
 .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button img {
