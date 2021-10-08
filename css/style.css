@@ -352,16 +352,19 @@
 
 .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
     position: relative;
-    padding: 10px;
+    padding: 5px;
     height: 52px;
     width: 52px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(323deg, #f9f9f9, #ffffff);
+    background: linear-gradient(
+323deg
+, #ddba57, #ffd355);
+    box-shadow: inset -3px -3px 3px #00000017, inset 6px 6px 6px #ffffff1f;
 }
 
 .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button img {
     position: relative;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
 }
