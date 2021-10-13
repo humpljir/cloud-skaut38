@@ -340,11 +340,12 @@
 }
 
 .main-wrapper .icon-bar-wrapper .icon-bar {
+    position: relative;
     overflow: hidden;
     border-radius: var(--menu-border-radius);
     background-color: var(--menu-bg-color);
     backdrop-filter: blur(8px);
-    padding: 16px;
+    padding: 8px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -352,19 +353,19 @@
 
 .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
     position: relative;
-    padding: 5px;
-    height: 52px;
-    width: 52px;
+    padding: 0;
+    margin: 8px;
+    flex-grow: 1;
+    width: fit-content;
+    height: fit-content;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(
-323deg
-, #ddba57, #ffd355);
-    box-shadow: inset -3px -3px 3px #00000017, inset 6px 6px 6px #ffffff1f;
+    background: #ffd355;
+    box-shadow: inset -1px -1px 2px #00000017, inset 2px 2px 3px #ffffff6b, 3px 5px 12px #00000026;
+    box-sizing: content-box;
 }
 
 .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button img {
-    position: relative;
-    height: 40px;
-    width: 40px;
+        position: relative;
+    width: 100%;
 }
