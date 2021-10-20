@@ -35,6 +35,18 @@ function drawDirectories() {
     document.getElementById("blank-canvas").innerHTML = fileSystem;
 }
 
+function closeDir() {
+    blankCanvas = document.getElementById("blank-canvas");
+
+blankCanvas.classList.add("blank-canvas");
+
+setTimeout(() => {
+    drawDirectories();
+    blankCanvas.classList.remove("blank-canvas");
+}, 400);
+
+}
+
 function openDir(target) {
     id = target.getAttribute("data-dir-id");
     style = target.getAttribute("style");
@@ -50,6 +62,12 @@ function openDir(target) {
     animatedDir.style.top = viewportOffset.top + "px";
     animatedDir.style.width = target.offsetWidth + "px";
     animatedDir.style.height = target.offsetHeight + "px";
+    animatedDirReturn=document.createElement("button");
+    animatedDirReturn.className="dir-box-return";
+    animatedDirReturn.innerHTML="< return";
+    animatedDirReturn.setAttribute("onClick","closeDir()");
+    animatedDir.prepend(animatedDirReturn);
+
     document.getElementById("window-scroll-div").append(animatedDir);
 
     blankCanvas.classList.add("blank-canvas");
@@ -63,7 +81,18 @@ function openDir(target) {
 
         setTimeout(() => {
             drawFiles(id);
+            headerDir = animatedDir.cloneNode(true);
+            headerDir.className="dir-header";
+            headerSpacer=document.createElement("div");
+            headerSpacer.className = "dir-header-spacer";
+            blankCanvas.prepend(headerSpacer);
+            blankCanvas.prepend(headerDir);
+
             blankCanvas.classList.remove("blank-canvas");
+
+            setTimeout(() => {
+                animatedDir.remove();
+            }, 400);
         }, 400);
     }, 100);
 }

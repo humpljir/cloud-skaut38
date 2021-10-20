@@ -21,6 +21,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     width: 100vw;
+    min-height: 100%;
     top: 0;
     scroll-behavior: smooth;
     font-family: 'Nunito',
@@ -28,6 +29,7 @@ body {
     font-weight: 400;
     font-size: var(--general-font-size);
     background: linear-gradient(10deg, hsl(18deg 10% 90%) 10%, #ffffff 40%);
+    background-attachment: fixed;
 }
 
 a {
