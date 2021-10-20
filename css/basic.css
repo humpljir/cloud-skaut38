@@ -16,34 +16,32 @@
 
 html,
 body {
-    position: fixed;
-    overflow: hidden;
+    position: absolute;
+    overflow-x: hidden;
     margin: 0;
     width: 100vw;
-    height: 100vh;
     top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     scroll-behavior: smooth;
     font-family: 'Nunito',
         sans-serif;
     font-weight: 400;
     font-size: var(--general-font-size);
+    background: linear-gradient(10deg, hsl(18deg 10% 90%) 10%, #ffffff 40%);
 }
 
 a {
     color: var(--hyperlink-color);
 }
 
-button, a {
+button,
+a {
     cursor: pointer;
 }
 
 .fluent-bg {
     -webkit-backdrop-filter: saturate(3) blur(20px);
     backdrop-filter: saturate(3) blur(20px);
-background: var(--menu-bg-color) url(../img/noise.svg);
+    background: var(--menu-bg-color) url(../img/noise.svg);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');

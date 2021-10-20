@@ -29,10 +29,34 @@ function toggleDisplayStyle() {
 function drawDirectories() {
     var fileSystem = "";
     storage.forEach(element => {
-        var dir = '<button class="dir-box" style="--dir-color:' + element.color + '" data-dir-id="' + element.id + '" onclick=drawFiles(this.getAttribute("data-dir-id"))>' + element.name + '</button>';
+        var dir = '<button class="dir-box" style="--dir-color:' + element.color + '" data-dir-id="' + element.id + '" onclick=openDir(this)>' + element.name + '</button>';
         fileSystem += dir;
     });
     document.getElementById("blank-canvas").innerHTML = fileSystem;
+}
+
+function openDir(target) {
+    id = target.getAttribute("data-dir-id");
+    style = target.getAttribute("style");
+    var viewportOffset = target.getBoundingClientRect();
+
+    blankCanvas = document.getElementById("blank-canvas");
+    
+    animatedDir=document.createElement("div");
+    animatedDir.innerHTML=target.innerHTML;
+    animatedDir.classList.add("dir-box-animated");
+    animatedDir.style=style;
+    animatedDir.style.left = viewportOffset.left + "px";
+    animatedDir.style.top = viewportOffset.top + "px";
+    animatedDir.style.width = target.offsetWidth + "px";
+    animatedDir.style.height = target.offsetHeight + "px";
+    document.body.append(animatedDir);
+
+    blankCanvas.classList.add("blank-canvas");
+
+    setTimeout(() => {
+        animatedDir.classList.add("dir-box-expand");
+    }, 400);
 }
 
 function drawFiles(dirID) {
@@ -60,7 +84,7 @@ function initialize() {
     var scrollYDistance = 0;
     var topBarOffsetSum = 0;
 
-    document.getElementById("main-wrapper-div").addEventListener("scroll", (e) => {
+    document.body.addEventListener("scroll", (e) => {
         var scrollY = e.target.scrollTop;
 
         if (Math.sign(scrollYDistance) == Math.sign(scrollYLast - scrollY)) {
