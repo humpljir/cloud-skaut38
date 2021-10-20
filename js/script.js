@@ -50,13 +50,22 @@ function openDir(target) {
     animatedDir.style.top = viewportOffset.top + "px";
     animatedDir.style.width = target.offsetWidth + "px";
     animatedDir.style.height = target.offsetHeight + "px";
-    document.body.append(animatedDir);
+    document.getElementById("window-scroll-div").append(animatedDir);
 
     blankCanvas.classList.add("blank-canvas");
 
     setTimeout(() => {
-        animatedDir.classList.add("dir-box-expand");
-    }, 400);
+        animatedDir.classList.add("dir-box-expanded");
+        animatedDir.style.left = "";
+        animatedDir.style.top = "";
+        animatedDir.style.width = "";
+        animatedDir.style.height = "";
+
+        setTimeout(() => {
+            drawFiles(id);
+            blankCanvas.classList.remove("blank-canvas");
+        }, 400);
+    }, 100);
 }
 
 function drawFiles(dirID) {
