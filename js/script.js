@@ -60,7 +60,7 @@ function initialize() {
     var scrollYDistance = 0;
     var topBarOffsetSum = 0;
 
-    document.getElementById("window-scroll-div").addEventListener("scroll", (e) => {
+    document.getElementById("main-wrapper-div").addEventListener("scroll", (e) => {
         var scrollY = e.target.scrollTop;
 
         if (Math.sign(scrollYDistance) == Math.sign(scrollYLast - scrollY)) {

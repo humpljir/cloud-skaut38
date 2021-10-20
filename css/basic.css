@@ -36,4 +36,14 @@ a {
     color: var(--hyperlink-color);
 }
 
+button, a {
+    cursor: none !important;
+}
+
+button:hover {
+    filter: contrast(0.7) brightness(0.9);
+    box-shadow: 0px 0px 10px #00000050;
+    transform: scale(1.2)
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
