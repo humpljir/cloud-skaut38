@@ -23,16 +23,24 @@
     transition: filter 0.4s ease;
     transition: filter 0.4s ease, -webkit-filter 0.4s ease;
     background-color: var(--main-bg-color);
-    background: linear-gradient(170deg, white 50%, #e6dfdc 100%);
+    background: linear-gradient(170deg, hsl(18deg 10% 90%) 30%, #ffffff 100%);
     background-attachment: fixed;
     color: var(--main-fg-color);
 }
+.main-wrapper .window::after {
+content: "";
+position: absolute;
+}
 
-.main-wrapper.menu-open .window {
-    position: relative;
-    -webkit-filter: contrast(0.8) brightness(0.6) saturate(0.6);
-    filter: contrast(0.8) brightness(0.6) saturate(0.6);
-    overflow: hidden;
+.main-wrapper.menu-open .window::after {
+    -webkit-backdrop-filter: contrast(0.8) brightness(0.6) saturate(0.6);
+    backdrop-filter: contrast(0.8) brightness(0.6) saturate(0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .main-wrapper .window .top-bar {
@@ -41,15 +49,11 @@
     left: 0;
     right: 0;
     border-bottom: 1px solid #00000020;
-    -webkit-backdrop-filter: saturate(3) blur(20px);
-    backdrop-filter: saturate(3) blur(20px);
-    background-color: var(--menu-bg-color);
     width: 100%;
     height: 43px;
     /*box-shadow: 0px 5px 10px #0000001c;*/
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    z-index: 1;
     -webkit-transition: height 0.2s ease;
     -o-transition: height 0.2s ease;
     transition: height 0.2s ease;
@@ -273,9 +277,8 @@
     border-right: 1px solid #00000020;
     border-bottom: 1px solid #00000020;
 
-    -webkit-backdrop-filter: saturate(3) blur(20px);
-    backdrop-filter: saturate(3) blur(20px);
-    background-color: var(--menu-bg-color);
+    -webkit-backdrop-filter: saturate(5) blur(20px);
+    backdrop-filter: saturate(5) blur(20px);
 }
 
 .main-wrapper.menu-open .menu-wrapper {
@@ -376,9 +379,8 @@
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
     border-radius: var(--menu-border-radius);
 
-    -webkit-backdrop-filter: saturate(3) blur(20px);
-    backdrop-filter: saturate(3) blur(20px);
-    background-color: var(--menu-bg-color);
+    -webkit-backdrop-filter: saturate(5) blur(20px);
+    backdrop-filter: saturate(5) blur(20px);
 
     border: none;
     padding: 18px;
@@ -429,10 +431,6 @@
     border-top: 1px solid #ffffff99;
     border-right: 1px solid #00000020;
     border-bottom: 1px solid #00000020;
-
-    -webkit-backdrop-filter: saturate(3) blur(20px);
-    backdrop-filter: saturate(3) blur(20px);
-    background-color: var(--menu-bg-color);
 
     position: relative;
     overflow: hidden;
