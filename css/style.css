@@ -606,7 +606,7 @@
     height: fit-content;
     border: none;
     border-radius: 10px;
-    background: #ffd355;
+    background: #f7f7f7;
     -webkit-box-shadow: inset -1px -1px 2px #00000017, inset 2px 2px 3px #ffffff6b, 3px 5px 12px #00000026;
     box-shadow: inset -1px -1px 2px #00000017, inset 2px 2px 3px #ffffff6b, 3px 5px 12px #00000026;
     -webkit-box-sizing: content-box;
