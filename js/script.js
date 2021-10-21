@@ -39,12 +39,12 @@ function drawDirectories() {
 function closeDir() {
     blankCanvas = document.getElementById("blank-canvas");
 
-blankCanvas.classList.add("blank-canvas");
+    blankCanvas.classList.add("blank-canvas");
 
-setTimeout(() => {
-    drawDirectories();
-    blankCanvas.classList.remove("blank-canvas");
-}, 400);
+    setTimeout(() => {
+        drawDirectories();
+        blankCanvas.classList.remove("blank-canvas");
+    }, 400);
 
 }
 
@@ -54,19 +54,19 @@ function openDir(target) {
     var viewportOffset = target.getBoundingClientRect();
 
     blankCanvas = document.getElementById("blank-canvas");
-    
-    animatedDir=document.createElement("div");
-    animatedDir.innerHTML=target.innerHTML;
+
+    animatedDir = document.createElement("div");
+    animatedDir.innerHTML = target.innerHTML;
     animatedDir.classList.add("dir-box-animated");
-    animatedDir.style=style;
+    animatedDir.style = style;
     animatedDir.style.left = viewportOffset.left + "px";
     animatedDir.style.top = viewportOffset.top + "px";
     animatedDir.style.width = target.offsetWidth + "px";
     animatedDir.style.height = target.offsetHeight + "px";
-    animatedDirReturn=document.createElement("button");
-    animatedDirReturn.className="dir-box-return";
-    animatedDirReturn.innerHTML="< return";
-    animatedDirReturn.setAttribute("onClick","closeDir()");
+    animatedDirReturn = document.createElement("button");
+    animatedDirReturn.className = "dir-box-return";
+    animatedDirReturn.innerHTML = "< return";
+    animatedDirReturn.setAttribute("onClick", "closeDir()");
     animatedDir.prepend(animatedDirReturn);
 
     document.getElementById("window-scroll-div").append(animatedDir);
@@ -81,10 +81,13 @@ function openDir(target) {
         animatedDir.style.height = "";
 
         setTimeout(() => {
+            document.documentElement.scrollTop = 0;
+
             drawFiles(id);
+
             headerDir = animatedDir.cloneNode(true);
-            headerDir.className="dir-header";
-            headerSpacer=document.createElement("div");
+            headerDir.className = "dir-header";
+            headerSpacer = document.createElement("div");
             headerSpacer.className = "dir-header-spacer";
             blankCanvas.prepend(headerSpacer);
             blankCanvas.prepend(headerDir);
@@ -125,7 +128,6 @@ function initialize() {
 
     document.addEventListener("scroll", (e) => {
         var scrollY = document.documentElement.scrollTop;
-        console.log(e.currentTarget.scroll);
 
         if (Math.sign(scrollYDistance) == Math.sign(scrollYLast - scrollY)) {
             scrollYDistance += scrollYLast - scrollY;
