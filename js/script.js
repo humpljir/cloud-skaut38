@@ -34,6 +34,7 @@ function drawDirectories() {
         fileSystem += dir;
     });
     document.getElementById("blank-canvas").innerHTML = fileSystem;
+    appendEmptyElements(20, document.getElementById("blank-canvas"),"dir-box");   
 }
 
 function closeDir() {
@@ -116,8 +117,16 @@ function drawFiles(dirID) {
     });
 
     document.getElementById("blank-canvas").innerHTML = fileSystem;
+    appendEmptyElements(20, document.getElementById("blank-canvas"), "file-box");
 }
 
+function appendEmptyElements(n,target,chameleonClass) {
+    for (let index = 0; index < n; index++) {
+emptyEl = document.createElement("div");
+emptyEl.className = chameleonClass + " empty-flex-element";
+target.append(emptyEl);
+    }
+}
 
 function initialize() {
     drawDirectories();

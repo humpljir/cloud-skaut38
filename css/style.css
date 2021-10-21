@@ -184,8 +184,13 @@
     pointer-events: none;
 }
 
-.main-wrapper.menu-open .window .window-scroll {
-    overflow-y: hidden;
+.empty-flex-element {
+    height: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    flex-grow: 1;
 }
 
 .main-wrapper .window .window-scroll .window-inner.blank-canvas {
@@ -339,7 +344,7 @@
     text-align: center;
 }
 
-.main-wrapper .window .window-scroll .window-inner .file-box-flex .file-box {
+.main-wrapper .window .window-scroll .window-inner .file-box {
     position: relative;
     padding: 10px;
     width: 130px;
