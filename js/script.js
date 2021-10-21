@@ -107,7 +107,7 @@ function drawFiles(dirID) {
 
     var fileSystem = "";
     filesList.content.forEach(element => {
-        var dir = '<button class="file-box">' + element.name + '</button>';
+        var dir = '<div class="file-box-flex"><button class="file-box"><div class="file-icon"></div><div class="file-label">' + element.name + '</div></button></div>';
         fileSystem += dir;
     });
 
@@ -122,8 +122,9 @@ function initialize() {
     var scrollYDistance = 0;
     var topBarOffsetSum = 0;
 
-    document.body.addEventListener("scroll", (e) => {
-        var scrollY = e.target.scrollTop;
+    document.addEventListener("scroll", (e) => {
+        var scrollY = document.documentElement.scrollTop;
+        console.log(e.currentTarget.scroll);
 
         if (Math.sign(scrollYDistance) == Math.sign(scrollYLast - scrollY)) {
             scrollYDistance += scrollYLast - scrollY;

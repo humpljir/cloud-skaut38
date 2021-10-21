@@ -14,7 +14,7 @@
 .main-wrapper .window {
     position: relative;
     width: 100vw;
-    min-height: 100%;
+    min-height: 100vh;
     -webkit-transition: -webkit-filter 0.4s ease;
     transition: -webkit-filter 0.4s ease;
     -o-transition: filter 0.4s ease;
@@ -145,7 +145,7 @@
 
 .main-wrapper .window .window-scroll {
     width: 100%;
-    padding-top: 43px;
+    padding-top: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     position: relative;
@@ -154,29 +154,33 @@
     transition: padding 0.4s ease;
 }
 
-.main-wrapper.top-bar-open .window .window-scroll {
-    padding-top: 80px;
-}
-
 .main-wrapper .window .window-scroll .window-inner {
+    position: relative;
+    min-height: 140px;
+    top: 0;
+    left: 0;
     padding: 28px;
+    padding-top: 102px;
     -webkit-transition: -webkit-transform 0.4s ease;
     transition: -webkit-transform 0.4s ease;
-    -o-transition: transform 0.4s ease;
-    transition: transform 0.4s ease;
-    transition: transform 0.4s ease,-webkit-transform 0.4s ease;
-transform: translateY(0px);
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    transition: all 0.4s ease, -webkit-transform 0.4s ease;
     pointer-events: all;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    transition: opacity 0.4s ease;
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content:left;
 }
+
+.main-wrapper.top-bar-open .window .window-scroll .window-inner {
+    padding-top: 102px;
+}
+
 
 .main-wrapper.menu-open .window .window-scroll .window-inner {
     -webkit-transform: scale(0.9);
@@ -190,7 +194,7 @@ transform: translateY(0px);
 }
 
 .main-wrapper .window .window-scroll .window-inner.blank-canvas {
-    transform: translateY(-10px);
+    left: 20px;
     opacity: 0;
 }
 
@@ -206,7 +210,7 @@ transform: translateY(0px);
     box-sizing: border-box;
     color: #fff;
     font-weight: 800;
-    border-radius: 6px;
+    border-radius: var(--dir-border-radius);
     cursor: pointer;
     font-size: var(--general-font-size);
     text-align: left;
@@ -275,9 +279,10 @@ transform: translateY(0px);
 
 .dir-header-spacer {
         position: relative;
-        min-height: 80px;
+        min-height: 70px;
         display: block;
         width: 100%;
+        pointer-events: none;
 }
 
 .dir-box-return {
@@ -309,6 +314,29 @@ transform: translateY(0px);
     box-shadow: 2px 6px 20px #00000070;
     outline: none;
 }
+.main-wrapper .window .window-scroll .window-inner .file-box-flex {
+    flex-grow: 1;
+}
+
+.main-wrapper .window .window-scroll .window-inner .file-box-flex .file-box {
+width: 130px;
+height: 130px;
+border: 1px solid transparent;
+background-color: transparent;
+border-radius: var(--dir-border-radius);
+}
+
+
+.main-wrapper .window .window-scroll .window-inner .file-box-flex .file-box:focus {
+outline: none;
+border: 1px solid #00000050;
+}
+
+.main-wrapper .window .window-scroll .window-inner .file-box-flex .file-box .file-icon {
+
+}
+
+.main-wrapper .window .window-scroll .window-inner .file-box-flex .file-box .file-label {}
 
 .main-wrapper .menu-wrapper {
     position: fixed;
@@ -344,8 +372,8 @@ transform: translateY(0px);
     border-right: 1px solid #00000020;
     border-bottom: 1px solid #00000020;
 
-    -webkit-backdrop-filter: saturate(5) blur(20px);
-    backdrop-filter: saturate(5) blur(20px);
+    -webkit-backdrop-filter: saturate(6) blur(20px);
+    backdrop-filter: saturate(6) blur(20px);
 }
 
 .main-wrapper.menu-open .menu-wrapper {
@@ -387,7 +415,7 @@ transform: translateY(0px);
     box-sizing: border-box;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #00000050;
     background-color: transparent;
     color: var(--main-fg-color);
     font-size: var(--menu-input-font-size);
@@ -446,8 +474,8 @@ transform: translateY(0px);
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
     border-radius: var(--menu-border-radius);
 
-    -webkit-backdrop-filter: saturate(5) blur(20px);
-    backdrop-filter: saturate(5) blur(20px);
+    -webkit-backdrop-filter: saturate(6) blur(20px);
+    backdrop-filter: saturate(6) blur(20px);
 
     border: none;
     padding: 18px;
