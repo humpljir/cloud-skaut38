@@ -1,6 +1,7 @@
 //const {storage} = require('./index.html');
 
 const hideTopBarOffset = 80;
+const alwaysTopBarOffset = 20;
 
 function closeMenu() {
     document.getElementById("main-wrapper-div").classList.remove("menu-open");
@@ -120,7 +121,7 @@ function initialize() {
 
     var scrollYLast = 0;
     var scrollYDistance = 0;
-    var topBarOffsetSum = 0;
+    //var topBarOffsetSum = 0;
 
     document.addEventListener("scroll", (e) => {
         var scrollY = document.documentElement.scrollTop;
@@ -132,7 +133,7 @@ function initialize() {
             scrollYDistance = scrollYLast - scrollY;
         }
 
-        if (scrollYDistance > hideTopBarOffset) {
+        if (scrollYDistance > hideTopBarOffset || scrollY < alwaysTopBarOffset) {
             document.getElementById("main-wrapper-div").classList.add("top-bar-open");
         } else if (scrollYDistance < (-1) * hideTopBarOffset) {
             document.getElementById("main-wrapper-div").classList.remove("top-bar-open");
