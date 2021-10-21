@@ -601,6 +601,7 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+    max-width: 50px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;

@@ -1,6 +1,10 @@
 @media only screen and (min-width: 440px) {
+    .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
+        max-width: unset;
+    }
+
     .main-wrapper .icon-bar-wrapper {
-        width: 330px;
+        width: 360px;
     }
 
     .main-wrapper .menu-wrapper {
