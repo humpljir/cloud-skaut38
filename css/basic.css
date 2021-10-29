@@ -2,6 +2,7 @@
     --main-bg-color: #fff;
     --main-fg-color: #000;
     --menu-bg-color: #ffffffb8;
+    --interactive-color:#5473d8;
     --hyperlink-color: #1a4ed2;
 
     --general-font-size: 16px;
@@ -15,6 +16,10 @@
     --menu-a-font-size: 11px;
     --menu-border-radius: 10px;
     --menu-spacing: 6px;
+
+    --side-grey-bg:#ededed;
+    --side-grey-light:#f2f2f2;
+
 }
 
 html,

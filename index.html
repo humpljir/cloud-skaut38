@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/basic.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
     <script>
         var storage = [{
                 "id": 0,
@@ -1505,6 +1506,138 @@
         <div class="window" onclick="closeMenu()">
             <div class="window-scroll" id="window-scroll-div">
                 <div class="window-inner" id="blank-canvas">
+                </div>
+            </div>
+            <div id="window-side-div" class="window-side">
+                <button class="side-return" onclick="closeSide()"><img class="roated-return-icon" src="img/show-icon.svg">return</button>
+                <div class="side-title">SETTINGS</div>
+                <div class="side-box">
+                <div class="side-user">
+                    <div class="side-user-picture" style="background-image: url('img/profile_pic.jpg');"></div>
+                    <div class="side-user-name">Jiří Humpl</div><div class="side-user-nick">@humpljir</div>
+                </div>
+                </div>
+
+                <div class="side-box">    
+                    <div class="side-category">
+                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
+                                <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl" placeholder="Full Name">
+                                <input class="text-box" type="text" id="username" name="username" value="humpljir" placeholder="Username">
+                                <label class="file-upload">
+                                    <div>New Profile Picture</div>
+                                    <input type="file" id="upload" name="upload" placeholder="upload">
+                                </label>
+                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
+                            </form>
+                        </div>
+                    </div> 
+                    <div class="side-category">
+                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
+                                <input class="text-box" type="password" id="password" name="password" placeholder="new password">
+                                <input class="text-box" type="password" id="password_check" name="password_check" placeholder="password again">
+                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
+                            </form>
+                        </div>
+                    </div>  
+                    <div class="side-category">
+                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Appearance <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            Choose your color pallette:
+                            <form class="" id="create-dir" data-submit-label="CREATE">
+                                <input type="text" id="dir-name" name="dir-name" placeholder="directory name">
+                                <div class="color-selector">
+                                    <label>
+                                        <input type="radio" id="#78412C" name="color">
+                                        <div style="--circle-color: #78412C;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#AB5530" name="color">
+                                        <div style="--circle-color: #AB5530;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#D46025" name="color">
+                                        <div style="--circle-color: #D46025;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#F17F29" name="color">
+                                        <div style="--circle-color: #F17F29;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#8C9496" name="color">
+                                        <div style="--circle-color: #8C9496;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#A4778B" name="color">
+                                        <div style="--circle-color: #A4778B;"></div>
+                                    </label><label>
+                                        <input type="radio" id="#6D4E62" name="color">
+                                        <div style="--circle-color: #6D4E62;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#40433F" name="color">
+                                        <div style="--circle-color: #40433F;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#537E49" name="color">
+                                        <div style="--circle-color: #537E49;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#8A9860" name="color">
+                                        <div style="--circle-color: #8A9860;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#7B7B42" name="color">
+                                        <div style="--circle-color: #7B7B42;"></div>
+                                    </label> <label>
+                                        <input type="radio" id="#1E1800" name="color">
+                                        <div style="--circle-color: #1E1800;"></div>
+                                    </label>
+            
+                                </div>
+                            </form>
+                        </div>
+                    </div>       
+                    <div class="side-category">
+                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            You should be able to change order and colors of icons here.
+                        </div>
+                    </div>    
+                <div class="side-category">
+                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                    <div class="side-category-content">
+                        <div class="side-category-wrapper">
+                                <input type="checkbox" class="switch_1">
+                        </div>
+                    </div>
+                </div>
+                <div class="side-category">
+                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                    <div class="side-category-content">
+                        Some shitty graphs...
+                    </div>
+                </div>               
+                </div>
+                <div class="side-box">
+                <div class="side-category">
+                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Log Out</button><img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                    <div class="side-category-content">
+                        <a href="">Switch User</a>
+                        <a href="">Log Out</a>
+                    </div>
+                </div><div class="side-category">
+                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                    <div class="side-category-content">
+                        <a href="">Send Feedback</a>
+                        <a href="">Terms and Conditions</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="side-box">
+                    <div class="side-category">
+                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">About <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                        <a href="">Report a Bug</a>
+                        <a href="">See GIT Repository</a>
+                        <a href="">Contact Us</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="top-bar fluent-bg">
@@ -3074,7 +3207,7 @@
                         </g>
                     </svg>
                 </button>
-                <button type="button" class="icon-bar-button" onclick='openMenu("form-login")'
+                <button type="button" class="icon-bar-button" onclick='openSide()'
                     style="background-color: #F1FAEE;">
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
