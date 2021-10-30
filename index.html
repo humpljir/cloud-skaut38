@@ -1525,8 +1525,8 @@
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
                                 <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl" placeholder="Full Name">
                                 <input class="text-box" type="text" id="username" name="username" value="humpljir" placeholder="Username">
-                                <label class="file-upload">
-                                    <div>New Profile Picture</div>
+                                <label class="side-form-img-upload">
+                                    <div class="img-upload-icon"></div>Change Profile Picture
                                     <input type="file" id="upload" name="upload" placeholder="upload">
                                 </label>
                                 <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
@@ -1546,8 +1546,10 @@
                     <div class="side-category">
                         <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Appearance <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
                         <div class="side-category-content">
-                            Choose your color pallette:
                             <form class="" id="create-dir" data-submit-label="CREATE">
+                                <label class="side-form-switch-wrapper">
+                                    Turn On Dark Theme<input type="checkbox" class="side-form-switch">
+                                </label>
                                 <input type="text" id="dir-name" name="dir-name" placeholder="directory name">
                                 <div class="color-selector">
                                     <label>
@@ -1601,9 +1603,7 @@
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
                     <div class="side-category-content">
-                        <div class="side-category-wrapper">
-                                <input type="checkbox" class="switch_1">
-                        </div>
+                                <input type="checkbox" class="side-form-switch">
                     </div>
                 </div>
                 <div class="side-category">

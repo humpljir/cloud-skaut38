@@ -624,15 +624,16 @@
   border: none;
   text-align: left;
   font-weight: 800;
-  padding: 24px 26px;
+  padding: 20px 26px;
   border-radius: 0;
+  font-size: var(--menu-a-font-size);
 }
 
 .side-category-label-arrow {
     display: inline-block;
     position: absolute;
     right: 26px;
-    top: 28px;
+    top: 23px;
     height: 8px;
     transform: rotate(-90deg);
     opacity: 0.3;
@@ -647,6 +648,7 @@
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.4s;
+  padding: 0px 17px;
 }
 
 .side-category-content a {
@@ -684,7 +686,8 @@
 
 
 .side-form-buttons {
-padding: 12px;
+padding: 12px 0;
+margin:0 -5px;
 }
 
 .side-form-buttons button {
@@ -704,6 +707,85 @@ padding: 12px;
   background-color: var(--interactive-color);
   color: var(--main-bg-color);
 }
+
+.side-form-img-upload {
+padding-top: 18px;
+}
+
+
+.side-form-img-upload input{
+  position: absolute;
+  opacity: 0;
+}
+
+.side-form-img-upload .img-upload-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: var(--side-grey-light);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 14px;
+  border-radius: 50%;
+}
+
+
+.side-form-img-upload .img-upload-icon::after {
+content: "";
+position: absolute;
+width: 20px;
+height: 20px;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+background-image: url("../img/camera_icon.svg");
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+.side-form-switch-wrapper {
+
+}
+
+input[type="checkbox"].side-form-switch{
+	font-size: 30px;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	width: 60px;
+	height: 40px;
+	background: var(--side-grey-light);
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"].side-form-switch:checked{
+	background: var(--interactive-color);
+  }
+  
+  input[type="checkbox"].side-form-switch:after{
+	position: absolute;
+	content: "";
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: var(--main-bg-color);
+	-webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	        box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	-webkit-transform: scale(.7);
+	        transform: scale(.7);
+	left: 0;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"].side-form-switch:checked:after{
+	left: calc(100% - 1.5em);
+  }
 
 img.roated-return-icon {
   position: relative;

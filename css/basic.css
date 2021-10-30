@@ -13,7 +13,7 @@
     --main-spacing: 16px;
 
     --menu-input-font-size: 13px;
-    --menu-a-font-size: 11px;
+    --menu-a-font-size: 13px;
     --menu-border-radius: 10px;
     --menu-spacing: 6px;
 
@@ -41,6 +41,10 @@ body {
 
 a {
     color: var(--hyperlink-color);
+}
+
+button {
+    color: #000;
 }
 
 button,
