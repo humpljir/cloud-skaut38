@@ -648,7 +648,7 @@
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.4s;
-  padding: 0px 17px;
+  padding: 0px 20px;
 }
 
 .side-category-content a {
@@ -657,7 +657,7 @@
 }
 
 .side-category-open .side-category-content {
-  max-height: 250px;
+  max-height: 285px;
 }
 
 .side-form {
@@ -744,9 +744,11 @@ background-repeat: no-repeat;
 }
 
 .side-form-switch-wrapper {
+  display: inline-block;
 width: 100%;
+padding: 6px 0;
 vertical-align: middle;
-font-size: var(--general-font-size);
+font-size: var(--menu-input-font-size);
 }
 
 .side-form-switch-label {
@@ -769,8 +771,8 @@ input[type="checkbox"].side-form-switch{
 	position: relative;
 	cursor: pointer;
 	outline: none;
-	-webkit-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
+	-webkit-transition: background 0.2s ease-in-out;
+	transition: background 0.2s ease-in-out;
   }
   
   input[type="checkbox"].side-form-switch:checked{
@@ -779,23 +781,59 @@ input[type="checkbox"].side-form-switch{
   
   input[type="checkbox"].side-form-switch:after{
 	position: absolute;
+  left: 0;
 	content: "";
 	width: 34px;
 	height: 34px;
 	border-radius: 50%;
 	background: var(--main-bg-color);
-	-webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
-	        box-shadow: 0 0 .25em rgba(0,0,0,.3);
-	-webkit-transform: scale(.7);
-	        transform: scale(.7);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	-webkit-transform: scale(0.7);
+	        transform: scale(0.7);
 	left: 0;
-	-webkit-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
+	-webkit-transition: left 0.2s ease-in-out;
+	transition: left 0.2s ease-in-out;
   }
   
   input[type="checkbox"].side-form-switch:checked:after{
 	left: calc(100% - 34px);
   }
+
+  .side-theme-selector {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 20px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  
+  .side-theme-selector label div {
+    width: 16px;
+    height: 16px;
+    background-color: var(--circle-color);
+    border: 4px solid var(--circle-color);
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    margin: 5px;
+  }
+  
+  .side-theme-selector label input {
+    display: none;
+  }
+
+  .side-storage {
+    font-size: var(--menu-font-size);
+    font-weight: 800;
+    color:var(--interactive-color);
+    padding: 22px 12px;
+  }
+  
 
 img.roated-return-icon {
   position: relative;

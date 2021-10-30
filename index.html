@@ -1550,8 +1550,10 @@
                                 <label class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Turn On Dark Theme</span><input type="checkbox" class="side-form-switch">
                                 </label>
-                                <input type="text" id="dir-name" name="dir-name" placeholder="directory name">
-                                <div class="color-selector">
+                                <label class="side-form-switch-wrapper">
+                                    <span class="side-form-switch-label">Minimize Top Bar When Scrolling</span><input type="checkbox" checked class="side-form-switch">
+                                </label>
+                                <div class="side-theme-selector">
                                     <label>
                                         <input type="radio" id="#78412C" name="color">
                                         <div style="--circle-color: #78412C;"></div>
@@ -1591,25 +1593,31 @@
                                     </label>
             
                                 </div>
+                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
                             </form>
                         </div>
                     </div>       
                     <div class="side-category">
                         <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+
                         <div class="side-category-content">
+                            <label class="side-form-switch-wrapper">
+                                <span class="side-form-switch-label">Enable Customizing Toolbar</span><input type="checkbox" checked class="side-form-switch">
+                            </label>
+
                             You should be able to change order and colors of icons here.
                         </div>
                     </div>    
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
-                    <div class="side-category-content">
-                                <input type="checkbox" class="side-form-switch">
-                    </div>
+                    <div class="side-category-content"><label class="side-form-switch-wrapper">
+                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch">
+                    </label></div>
                 </div>
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
                     <div class="side-category-content">
-                        Some shitty graphs...
+                        <div class="side-storage">3.29 GB used of unlimited storage</div>
                     </div>
                 </div>               
                 </div>
