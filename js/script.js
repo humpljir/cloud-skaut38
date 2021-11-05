@@ -38,6 +38,12 @@ function closeSide() {
   document.getElementById("main-wrapper-div").classList.remove("icon-bar-hide");
 }
 
+function closeAllSubmenus() {
+  document.querySelectorAll(".submenu-wrapper.visible").forEach((element) => {
+    element.classList.remove("visible");
+  });
+}
+
 function openTopbar() {
   document.getElementById("main-wrapper-div").classList.add("top-bar-open");
 }
@@ -84,19 +90,18 @@ function drawDirectories() {
     const scope = dir;
 
     scope.addEventListener("contextmenu", (event) => {
-      
-      document.querySelectorAll(".submenu-wrapper.visible").forEach(element => {
-        element.classList.remove("visible");
-      });
-
+      document
+        .querySelectorAll(".submenu-wrapper.visible")
+        .forEach((element) => {
+          element.classList.remove("visible");
+        });
 
       var rect = event.target.getBoundingClientRect();
       var x = event.clientX - rect.left; //x position within the element.
-      var y = event.clientY - rect.top;  //y position within the element.
+      var y = event.clientY - rect.top; //y position within the element.
 
-
-      contextMenu.style.top = y+`px`;
-      contextMenu.style.left = x+`px`;
+      contextMenu.style.top = y + `px`;
+      contextMenu.style.left = x + `px`;
 
       contextMenu.classList.add("visible");
     });
@@ -212,12 +217,21 @@ function initialize() {
   var scrollYDistance = 0;
   //var topBarOffsetSum = 0;
 
-  
+  document.addEventListener("resize", (e) => {
+    closeAllSubmenus();
+  });
+
+  document.addEventListener("click", (e) => {
+    closeAllSubmenus();
+  });
+
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
   });
 
   document.addEventListener("scroll", (e) => {
+    closeAllSubmenus();
+
     var scrollY = document.documentElement.scrollTop;
 
     if (Math.sign(scrollYDistance) == Math.sign(scrollYLast - scrollY)) {
