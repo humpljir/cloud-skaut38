@@ -26,7 +26,7 @@ function openSide() {
   document.getElementById("main-wrapper-div").classList.add("icon-bar-hide");
 
   setTimeout(() => {
-  document.getElementById("main-wrapper-div").classList.add("side-enable");
+    document.getElementById("main-wrapper-div").classList.add("side-enable");
   }, 1000);
 }
 
@@ -48,27 +48,65 @@ function toggleDisplayStyle() {
     .classList.toggle("display-as-tiles");
 }
 
-function generateSubmenu(targettype,fileid,options) {
+function generateSubmenu(targettype, fileid, options) {
   var submenu = document.createElement("div");
-  submenu.className = "submenu-wrapper";
-  options.forEach(option => {
+  submenu.className = "submenu-wrapper fluent-bg";
+  options.forEach((option) => {
     var line = document.createElement("a");
-    line.href = "?fileaction="+option+"&typy="+targettype+"&fileid="+fileid;
+    line.href =
+      "?fileaction=" + option + "&typy=" + targettype + "&fileid=" + fileid;
+    line.innerHTML = option;
     submenu.append(line);
   });
   return submenu;
 }
 
 function drawDirectories() {
+  const canvas = document.getElementById("blank-canvas");
+  canvas.innerHTML = "";
   storage.forEach((element) => {
     var dir = document.createElement("button");
-    dir.className="dir-box";
-    dir.style="--dir-color:"+element.color;
-    dir.setAttribute("data-dir-id",element.id);
-    dir.setAttribute("onclick","openDir(this)");
-    dir.innerHTML=element.name;
-      dir.append(generateSubmenu("dir",element.id,["share","edit","rename","delete","lorem","ipsum"]));
-      document.getElementById("blank-canvas").append(dir);
+    dir.className = "dir-box";
+    dir.style = "--dir-color:" + element.color;
+    dir.setAttribute("data-dir-id", element.id);
+    dir.setAttribute("onclick", "openDir(this)");
+    dir.innerHTML = element.name;
+    var submenu = generateSubmenu("dir", element.id, [
+      "share",
+      "edit",
+      "rename",
+      "delete",
+      "lorem",
+      "ipsum",
+    ]);
+
+    const contextMenu = submenu;
+    const scope = dir;
+
+    document.addEventListener("contextmenu", (event) => {
+      if (event.target.offsetParent != contextMenu) {
+        contextMenu.classList.remove("visible");
+      }
+      else {
+
+      /*
+      const { clientX: mouseX, clientY: mouseY } = event;
+      contextMenu.style.top = `${mouseY}px`;
+      contextMenu.style.left = `${mouseX}px`;
+      */
+
+      contextMenu.classList.add("visible");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (e.target.offsetParent != contextMenu) {
+        contextMenu.classList.remove("visible");
+      }
+    });
+
+    dir.append(submenu);
+    canvas.append(dir);
   });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "dir-box");
 }
@@ -171,6 +209,11 @@ function initialize() {
   var scrollYLast = 0;
   var scrollYDistance = 0;
   //var topBarOffsetSum = 0;
+
+  
+  document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
 
   document.addEventListener("scroll", (e) => {
     var scrollY = document.documentElement.scrollTop;

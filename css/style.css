@@ -392,6 +392,32 @@
   text-align: center;
 }
 
+.submenu-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  border-radius: var(--menu-border-radius);
+  overflow: hidden;
+  display: none;
+}
+
+.submenu-wrapper.visible {
+  display: inline-block;
+}
+
+.submenu-wrapper a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--main-fg-color);
+  text-decoration: none;
+  font-size: var(--menu-a-font-size);
+}
+
+.submenu-wrapper a:hover {
+  background-color: var(--side-grey-bg);
+}
+
 .main-wrapper.display-as-tiles
   .window
   .window-scroll
