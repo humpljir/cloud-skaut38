@@ -48,20 +48,28 @@ function toggleDisplayStyle() {
     .classList.toggle("display-as-tiles");
 }
 
-function drawDirectories() {
-  var fileSystem = "";
-  storage.forEach((element) => {
-    var dir =
-      '<button class="dir-box" style="--dir-color:' +
-      element.color +
-      '" data-dir-id="' +
-      element.id +
-      '" onclick=openDir(this)>' +
-      element.name +
-      "</button>";
-    fileSystem += dir;
+function generateSubmenu(targettype,fileid,options) {
+  var submenu = document.createElement("div");
+  submenu.className = "submenu-wrapper";
+  options.forEach(option => {
+    var line = document.createElement("a");
+    line.href = "?fileaction="+option+"&typy="+targettype+"&fileid="+fileid;
+    submenu.append(line);
   });
-  document.getElementById("blank-canvas").innerHTML = fileSystem;
+  return submenu;
+}
+
+function drawDirectories() {
+  storage.forEach((element) => {
+    var dir = document.createElement("button");
+    dir.className="dir-box";
+    dir.style="--dir-color:"+element.color;
+    dir.setAttribute("data-dir-id",element.id);
+    dir.setAttribute("onclick","openDir(this)");
+    dir.innerHTML=element.name;
+      dir.append(generateSubmenu("dir",element.id,["share","edit","rename","delete","lorem","ipsum"]));
+      document.getElementById("blank-canvas").append(dir);
+  });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "dir-box");
 }
 
