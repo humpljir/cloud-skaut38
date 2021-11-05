@@ -415,7 +415,7 @@
 }
 
 .submenu-wrapper a:hover {
-  background-color: var(--side-grey-bg);
+  background-color: var(--side-grey-light);
 }
 
 .main-wrapper.display-as-tiles

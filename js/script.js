@@ -61,35 +61,6 @@ function generateSubmenu(targettype, fileid, options) {
   return submenu;
 }
 
-const normalizePozition = (mouseX, mouseY) => {
-  // ? compute what is the mouse position relative to the container element (scope)
-  const { left: scopeOffsetX, top: scopeOffsetY } =
-    scope.getBoundingClientRect();
-
-  const scopeX = mouseX - scopeOffsetX;
-  const scopeY = mouseY - scopeOffsetY;
-
-  // ? check if the element will go out of bounds
-  const outOfBoundsOnX = scopeX + contextMenu.clientWidth > scope.clientWidth;
-
-  const outOfBoundsOnY = scopeY + contextMenu.clientHeight > scope.clientHeight;
-
-  let normalizedX = mouseX;
-  let normalizedY = mouseY;
-
-  // ? normalzie on X
-  if (outOfBoundsOnX) {
-    normalizedX = scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
-  }
-
-  // ? normalize on Y
-  if (outOfBoundsOnY) {
-    normalizedY = scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
-  }
-
-  return { normalizedX, normalizedY };
-};
-
 function drawDirectories() {
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
@@ -113,20 +84,19 @@ function drawDirectories() {
     const scope = dir;
 
     scope.addEventListener("contextmenu", (event) => {
-      document
-        .querySelectorAll(".submenu-wrapper.visible")
-        .forEach((element) => {
-          element.classList.remove("visible");
-        });
+      
+      document.querySelectorAll(".submenu-wrapper.visible").forEach(element => {
+        element.classList.remove("visible");
+      });
+
 
       var rect = event.target.getBoundingClientRect();
-      var mouseX = event.clientX - rect.left; //x position within the element.
-      var mouseY = event.clientY - rect.top; //y position within the element.
+      var x = event.clientX - rect.left; //x position within the element.
+      var y = event.clientY - rect.top;  //y position within the element.
 
-      const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
 
-      contextMenu.style.top = `${normalizedY}px`;
-      contextMenu.style.left = `${normalizedX}px`;
+      contextMenu.style.top = y+`px`;
+      contextMenu.style.left = x+`px`;
 
       contextMenu.classList.add("visible");
     });
@@ -242,6 +212,7 @@ function initialize() {
   var scrollYDistance = 0;
   //var topBarOffsetSum = 0;
 
+  
   document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
   });
