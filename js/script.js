@@ -54,7 +54,7 @@ function toggleDisplayStyle() {
     .classList.toggle("display-as-tiles");
 }
 
-function generateSubmenu(targettype, fileid, options) {
+function generateSubmenu(scope, targettype, fileid, options) {
   var submenu = document.createElement("div");
   submenu.className = "submenu-wrapper fluent-bg";
   options.forEach((option) => {
@@ -64,6 +64,38 @@ function generateSubmenu(targettype, fileid, options) {
     line.innerHTML = option;
     submenu.append(line);
   });
+
+  function openSubmenu(x,y,target) {
+    target.style.top = y + `px`;
+    target.style.left = x + `px`;
+    target.classList.add("visible");
+  }
+
+  scope.addEventListener("contextmenu", (event) => {
+    closeAllSubmenus();
+
+    var rect = event.target.getBoundingClientRect();
+    var x = event.clientX - rect.left; //x position within the element.
+    var y = event.clientY - rect.top; //y position within the element.
+
+
+    openSubmenu(x,y,submenu);
+  });
+
+  var submenuDots = document.createElement("img");
+  submenuDots.src="img/submenu_dots.svg";
+  submenuDots.className="submenu-dots";
+  submenuDots.addEventListener("click",(e)=>{
+    closeAllSubmenus();
+    var rect = e.target.parentNode.getBoundingClientRect();
+    var x = e.clientX - rect.left; //x position within the element.
+    var y = e.clientY - rect.top; //y position within the element.
+
+    openSubmenu(x,y,submenu);
+    e.stopPropagation();
+  });
+  scope.append(submenuDots);
+
   return submenu;
 }
 
@@ -77,7 +109,7 @@ function drawDirectories() {
     dir.setAttribute("data-dir-id", element.id);
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
-    var submenu = generateSubmenu("dir", element.id, [
+    var submenu = generateSubmenu(dir, "dir", element.id, [
       "share",
       "edit",
       "rename",
@@ -85,32 +117,6 @@ function drawDirectories() {
       "lorem",
       "ipsum",
     ]);
-
-    const contextMenu = submenu;
-    const scope = dir;
-
-    scope.addEventListener("contextmenu", (event) => {
-      document
-        .querySelectorAll(".submenu-wrapper.visible")
-        .forEach((element) => {
-          element.classList.remove("visible");
-        });
-
-      var rect = event.target.getBoundingClientRect();
-      var x = event.clientX - rect.left; //x position within the element.
-      var y = event.clientY - rect.top; //y position within the element.
-
-      contextMenu.style.top = y + `px`;
-      contextMenu.style.left = x + `px`;
-
-      contextMenu.classList.add("visible");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (e.target.offsetParent != contextMenu) {
-        contextMenu.classList.remove("visible");
-      }
-    });
 
     dir.append(submenu);
     canvas.append(dir);
@@ -183,22 +189,42 @@ function openDir(target) {
 }
 
 function drawFiles(dirID) {
-  console.log(dirID);
+  const canvas = document.getElementById("blank-canvas");
+  canvas.innerHTML = "";
+
   var filesList = storage.find(function (post, index) {
     if (post.id == dirID) return true;
   });
-  console.log(FileList);
 
-  var fileSystem = "";
   filesList.content.forEach((element) => {
-    var dir =
-      '<div class="file-box-flex"><button class="file-box"><div class="file-icon"></div><div class="file-label">' +
-      element.name +
-      "</div></button></div>";
-    fileSystem += dir;
-  });
+    var filelabel = document.createElement("div");
+    filelabel.className = "file-label";
+    filelabel.innerHTML = element.name;
 
-  document.getElementById("blank-canvas").innerHTML = fileSystem;
+    var fileicon = document.createElement("div");
+    fileicon.className = "file-icon";
+
+    var filebox = document.createElement("button");
+    filebox.className = "file-box";
+    filebox.append(fileicon);
+    filebox.append(filelabel);
+    filebox.append(
+      generateSubmenu(filebox, "file", element.id, [
+        "share",
+        "edit",
+        "rename",
+        "delete",
+        "lorem",
+        "ipsum",
+      ])
+    );
+
+    var fileboxflex = document.createElement("div");
+    fileboxflex.className = "file-box-flex";
+    fileboxflex.append(filebox);
+
+    canvas.append(fileboxflex);
+  });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "file-box");
 }
 
