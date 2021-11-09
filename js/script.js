@@ -67,10 +67,8 @@ function generateSubmenu(scope, targettype, fileid, options) {
 
   function normalizeValue(val, maxVal, offset) {
     if (val + offset > maxVal) {
-      console.log(val, maxVal, offset, "-> " + (maxVal - offset));
-      return (maxVal - offset);
+      return (val - offset);
     } else {
-      console.log("nope", val, maxVal, offset, "-> " + val);
       return val;
     }
   }
