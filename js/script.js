@@ -65,7 +65,17 @@ function generateSubmenu(scope, targettype, fileid, options) {
     submenu.append(line);
   });
 
-  function openSubmenu(x,y,target) {
+  function normalizeValue(val, maxVal, offset) {
+    if (val + offset > maxVal) {
+      console.log(val, maxVal, offset, "-> " + (maxVal - offset));
+      return (maxVal - offset);
+    } else {
+      console.log("nope", val, maxVal, offset, "-> " + val);
+      return val;
+    }
+  }
+
+  function openSubmenu(x, y, target) {
     target.style.top = y + `px`;
     target.style.left = x + `px`;
     target.classList.add("visible");
@@ -75,27 +85,33 @@ function generateSubmenu(scope, targettype, fileid, options) {
     closeAllSubmenus();
 
     var rect = event.target.getBoundingClientRect();
-    var x = event.clientX - rect.left; //x position within the element.
-    var y = event.clientY - rect.top; //y position within the element.
+    var x = normalizeValue(
+      event.clientX,
+      document.body.offsetWidth,
+      submenu.offsetWidth
+    ) - rect.left;
+    var y = normalizeValue(
+      event.clientY,
+      document.body.offsetHeight,
+      submenu.offsetHeight
+    ) - rect.top;
 
-
-    openSubmenu(x,y,submenu);
+    openSubmenu(x, y, submenu);
   });
 
   var submenuDots = document.createElement("img");
-  submenuDots.src="img/submenu_dots.svg";
-  submenuDots.className="submenu-dots";
-  submenuDots.addEventListener("click",(e)=>{
+  submenuDots.src = "img/submenu_dots.svg";
+  submenuDots.className = "submenu-dots";
+  submenuDots.addEventListener("click", (e) => {
     closeAllSubmenus();
     var rect = e.target.parentNode.getBoundingClientRect();
-    var x = e.clientX - rect.left; //x position within the element.
-    var y = e.clientY - rect.top; //y position within the element.
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
 
-    openSubmenu(x,y,submenu);
+    openSubmenu(x, y, submenu);
     e.stopPropagation();
   });
   scope.append(submenuDots);
-
   return submenu;
 }
 
