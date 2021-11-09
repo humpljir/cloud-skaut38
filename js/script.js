@@ -105,9 +105,16 @@ function generateSubmenu(scope, targettype, fileid, options) {
   submenuDots.addEventListener("click", (e) => {
     closeAllSubmenus();
     var rect = e.target.parentNode.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-
+    var x = normalizeValue(
+      event.clientX,
+      document.body.offsetWidth,
+      submenu.offsetWidth
+    ) - rect.left;
+    var y = normalizeValue(
+      event.clientY,
+      document.body.offsetHeight,
+      submenu.offsetHeight
+    ) - rect.top;
     openSubmenu(x, y, submenu);
     e.stopPropagation();
   });
