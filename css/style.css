@@ -250,7 +250,7 @@
 .main-wrapper .window .window-scroll .window-inner .dir-box {
   position: relative;
   background-color: var(--dir-color);
-  border: 4px solid var(--dir-color);
+  border: 1px solid transparent;
   margin: 3px 4px;
   width: 100%;
   height: unset;
@@ -379,9 +379,7 @@
 }*/
 
 .main-wrapper .window .window-scroll .window-inner .dir-box:focus {
-  border: 4px solid var(--main-bg-color);
-  -webkit-box-shadow: 2px 6px 20px #00000070;
-  box-shadow: 2px 6px 20px #00000070;
+  border: 1px solid var(--main-fg-color);
   outline: none;
 }
 
@@ -713,7 +711,7 @@
   font-size: var(--menu-a-font-size);
 }
 
-.side-category {
+.side-category-label-arrow{
   display: inline-block;
   position: absolute;
   right: 26px;
