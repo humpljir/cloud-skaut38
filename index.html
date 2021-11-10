@@ -1529,7 +1529,7 @@
                                     <div class="img-upload-icon"></div>Change Profile Picture
                                     <input type="file" id="upload" name="upload" placeholder="upload">
                                 </label>
-                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
+                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SAVE</button></div>
                             </form>
                         </div>
                     </div> 
@@ -1539,7 +1539,7 @@
                             <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
                                 <input class="text-box" type="password" id="password" name="password" placeholder="new password">
                                 <input class="text-box" type="password" id="password_check" name="password_check" placeholder="password again">
-                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
+                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SAVE</button></div>
                             </form>
                         </div>
                     </div>  
@@ -1593,7 +1593,7 @@
                                     </label>
             
                                 </div>
-                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SUBMIT</button></div>
+                                <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SAVE</button></div>
                             </form>
                         </div>
                     </div>       
@@ -1611,7 +1611,7 @@
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
                     <div class="side-category-content"><label class="side-form-switch-wrapper">
-                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch">
+                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="initNotifications()">
                     </label></div>
                 </div>
                 <div class="side-category">
@@ -3676,6 +3676,8 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="js/app.js">
+    </script>
     <script type="text/javascript" src="js/script.js">
     </script>
 </body>
