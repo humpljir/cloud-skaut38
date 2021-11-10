@@ -437,6 +437,10 @@
   filter: none;
 }
 
+.submenu-dots {
+  display: none;
+}
+
 .submenu-wrapper a {
   text-align: left;
   display: block;

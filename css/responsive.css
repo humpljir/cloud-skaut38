@@ -12,7 +12,13 @@
     }
 
     .main-wrapper .window .window-side {
-        padding: 30px calc(50% - 300px);
+        padding: 30px calc(50% - 200px);
         box-sizing: border-box;
+    }
+}
+
+@media (pointer:coarse) {
+    .submenu-dots {
+        display: block;
     }
 }
