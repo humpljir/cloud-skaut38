@@ -257,6 +257,22 @@ function appendEmptyElements(n, target, chameleonClass) {
   }
 }
 
+const firstNotification = () => {
+  const notification = new Notification('Notifications enabled!', {
+      body: 'Notifications are beta feature. You can report any bug at my github!',
+      icon: './img/js.png',
+      vibrate: true
+  });
+  
+  setTimeout(() => {
+      notification.close();
+  }, 10 * 1000);
+
+  notification.addEventListener('click', () => {
+      window.open('https://github.com/humpljir/cloud-skaut38', '_blank');
+  });
+}
+
 function initialize() {
   drawDirectories();
 

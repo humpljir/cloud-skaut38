@@ -750,7 +750,8 @@
 
 .side-form input,
 .side-form div {
-  width: 250px;
+  /*width: 250px;*/
+  width: 100%;
   flex-grow: 1;
 }
 

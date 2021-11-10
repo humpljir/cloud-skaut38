@@ -1,4 +1,4 @@
-@media only screen and (min-width: 440px) {
+@media only screen and (min-width: 450px) {
     .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
         max-width: unset;
     }
@@ -9,5 +9,10 @@
 
     .main-wrapper .menu-wrapper {
         width: 330px;
+    }
+
+    .main-wrapper .window .window-side {
+        padding: 30px calc(50% - 300px);
+        box-sizing: border-box;
     }
 }
