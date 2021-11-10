@@ -1,3 +1,21 @@
+
+async function enableNotifications() {
+  let permission = await Notification.requestPermission();
+
+  // create a notification object
+const greeting = new Notification('Notifications enabled!',{
+  body: 'This is still a beta function. If you find any bugs, please, report them at our git repo.',
+  icon: './img/icon_add.svg'
+});
+
+setTimeout(() => greenting.close(), 10*1000);
+
+// navigate to the https://www.javascripttutorial.net/ on click
+greeting.addEventListener('click', function(){
+    window.open('https://github.com/humpljir/cloud-skaut38');
+});
+}
+
 //const {storage} = require('./index.html');
 
 const hideTopBarOffset = 80;
@@ -55,10 +73,10 @@ function toggleDisplayStyle() {
 }
 
 function generateSubmenu(scope, targettype, fileid, options) {
-  var submenu = document.createElement("div");
+  let submenu = document.createElement("div");
   submenu.className = "submenu-wrapper fluent-bg";
   options.forEach((option) => {
-    var line = document.createElement("a");
+    let line = document.createElement("a");
     line.href =
       "?fileaction=" + option + "&typy=" + targettype + "&fileid=" + fileid;
     line.innerHTML = option;
@@ -82,13 +100,13 @@ function generateSubmenu(scope, targettype, fileid, options) {
   scope.addEventListener("contextmenu", (event) => {
     closeAllSubmenus();
 
-    var rect = event.target.getBoundingClientRect();
-    var x = normalizeValue(
+    let rect = event.target.getBoundingClientRect();
+    let x = normalizeValue(
       event.clientX,
       document.body.offsetWidth,
       submenu.offsetWidth
     ) - rect.left;
-    var y = normalizeValue(
+    let y = normalizeValue(
       event.clientY,
       document.body.offsetHeight,
       submenu.offsetHeight
@@ -97,18 +115,18 @@ function generateSubmenu(scope, targettype, fileid, options) {
     openSubmenu(x, y, submenu);
   });
 
-  var submenuDots = document.createElement("img");
+  let submenuDots = document.createElement("img");
   submenuDots.src = "img/submenu_dots.svg";
   submenuDots.className = "submenu-dots";
   submenuDots.addEventListener("click", (e) => {
     closeAllSubmenus();
-    var rect = e.target.parentNode.getBoundingClientRect();
-    var x = normalizeValue(
+    let rect = e.target.parentNode.getBoundingClientRect();
+    let x = normalizeValue(
       event.clientX,
       document.body.offsetWidth,
       submenu.offsetWidth
     ) - rect.left;
-    var y = normalizeValue(
+    let y = normalizeValue(
       event.clientY,
       document.body.offsetHeight,
       submenu.offsetHeight
@@ -124,13 +142,13 @@ function drawDirectories() {
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
   storage.forEach((element) => {
-    var dir = document.createElement("button");
+    let dir = document.createElement("button");
     dir.className = "dir-box";
     dir.style = "--dir-color:" + element.color;
     dir.setAttribute("data-dir-id", element.id);
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
-    var submenu = generateSubmenu(dir, "dir", element.id, [
+    let submenu = generateSubmenu(dir, "dir", element.id, [
       "share",
       "edit",
       "rename",
@@ -159,7 +177,7 @@ function closeDir() {
 function openDir(target) {
   id = target.getAttribute("data-dir-id");
   style = target.getAttribute("style");
-  var viewportOffset = target.getBoundingClientRect();
+  let viewportOffset = target.getBoundingClientRect();
 
   blankCanvas = document.getElementById("blank-canvas");
 
@@ -213,19 +231,19 @@ function drawFiles(dirID) {
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
 
-  var filesList = storage.find(function (post, index) {
+  let filesList = storage.find(function (post, index) {
     if (post.id == dirID) return true;
   });
 
   filesList.content.forEach((element) => {
-    var filelabel = document.createElement("div");
+    let filelabel = document.createElement("div");
     filelabel.className = "file-label";
     filelabel.innerHTML = element.name;
 
-    var fileicon = document.createElement("div");
+    let fileicon = document.createElement("div");
     fileicon.className = "file-icon";
 
-    var filebox = document.createElement("button");
+    let filebox = document.createElement("button");
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
@@ -240,7 +258,7 @@ function drawFiles(dirID) {
       ])
     );
 
-    var fileboxflex = document.createElement("div");
+    let fileboxflex = document.createElement("div");
     fileboxflex.className = "file-box-flex";
     fileboxflex.append(filebox);
 
@@ -257,28 +275,12 @@ function appendEmptyElements(n, target, chameleonClass) {
   }
 }
 
-const firstNotification = () => {
-  const notification = new Notification('Notifications enabled!', {
-      body: 'Notifications are beta feature. You can report any bug at my github!',
-      icon: './img/js.png',
-      vibrate: true
-  });
-  
-  setTimeout(() => {
-      notification.close();
-  }, 10 * 1000);
-
-  notification.addEventListener('click', () => {
-      window.open('https://github.com/humpljir/cloud-skaut38', '_blank');
-  });
-}
-
 function initialize() {
   drawDirectories();
 
-  var scrollYLast = 0;
-  var scrollYDistance = 0;
-  //var topBarOffsetSum = 0;
+  let scrollYLast = 0;
+  let scrollYDistance = 0;
+  //let topBarOffsetSum = 0;
 
   document.addEventListener("resize", (e) => {
     closeAllSubmenus();
@@ -295,7 +297,7 @@ function initialize() {
   document.addEventListener("scroll", (e) => {
     closeAllSubmenus();
 
-    var scrollY = document.documentElement.scrollTop;
+    let scrollY = document.documentElement.scrollTop;
 
     if (Math.sign(scrollYDistance) == Math.sign(scrollYLast - scrollY)) {
       scrollYDistance += scrollYLast - scrollY;
