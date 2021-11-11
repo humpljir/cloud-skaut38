@@ -2,6 +2,7 @@
 
 const hideTopBarOffset = 80;
 const alwaysTopBarOffset = 20;
+const colorsInPalette = 12;
 
 function generateSubmenu(scope, targettype, fileid, options) {
     let submenu = document.createElement("div");

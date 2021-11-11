@@ -15,3 +15,10 @@ function sideInit() {
         });
     });
 }
+
+function changePalette(nr) {
+    for (let index = 0; index < colorsInPalette; index++) {
+    document.documentElement.style.setProperty('--theme-color-'+index, session.style.palettes[nr].colors[index]);
+    document.documentElement.style.setProperty('--theme-color-'+index+'-complementary', session.style.palettes[nr].colorComplementary[index]);
+    }
+}

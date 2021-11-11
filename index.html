@@ -14,1509 +14,1536 @@
     <link rel="stylesheet" href="css/animations.css">
     <script>
         var session = {
-            "user":{
-                "name":"Jiří Humpl",
-                "nick":"humpljir",
-                "img":"img/profile_pic.jpg",
+            "user": {
+                "name": "Jiří Humpl",
+                "nick": "humpljir",
+                "img": "img/profile_pic.jpg",
             },
-            "style":{
-                "theme":"light",
-                "palettes":[["#78412C","#AB5530","#D46025","#F17F29","#8C9496","#A4778B","#6D4E62","#40433F","#537E49","#8A9860","#7B7B42","#1E1800"],["#78412C","#AB5530","#D46025","#F17F29","#8C9496","#A4778B","#6D4E62","#40433F","#537E49","#8A9860","#7B7B42","#1E1800"],["#457B9D","#457B9D","#457B9D","#457B9D","#457B9D","#457B9D","#457B9D","#457B9D"]],
-                "activePalette":1,
-                "color-highlight":["#457B9D"],
+            "style": {
+                "theme": "light",
+                "palettes": [{ "colors": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"], "colorComplementary": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#7B7B42", "#1E1800"] }, { "colors": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"], "colorComplementary": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"] }, { "colors": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"], "colorComplementary": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"] }],
+                "activePalette": 1,
+                "color-highlight": ["var(--theme-color-3)"],
             },
-            "settings":{
-                "topbarAutoHeight":true,
-                "toolbarVisible":true,
-                "toolbarCustom":true,
-                "notifications":false,
+            "settings": {
+                "topbarAutoHeight": true,
+                "toolbarVisible": true,
+                "toolbarCustom": true,
+                "notifications": false,
             }
         };
 
         var storage = [{
+            "id": 0,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-3)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
                 "id": 0,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 0,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 1,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 2,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 3,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 1,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#E63946",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 2,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#1D3557",
-                "content": [{
-                        "id": 0,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 1,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 2,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 3,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 3,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#1D3557",
-                "content": [{
-                        "id": 0,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 1,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 2,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 3,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
-            },
-            {
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-1)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
                 "id": 4,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 0,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 1,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 2,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 3,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 5,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 0,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 1,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 2,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 3,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 6,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#1D3557",
-                "content": [{
-                        "id": 0,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 1,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 2,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 3,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 7,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#1D3557",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 8,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 9,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#1D3557",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 10,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 11,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 12,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 13,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#1D3557",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 14,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 15,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#E63946",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             },
             {
                 "id": 16,
                 "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#E63946",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
-            },
-            {
-                "id": 17,
-                "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#457B9D",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
-            },
-            {
-                "id": 18,
-                "name": "Lorem ipsum",
-                "date": "1587968755",
-                "color": "#E63946",
-                "content": [{
-                        "id": 4,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 5,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 6,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 7,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 8,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 9,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 10,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 11,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 12,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 13,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 14,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 15,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    },
-                    {
-                        "id": 16,
-                        "name": "Lorem ipsum",
-                        "date": "1587968995",
-                        "link": "image.jpg",
-                        "type": "image",
-                    }
-                ]
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
             }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-2)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 0,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 1,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 2,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 3,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-9)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 0,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 1,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 2,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 3,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-11)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 0,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 1,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 2,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 3,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-5)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 0,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 1,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 2,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 3,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-8)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 0,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 1,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 2,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 3,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-2)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-6)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-2)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }]
+        },
+        {
+            "id": 10,
+            "name": "Lorem ipsum",
+            "date": "1587968995",
+            "color": "var(--theme-color-9)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-3)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-10)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-7)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-9)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-4)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-6)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-8)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-3)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Lorem ipsum",
+            "date": "1587968755",
+            "color": "var(--theme-color-11)",
+            "colorContemporary": "var(--theme-color-2-contemporary)",
+            "content": [{
+                "id": 4,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 5,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 6,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 7,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 8,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 9,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 10,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 11,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 12,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 13,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 14,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 15,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            },
+            {
+                "id": 16,
+                "name": "Lorem ipsum",
+                "date": "1587968995",
+                "link": "image.jpg",
+                "type": "image",
+            }
+            ]
+        }
         ];
     </script>
 </head>
@@ -1529,139 +1556,202 @@
                 </div>
             </div>
             <div id="window-side-div" class="window-side">
-                <button class="side-return" onclick="closeSide()"><img class="roated-return-icon" src="img/show-icon.svg">return</button>
+                <button class="side-return" onclick="closeSide()"><img class="roated-return-icon"
+                        src="img/show-icon.svg">return</button>
                 <div class="side-title">SETTINGS</div>
                 <div class="side-box">
-                <div class="side-user">
-                    <div class="side-user-picture" style="background-image: url('img/profile_pic.jpg');"></div>
-                    <div class="side-user-name">Jiří Humpl</div><div class="side-user-nick">@humpljir</div>
-                </div>
+                    <div class="side-user">
+                        <div class="side-user-picture" style="background-image: url('img/profile_pic.jpg');"></div>
+                        <div class="side-user-name">Jiří Humpl</div>
+                        <div class="side-user-nick">@humpljir</div>
+                    </div>
                 </div>
                 <div class="side-box">
                     <div class="side-category">
-                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
-                                <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl" placeholder="Full Name">
-                                <input class="text-box" type="text" id="username" name="username" value="humpljir" placeholder="Username">
+                                <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl"
+                                    placeholder="Full Name">
+                                <input class="text-box" type="text" id="username" name="username" value="humpljir"
+                                    placeholder="Username">
                                 <label class="side-form-img-upload">
                                     <div class="img-upload-icon"></div>Change Profile Picture
                                     <input type="file" id="upload" name="upload" placeholder="upload">
                                 </label>
-                                <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
+                                <div class="side-form-buttons"><input type="reset"
+                                        onclick="this.closest('.side-form').classList.remove('form-changed')"
+                                        value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                             </form>
                         </div>
-                    </div> 
+                    </div>
                     <div class="side-category">
-                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
-                                <input class="text-box" type="password" id="password" name="password" placeholder="new password">
-                                <input class="text-box" type="password" id="password_check" name="password_check" placeholder="password again">
-                                <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
+                                <input class="text-box" type="password" id="password" name="password"
+                                    placeholder="new password">
+                                <input class="text-box" type="password" id="password_check" name="password_check"
+                                    placeholder="password again">
+                                <div class="side-form-buttons"><input type="reset"
+                                        onclick="this.closest('.side-form').classList.remove('form-changed')"
+                                        value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                             </form>
                         </div>
-                    </div>  
+                    </div>
                     <div class="side-category">
-                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
                         <div class="side-category-content">
                             <form class="side-form" id="create-dir" data-submit-label="CREATE">
                                 <label class="side-form-switch-wrapper">
-                                    <span class="side-form-switch-label">Turn On Dark Theme</span><input type="checkbox" class="side-form-switch">
+                                    <span class="side-form-switch-label">Turn On Dark Theme</span><input type="checkbox"
+                                        class="side-form-switch">
                                 </label>
                                 <label class="side-form-switch-wrapper">
-                                    <span class="side-form-switch-label">Minimize Top Bar When Scrolling</span><input type="checkbox" checked onchange="switchSessionVal('topbarAutoHeight',this.checked)" class="side-form-switch">
+                                    <span class="side-form-switch-label">Minimize Top Bar When Scrolling</span><input
+                                        type="checkbox" checked
+                                        onchange="switchSessionVal('topbarAutoHeight',this.checked)"
+                                        class="side-form-switch">
                                 </label>
                                 <div class="side-theme-selector">
                                     <label>
-                                        <input type="radio" id="#78412C" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#78412C" name="color" data-palette-nr=0 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#AB5530" name="color" checked>
-                                        <div style="--inner-color: #E63946;--theme-palette:#1D3557 0%, #1D3557 20%, #457B9D 20%, #457B9D 40%,#A8DADC 40%, #A8DADC 60%,#F1FAEE 60%, #F1FAEE 80%,#8b2c33 80%, #8b2c33 100%;"></div>
+                                        <input type="radio" id="#AB5530" name="color" checked data-palette-nr=1 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: var(--theme-color-1);--theme-palette:var(--theme-color-2) 0%, var(--theme-color-2) 20%, var(--theme-color-3) 20%, var(--theme-color-3) 40%,#A8DADC 40%, #A8DADC 60%,#F1FAEE 60%, #F1FAEE 80%,#8b2c33 80%, #8b2c33 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#D46025" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#D46025" name="color"data-palette-nr=2 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#F17F29" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#F17F29" name="color"data-palette-nr=3 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#8C9496" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#8C9496" name="color"data-palette-nr=4 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#A4778B" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#A4778B" name="color"data-palette-nr=5 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label><label>
-                                        <input type="radio" id="#6D4E62" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#6D4E62" name="color"data-palette-nr=6 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#40433F" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#40433F" name="color"data-palette-nr=7 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label> <label>
-                                        <input type="radio" id="#537E49" name="color">
-                                        <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;"></div>
+                                        <input type="radio" id="#537E49" name="color"data-palette-nr=8 onclick="changePalette(this.getAttribute('data-palette-nr'))">
+                                        <div
+                                            style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
+                                        </div>
                                     </label>
                                 </div>
-                                <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
+                                <div class="side-form-buttons"><input type="reset"
+                                        onclick="this.closest('.side-form').classList.remove('form-changed')"
+                                        value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                             </form>
                         </div>
                     </div>
                     <div class="side-category">
-                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
 
                         <div class="side-category-content">
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
-                            <label class="side-form-switch-wrapper">
-                                <span class="side-form-switch-label">Show Toolbar</span><input type="checkbox" onchange="switchSessionVal('toolbarVisible',this.checked)" checked class="side-form-switch">
-                            </label>
-                            <label class="side-form-switch-wrapper">
-                                <span class="side-form-switch-label">Enable Customizing Toolbar</span><input type="checkbox" checked class="side-form-switch">
-                            </label>
-                            You should be able to change order and colors of icons here.
-                            <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
-                        </form>
+                                <label class="side-form-switch-wrapper">
+                                    <span class="side-form-switch-label">Show Toolbar</span><input type="checkbox"
+                                        onchange="switchSessionVal('toolbarVisible',this.checked)" checked
+                                        class="side-form-switch">
+                                </label>
+                                <label class="side-form-switch-wrapper">
+                                    <span class="side-form-switch-label">Enable Customizing Toolbar</span><input
+                                        type="checkbox" checked class="side-form-switch">
+                                </label>
+                                You should be able to change order and colors of icons here.
+                                <div class="side-form-buttons"><input type="reset"
+                                        onclick="this.closest('.side-form').classList.remove('form-changed')"
+                                        value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
+                            </form>
                         </div>
                     </div>
-                <div class="side-category">
-                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
-                    <div class="side-category-content">
-                        <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
-                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="sideNotifications(this.checked)">
-                    </label>
-                    <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
-                    </form>
+                    <div class="side-category">
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE"><label
+                                    class="side-form-switch-wrapper">
+                                    <span class="side-form-switch-label">Turn On PWA Notifications</span><input
+                                        type="checkbox" class="side-form-switch"
+                                        onchange="sideNotifications(this.checked)">
+                                </label>
+                                <div class="side-form-buttons"><input type="reset"
+                                        onclick="this.closest('.side-form').classList.remove('form-changed')"
+                                        value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="side-category">
-                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
-                    <div class="side-category-content">
-                        <div class="side-storage">3.29 GB used of unlimited storage</div>
+                    <div class="side-category">
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            <div class="side-storage">3.29 GB used of unlimited storage</div>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="side-box">
-                <div class="side-category">
-                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Log Out</button><img class="side-category-label-arrow" src="img/show-icon.svg"></button>
-                    <div class="side-category-content">
-                        <a href="">Switch User</a>
-                        <a href="">Log Out</a>
+                    <div class="side-category">
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Log Out</button><img
+                            class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            <a href="">Switch User</a>
+                            <a href="">Log Out</a>
+                        </div>
                     </div>
-                </div><div class="side-category">
-                    <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
-                    <div class="side-category-content">
-                        <a href="mailto:humpljir@fel.cvut.cz">Send Feedback</a>
-                        <a href="">Terms and Conditions</a>
+                    <div class="side-category">
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <div class="side-category-content">
+                            <a href="mailto:humpljir@fel.cvut.cz">Send Feedback</a>
+                            <a href="">Terms and Conditions</a>
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="side-box">
                     <div class="side-category">
-                        <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">About <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                        <button class="side-category-label"
+                            onclick="this.parentNode.classList.toggle('side-category-open')">About <img
+                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
                         <div class="side-category-content">
-                        <a href="https://github.com/humpljir/cloud-skaut38/issues">Report a Bug</a>
-                        <a href="https://github.com/humpljir/cloud-skaut38">See GIT Repository</a>
-                        <a href="mailto:humpljir@fel.cvut.cz">Contact Us</a>
+                            <a href="https://github.com/humpljir/cloud-skaut38/issues">Report a Bug</a>
+                            <a href="https://github.com/humpljir/cloud-skaut38">See GIT Repository</a>
+                            <a href="mailto:humpljir@fel.cvut.cz">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -1781,7 +1871,7 @@
         <div class="icon-bar-wrapper">
             <div class="icon-bar fluent-bg" id="icon-bar-div">
                 <button type="button" class="icon-bar-button" onclick='openMenu("form-upload")'
-                    style="background-color: #E63946;">
+                    style="background-color: var(--toolbar-color-0);">
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2123,7 +2213,7 @@
                             transform="matrix(1.1305875,0,0,1.1305875,-7.8637226,-8.4072971)">
                             <!--change-->
                             <rect
-                                style="fill:#F1FAEE;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
+                                style="fill:var(--toolbar-color-0-complementary);fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
                                 id="rect1649" width="113.4806" height="113.4806" x="0" y="0" />
                             <g id="g975" transform="translate(20.361533,-21.584234)">
                                 <path id="path1269"
@@ -2167,7 +2257,7 @@
                     </svg>
                 </button>
                 <button type="button" class="icon-bar-button" onclick='openMenu("picture-upload")'
-                    style="background-color: #457B9D;">
+                    style="background-color: var(--toolbar-color-1);">
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2700,7 +2790,7 @@
                         </metadata>
                         <!--change-->
                         <rect
-                            style="fill:#A8DADC;fill-opacity:1;stroke-width:0.858574;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
+                            style="fill:var(--toolbar-color-1-complementary);fill-opacity:1;stroke-width:0.858574;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
                             id="rect2087-8-8" width="113.4806" height="113.4806" x="26.458458" y="5.0091894e-05"
                             mask="url(#mask1286)" transform="translate(-26.458335)" />
                         <path id="path1198-3"
@@ -2802,7 +2892,7 @@
                     </svg>
                 </button>
                 <button type="button" class="icon-bar-button" onclick='openMenu("create-dir")'
-                    style="background-color: #A8DADC;">
+                    style="background-color: var(--toolbar-color-2);">
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -3207,7 +3297,7 @@
                         </metadata>
                         <!--change-->
                         <rect
-                            style="fill:#1D3557;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
+                            style="fill:var(--toolbar-color-2-complementary);fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
                             id="rect1256" width="113.4806" height="113.4806" x="2.0112998e-07" y="1.7062187e-06"
                             mask="url(#mask1432)" />
                         <path id="path1287"
@@ -3234,7 +3324,7 @@
                     </svg>
                 </button>
                 <button type="button" class="icon-bar-button" onclick='openSide()'
-                    style="background-color: #F1FAEE;">
+                    style="background-color: var(--toolbar-color-3);">
                     <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -3244,9 +3334,9 @@
                             style="fill:#000000;fill-opacity:0.359746;stroke-width:0.329488;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter1439)"
                             d="m 70.856231,34.076346 c -1.39057,7.4e-4 -2.78143,0.0537 -3.83698,0.15917 -5.8596,0.58541 -10.78781,2.41181 -13.57385,4.21886 -1.72518,1.11897 -2.45255,4.52208 -2.45256,6.64456 -3e-5,1.82204 1e-5,3.97488 0,5.88698 a 31.12705,13.922782 0 0 0 -11.24996,10.71407 31.12705,13.922782 0 0 0 12.06748,11.0076 c 0.64867,3.14059 2.05443,6.00341 4.01733,8.39173 -7.54243,3.11006 -14.33529,8.32018 -19.78639,14.47457 h -0.002 c -2.27951,2.57375 -4.32564,5.311824 -6.0911,8.132334 -2.04986,3.27486 -2.43087,9.41943 0.47749,11.86182 14.6416,12.29571 64.97906,12.38018 80.559429,-0.19586 2.96835,-2.39599 2.85671,-8.39071 0.80665,-11.66545 -1.76584,-2.82075 -3.81257,-5.559084 -6.09264,-8.132844 h -10e-4 c -5.45134,-6.15343 -12.244609,-11.36222 -19.786909,-14.4725 1.9638,-2.38874 3.36952,-5.2523 4.01836,-8.3938 a 31.12705,13.922782 0 0 0 12.067489,-11.0076 31.12705,13.922782 0 0 0 -10.991579,-10.61744 v -5.9986 c -3e-5,-2.12255 -0.74853,-5.51284 -2.48306,-6.61665 -2.85104,-1.81434 -7.90495,-3.65443 -13.82913,-4.23643 -1.05572,-0.10371 -2.4464,-0.15525 -3.83697,-0.15452 z"
                             clip-path="url(#clipPath1452)" />
-                            <!--change-->
+                        <!--change-->
                         <rect
-                            style="fill:#E63946;fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
+                            style="fill:var(--toolbar-color-3-complementary);fill-opacity:1;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.545322"
                             id="rect1078" width="113.4806" height="113.4806" x="0" y="0" mask="url(#mask1116)"
                             transform="translate(12.216727,12.216727)" />
                         <path id="path971"
