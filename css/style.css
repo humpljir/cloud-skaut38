@@ -913,7 +913,7 @@ input[type="checkbox"].side-form-switch:checked:after {
   transform: translate(-50%,-50%);
   width: 26px;
   height: 26px;
-  background: conic-gradient(#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%);
+  background: conic-gradient(var(--theme-palette));
   display: block;
   border-radius: 50%;
 }
@@ -928,7 +928,9 @@ input[type="checkbox"].side-form-switch:checked:after {
 }
 
 .side-theme-selector label input:checked ~ div {
-background-color: var(--main-fg-color);
+background-color: var(--main-bg-color);
+-webkit-box-shadow: 1px 3px 14px #00000090;
+box-shadow: 1px 3px 14px #00000090;
 }
 
 .side-theme-selector label div::after {
@@ -937,7 +939,7 @@ background-color: var(--main-fg-color);
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  background-color: var(--circle-color);  
+  background-color: var(--inner-color);  
   width: 14px;
   height: 14px;
   border-radius: 50%;
