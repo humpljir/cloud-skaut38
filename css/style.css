@@ -786,7 +786,7 @@
   padding: 12px 0;
 }
 
-.side-form-buttons button {
+.side-form-buttons input {
   width: calc(50% - 10px);
   border-radius: var(--menu-border-radius);
   border: none;
@@ -799,7 +799,7 @@
   background-color: var(--side-grey-light);
 }
 
-.side-form-buttons button.side-form-submit {
+.side-form-buttons input.side-form-submit {
   background-color: var(--interactive-color);
   color: var(--main-bg-color);
 }

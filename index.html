@@ -1547,7 +1547,7 @@
                                     <div class="img-upload-icon"></div>Change Profile Picture
                                     <input type="file" id="upload" name="upload" placeholder="upload">
                                 </label>
-                                <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" value="SAVE"></div>
+                                <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                             </form>
                         </div>
                     </div> 
@@ -1557,7 +1557,7 @@
                             <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
                                 <input class="text-box" type="password" id="password" name="password" placeholder="new password">
                                 <input class="text-box" type="password" id="password_check" name="password_check" placeholder="password again">
-                                <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" value="SAVE"></div>
+                                <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                             </form>
                         </div>
                     </div>  
@@ -1610,7 +1610,7 @@
                                         <div style="--circle-color: #1E1800;"></div>
                                     </label>
                                 </div>
-                                <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" value="SAVE"></div>
+                                <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                             </form>
                         </div>
                     </div>
@@ -1626,6 +1626,7 @@
                                 <span class="side-form-switch-label">Enable Customizing Toolbar</span><input type="checkbox" checked class="side-form-switch">
                             </label>
                             You should be able to change order and colors of icons here.
+                            <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                         </form>
                         </div>
                     </div>
@@ -1634,7 +1635,9 @@
                     <div class="side-category-content">
                         <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
                         <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="sideNotifications(this.checked)">
-                    </label></form></div>
+                    </label>
+                    <div class="side-form-buttons"><input type="reset" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
+                    </form>
                 </div>
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
