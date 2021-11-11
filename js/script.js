@@ -1,8 +1,3 @@
-//const {storage} = require('./index.html');
-
-const hideTopBarOffset = 80;
-const alwaysTopBarOffset = 20;
-
 function closeMenu() {
   document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
@@ -35,7 +30,11 @@ function closeSide() {
   document.getElementById("main-wrapper-div").classList.remove("side-enable");
   document.getElementById("main-wrapper-div").classList.remove("side-open");
   document.getElementById("main-wrapper-div").classList.remove("top-bar-hide");
-  document.getElementById("main-wrapper-div").classList.remove("icon-bar-hide");
+  if (session.settings.toolbarVisible) {
+    document
+      .getElementById("main-wrapper-div")
+      .classList.remove("icon-bar-hide");
+  }
 }
 
 function closeAllSubmenus() {

@@ -13,6 +13,25 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
     <script>
+        var session = {
+            "user":{
+                "name":"Jiří Humpl",
+                "nick":"humpljir",
+                "img":"img/profile_pic.jpg",
+            },
+            "style":{
+                "theme":"light",
+                "palette":["#457B9D","#457B9D","#457B9D","#457B9D","#457B9D","#457B9D","#457B9D","#457B9D"],
+                "color-highlight":["#457B9D"],
+            },
+            "settings":{
+                "topbarAutoHeight":true,
+                "toolbarVisible":true,
+                "toolbarCustom":true,
+                "notifications":false,
+            }
+        };
+
         var storage = [{
                 "id": 0,
                 "name": "Lorem ipsum",
@@ -1517,8 +1536,7 @@
                     <div class="side-user-name">Jiří Humpl</div><div class="side-user-nick">@humpljir</div>
                 </div>
                 </div>
-
-                <div class="side-box">    
+                <div class="side-box">
                     <div class="side-category">
                         <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
                         <div class="side-category-content">
@@ -1551,7 +1569,7 @@
                                     <span class="side-form-switch-label">Turn On Dark Theme</span><input type="checkbox" class="side-form-switch">
                                 </label>
                                 <label class="side-form-switch-wrapper">
-                                    <span class="side-form-switch-label">Minimize Top Bar When Scrolling</span><input type="checkbox" checked class="side-form-switch">
+                                    <span class="side-form-switch-label">Minimize Top Bar When Scrolling</span><input type="checkbox" checked onchange="switchSessionVal('topbarAutoHeight',this.checked)" class="side-form-switch">
                                 </label>
                                 <div class="side-theme-selector">
                                     <label>
@@ -1596,23 +1614,28 @@
                                 <div class="side-form-buttons"><button class="side-form-reset">RESET</button><button class="side-form-submit">SAVE</button></div>
                             </form>
                         </div>
-                    </div>       
+                    </div>
                     <div class="side-category">
                         <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
 
                         <div class="side-category-content">
+                            <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
+                            <label class="side-form-switch-wrapper">
+                                <span class="side-form-switch-label">Show Toolbar</span><input type="checkbox" onchange="switchSessionVal('toolbarVisible',this.checked)" checked class="side-form-switch">
+                            </label>
                             <label class="side-form-switch-wrapper">
                                 <span class="side-form-switch-label">Enable Customizing Toolbar</span><input type="checkbox" checked class="side-form-switch">
                             </label>
-
                             You should be able to change order and colors of icons here.
+                        </form>
                         </div>
                     </div>    
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img class="side-category-label-arrow" src="img/show-icon.svg"></button>
-                    <div class="side-category-content"><label class="side-form-switch-wrapper">
-                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="initNotifications()">
-                    </label></div>
+                    <div class="side-category-content">
+                        <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
+                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="sideNotifications(this.checked)">
+                    </label></form></div>
                 </div>
                 <div class="side-category">
                     <button class="side-category-label" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img class="side-category-label-arrow" src="img/show-icon.svg"></button>

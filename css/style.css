@@ -773,8 +773,16 @@
 }
 
 .side-form-buttons {
-  padding: 12px 0;
+  padding: 0px 0;
   margin: 0 -5px;
+  max-height: 0px;
+  transition: padding 0.4s,max-height 0.4s;
+  overflow: hidden;
+}
+
+.form-changed .side-form-buttons {
+  max-height: 85px;
+  padding: 12px 0;
 }
 
 .side-form-buttons button {

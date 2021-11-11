@@ -1,3 +1,8 @@
+//const {storage} = require('./index.html');
+
+const hideTopBarOffset = 80;
+const alwaysTopBarOffset = 20;
+
 function generateSubmenu(scope, targettype, fileid, options) {
     let submenu = document.createElement("div");
     submenu.className = "submenu-wrapper fluent-bg";
@@ -169,7 +174,7 @@ function initialize() {
   
       if (scrollYDistance > hideTopBarOffset || scrollY < alwaysTopBarOffset) {
         document.getElementById("main-wrapper-div").classList.add("top-bar-open");
-      } else if (scrollYDistance < -1 * hideTopBarOffset) {
+      } else if (scrollYDistance < -1 * hideTopBarOffset && session.settings.topbarAutoHeight) {
         document
           .getElementById("main-wrapper-div")
           .classList.remove("top-bar-open");
@@ -193,4 +198,6 @@ function initialize() {
   
       scrollYLast = scrollY;
     });
+
+    sideInit();
   }
