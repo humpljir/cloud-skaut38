@@ -10,10 +10,8 @@ function switchSessionVal(name,val) {
 
 function sideInit() {
     document.querySelectorAll(".side-form input").forEach(element => {
-        console.log(element);
-        element.addEventListener("change",()=>{
-            console.log("changed");
-            element.parentNode.classList.add("form-changed");
+        element.addEventListener("input",()=>{
+            element.closest(".side-form").classList.add("form-changed");
         });
     });
 }

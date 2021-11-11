@@ -734,7 +734,7 @@
 .side-category-content {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height 0.4s;
+  transition: max-height 0.4s, padding 0.4s;
   padding: 0px 20px;
 }
 
@@ -745,6 +745,7 @@
 
 .side-category-open .side-category-content {
   max-height: 285px;
+  padding: 20px 20px;
 }
 
 .side-form {
