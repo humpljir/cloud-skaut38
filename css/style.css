@@ -898,7 +898,6 @@ input[type="checkbox"].side-form-switch:checked:after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-box-pack: start;
@@ -906,15 +905,42 @@ input[type="checkbox"].side-form-switch:checked:after {
   justify-content: flex-start;
 }
 
-.side-theme-selector label div {
-  width: 16px;
-  height: 16px;
-  background-color: var(--circle-color);
-  border: 4px solid var(--circle-color);
+.side-theme-selector label div::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 26px;
+  height: 26px;
+  background: conic-gradient(#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%);
   display: block;
+  border-radius: 50%;
+}
+
+.side-theme-selector label div {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
   border-radius: 50%;
   position: relative;
   margin: 5px;
+}
+
+.side-theme-selector label input:checked ~ div {
+background-color: var(--main-fg-color);
+}
+
+.side-theme-selector label div::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: var(--circle-color);  
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
 }
 
 .side-theme-selector label input {
