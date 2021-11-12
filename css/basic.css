@@ -2,7 +2,8 @@
     --main-bg-color: #fff;
     --main-fg-color: #000;
     --menu-bg-color: #ffffffb8;
-    --interactive-color:#5473d8;
+    --interactive-color:var(--theme-color-3);
+    --interactive-color-complementary:var(--theme-color-3-complementary);
     --hyperlink-color: #1a4ed2;
 
     --general-font-size: 16px;

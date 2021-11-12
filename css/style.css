@@ -458,7 +458,7 @@
 
 .submenu-wrapper a:hover {
   background-color: var(--interactive-color);
-  color: var(--main-bg-color);
+  color: var(--interactive-color-complementary);
 }
 
 .dir-box-expanded .submenu-wrapper, .dir-box-expanded .submenu-dots, .dir-header .submenu-wrapper, .dir-header .submenu-dots {
@@ -801,7 +801,7 @@
 
 .side-form-buttons input.side-form-submit {
   background-color: var(--interactive-color);
-  color: var(--main-bg-color);
+  color: var(--interactive-color-complementary);
 }
 
 .side-form-img-upload {
@@ -880,7 +880,7 @@ input[type="checkbox"].side-form-switch:after {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--main-bg-color);
+  background: var(--interactive-color-complementary);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   -webkit-transform: scale(0.7);
@@ -1124,7 +1124,7 @@ img.roated-return-icon svg {
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button-submit {
   background-color: var(--interactive-color);
-  color: var(--main-bg-color);
+  color: var(--interactive-color-complementary);
 }
 
 .main-wrapper .menu-wrapper .menu-button-wrapper .menu-button:focus-visible {
