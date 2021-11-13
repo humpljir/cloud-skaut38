@@ -757,7 +757,6 @@
 .side-form div {
   /*width: 250px;*/
   width: 100%;
-  flex-grow: 1;
 }
 
 .side-form .text-box {
@@ -951,35 +950,28 @@ box-shadow: 1px 3px 14px #00000090;
 }
 
 .toolbar-edit-mode {
-      position: relative;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .side-icon-wrapper {
-padding-bottom: 200px;
+  padding: 8px;
+  background-color: var(--side-grey-light);
+  border-radius: var(--menu-border-radius);
+  margin: 6px 0;
+  box-sizing: border-box;
 }
 
-.side-icon-bar-button {
+.side-form .side-icon-bar-button {
   position: relative;
   padding: 0 2px;
   margin: 8px;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
+  height: 35px;
   width: fit-content;
-  max-width: 50px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   border: none;
   border-radius: 10px;
   -webkit-box-shadow: inset -1px -1px 2px #00000017, inset 2px 2px 3px #ffffff6b,
