@@ -81,7 +81,7 @@ function drawDirectories() {
   storage.forEach((element) => {
     let dir = document.createElement("button");
     dir.className = "dir-box";
-    dir.style = "--dir-color:" + element.color;
+    dir.style = "--dir-bg-color:" + element.color + "; --dir-color:"+element.colorComplementary+";";
     dir.setAttribute("data-dir-id", element.id);
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
@@ -148,11 +148,12 @@ function appendEmptyElements(n, target, chameleonClass) {
   }
 }
 
-function drawToolbar(target,interactive) {
+function drawToolbar() {
+  target=document.getElementById("icon-bar-div");
   target.innerHTML="";
   for (let index = 0; index < toolbarIconCount; index++) {
-    if (interactive) {
       let indexReorder = session.toolbar.reorder[index];
+      if(session.toolbar.display[indexReorder]) {
       let toolbarIconDOM = document.createElement("button");
       toolbarIconDOM.className = "icon-bar-button";
       toolbarIconDOM.setAttribute("type", "button");
@@ -169,7 +170,7 @@ function drawToolbar(target,interactive) {
 
 function initialize() {
   drawDirectories();
-  drawToolbar(document.getElementById("icon-bar-div"),true);
+  drawToolbar();
 
   let scrollYLast = 0;
   let scrollYDistance = 0;
