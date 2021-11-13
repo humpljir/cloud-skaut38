@@ -880,7 +880,7 @@ input[type="checkbox"].side-form-switch:after {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--interactive-color-complementary);
+  background: var(--main-bg-color);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   -webkit-transform: scale(0.7);
@@ -892,6 +892,7 @@ input[type="checkbox"].side-form-switch:after {
 
 input[type="checkbox"].side-form-switch:checked:after {
   left: calc(100% - 34px);
+  background: var(--interactive-color-complementary);
 }
 
 .side-theme-selector {
