@@ -152,15 +152,16 @@ function drawToolbar(target,interactive) {
   target.innerHTML="";
   for (let index = 0; index < toolbarIconCount; index++) {
     if (interactive) {
+      let indexReorder = session.toolbar.reorder[index];
       let toolbarIconDOM = document.createElement("button");
       toolbarIconDOM.className = "icon-bar-button";
       toolbarIconDOM.setAttribute("type", "button");
-      toolbarIconDOM.setAttribute("onclick", "openMenu('form-"+index+"')");
+      toolbarIconDOM.setAttribute("onclick", session.toolbar.onclick[indexReorder]);
       toolbarIconDOM.setAttribute(
         "style",
-        "background-color: var(--toolbar-color-" + index + ");"
+        "background-color: var(--toolbar-color-" + indexReorder + ");"
       );
-      toolbarIconDOM.innerHTML = session.style["toolbarButton" + index + "svg"];
+      toolbarIconDOM.innerHTML = session.toolbar["button" + indexReorder + "svg"];
       target.append(toolbarIconDOM);
     }
   }
@@ -168,7 +169,7 @@ function drawToolbar(target,interactive) {
 
 function initialize() {
   drawDirectories();
-  drawToolbar("icon-bar-div",true);
+  drawToolbar(document.getElementById("icon-bar-div"),true);
 
   let scrollYLast = 0;
   let scrollYDistance = 0;
