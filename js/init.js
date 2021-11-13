@@ -148,8 +148,8 @@ function appendEmptyElements(n, target, chameleonClass) {
   }
 }
 
-function generateToolbar(interactive) {
-  let toolbarDOM = document.createElement("div");
+function drawToolbar(target,interactive) {
+  target.innerHTML="";
   for (let index = 0; index < toolbarIconCount; index++) {
     if (interactive) {
       let toolbarIconDOM = document.createElement("button");
@@ -161,14 +161,14 @@ function generateToolbar(interactive) {
         "background-color: var(--toolbar-color-" + index + ");"
       );
       toolbarIconDOM.innerHTML = session.style["toolbarButton" + index + "svg"];
-      toolbarDOM.append(toolbarIconDOM);
+      target.append(toolbarIconDOM);
     }
   }
-  return toolbarDOM;
 }
 
 function initialize() {
   drawDirectories();
+  drawToolbar("icon-bar-div",true);
 
   let scrollYLast = 0;
   let scrollYDistance = 0;
