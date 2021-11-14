@@ -21,7 +21,7 @@ function toolbarEditColor(index,color,colorComplementary) {
 }
 
 function toggleToolbarEditMode() {
-    document.getElementById("toolbar-edit-mode-div").classList.toggle("toggleEdit");
+    document.getElementById("toolbar-edit-mode-div").classList.toggle("toggle-edit");
 }
 
 function drawToolbarEditMode(target) {
@@ -38,13 +38,15 @@ function drawToolbarEditMode(target) {
         toolbarIconDOM.innerHTML = session.toolbar["button" + indexReorder + "svg"];
 
         let toolbarIconOptionsSwapDOM = document.createElement("img");
-        toolbarIconOptionsSwapDOM.className=""
+        toolbarIconOptionsSwapDOM.className="side-icon-bar-edit-swap";
         toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
 
         let toolbarIconOptionsDeleteDOM = document.createElement("img");
+        toolbarIconOptionsDeleteDOM.className="side-icon-bar-edit-delete";
         toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
         let toolbarIconOptionsReorderDOM = document.createElement("img");
+        toolbarIconOptionsReorderDOM.className="side-icon-bar-edit-reorder";
         toolbarIconOptionsReorderDOM.src = "img/reorder-icon.svg";
 
         let toolbarIconLineOptionsDOM = document.createElement("div");
