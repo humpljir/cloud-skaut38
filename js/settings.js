@@ -48,9 +48,6 @@ function drawToolbarEditMode(target) {
         toolbarIconPaletteDOM.className = "side-icon-palette";
 
         for (let index2 = 0; index2 < colorsInPalette; index2++) {
-            let toolbarIconColorBoxDOM = document.createElement("div");
-            toolbarIconColorBoxDOM.className = "side-icon-palette-box";
-
             let toolbarIconColorOptionDOM = document.createElement("label");
             let toolbarIconColorOptionInputDOM = document.createElement("input");
             toolbarIconColorOptionInputDOM.type = "radio";
@@ -62,20 +59,7 @@ function drawToolbarEditMode(target) {
             toolbarIconColorOptionDOM.append(toolbarIconColorOptionInputDOM);
             toolbarIconColorOptionDOM.append(toolbarIconColorOptionDivDOM);
 
-            let toolbarIconColorOptionComplementaryDOM = document.createElement("label");
-            let toolbarIconColorOptionInputComplementaryDOM = document.createElement("input");
-            toolbarIconColorOptionInputComplementaryDOM.type = "radio";
-            toolbarIconColorOptionInputComplementaryDOM.id = "blabla" + index2;
-            toolbarIconColorOptionInputComplementaryDOM.name = "color";
-            let toolbarIconColorOptionDivComplementaryDOM = document.createElement("div");
-            toolbarIconColorOptionDivComplementaryDOM.style = "--circle-color:var(--theme-color-" + index2 + "-complementary);";
-
-            toolbarIconColorOptionComplementaryDOM.append(toolbarIconColorOptionInputComplementaryDOM);
-            toolbarIconColorOptionComplementaryDOM.append(toolbarIconColorOptionDivComplementaryDOM);
-
-            toolbarIconColorBoxDOM.append(toolbarIconColorOptionDOM);
-            toolbarIconColorBoxDOM.append(toolbarIconColorOptionComplementaryDOM);
-            toolbarIconPaletteDOM.append(toolbarIconColorBoxDOM);
+            toolbarIconPaletteDOM.append(toolbarIconColorOptionDOM);
         }
 
         let toolbarIconWrapperDOM = document.createElement("div");
