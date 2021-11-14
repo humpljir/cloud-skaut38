@@ -1031,32 +1031,24 @@ input[type="checkbox"].side-form-switch:checked:after {
 }
 
 .side-icon-bar-edit-reorder {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(0px);
+  cursor: move;
+  display: inline-block;
 position: absolute;
-transition: all 0.4s;
 right: 0;
 top: 0;
 }
 
 .side-icon-bar-edit-delete, .side-icon-bar-edit-swap {
-opacity: 0;
-pointer-events: none;
-transform: translateX(10px);
-transition: all 0.4s;
+  cursor: pointer;
+  display: none;
 }
 
 .toggle-edit .side-icon-bar-edit-reorder {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(10px);
+  display: none;
 }
 
 .toggle-edit .side-icon-bar-edit-delete, .toggle-edit .side-icon-bar-edit-swap {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(0px);
+  display: inline-block;
 }
 
 .side-form .side-icon-palette-box {

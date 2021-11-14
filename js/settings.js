@@ -24,6 +24,13 @@ function toggleToolbarEditMode() {
     document.getElementById("toolbar-edit-mode-div").classList.toggle("toggle-edit");
 }
 
+function swapToolbarColor(index) {
+    let toolbarColor=document.documentElement.style.getPropertyValue('--toolbar-color-'+index);
+    console.log("toolbar color "+toolbarColor);
+    document.documentElement.style.setProperty('--toolbar-color-'+index, document.documentElement.style.getPropertyValue('--toolbar-color-'+index+'-complementary'));
+    document.documentElement.style.setProperty('--toolbar-color-'+index+'-complementary', toolbarColor);
+}
+
 function drawToolbarEditMode(target) {
     target.innerHTML = "";
     for (let index = 0; index < toolbarIconCount; index++) {
@@ -39,6 +46,7 @@ function drawToolbarEditMode(target) {
 
         let toolbarIconOptionsSwapDOM = document.createElement("img");
         toolbarIconOptionsSwapDOM.className="side-icon-bar-edit-swap";
+        toolbarIconOptionsSwapDOM.setAttribute("onclick","swapToolbarColor("+index+")");
         toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
 
         let toolbarIconOptionsDeleteDOM = document.createElement("img");
@@ -81,6 +89,7 @@ function drawToolbarEditMode(target) {
 
         let toolbarIconWrapperDOM = document.createElement("div");
         toolbarIconWrapperDOM.className = "side-icon-wrapper";
+        toolbarIconWrapperDOM.setAttribute("draggable","true");
         toolbarIconWrapperDOM.append(toolbarIconLineWrapperDOM);
         toolbarIconWrapperDOM.append(toolbarIconPaletteDOM);
         target.append(toolbarIconWrapperDOM);
