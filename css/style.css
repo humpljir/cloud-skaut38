@@ -1043,6 +1043,18 @@ top: 0;
   display: none;
 }
 
+.hidden-toolbar-icon .side-icon-wrapper{
+  background-color: var(--side-grey-bg);
+}
+
+.hidden-toolbar-icon .side-icon-bar-button {
+  opacity: 0.6;
+}
+
+.hidden-toolbar-icon .side-icon-bar-edit-delete {
+  filter: hue-rotate(119deg);
+}
+
 .toggle-edit .side-icon-bar-edit-reorder {
   display: none;
 }

@@ -59,7 +59,7 @@ function drawToolbarEditMode(target) {
 
         let toolbarIconOptionsDeleteDOM = document.createElement("img");
         toolbarIconOptionsDeleteDOM.className="side-icon-bar-edit-delete";
-        toolbarIconOptionsDeleteDOM.setAttribute("onclick","hideToolbarIcon("+index+",this.parentNode)");
+        toolbarIconOptionsDeleteDOM.setAttribute("onclick","hideToolbarIcon("+index+",this.parentNode.parentNode.parentNode)");
         toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
         let toolbarIconOptionsReorderDOM = document.createElement("img");
