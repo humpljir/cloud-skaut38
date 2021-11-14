@@ -31,6 +31,14 @@ function swapToolbarColor(index) {
     document.documentElement.style.setProperty('--toolbar-color-'+index+'-complementary', toolbarColor);
 }
 
+function hideToolbarIcon(index,target) {
+    console.log(session.toolbar.display[index]);
+    console.log(!session.toolbar.display[index]);
+    session.toolbar.display[index]=!session.toolbar.display[index];
+    target.classList.toggle("hidden-toolbar-icon");
+    drawToolbar();
+}
+
 function drawToolbarEditMode(target) {
     target.innerHTML = "";
     for (let index = 0; index < toolbarIconCount; index++) {
@@ -51,6 +59,7 @@ function drawToolbarEditMode(target) {
 
         let toolbarIconOptionsDeleteDOM = document.createElement("img");
         toolbarIconOptionsDeleteDOM.className="side-icon-bar-edit-delete";
+        toolbarIconOptionsDeleteDOM.setAttribute("onclick","hideToolbarIcon("+index+",this.parentNode)");
         toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
         let toolbarIconOptionsReorderDOM = document.createElement("img");
