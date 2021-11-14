@@ -1011,12 +1011,23 @@ input[type="checkbox"].side-form-switch:checked:after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
+  padding: 8px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  box-sizing: border-box;
+  border-top: 1px solid #00000020;
+}
+
+.side-form .side-icon-palette-box {
+    width: fit-content;
+    /*padding: 4px;*/
+    border-radius: 21px;
+    margin: 4px;
+    border-radius: 21px;
+    border: 1px solid #00000020;
 }
 
 .side-form .side-icon-palette label {
@@ -1035,12 +1046,13 @@ input[type="checkbox"].side-form-switch:checked:after {
   border-radius: 50%;
   position: relative;
   margin: 5px;
+  transition: box-shadow 0.2s, border 0.2s;
 }
 
 .side-form .side-icon-palette label input:checked ~ div {
   border: 2px solid var(--main-bg-color);
-  -webkit-box-shadow: 3px 6px 14px #00000038;
-  box-shadow: 3px 6px 14px #00000038;
+  -webkit-box-shadow: 3px 6px 14px #00000050;
+  box-shadow: 3px 6px 14px #00000050;
 }
 
 .side-storage {
