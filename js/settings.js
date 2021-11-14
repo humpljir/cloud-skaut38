@@ -15,6 +15,15 @@ function toolbarEditOpen(target) {
     target.classList.add("icon-open");
 }
 
+function toolbarEditColor(index,color,colorComplementary) {
+    document.documentElement.style.setProperty('--toolbar-color-'+index, color);
+    document.documentElement.style.setProperty('--toolbar-color-'+index+'-complementary', colorComplementary);
+}
+
+function toggleToolbarEditMode() {
+    document.getElementById("toolbar-edit-mode-div").classList.toggle("toggleEdit");
+}
+
 function drawToolbarEditMode(target) {
     target.innerHTML = "";
     for (let index = 0; index < toolbarIconCount; index++) {
@@ -28,6 +37,10 @@ function drawToolbarEditMode(target) {
         );
         toolbarIconDOM.innerHTML = session.toolbar["button" + indexReorder + "svg"];
 
+        let toolbarIconOptionsSwapDOM = document.createElement("img");
+        toolbarIconOptionsSwapDOM.className=""
+        toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
+
         let toolbarIconOptionsDeleteDOM = document.createElement("img");
         toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
@@ -36,6 +49,7 @@ function drawToolbarEditMode(target) {
 
         let toolbarIconLineOptionsDOM = document.createElement("div");
         toolbarIconLineOptionsDOM.className = "side-icon-options";
+        toolbarIconLineOptionsDOM.append(toolbarIconOptionsSwapDOM);
         toolbarIconLineOptionsDOM.append(toolbarIconOptionsDeleteDOM);
         toolbarIconLineOptionsDOM.append(toolbarIconOptionsReorderDOM);
 
@@ -49,6 +63,7 @@ function drawToolbarEditMode(target) {
 
         for (let index2 = 0; index2 < colorsInPalette; index2++) {
             let toolbarIconColorOptionDOM = document.createElement("label");
+            toolbarIconColorOptionDOM.setAttribute("onclick","toolbarEditColor("+index+",'var(--theme-color-" + index2 + ")','var(--theme-color-" + index2 + "-complementary)')");
             let toolbarIconColorOptionInputDOM = document.createElement("input");
             toolbarIconColorOptionInputDOM.type = "radio";
             toolbarIconColorOptionInputDOM.id = "blabla" + index2;
