@@ -168,7 +168,20 @@ function drawToolbar() {
   }
 }
 
+function loadThemeColors() {
+  for (let index = 0; index < colorsInPalette; index++) {
+    document.documentElement.style.setProperty('--theme-color-' + index, session.style.palettes[session.style.activePalette].colors[index]);
+    document.documentElement.style.setProperty('--theme-color-' + index + '-complementary', session.style.palettes[session.style.activePalette].colorComplementary[index]);
+  }
+  
+  for (let index = 0; index < toolbarIconCount; index++) {
+    document.documentElement.style.setProperty('--toolbar-color-' + index, session.toolbar.colors[index]);
+    document.documentElement.style.setProperty('--toolbar-color-' + index + '-complementary',session.toolbar.colorsComplementary[index]);
+  }
+}
+
 function initialize() {
+  loadThemeColors();
   drawDirectories();
   drawToolbar();
 
