@@ -4,8 +4,8 @@ function sideNotifications(val) {
     }
 }
 
-function switchSessionVal(name,val) {
-    session.settings[name]=val;
+function switchSessionVal(name, val) {
+    session.settings[name] = val;
 }
 
 function toolbarEditOpen(target) {
@@ -16,40 +16,63 @@ function toolbarEditOpen(target) {
 }
 
 function drawToolbarEditMode(target) {
-    target.innerHTML="";
+    target.innerHTML = "";
     for (let index = 0; index < toolbarIconCount; index++) {
         let indexReorder = session.toolbar.reorder[index];
         let toolbarIconDOM = document.createElement("div");
         toolbarIconDOM.className = "side-icon-bar-button";
         toolbarIconDOM.setAttribute("onclick", "toolbarEditOpen(this.parentNode)");
         toolbarIconDOM.setAttribute(
-          "style",
-          "background-color: var(--toolbar-color-" + indexReorder + ");"
+            "style",
+            "background-color: var(--toolbar-color-" + indexReorder + ");"
         );
         toolbarIconDOM.innerHTML = session.toolbar["button" + indexReorder + "svg"];
 
-        let toolbarIconOptionsSmallboxDOM = document.createElement("div");
-        toolbarIconOptionsSmallboxDOM.className = "side-icon-options-smallbox";
+        let toolbarIconOptionsDeleteDOM = document.createElement("img");
+        toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
-        let toolbarIconOptionsBigboxDOM = document.createElement("div");
-        toolbarIconOptionsBigboxDOM.className = "side-icon-options-bigbox";
+        let toolbarIconOptionsReorderDOM = document.createElement("img");
+        toolbarIconOptionsReorderDOM.src = "img/reorder-icon.svg";
 
-        let toolbarIconOptionsWrapperDOM = document.createElement("div");
-        toolbarIconOptionsWrapperDOM.className = "side-icon-options-wrapper";
-        toolbarIconOptionsWrapperDOM.append(toolbarIconOptionsSmallboxDOM);
-        toolbarIconOptionsWrapperDOM.append(toolbarIconOptionsBigboxDOM);
+        let toolbarIconLineOptionsDOM = document.createElement("div");
+        toolbarIconLineOptionsDOM.className = "side-icon-options";
+        toolbarIconLineOptionsDOM.append(toolbarIconOptionsDeleteDOM);
+        toolbarIconLineOptionsDOM.append(toolbarIconOptionsReorderDOM);
 
-        let toolbarIconWrapperDOM=document.createElement("div");
+        let toolbarIconLineWrapperDOM = document.createElement("div");
+        toolbarIconLineWrapperDOM.className = "side-icon-line-wrapper";
+        toolbarIconLineWrapperDOM.append(toolbarIconDOM);
+        toolbarIconLineWrapperDOM.append(toolbarIconLineOptionsDOM);
+
+        let toolbarIconPaletteDOM = document.createElement("div");
+        toolbarIconPaletteDOM.className = "side-icon-palette";
+
+        for (let index2 = 0; index2 < colorsInPalette; index2++) {
+            let toolbarIconColorOptionDOM = document.createElement("label");
+            let toolbarIconColorOptionInputDOM = document.createElement("input");
+            toolbarIconColorOptionInputDOM.type = "radio";
+            toolbarIconColorOptionInputDOM.id = "blabla" + index2;
+            toolbarIconColorOptionInputDOM.name = "color";
+            let toolbarIconColorOptionDivDOM = document.createElement("div");
+            toolbarIconColorOptionDivDOM.style = "--circle-color:var(--theme-color-" + index2 + ");";
+
+            toolbarIconColorOptionDOM.append(toolbarIconColorOptionInputDOM);
+            toolbarIconColorOptionDOM.append(toolbarIconColorOptionDivDOM);
+
+            toolbarIconPaletteDOM.append(toolbarIconColorOptionDOM);
+        }
+
+        let toolbarIconWrapperDOM = document.createElement("div");
         toolbarIconWrapperDOM.className = "side-icon-wrapper";
-        toolbarIconWrapperDOM.append(toolbarIconOptionsWrapperDOM);
-        toolbarIconWrapperDOM.append(toolbarIconDOM);
+        toolbarIconWrapperDOM.append(toolbarIconLineWrapperDOM);
+        toolbarIconWrapperDOM.append(toolbarIconPaletteDOM);
         target.append(toolbarIconWrapperDOM);
     }
-  }
+}
 
 function sideInit() {
     document.querySelectorAll(".side-form input").forEach(element => {
-        element.addEventListener("input",()=>{
+        element.addEventListener("input", () => {
             element.closest(".side-form").classList.add("form-changed");
         });
     });
@@ -58,7 +81,7 @@ function sideInit() {
 
 function changePalette(nr) {
     for (let index = 0; index < colorsInPalette; index++) {
-    document.documentElement.style.setProperty('--theme-color-'+index, session.style.palettes[nr].colors[index]);
-    document.documentElement.style.setProperty('--theme-color-'+index+'-complementary', session.style.palettes[nr].colorComplementary[index]);
+        document.documentElement.style.setProperty('--theme-color-' + index, session.style.palettes[nr].colors[index]);
+        document.documentElement.style.setProperty('--theme-color-' + index + '-complementary', session.style.palettes[nr].colorComplementary[index]);
     }
 }

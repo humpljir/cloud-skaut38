@@ -1,4 +1,5 @@
 :root {
+    --theme-color: var(--main-bg-color);
     --main-bg-color: #fff;
     --main-fg-color: #000;
     --menu-bg-color: #ffffffb8;
