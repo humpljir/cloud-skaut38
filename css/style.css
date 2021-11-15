@@ -789,7 +789,9 @@
 }
 
 .side-form-buttons input {
+  color: var(--main-fg-color);
   width: calc(50% - 10px);
+  min-height: 51px;
   border-radius: var(--menu-border-radius);
   border: none;
   padding: 18px;
@@ -1047,8 +1049,9 @@ top: 0;
   background-color: var(--side-grey-bg);
 }
 
-.hidden-toolbar-icon .side-icon-bar-button {
-  opacity: 0.6;
+.hidden-toolbar-icon {
+  opacity: 0.8;
+  filter: contrast(0.8);
 }
 
 .hidden-toolbar-icon .side-icon-bar-edit-delete {
