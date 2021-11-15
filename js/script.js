@@ -1,3 +1,8 @@
+function changeHTMLTheme(color) {
+  var metaThemeColor = document.querySelector("meta[name=theme-color]");
+    metaThemeColor.setAttribute("content", color);
+}
+
 function closeMenu() {
   document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
@@ -15,6 +20,7 @@ function openMenu(target) {
 }
 
 function openSide() {
+  changeHTMLTheme(document.documentElement.style.getPropertyValue('--side-grey-bg'));
   document.documentElement.scrollTop = 0;
   document.getElementById("main-wrapper-div").classList.add("side-open");
   document.getElementById("main-wrapper-div").classList.add("top-bar-hide");
@@ -26,6 +32,7 @@ function openSide() {
 }
 
 function closeSide() {
+  changeHTMLTheme(document.documentElement.style.getPropertyValue('--main-bg-color'))
   document.documentElement.scrollTop = 0;
   document.getElementById("main-wrapper-div").classList.remove("side-enable");
   document.getElementById("main-wrapper-div").classList.remove("side-open");
@@ -54,6 +61,7 @@ function toggleDisplayStyle() {
 }
 
 function closeDir() {
+  changeHTMLTheme(document.documentElement.style.getPropertyValue('--main-bg-color'));
   blankCanvas = document.getElementById("blank-canvas");
 
   blankCanvas.classList.add("blank-canvas");
@@ -65,6 +73,7 @@ function closeDir() {
 }
 
 function openDir(target) {
+  changeHTMLTheme(target.style.getPropertyValue('--dir-bg-color'));
   id = target.getAttribute("data-dir-id");
   style = target.getAttribute("style");
   let viewportOffset = target.getBoundingClientRect();
