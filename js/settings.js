@@ -91,7 +91,7 @@ function drawToolbarEditMode(target) {
             let toolbarIconColorOptionInputDOM = document.createElement("input");
             console.log('var(--theme-color-' + index2 + ')=='+document.documentElement.style.getPropertyValue('--toolbar-color-'+index)+' || var(--theme-color-' + index2 + '-complementary)=='+document.documentElement.style.getPropertyValue('--toolbar-color-'+index));
             console.log(('var(--theme-color-' + index2 + ')')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index));
-            if((('var(--theme-color-' + index2 + ')')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index)) || (('var(--theme-color-' + index2 + '-complementary)')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index))){((('var(--theme-color-' + index2 + ')')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index))
+            if((('var(--theme-color-' + index2 + ')')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index)) || (('var(--theme-color-' + index2 + '-complementary)')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index))){
             console.log("trued");
                 toolbarIconColorOptionInputDOM.checked="";
             }
