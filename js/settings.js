@@ -89,15 +89,12 @@ function drawToolbarEditMode(target) {
             let toolbarIconColorOptionDOM = document.createElement("label");
             toolbarIconColorOptionDOM.setAttribute("onclick","toolbarEditColor("+index+",'var(--theme-color-" + index2 + ")','var(--theme-color-" + index2 + "-complementary)')");
             let toolbarIconColorOptionInputDOM = document.createElement("input");
-            console.log('var(--theme-color-' + index2 + ')=='+document.documentElement.style.getPropertyValue('--toolbar-color-'+index)+' || var(--theme-color-' + index2 + '-complementary)=='+document.documentElement.style.getPropertyValue('--toolbar-color-'+index));
-            console.log(('var(--theme-color-' + index2 + ')')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index));
             if((('var(--theme-color-' + index2 + ')')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index)) || (('var(--theme-color-' + index2 + '-complementary)')==document.documentElement.style.getPropertyValue('--toolbar-color-'+index))){
-            console.log("trued");
-                toolbarIconColorOptionInputDOM.checked="";
+                toolbarIconColorOptionInputDOM.checked="checked";
             }
             toolbarIconColorOptionInputDOM.type = "radio";
-            toolbarIconColorOptionInputDOM.id = "blabla" + index2;
-            toolbarIconColorOptionInputDOM.name = "color";
+            toolbarIconColorOptionInputDOM.id = "icon"+index+ "color" + index2;
+            toolbarIconColorOptionInputDOM.name = "icon"+index+ "color" + index2;
             let toolbarIconColorOptionDivDOM = document.createElement("div");
             toolbarIconColorOptionDivDOM.style = "--circle-color:var(--theme-color-" + index2 + ");";
 
