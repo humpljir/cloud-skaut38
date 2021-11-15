@@ -24,6 +24,11 @@ function toggleToolbarEditMode() {
     document.getElementById("toolbar-edit-mode-div").classList.toggle("toggle-edit");
 }
 
+function changeHighlightColor(color,colorComplementary) {
+    document.documentElement.style.setProperty('--interactive-color', color);
+    document.documentElement.style.setProperty('--interactive-color-complementary', colorComplementary);
+}
+
 function swapToolbarColor(index) {
     let toolbarColor=document.documentElement.style.getPropertyValue('--toolbar-color-'+index);
     console.log("toolbar color "+toolbarColor);
