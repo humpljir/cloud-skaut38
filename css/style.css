@@ -1029,6 +1029,52 @@ input[type="checkbox"].side-form-switch:checked:after {
   position: absolute;
 }
 
+.side-form .side-color-palette {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 8px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.side-form .side-color-palette label input {
+  display: none;
+}
+
+.side-form .side-color-palette label div {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  margin: 5px;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.side-form .side-color-palette label div::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%,-50%);
+  background-color: var(--circle-color);
+  border-radius: 50%;
+}
+
+.side-form .side-color-palette label input:checked ~ div {
+  background-color: var(--main-bg-color);
+  -webkit-box-shadow: 3px 6px 14px #00000050;
+  box-shadow: 3px 6px 14px #00000050;
+}
+
 .side-form .side-icon-palette {
   max-height: 0;
   display: -webkit-box;
@@ -1093,9 +1139,6 @@ top: 0;
     margin: 4px;
     border-radius: 21px;
     border: 1px solid #00000020;
-}
-
-.side-form .side-icon-palette label {
 }
 
 .side-form .side-icon-palette label input {
