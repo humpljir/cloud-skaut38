@@ -646,6 +646,18 @@
   border: none;
   background: transparent;
   font-size: var(--general-font-size);
+  vertical-align: middle;
+}
+
+.side-return .arrow-icon {
+  display: inline-block;
+  transform: rotate(90deg);
+  --local-color:var(--hyperlink-color);
+  vertical-align: middle;
+  margin-right: 1px;
+}
+.side-return .arrow-icon svg {
+height: 8px;
 }
 
 .side-title {
@@ -714,11 +726,6 @@
   font-size: var(--menu-a-font-size);
 }
 
-.side-category-label-arrow {
-  background-size: cover;
-  background-color: #e1ccd5;
-  border-radius: 50%;
-}
 
 .side-user-name {
   font-size: var(--title-font-size);
@@ -733,10 +740,13 @@
   position: absolute;
   right: 26px;
   top: 23px;
-  height: 8px;
   transform: rotate(-90deg);
-  opacity: 0.3;
   transition: transform 0.4s;
+  --local-color:var(--side-grey-arrow);
+}
+
+.side-category-label-arrow svg {
+height: 8px;
 }
 
 .side-category-open .side-category-label-arrow {

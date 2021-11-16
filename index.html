@@ -35,6 +35,7 @@
                 ],
                 "activePalette": 1,
                 "color-highlight": ["var(--theme-color-3)"],
+                "svgAll":[['arrow-icon','<svg width="20px" height="20px" viewBox="0 0 98.194695 59.097347" version="1.1" id="svg8"> <defs id="defs2" /> <metadata id="metadata5"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <g id="layer1" transform="translate(106.17197,-78.133763)"> <path style="fill:none;stroke:var(--local-color);stroke-width:20;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m -96.171967,88.133763 39.097346,39.097347" id="path1530" /> <path style="fill:none;stroke:var(--local-color);stroke-width:20;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M -17.977275,88.133763 -57.074621,127.23111" id="path1532" /> </g> </svg>']],
             },
             "toolbar": {
                 "onclick": ["openMenu('form-0')", "openMenu('form-1')", "openMenu('form-2')", "openSide()"],
@@ -1578,8 +1579,7 @@
                 </div>
             </div>
             <div id="window-side-div" class="window-side">
-                <button class="side-return" onclick="closeSide()"><img class="roated-return-icon"
-                        src="img/show-icon.svg">return</button>
+                <button class="side-return" onclick="closeSide()"><div class="arrow-icon rotated-return-icon"></div>return</button>
                 <div class="side-title">SETTINGS</div>
                 <div class="side-box">
                     <div class="side-user">
@@ -1591,8 +1591,7 @@
                 <div class="side-box">
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
                                 <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl"
@@ -1611,8 +1610,7 @@
                     </div>
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
                                 <input class="text-box" type="password" id="password" name="password"
@@ -1627,8 +1625,7 @@
                     </div>
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="create-dir" data-submit-label="CREATE">
                                 <label class="side-form-switch-wrapper">
@@ -1763,8 +1760,7 @@
                     </div>
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <div class="arrow-icon side-category-label-arrow"></div></button>
 
                         <div class="side-category-content">
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
@@ -1790,8 +1786,7 @@
                     </div>
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE"><label
                                     class="side-form-switch-wrapper">
@@ -1807,8 +1802,7 @@
                     </div>
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Storage <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Storage <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <div class="side-storage">3.29 GB used of unlimited storage</div>
                         </div>
@@ -1817,8 +1811,8 @@
                 <div class="side-box">
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Log Out</button><img
-                            class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Log Out</button><div class="arrow-icon side-category-label-arrow">
+                            </dv>></button>
                         <div class="side-category-content">
                             <a href="">Switch User</a>
                             <a href="">Log Out</a>
@@ -1826,8 +1820,7 @@
                     </div>
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <a href="mailto:humpljir@fel.cvut.cz">Send Feedback</a>
                             <a href="">Terms and Conditions</a>
@@ -1838,8 +1831,7 @@
                 <div class="side-box">
                     <div class="side-category">
                         <button class="side-category-label"
-                            onclick="this.parentNode.classList.toggle('side-category-open')">About <img
-                                class="side-category-label-arrow" src="img/show-icon.svg"></button>
+                            onclick="this.parentNode.classList.toggle('side-category-open')">About <div class="arrow-icon side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <a href="https://github.com/humpljir/cloud-skaut38/issues">Report a Bug</a>
                             <a href="https://github.com/humpljir/cloud-skaut38">See GIT Repository</a>

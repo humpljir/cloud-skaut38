@@ -82,7 +82,12 @@ function drawDirectories() {
   storage.forEach((element) => {
     let dir = document.createElement("button");
     dir.className = "dir-box";
-    dir.style = "--dir-bg-color:" + element.color + "; --dir-color:"+element.colorComplementary+";";
+    dir.style =
+      "--dir-bg-color:" +
+      element.color +
+      "; --dir-color:" +
+      element.colorComplementary +
+      ";";
     dir.setAttribute("data-dir-id", element.id);
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
@@ -150,34 +155,60 @@ function appendEmptyElements(n, target, chameleonClass) {
 }
 
 function drawToolbar() {
-  target=document.getElementById("toolbar-div");
-  target.innerHTML="";
+  target = document.getElementById("toolbar-div");
+  target.innerHTML = "";
   for (let index = 0; index < toolbarIconCount; index++) {
-      let indexReorder = session.toolbar.reorder[index];
-      if(session.toolbar.display[indexReorder]) {
+    let indexReorder = session.toolbar.reorder[index];
+    if (session.toolbar.display[indexReorder]) {
       let toolbarIconDOM = document.createElement("button");
       toolbarIconDOM.className = "toolbar-button";
       toolbarIconDOM.setAttribute("type", "button");
-      toolbarIconDOM.setAttribute("onclick", session.toolbar.onclick[indexReorder]);
+      toolbarIconDOM.setAttribute(
+        "onclick",
+        session.toolbar.onclick[indexReorder]
+      );
       toolbarIconDOM.setAttribute(
         "style",
         "background-color: var(--toolbar-color-" + indexReorder + ");"
       );
-      toolbarIconDOM.innerHTML = session.toolbar["button" + indexReorder + "svg"];
+      toolbarIconDOM.innerHTML =
+        session.toolbar["button" + indexReorder + "svg"];
       target.append(toolbarIconDOM);
     }
   }
 }
 
+function drawSVGAll() {
+  session.style.svgAll.forEach((svg) => {
+    document.querySelectorAll("." + svg[0]).forEach((element) => {
+      element.innerHTML = svg[1];
+    });
+  });
+}
+
 function loadThemeColors() {
   for (let index = 0; index < colorsInPalette; index++) {
-    document.documentElement.style.setProperty('--theme-color-' + index, session.style.palettes[session.style.activePalette].colors[index]);
-    document.documentElement.style.setProperty('--theme-color-' + index + '-complementary', session.style.palettes[session.style.activePalette].colorComplementary[index]);
+    document.documentElement.style.setProperty(
+      "--theme-color-" + index,
+      session.style.palettes[session.style.activePalette].colors[index]
+    );
+    document.documentElement.style.setProperty(
+      "--theme-color-" + index + "-complementary",
+      session.style.palettes[session.style.activePalette].colorComplementary[
+        index
+      ]
+    );
   }
-  
+
   for (let index = 0; index < toolbarIconCount; index++) {
-    document.documentElement.style.setProperty('--toolbar-color-' + index, session.toolbar.colors[index]);
-    document.documentElement.style.setProperty('--toolbar-color-' + index + '-complementary',session.toolbar.colorsComplementary[index]);
+    document.documentElement.style.setProperty(
+      "--toolbar-color-" + index,
+      session.toolbar.colors[index]
+    );
+    document.documentElement.style.setProperty(
+      "--toolbar-color-" + index + "-complementary",
+      session.toolbar.colorsComplementary[index]
+    );
   }
 }
 
@@ -244,4 +275,5 @@ function initialize() {
   });
 
   sideInit();
+  drawSVGAll();
 }

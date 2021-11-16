@@ -5,6 +5,7 @@
     --main-bg-color: #fff;
     --main-fg-color: #000;
     --main-line-color: #00000020;
+
     --menu-bg-color: #ffffffb8;
     --interactive-color:var(--theme-color-3);
     --interactive-color-complementary:var(--theme-color-3-complementary);
@@ -23,6 +24,7 @@
     --menu-spacing: 6px;
 
     --side-grey-bg:#ededed;
+    --side-grey-arrow:#aaaaaa;
     --side-bg-color:#ededed;
     --side-bg-color-2:#ffffff;
     --side-grey-light:#f2f2f2;
