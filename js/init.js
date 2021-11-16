@@ -182,6 +182,7 @@ function drawSVGAll() {
   session.style.svgAll.forEach((svg) => {
     document.querySelectorAll("." + svg[0]).forEach((element) => {
       element.innerHTML = svg[1];
+      element.classList.remove(svg[0]);
     });
   });
 }

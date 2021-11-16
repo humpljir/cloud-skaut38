@@ -74,15 +74,20 @@ function openDir(target) {
     animatedDir.style.top = viewportOffset.top + "px";
     animatedDir.style.width = target.offsetWidth + "px";
     animatedDir.style.height = target.offsetHeight + "px";
+    animatedDirReturnArrow = document.createElement("div");
+    animatedDirReturnArrow.className="arrow-icon arrow-icon-generate dir-box-return-icon";
     animatedDirReturn = document.createElement("button");
     animatedDirReturn.className = "dir-box-return";
-    animatedDirReturn.innerHTML = "< return";
+    animatedDirReturn.innerHTML = "return";
     animatedDirReturn.setAttribute("onClick", "closeDir()");
+    animatedDirReturn.prepend(animatedDirReturnArrow);
     animatedDir.prepend(animatedDirReturn);
 
     document.getElementById("window-scroll-div").append(animatedDir);
 
     blankCanvas.classList.add("blank-canvas");
+
+    drawSVGAll();
 
     setTimeout(() => {
       animatedDir.classList.add("dir-box-expanded");

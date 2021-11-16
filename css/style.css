@@ -92,6 +92,7 @@
   -webkit-transition: opacity 0.2s;
   -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
+  --local-color:var(--main-fg-color);
 }
 
 .main-wrapper .window .top-bar .top-bar-line .top-bar-button svg {
@@ -363,12 +364,26 @@
   pointer-events: none;
 }
 
+
 .dir-box-return {
-  border: none;
-  background-color: transparent;
+  vertical-align: middle;
   color: var(--dir-color);
-  font-size: var(--general-font-size);
+  border: none;
   padding: 5px 0;
+  background: transparent;
+  font-size: var(--general-font-size);
+  vertical-align: middle;
+}
+
+.dir-box-return .arrow-icon {
+  display: inline-block;
+  transform: rotate(90deg);
+  --local-color:var(--dir-color);
+  vertical-align: middle;
+  margin-right: 1px;
+}
+.dir-box-return .arrow-icon svg {
+height: 8px;
 }
 
 /*
