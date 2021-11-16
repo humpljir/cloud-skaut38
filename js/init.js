@@ -28,7 +28,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
     target.style.top = y + `px`;
     target.style.left = x + `px`;
     target.classList.add("visible");
-    document.getElementById("main-wrapper-div").classList.add("icon-bar-hide");
+    document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
   }
 
   scope.addEventListener("contextmenu", (event) => {
@@ -150,13 +150,13 @@ function appendEmptyElements(n, target, chameleonClass) {
 }
 
 function drawToolbar() {
-  target=document.getElementById("icon-bar-div");
+  target=document.getElementById("toolbar-div");
   target.innerHTML="";
   for (let index = 0; index < toolbarIconCount; index++) {
       let indexReorder = session.toolbar.reorder[index];
       if(session.toolbar.display[indexReorder]) {
       let toolbarIconDOM = document.createElement("button");
-      toolbarIconDOM.className = "icon-bar-button";
+      toolbarIconDOM.className = "toolbar-button";
       toolbarIconDOM.setAttribute("type", "button");
       toolbarIconDOM.setAttribute("onclick", session.toolbar.onclick[indexReorder]);
       toolbarIconDOM.setAttribute(

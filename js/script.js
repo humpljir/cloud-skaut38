@@ -1,6 +1,6 @@
 function changeHTMLTheme(color) {
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
-    metaThemeColor.setAttribute("content", color);
+  metaThemeColor.setAttribute("content", color);
 }
 
 function closeMenu() {
@@ -8,43 +8,26 @@ function closeMenu() {
 }
 
 function openMenu(target) {
-  document.querySelectorAll("#menu-formbox-div form").forEach((element) => {
-    element.classList.remove("form-visible");
-  });
-  document.getElementById(target).classList.add("form-visible");
-  document.getElementById("menu-submit-button").innerHTML = document
-    .getElementById(target)
-    .getAttribute("data-submit-label");
-  document.getElementById("menu-submit-button").setAttribute("form", target);
-  document.getElementById("main-wrapper-div").classList.add("menu-open");
-}
-
-function openSide() {
-  changeHTMLTheme(document.documentElement.style.getPropertyValue('--side-grey-bg'));
-  document.documentElement.scrollTop = 0;
-  document.getElementById("main-wrapper-div").classList.add("side-open");
-  document.getElementById("main-wrapper-div").classList.add("top-bar-hide");
-  document.getElementById("main-wrapper-div").classList.add("icon-bar-hide");
-
-  setTimeout(() => {
-    document.getElementById("main-wrapper-div").classList.add("side-enable");
-  }, 1000);
-}
-
-function closeSide() {
-  changeHTMLTheme(document.documentElement.style.getPropertyValue('--main-bg-color'))
-  document.documentElement.scrollTop = 0;
-  document.getElementById("main-wrapper-div").classList.remove("side-enable");
-  document.getElementById("main-wrapper-div").classList.remove("side-open");
-  document.getElementById("main-wrapper-div").classList.remove("top-bar-hide");
-  if (session.settings.toolbarVisible) {
-    document
-      .getElementById("main-wrapper-div")
-      .classList.remove("icon-bar-hide");
+  if (!document.querySelector(".submenu-wrapper.visible")) {
+    document.querySelectorAll("#menu-formbox-div form").forEach((element) => {
+      element.classList.remove("form-visible");
+    });
+    document.getElementById(target).classList.add("form-visible");
+    document.getElementById("menu-submit-button").innerHTML = document
+      .getElementById(target)
+      .getAttribute("data-submit-label");
+    document.getElementById("menu-submit-button").setAttribute("form", target);
+    document.getElementById("main-wrapper-div").classList.add("menu-open");
   }
 }
 
 function closeAllSubmenus() {
+  if (session.settings.toolbarVisible) {
+    document
+      .getElementById("main-wrapper-div")
+      .classList.remove("toolbar-hide");
+  }
+
   document.querySelectorAll(".submenu-wrapper.visible").forEach((element) => {
     element.classList.remove("visible");
   });
@@ -61,7 +44,9 @@ function toggleDisplayStyle() {
 }
 
 function closeDir() {
-  changeHTMLTheme(document.documentElement.style.getPropertyValue('--main-bg-color'));
+  changeHTMLTheme(
+    document.documentElement.style.getPropertyValue("--main-bg-color")
+  );
   blankCanvas = document.getElementById("blank-canvas");
 
   blankCanvas.classList.add("blank-canvas");
@@ -73,55 +58,57 @@ function closeDir() {
 }
 
 function openDir(target) {
-  changeHTMLTheme(target.style.getPropertyValue('--dir-bg-color'));
-  id = target.getAttribute("data-dir-id");
-  style = target.getAttribute("style");
-  let viewportOffset = target.getBoundingClientRect();
+  if (!document.querySelector(".submenu-wrapper.visible")) {
+    changeHTMLTheme(target.style.getPropertyValue("--dir-bg-color"));
+    id = target.getAttribute("data-dir-id");
+    style = target.getAttribute("style");
+    let viewportOffset = target.getBoundingClientRect();
 
-  blankCanvas = document.getElementById("blank-canvas");
+    blankCanvas = document.getElementById("blank-canvas");
 
-  animatedDir = document.createElement("div");
-  animatedDir.innerHTML = target.innerHTML;
-  animatedDir.classList.add("dir-box-animated");
-  animatedDir.style = style;
-  animatedDir.style.left = viewportOffset.left + "px";
-  animatedDir.style.top = viewportOffset.top + "px";
-  animatedDir.style.width = target.offsetWidth + "px";
-  animatedDir.style.height = target.offsetHeight + "px";
-  animatedDirReturn = document.createElement("button");
-  animatedDirReturn.className = "dir-box-return";
-  animatedDirReturn.innerHTML = "< return";
-  animatedDirReturn.setAttribute("onClick", "closeDir()");
-  animatedDir.prepend(animatedDirReturn);
+    animatedDir = document.createElement("div");
+    animatedDir.innerHTML = target.innerHTML;
+    animatedDir.classList.add("dir-box-animated");
+    animatedDir.style = style;
+    animatedDir.style.left = viewportOffset.left + "px";
+    animatedDir.style.top = viewportOffset.top + "px";
+    animatedDir.style.width = target.offsetWidth + "px";
+    animatedDir.style.height = target.offsetHeight + "px";
+    animatedDirReturn = document.createElement("button");
+    animatedDirReturn.className = "dir-box-return";
+    animatedDirReturn.innerHTML = "< return";
+    animatedDirReturn.setAttribute("onClick", "closeDir()");
+    animatedDir.prepend(animatedDirReturn);
 
-  document.getElementById("window-scroll-div").append(animatedDir);
+    document.getElementById("window-scroll-div").append(animatedDir);
 
-  blankCanvas.classList.add("blank-canvas");
-
-  setTimeout(() => {
-    animatedDir.classList.add("dir-box-expanded");
-    animatedDir.style.left = "";
-    animatedDir.style.top = "";
-    animatedDir.style.width = "";
-    animatedDir.style.height = "";
+    blankCanvas.classList.add("blank-canvas");
 
     setTimeout(() => {
-      document.documentElement.scrollTop = 0;
-
-      drawFiles(id);
-
-      headerDir = animatedDir.cloneNode(true);
-      headerDir.className = "dir-header";
-      headerSpacer = document.createElement("div");
-      headerSpacer.className = "dir-header-spacer";
-      blankCanvas.prepend(headerSpacer);
-      blankCanvas.prepend(headerDir);
-
-      blankCanvas.classList.remove("blank-canvas");
+      animatedDir.classList.add("dir-box-expanded");
+      animatedDir.style.left = "";
+      animatedDir.style.top = "";
+      animatedDir.style.width = "";
+      animatedDir.style.height = "";
 
       setTimeout(() => {
-        animatedDir.remove();
+        document.documentElement.scrollTop = 0;
+
+        drawFiles(id);
+
+        headerDir = animatedDir.cloneNode(true);
+        headerDir.className = "dir-header";
+        headerSpacer = document.createElement("div");
+        headerSpacer.className = "dir-header-spacer";
+        blankCanvas.prepend(headerSpacer);
+        blankCanvas.prepend(headerDir);
+
+        blankCanvas.classList.remove("blank-canvas");
+
+        setTimeout(() => {
+          animatedDir.remove();
+        }, 400);
       }, 400);
-    }, 400);
-  }, 100);
+    }, 100);
+  }
 }

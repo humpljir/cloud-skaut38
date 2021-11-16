@@ -1,15 +1,15 @@
 @media only screen and (min-width: 450px) {
-    .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
+    .main-wrapper .toolbar-wrapper .toolbar .toolbar-button {
         max-width: unset;
         width: unset;
         height: calc(100% - 16px);
     }
 
-    .main-wrapper .icon-bar-wrapper .icon-bar {
+    .main-wrapper .toolbar-wrapper .toolbar {
         height: 100%;
     }
 
-    .main-wrapper .icon-bar-wrapper {
+    .main-wrapper .toolbar-wrapper {
         width: fit-content;
         width: -moz-fit-content;
         height: 120px;
