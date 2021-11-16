@@ -1,10 +1,18 @@
 @media only screen and (min-width: 450px) {
     .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
         max-width: unset;
+        width: unset;
+        height: calc(100% - 16px);
+    }
+
+    .main-wrapper .icon-bar-wrapper .icon-bar {
+        height: 100%;
     }
 
     .main-wrapper .icon-bar-wrapper {
-        width: 360px;
+        width: fit-content;
+        width: -moz-fit-content;
+        height: 120px;
     }
 
     .main-wrapper .menu-wrapper {

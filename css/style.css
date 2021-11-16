@@ -1413,7 +1413,7 @@ img.roated-return-icon svg {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .main-wrapper .icon-bar-wrapper .icon-bar .icon-bar-button {
