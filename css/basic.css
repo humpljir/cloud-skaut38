@@ -80,7 +80,7 @@ body {
         sans-serif;
     font-weight: 400;
     font-size: var(--general-font-size);
-    background: linear-gradient(10deg, var(--side-bg-color) 10%, var(--side-bg-color-2) 40%);
+    background: linear-gradient(340deg, var(--side-bg-color) 10%, var(--side-bg-color-2) 40%);
     background-attachment: fixed;
 }
 

@@ -262,7 +262,7 @@
   margin: 3px 4px;
   width: 100%;
   height: unset;
-  padding: 8px 16px;
+  padding: 18px 22px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-weight: 800;
@@ -426,8 +426,8 @@
 .submenu-dots {
   width: 30px;
   position: absolute;
-  bottom: 2px;
-  right: 5px;
+  bottom: 11px;
+  right: 11px;
 }
 
 .file-box .submenu-dots {
