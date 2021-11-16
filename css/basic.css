@@ -1,6 +1,10 @@
 :root {
+    --white-color:#fff;
+    --black-color:#000;
+
     --main-bg-color: #fff;
     --main-fg-color: #000;
+    --main-line-color: #00000020;
     --menu-bg-color: #ffffffb8;
     --interactive-color:var(--theme-color-3);
     --interactive-color-complementary:var(--theme-color-3-complementary);
@@ -19,7 +23,12 @@
     --menu-spacing: 6px;
 
     --side-grey-bg:#ededed;
+    --side-bg-color:#ededed;
+    --side-bg-color-2:#ffffff;
     --side-grey-light:#f2f2f2;
+
+    --fluent-border-light:#ffffff99;
+    --fluent-border-dark:#00000020;
 
     --theme-color-0:#8b2c33;
     --theme-color-1:#E63946;
@@ -71,7 +80,7 @@ body {
         sans-serif;
     font-weight: 400;
     font-size: var(--general-font-size);
-    background: linear-gradient(10deg, hsl(18deg 10% 90%) 10%, #ffffff 40%);
+    background: linear-gradient(10deg, var(--side-bg-color) 10%, var(--side-bg-color-2) 40%);
     background-attachment: fixed;
 }
 
@@ -92,6 +101,10 @@ a {
     -webkit-backdrop-filter: saturate(4) blur(20px);
     backdrop-filter: saturate(4) blur(20px);
     background: var(--menu-bg-color) url(../img/noise.svg);
+}
+
+.dark-theme .fluent-bg {
+    background: var(--menu-bg-color) url(../img/noise_dark.svg);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');

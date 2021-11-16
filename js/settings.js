@@ -20,6 +20,36 @@ function toolbarEditColor(index,color,colorComplementary) {
     document.documentElement.style.setProperty('--toolbar-color-'+index+'-complementary', colorComplementary);
 }
 
+function toggleDarkTheme() {
+    session.style.darkTheme=!session.style.darkTheme;
+    if(session.style.darkTheme) {
+        document.body.classList.add("dark-theme");
+        document.documentElement.style.setProperty('--main-bg-color','#000');
+        document.documentElement.style.setProperty('--main-fg-color','#fff');
+        document.documentElement.style.setProperty('--main-line-color','#ffffff20');
+        document.documentElement.style.setProperty('--menu-bg-color','#2d2d2dc7');
+        document.documentElement.style.setProperty('--side-bg-color','#000');
+        document.documentElement.style.setProperty('--side-bg-color-2','#282828');
+        document.documentElement.style.setProperty('--side-grey-light','#4f4f4f');
+        document.documentElement.style.setProperty('--fluent-border-light','#ffffff24');
+        document.documentElement.style.setProperty('--fluent-border-dark','#00000084');
+        document.documentElement.style.setProperty('--hyperlink-color','#3e74ff');
+    }
+    else {
+        document.body.classList.remove("dark-theme");
+        document.documentElement.style.setProperty('--main-bg-color','#fff');
+        document.documentElement.style.setProperty('--main-fg-color','#000');
+        document.documentElement.style.setProperty('--main-line-color','#00000020');
+        document.documentElement.style.setProperty('--menu-bg-color','#ffffffb8');
+        document.documentElement.style.setProperty('--side-bg-color','#ededed');
+        document.documentElement.style.setProperty('--side-bg-color-2','#ffffff');
+        document.documentElement.style.setProperty('--side-grey-light','#f2f2f2');
+        document.documentElement.style.setProperty('--fluent-border-light','#ffffff99');
+        document.documentElement.style.setProperty('--fluent-border-dark','#00000020');
+        document.documentElement.style.setProperty('--hyperlink-color','#1a4ed2');
+    }
+}
+
 function toggleToolbarEditMode() {
     document.getElementById("toolbar-edit-mode-div").classList.toggle("toggle-edit");
 }
