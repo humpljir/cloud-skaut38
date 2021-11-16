@@ -439,14 +439,18 @@ height: 8px;
 }
 
 .submenu-dots {
-  width: 30px;
   position: absolute;
-  bottom: 11px;
+  bottom: 6px;
   right: 11px;
 }
 
+.submenu-dots svg {
+    width: 30px;
+    height: 30px;
+    --local-color: var(--dir-color);
+}
+
 .file-box .submenu-dots {
-  filter: invert(1) contrast(0);
   bottom: 50%;
   transform: translateY(50%);
   right: 14px;
@@ -457,6 +461,12 @@ height: 8px;
   bottom: unset;
   top: 3px;
   filter: none;
+}
+
+.file-box .submenu-dots svg {
+  width: 30px;
+  height: 30px;
+  --local-color: var(--main-fg-color);
 }
 
 .submenu-dots {

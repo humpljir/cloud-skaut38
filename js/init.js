@@ -51,9 +51,8 @@ function generateSubmenu(scope, targettype, fileid, options) {
     openSubmenu(x, y, submenu);
   });
 
-  let submenuDots = document.createElement("img");
-  submenuDots.src = "img/submenu_dots.svg";
-  submenuDots.className = "submenu-dots";
+  let submenuDots = document.createElement("div");
+  submenuDots.className = "three-dots-icon-generate submenu-dots";
   submenuDots.addEventListener("click", (e) => {
     closeAllSubmenus();
     let rect = e.target.parentNode.getBoundingClientRect();
@@ -104,6 +103,7 @@ function drawDirectories() {
     canvas.append(dir);
   });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "dir-box");
+  drawSVGAll();
 }
 
 function drawFiles(dirID) {
@@ -144,6 +144,7 @@ function drawFiles(dirID) {
     canvas.append(fileboxflex);
   });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "file-box");
+  drawSVGAll();
 }
 
 function appendEmptyElements(n, target, chameleonClass) {
