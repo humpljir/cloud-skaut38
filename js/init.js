@@ -28,6 +28,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
     target.style.top = y + `px`;
     target.style.left = x + `px`;
     target.classList.add("visible");
+    document.getElementById("main-wrapper-div").classList.add("icon-bar-hide");
   }
 
   scope.addEventListener("contextmenu", (event) => {
