@@ -216,7 +216,7 @@ function drawToolbarEditMode(target) {
         toolbarIconColorOptionInputDOM.checked = "checked";
       }
       toolbarIconColorOptionInputDOM.type = "radio";
-      toolbarIconColorOptionInputDOM.id = "icon" + index + "color";
+      toolbarIconColorOptionInputDOM.id = "icon" + index + "color"+index2;
       toolbarIconColorOptionInputDOM.name = "icon" + index + "color";
       let toolbarIconColorOptionDivDOM = document.createElement("div");
       toolbarIconColorOptionDivDOM.style =

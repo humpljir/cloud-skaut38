@@ -40,6 +40,10 @@ function generateSubmenu(scope, targettype, fileid, options) {
         document.body.offsetHeight,
         submenu.offsetHeight
       ) - rect.top;
+      console.log(event.clientY,
+        document.body.offsetHeight,
+        submenu.offsetHeight
+        - rect.top,y);
 
     openSubmenu(x, y, submenu);
   });
@@ -48,7 +52,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
   submenuDots.className = "three-dots-icon-generate submenu-dots";
   submenuDots.addEventListener("click", (e) => {
     closeAllSubmenus();
-    let rect = e.target.parentNode.getBoundingClientRect();
+    let rect = e.target.parentNode.parentNode.getBoundingClientRect();
     let x =
       normalizeValue(
         event.clientX,

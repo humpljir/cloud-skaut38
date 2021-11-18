@@ -42,11 +42,11 @@
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
                                 <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl"
                                     placeholder="Full Name">
-                                <input class="text-box" type="text" id="username" name="username" value="humpljir"
+                                <input class="text-box" type="text" id="nick" name="nickname" value="humpljir"
                                     placeholder="Username">
                                 <label class="side-form-img-upload">
                                     <div class="img-upload-icon"></div>Change Profile Picture
-                                    <input type="file" id="upload" name="upload" placeholder="upload">
+                                    <input type="file" id="pic_upload" name="upload" placeholder="upload">
                                 </label>
                                 <div class="side-form-buttons"><input type="reset"
                                         onclick="this.closest('.side-form').classList.remove('form-changed')"
@@ -60,9 +60,9 @@
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
-                                <input class="text-box" type="password" id="password" name="password"
+                                <input class="text-box" type="password" id="new_password" name="password"
                                     placeholder="new password">
-                                <input class="text-box" type="password" id="password_check" name="password_check"
+                                <input class="text-box" type="password" id="new_password_check" name="password_check"
                                     placeholder="password again">
                                 <div class="side-form-buttons"><input type="reset"
                                         onclick="this.closest('.side-form').classList.remove('form-changed')"
@@ -75,7 +75,7 @@
                             onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <div
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
-                            <form class="side-form" id="create-dir" data-submit-label="CREATE">
+                            <form class="side-form" id="form-appearence" data-submit-label="CREATE">
                                 <label class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Turn On Dark Theme</span><input
                                         onclick="toggleDarkTheme()" type="checkbox" class="side-form-switch">
@@ -92,55 +92,55 @@
                                 </div>
                                 <div class="side-theme-selector">
                                     <label>
-                                        <input type="radio" id="#78412C" name="palette" data-palette-nr=0
+                                        <input type="radio" id="theme-0" name="palette" data-palette-nr=0
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#AB5530" name="palette" checked data-palette-nr=1
+                                        <input type="radio" id="theme-1" name="palette" checked data-palette-nr=1
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #E63946;--theme-palette:#457B9D 0%, #457B9D 20%, #1D3557 20%, #1D3557 40%,#A8DADC 40%, #A8DADC 60%,#F1FAEE 60%, #F1FAEE 80%,#8b2c33 80%, #8b2c33 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#D46025" name="palette" data-palette-nr=2
+                                        <input type="radio" id="theme-2" name="palette" data-palette-nr=2
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#F17F29" name="palette" data-palette-nr=3
+                                        <input type="radio" id="theme-3" name="palette" data-palette-nr=3
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#8C9496" name="palette" data-palette-nr=4
+                                        <input type="radio" id="theme-4" name="palette" data-palette-nr=4
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#A4778B" name="palette" data-palette-nr=5
+                                        <input type="radio" id="theme-5" name="palette" data-palette-nr=5
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label><label>
-                                        <input type="radio" id="#6D4E62" name="palette" data-palette-nr=6
+                                        <input type="radio" id="theme-6" name="palette" data-palette-nr=6
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#40433F" name="palette" data-palette-nr=7
+                                        <input type="radio" id="theme-7" name="palette" data-palette-nr=7
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                         </div>
                                     </label> <label>
-                                        <input type="radio" id="#537E49" name="palette" data-palette-nr=8
+                                        <input type="radio" id="theme-8" name="palette" data-palette-nr=8
                                             onclick="changePalette(this.getAttribute('data-palette-nr'))">
                                         <div
                                             style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
@@ -212,7 +212,7 @@
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
 
                         <div class="side-category-content">
-                            <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
+                            <form class="side-form" id="form-toolbar-edit" data-submit-label="USERCHANGE">
                                 <label class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Show Toolbar</span><input type="checkbox"
                                         onchange="switchSessionVal('toolbarVisible',this.checked)" checked
@@ -238,7 +238,7 @@
                             onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
-                            <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE"><label
+                            <form class="side-form" id="form-notifications" data-submit-label="USERCHANGE"><label
                                     class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Turn On PWA Notifications</span><input
                                         type="checkbox" class="side-form-switch"
