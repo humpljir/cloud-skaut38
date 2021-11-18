@@ -24,13 +24,6 @@ function generateSubmenu(scope, targettype, fileid, options) {
     }
   }
 
-  function openSubmenu(x, y, target) {
-    target.style.top = y + `px`;
-    target.style.left = x + `px`;
-    target.classList.add("visible");
-    document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
-  }
-
   scope.addEventListener("contextmenu", (event) => {
     closeAllSubmenus();
 

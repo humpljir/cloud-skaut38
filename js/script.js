@@ -21,6 +21,13 @@ function openMenu(target) {
   }
 }
 
+function openSubmenu(x, y, target) {
+  target.style.top = y + `px`;
+  target.style.left = x + `px`;
+  target.classList.add("visible");
+  document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
+}
+
 function closeAllSubmenus() {
   if (session.settings.toolbarVisible) {
     document
