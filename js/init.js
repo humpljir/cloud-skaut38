@@ -40,10 +40,12 @@ function generateSubmenu(scope, targettype, fileid, options) {
         document.body.offsetHeight,
         submenu.offsetHeight
       ) - rect.top;
-      console.log(event.clientY,
-        document.body.offsetHeight,
-        submenu.offsetHeight
-        - rect.top,y);
+    console.log(
+      event.clientY,
+      document.body.offsetHeight,
+      submenu.offsetHeight - rect.top,
+      y
+    );
 
     openSubmenu(x, y, submenu);
   });
@@ -213,8 +215,10 @@ function loadThemeColors() {
 
 function initialize() {
   loadThemeColors();
-  drawDirectories();
-  drawToolbar();
+  if (document.getElementById("blank-canvas")) {
+    drawDirectories();
+    drawToolbar();
+  }
 
   let scrollYLast = 0;
   let scrollYDistance = 0;
@@ -273,6 +277,8 @@ function initialize() {
     scrollYLast = scrollY;
   });
 
+  if (document.getElementById("blank-canvas")) {
   sideInit();
+  }
   drawSVGAll();
 }
