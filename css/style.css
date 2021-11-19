@@ -20,28 +20,32 @@
 .main-wrapper .window::after {
   content: "";
   position: absolute;
+  background: transparent;
   -webkit-transition: -webkit-backdrop-filter 0.4s;
   transition: -webkit-backdrop-filter 0.4s;
   -o-transition: backdrop-filter 0.4s;
   transition: backdrop-filter 0.4s;
   transition: backdrop-filter 0.4s, -webkit-backdrop-filter 0.4s;
-}
-
-.main-wrapper.menu-open .window::after {
-  -webkit-backdrop-filter: contrast(0.2) brightness(1.55) saturate(2) blur(24px);
-  backdrop-filter: contrast(0.2) brightness(1.55) saturate(2) blur(24px);
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
+}
+
+.main-wrapper.menu-open .window::after {
+  -webkit-backdrop-filter: contrast(0.2) brightness(1.55) saturate(2) blur(24px);
+  backdrop-filter: contrast(0.2) brightness(1.55) saturate(2) blur(24px);
+  pointer-events: all;
 }
 
 
 .dark-theme .main-wrapper.menu-open .window::after {
   -webkit-backdrop-filter: contrast(0.3) brightness(0.3) saturate(2) blur(24px);
   backdrop-filter: contrast(0.3) brightness(0.3) saturate(2) blur(24px);
+  pointer-events: all;
 }
 
 .main-wrapper .window .top-bar {
@@ -284,7 +288,7 @@
 
 .main-wrapper.display-as-tiles .window .window-scroll .window-inner .dir-box {
   margin: 4px;
-  width: 127px;
+  width: 100px;
   height: 120px;
   padding: 10px 20px 50px 10px;
 }
@@ -841,9 +845,12 @@ height: 8px;
   align-items: baseline;
 }
 
-.side-form-buttons {
+.side-form .side-form-buttons {
   padding: 0px 0;
   margin: 0 -5px;
+  width: calc(100% + 10px);
+  display: flex;
+  flex-wrap: nowrap;
   max-height: 0px;
   transition: padding 0.4s, max-height 0.4s;
   overflow: hidden;
@@ -856,7 +863,7 @@ height: 8px;
 
 .side-form-buttons input {
   color: var(--main-fg-color);
-  width: calc(50% - 10px);
+  min-width: 50px;
   height: 51px;
   border-radius: var(--menu-border-radius);
   border: none;
@@ -867,6 +874,7 @@ height: 8px;
   font-weight: 700;
   margin: 5px;
   background-color: var(--side-grey-light);
+  flex-grow: 1;
 }
 
 .side-form-buttons input.side-form-submit {
