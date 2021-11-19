@@ -8,6 +8,7 @@
 
     --menu-bg-color: #ffffffb8;
     --interactive-color:var(--theme-color-3);
+    --login-color-var:var(--theme-color-3);
     --interactive-color-complementary:var(--theme-color-3-complementary);
     --hyperlink-color: #1a4ed2;
 

@@ -11,8 +11,8 @@ var session = {
                 "colors": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"],
                 "colorComplementary": ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#7B7B42", "#1E1800"]
             }, {
-                "colors": ["#8b2c33", "#E63946", "#1D3557", "#457B9D", "#A8DADC", "#F1FAEE", "#457B9D", "#457B9D", "#457B9D", "#457B9D", "#457B9D", "#457B9D"],
-                "colorComplementary": ["#F1FAEE", "#F1FAEE", "#A8DADC", "#A8DADC", "#1D3557", "#8b2c33", "#F1FAEE", "#F1FAEE", "#F1FAEE", "#F1FAEE", "#F1FAEE", "#F1FAEE"]
+                "colors": ["#8b2c33", "#E63946", "#1D3557", "#457B9D", "#A8DADC", "#F1FAEE", "#A1E887", "#41D3BD", "#80B192", "#FFE066", "#FBCAEF", "#FF9AE6"],
+                "colorComplementary": ["#F1FAEE", "#F1FAEE", "#A8DADC", "#A8DADC", "#1D3557", "#8b2c33", "#F1FAEE", "#F1FAEE", "#000000", "#000000", "#000000", "#F1FAEE"]
             }, {
                 "colors": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"],
                 "colorComplementary": ["#78412C", "#AB5530", "#D46025", "#F17F29", "#8C9496", "#A4778B", "#6D4E62", "#40433F", "#537E49", "#8A9860", "#7B7B42", "#1E1800"]

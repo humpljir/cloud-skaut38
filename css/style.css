@@ -1381,13 +1381,13 @@ img.roated-return-icon svg {
   font-size: var(--menu-a-font-size);
 }
 
-.main-wrapper .menu-wrapper .menu-button-wrapper {
+.main-wrapper .menu-button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.main-wrapper .menu-wrapper .menu-button-wrapper .menu-button {
+.main-wrapper .menu-button-wrapper .menu-button {
   border-radius: var(--menu-border-radius);
   color: var(--main-fg-color);
 
@@ -1402,12 +1402,12 @@ img.roated-return-icon svg {
   font-weight: 700;
 }
 
-.main-wrapper .menu-wrapper .menu-button-wrapper .menu-button-submit {
+.main-wrapper .menu-button-wrapper .menu-button-submit {
   background-color: var(--interactive-color);
   color: var(--interactive-color-complementary);
 }
 
-.main-wrapper .menu-wrapper .menu-button-wrapper .menu-button:focus-visible {
+.main-wrapper .menu-button-wrapper .menu-button:focus-visible {
   outline: none;
   -webkit-filter: brightness(0.86);
   filter: brightness(0.86);
@@ -1489,4 +1489,50 @@ img.roated-return-icon svg {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+
+
+#rect1649 {
+  fill: var(--theme-color-3);
+  animation: colorDisco 60s ease infinite;
+}
+
+@keyframes colorDisco {
+  0% {
+    fill: var(--theme-color-0);
+  }
+  10% {
+    fill: var(--theme-color-1);
+  }
+  30% {
+    fill: var(--theme-color-2);
+  }
+  40% {
+    fill: var(--theme-color-3);
+  }
+  50% {
+    fill: var(--theme-color-4);
+  }
+  60% {
+    fill: var(--theme-color-5);
+  }
+  65% {
+    fill: var(--theme-color-6);
+  }
+  70% {
+    fill: var(--theme-color-7);
+  }
+  75% {
+    fill: var(--theme-color-8);
+  }
+  80% {
+    fill: var(--theme-color-9);
+  }
+  85% {
+    fill: var(--theme-color-10);
+  }
+  90% {
+    fill: var(--theme-color-11);
+  }
 }
