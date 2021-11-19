@@ -15,7 +15,7 @@
 </head>
 
 <body onload="initialize()">
-    <div class="main-wrapper top-bar-open display-as-tiles" id="main-wrapper-div">
+    <div class="main-wrapper display-as-tiles" id="main-wrapper-div">
         <div class="window" onclick="closeMenu()">
             <div class="window-scroll" id="window-scroll-div">
 
@@ -44,22 +44,8 @@
                                     transform="matrix(0.26458333,0,0,0.26458333,-38.365964,164.94903)" />
                             </g>
                         </svg></a>
-                    <button type="button" class="top-bar-button" onclick="openTopbar()">
-                        <div class="arrow-icon arrow-icon-generate"></div>
-                    </button>
                 </div>
                 <div class="top-bar-line">
-                    <button type="button" class="top-bar-switcher" onclick="toggleDisplayStyle()">
-                        <div>PUBLIC</div>
-                        <div>PRIVATE</div>
-                    </button>
-                    <button type="button" class="top-bar-display" onclick="toggleDisplayStyle()">
-                        <div><svg width="100%" height="100%" viewBox="0 0 2656.0052 743.00734" version="1.1" id="svg8">
-                                <path id="rect2361-7-5-9-28-3"
-                                    style="opacity:0.99813;fill:var(--main-fg-color);fill-opacity:1;stroke:none;stroke-width:408.472;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:408.472, 408.472;stroke-dashoffset:0;stroke-opacity:1"
-                                    d="M 0 0 L 0 1297.2598 L 1297.2617 1297.2598 L 1297.2617 0 L 0 0 z M 1490.957 0 L 1490.957 1297.2598 L 2788.2168 1297.2598 L 2788.2168 0 L 1490.957 0 z M 7250.2363 20 L 7250.2363 571.7832 L 7802.0176 571.7832 L 7802.0176 20 L 7250.2363 20 z M 7995.707 20 L 7995.707 571.7832 L 10038.445 571.7832 L 10038.445 20 L 7995.707 20 z M 7250.2363 765.47852 L 7250.2363 1317.2598 L 7802.0176 1317.2598 L 7802.0176 765.47852 L 7250.2363 765.47852 z M 7995.707 765.47852 L 7995.707 1317.2617 L 10038.445 1317.2617 L 10038.445 765.47852 L 7995.707 765.47852 z M 0 1490.9551 L 0 2788.2168 L 1297.2617 2788.2168 L 1297.2617 1490.9551 L 0 1490.9551 z M 1490.957 1490.9551 L 1490.957 2788.2168 L 2788.2168 2788.2168 L 2788.2168 1490.9551 L 1490.957 1490.9551 z M 7250.2363 1510.9551 L 7250.2363 2062.7383 L 7802.0176 2062.7383 L 7802.0176 1510.9551 L 7250.2363 1510.9551 z M 7995.707 1510.957 L 7995.707 2062.7383 L 10038.445 2062.7383 L 10038.445 1510.957 L 7995.707 1510.957 z M 7250.2363 2256.4336 L 7250.2363 2808.2168 L 7802.0176 2808.2168 L 7802.0176 2256.4336 L 7250.2363 2256.4336 z M 7995.707 2256.4336 L 7995.707 2808.2168 L 10038.445 2808.2168 L 10038.445 2256.4336 L 7995.707 2256.4336 z "
-                                    transform="scale(0.26458335)" />
-                            </svg></div>
                 </div>
             </div>
         </div>
@@ -69,63 +55,6 @@
                     <input type="text" id="username" name="username" placeholder="username">
                     <input type="password" id="password" name="password" placeholder="password">
                     <a href="">forgot password</a>
-                </form>
-                <form class="" id="form-0" data-submit-label="UPLOAD">
-                    <input type="text" id="file-name" name="file-name" placeholder="file name">
-                    <label class="file-upload">
-                        <div>select file</div>
-                        <input type="file" id="file-upload" name="file-upload" placeholder="upload">
-                    </label>
-                </form>
-                <form class="" id="form-1" data-submit-label="UPLOAD">
-                    <input type="text" id="picture-name" name="picture-name" placeholder="picture name">
-                    <label class="file-upload">
-                        <div>select picture</div>
-                        <input type="file" id="upload" name="upload" placeholder="upload">
-                    </label>
-                </form>
-                <form class="" id="form-2" data-submit-label="CREATE">
-                    <input type="text" id="dir-name" name="dir-name" placeholder="directory name">
-                    <div class="color-selector">
-                        <label>
-                            <input type="radio" id="#78412C" name="color">
-                            <div style="--circle-color: #78412C;"></div>
-                        </label> <label>
-                            <input type="radio" id="#AB5530" name="color">
-                            <div style="--circle-color: #AB5530;"></div>
-                        </label> <label>
-                            <input type="radio" id="#D46025" name="color">
-                            <div style="--circle-color: #D46025;"></div>
-                        </label> <label>
-                            <input type="radio" id="#F17F29" name="color">
-                            <div style="--circle-color: #F17F29;"></div>
-                        </label> <label>
-                            <input type="radio" id="#8C9496" name="color">
-                            <div style="--circle-color: #8C9496;"></div>
-                        </label> <label>
-                            <input type="radio" id="#A4778B" name="color">
-                            <div style="--circle-color: #A4778B;"></div>
-                        </label><label>
-                            <input type="radio" id="#6D4E62" name="color">
-                            <div style="--circle-color: #6D4E62;"></div>
-                        </label> <label>
-                            <input type="radio" id="#40433F" name="color">
-                            <div style="--circle-color: #40433F;"></div>
-                        </label> <label>
-                            <input type="radio" id="#537E49" name="color">
-                            <div style="--circle-color: #537E49;"></div>
-                        </label> <label>
-                            <input type="radio" id="#8A9860" name="color">
-                            <div style="--circle-color: #8A9860;"></div>
-                        </label> <label>
-                            <input type="radio" id="#7B7B42" name="color">
-                            <div style="--circle-color: #7B7B42;"></div>
-                        </label> <label>
-                            <input type="radio" id="#1E1800" name="color">
-                            <div style="--circle-color: #1E1800;"></div>
-                        </label>
-
-                    </div>
                 </form>
             </div>
             <div class="menu-spacer"></div>
