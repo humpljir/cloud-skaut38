@@ -195,10 +195,9 @@ function loadThemeColors() {
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      session.style.palettes[session.style.activePalette].colorComplementary[
-        index
-      ]
+      session.style.palettes[session.style.activePalette].colorComplementary[index]
     );
+    console.log(session.style.palettes[session.style.activePalette].colorComplementary[index]);
   }
 
   for (let index = 0; index < toolbarIconCount; index++) {
