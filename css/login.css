@@ -3,9 +3,9 @@ html body {
 }
 .window-scroll-login {
   transform-style: preserve-3d;
-  height: calc(100vh + 10vw);
+  height: calc(100vh + 4vh);
   position: relative;
-  top: -5vw;
+  top: -2vh;
 }
 .box-guide-line {
   position: absolute;
@@ -78,29 +78,29 @@ html body {
 }
 .box-particle {
   position: absolute;
-  width: 10vw;
-  height: 10vw;
+  width: 4vh;
+  height: 4vh;
   transform-style: preserve-3d;
 }
 .box-particle div {
   background: var(--side-grey-bg);
-  width: 10vw;
-  height: 10vw;
+  width: 4vh;
+  height: 4vh;
   position: absolute;
 }
 .rotaterX {
-  width: 10vw;
-  height: 10vw;
+  width: 4vh;
+  height: 4vh;
   transform-style: preserve-3d;
 }
 .rotaterY {
-  width: 10vw;
-  height: 10vw;
+  width: 4vh;
+  height: 4vh;
   transform-style: preserve-3d;
 }
 .rotaterZ {
-  width: 10vw;
-  height: 10vw;
+  width: 4vh;
+  height: 4vh;
   transform-style: preserve-3d;
 }
 .particle-0 {
@@ -120,7 +120,7 @@ html body {
 .particle-1 {
   left: 56%;
   animation: boxTranslateY 2s -0.3s linear infinite;
-  transform: scale(1) translateZ(-10vw) translate(-50%,-50%);
+  transform: scale(1) translateZ(-4vh) translate(-50%,-50%);
 }
 .particle-1 .rotaterX {
   animation: boxRotateX 4s 0s linear infinite;
@@ -272,36 +272,36 @@ html body {
   animation: boxRotateZ 6.2s -2s linear infinite;
 }
 .side-0 {
-  transform: translateZ(5vw);
+  transform: translateZ(2vh);
   background: var(--theme-color-1) !important;
 }
 .side-1 {
-  transform: rotateX(90deg) translateZ(5vw);
+  transform: rotateX(90deg) translateZ(2vh);
   background: var(--theme-color-2) !important;
 }
 .side-2 {
-  transform: rotateX(180deg) translateZ(5vw);
+  transform: rotateX(180deg) translateZ(2vh);
   background: var(--theme-color-3) !important;
 }
 .side-3 {
-  transform: rotateX(90deg) translateZ(-5vw);
+  transform: rotateX(90deg) translateZ(-2vh);
   background: var(--theme-color-4) !important;
 }
 .side-4 {
-  transform: rotateY(90deg) translateZ(5vw);
+  transform: rotateY(90deg) translateZ(2vh);
   background: var(--theme-color-5) !important;
 }
 .side-5 {
-  transform: rotateY(90deg) translateZ(-5vw);
+  transform: rotateY(90deg) translateZ(-2vh);
   background: var(--theme-color-9) !important;
 }
-.login-pic {
+.login-box {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 200px;
   height: 100px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -110%);
   border-left: 1px solid var(--fluent-border-light);
   border-top: 1px solid var(--fluent-border-light);
   border-right: 1px solid var(--fluent-border-dark);
@@ -309,10 +309,9 @@ html body {
   overflow: hidden;
   border-radius: var(--menu-border-radius);
 }
-.rainbow-animation {
-  fill: var(--theme-color-3);
-  -webkit-animation: colorDisco 60s ease infinite;
-  animation: colorDisco 60s ease infinite;
+.toolbar-wrapper .menu-button-wrapper {
+height: 100%;
+min-width: 200px;
 }
 @keyframes boxOpacity {
   0% {
@@ -358,43 +357,5 @@ html body {
   }
   100% {
     transform: rotateZ(360deg);
-  }
-}
-@keyframes colorDisco {
-  0% {
-    fill: var(--theme-color-0);
-  }
-  10% {
-    fill: var(--theme-color-1);
-  }
-  30% {
-    fill: var(--theme-color-2);
-  }
-  40% {
-    fill: var(--theme-color-3);
-  }
-  50% {
-    fill: var(--theme-color-4);
-  }
-  60% {
-    fill: var(--theme-color-5);
-  }
-  65% {
-    fill: var(--theme-color-6);
-  }
-  70% {
-    fill: var(--theme-color-7);
-  }
-  75% {
-    fill: var(--theme-color-8);
-  }
-  80% {
-    fill: var(--theme-color-9);
-  }
-  85% {
-    fill: var(--theme-color-10);
-  }
-  90% {
-    fill: var(--theme-color-11);
   }
 }
