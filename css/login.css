@@ -1,3 +1,7 @@
+html body {
+  background:linear-gradient(126deg, var(--side-bg-color) 30%, var(--side-bg-color-2) 60%);
+}
+
 .window-scroll-login {
   transform-style: preserve-3d;
   height: 100vh;
