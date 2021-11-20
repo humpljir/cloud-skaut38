@@ -1,10 +1,9 @@
 .window-scroll-login {
   transform-style: preserve-3d;
+  height: 100vh;
 }
 .box-particle-wrapper {
   position: absolute;
-  left: 50px;
-  top: 200px;
 }
 .box-particle {
   position: absolute;
@@ -18,26 +17,85 @@
   height: 10vw;
   position: absolute;
 }
-.particle-0 .translaterY{
-  /*animation:boxTranslateY 2s -0.5s linear infinite;*/
+.rotaterX{
+  width: 10vw;
+  height: 10vw;
+  transform-style: preserve-3d;
+}
+.rotaterY{
+  width: 10vw;
+  height: 10vw;
+  transform-style: preserve-3d;
+}
+.rotaterZ{
+  width: 10vw;
+  height: 10vw;
+  transform-style: preserve-3d;
+}
+.particle-0 {
+  left: 33%;
+  animation:boxTranslateY 2s -0.5s linear infinite;
 }
 .particle-0 .rotaterX{
-  width: 10vw;
-  height: 10vw;
   animation:boxRotateX 6s 0s linear infinite;
-  transform-style: preserve-3d;
 }
 .particle-0 .rotaterY{
-  width: 10vw;
-  height: 10vw;
   animation:boxRotateY 4.2s -0.2s linear infinite;
-  transform-style: preserve-3d;
 }
 .particle-0 .rotaterZ{
-  width: 10vw;
-  height: 10vw;
   animation:boxRotateZ 8.1s -2s linear infinite;
-  transform-style: preserve-3d;
+}
+.particle-1 {
+  left: 36%;
+  animation:boxTranslateY 4s -0.3s linear infinite;
+}
+.particle-1 .rotaterX{
+  animation:boxRotateX 4s 0s linear infinite;
+}
+.particle-1 .rotaterY{
+  animation:boxRotateY 7.2s -0.2s linear infinite;
+}
+.particle-1 .rotaterZ{
+  animation:boxRotateZ 5.1s -2s linear infinite;
+}
+.particle-2 {
+  left: 42%;
+  animation:boxTranslateY 3s -1.7s linear infinite;
+}
+.particle-2 .rotaterX{
+  animation:boxRotateX 3.9s 0s linear infinite;
+}
+.particle-2 .rotaterY{
+  animation:boxRotateY 6.1s -0.2s linear infinite;
+}
+.particle-2 .rotaterZ{
+  animation:boxRotateZ 7.2s -2s linear infinite;
+}
+.particle-3 {
+  left: 46%;
+  animation:boxTranslateY 3.4s -1.3s linear infinite;
+}
+.particle-3 .rotaterX{
+  animation:boxRotateX 4.9s 0s linear infinite;
+}
+.particle-3 .rotaterY{
+  animation:boxRotateY 7.3s -0.2s linear infinite;
+}
+.particle-3 .rotaterZ{
+  animation:boxRotateZ 5.1s -2s linear infinite;
+}
+.particle-4 {
+  left: 51%;
+  animation:boxTranslateY 4.2s -0.4s linear infinite;
+}
+.particle-4 .rotaterX{
+  animation:boxRotateX 9s 0s linear infinite;
+}
+.particle-4 .rotaterY{
+  animation:boxRotateY 5.1s -0.2s linear infinite;
+}
+.particle-4 .rotaterZ{
+  animation:boxRotateZ 6.2s -2s linear infinite;
 }
 .side-0 {
   transform: translateZ(5vw);
@@ -61,7 +119,7 @@
 }
 .side-5 {
   transform: rotateY(90deg) translateZ(-5vw);
-  background: var(--theme-color-6) !important;
+  background: var(--theme-color-9) !important;
 }
 .login-pic {
   position: absolute;
@@ -86,10 +144,10 @@
 }
 @keyframes boxTranslateY {
   0% {
-    transform: translateY(0);
+    top: 100%;
   }
   100% {
-    transform: translateY(100%);
+    top: 0;
   }
 }
 @keyframes boxRotateX {
