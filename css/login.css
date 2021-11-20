@@ -7,6 +7,14 @@ html body {
   position: relative;
   top: -2vh;
 }
+.toolbar-wrapper-login {
+  height: unset;
+}
+.main-wrapper.side-enable .window .window-scroll-login {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
 .box-guide-line {
   position: absolute;
   height: 100vh;
@@ -299,15 +307,44 @@ html body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px;
-  height: 100px;
-  transform: translate(-50%, -110%);
+  padding: 22px;
+  width: 80%;
+  max-width: 400px;
+  height: fit-content;
+  transform: translate(-50%, -60%);
   border-left: 1px solid var(--fluent-border-light);
   border-top: 1px solid var(--fluent-border-light);
   border-right: 1px solid var(--fluent-border-dark);
   border-bottom: 1px solid var(--fluent-border-dark);
   overflow: hidden;
   border-radius: var(--menu-border-radius);
+  box-sizing: border-box;
+}
+.login-box h1 {
+  color: var(--theme-color-3);
+  font-size: 1.65em;
+  margin: 0;
+  margin-bottom: 0.67em;
+}
+.login-box button {
+  background-color: transparent;
+  border: none;
+  color: var(--hyperlink-color);
+  --local-color: var(--hyperlink-color);
+  white-space: nowrap;
+  width: 100%;
+  text-align: right;
+  padding-top: 20px;
+  padding-bottom: 6px;
+}
+.login-box button div {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.login-box button svg {
+  transform: rotate(-90deg);
+  height: 8px;
 }
 .toolbar-wrapper .menu-button-wrapper {
 height: 100%;

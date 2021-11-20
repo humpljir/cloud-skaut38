@@ -40,6 +40,40 @@ function closeAllSubmenus() {
   });
 }
 
+function openSide() {
+  changeHTMLTheme(
+    document.documentElement.style.getPropertyValue("--side-grey-bg")
+  );
+  document.documentElement.scrollTop = 0;
+  document.getElementById("main-wrapper-div").classList.add("side-open");
+  document.getElementById("main-wrapper-div").classList.add("top-bar-hide");
+  document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
+
+  setTimeout(() => {
+    document.getElementById("main-wrapper-div").classList.add("side-enable");
+  }, 1000);
+}
+
+function closeSide() {
+  changeHTMLTheme(
+    document.documentElement.style.getPropertyValue("--main-bg-color")
+  );
+  document.documentElement.scrollTop = 0;       
+  document.getElementById("main-wrapper-div").classList.remove("side-enable");
+  document.getElementById("main-wrapper-div").classList.remove("side-open");
+  document.getElementById("main-wrapper-div").classList.remove("top-bar-hide");
+  if (session.settings.toolbarVisible) {
+      console.log("visible toolbar");
+    document
+      .getElementById("main-wrapper-div")
+      .classList.remove("toolbar-hide");
+  }
+  else {
+    console.log("unvisible toolbar");
+    document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
+  }
+}
+
 function openTopbar() {
   document.getElementById("main-wrapper-div").classList.add("top-bar-open");
 }
