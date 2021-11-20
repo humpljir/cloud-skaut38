@@ -5,6 +5,9 @@ html body {
     var(--side-bg-color-2) 60%
   );
 }
+.top-bar-login {
+  height: 43px !important ;
+}
 .window-scroll-login {
   transform-style: preserve-3d;
   height: calc(100vh + 4vh);
@@ -429,7 +432,7 @@ html body {
   max-width: 400px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
-  height: fit-content;
+  height: auto;
   transform: translate(-50%, -60%);
   border-left: 1px solid var(--fluent-border-light);
   border-top: 1px solid var(--fluent-border-light);
