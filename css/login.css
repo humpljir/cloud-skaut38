@@ -1,10 +1,77 @@
 html body {
   background:linear-gradient(126deg, var(--side-bg-color) 30%, var(--side-bg-color-2) 60%);
 }
-
 .window-scroll-login {
   transform-style: preserve-3d;
+  height: calc(100vh + 10vw);
+  position: relative;
+  top: -5vw;
+}
+.box-guide-line {
+  position: absolute;
   height: 100vh;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  transform: translateZ(-90vw);
+  overflow: hidden;
+}
+.box-guide-line::before {
+  position: absolute;
+  transform: translateY(-50%);
+  content: "";
+  width: 100%;
+  height: 200vh;
+  background: radial-gradient(circle, #457B9D66 0%, #457B9D20 10%,#457B9D00 60%, #457B9D00 100%);
+}
+.line-0 {
+  left: 33%;
+}.line-1 {
+  left: 56%;
+}.line-2 {
+  left: 65%;
+}.line-3 {
+  left: 58%;
+}.line-4 {
+  left: 51%;
+}.line-5 {
+  left: 35%;
+}.line-6 {
+  left: 69%;
+}.line-7 {
+  left: 55%;
+}.line-8 {
+  left: 48%;
+}.line-9 {
+  left: 31%;
+}.line-10 {
+  left: 60%;
+}.line-11 {
+  left: 52%;
+}.line-0::before {
+  animation: boxTranslateY 1.8s -0.5s linear infinite, boxOpacity 1.8s -0.5s linear infinite;
+}.line-1::before {
+  animation: boxTranslateY 2s -0.3s linear infinite, boxOpacity 2s -0.3s linear infinite;
+}.line-2::before {
+  animation: boxTranslateY 2.1s -1.7s linear infinite, boxOpacity 2.1s -1.7slinear infinite;
+}.line-3::before {
+  animation: boxTranslateY 2.1s -1.3s linear infinite, boxOpacity 2.1s -1.3s linear infinite;
+}.line-4::before {
+  animation: boxTranslateY 2.25s -0.4s linear infinite, boxOpacity 2.25s -0.4s linear infinite;
+}.line-5::before {
+  animation: boxTranslateY 2.4s -0.9s linear infinite, boxOpacity 2.4s -0.9slinear infinite;
+}.line-6::before {
+  animation: boxTranslateY 2.7s -1.2s linear infinite, boxOpacity 2.7s -1.2s linear infinite;
+}.line-7::before {
+  animation: boxTranslateY 2.7s -0.2s linear infinite, boxOpacity 2.7s -0.2s linear infinite;
+}.line-8::before {
+  animation: boxTranslateY 3.1s -1.2s linear infinite, boxOpacity 3.1s -1.2s linear infinite;
+}.line-9::before {
+  animation: boxTranslateY 3.4s -3.5s linear infinite, boxOpacity 3.4s -3.5s linear infinite;
+}.line-10::before {
+  animation: boxTranslateY 3.5s -0.9s linear infinite, boxOpacity 3.5s -0.9s linear infinite;
+}.line-11::before {
+  animation: boxTranslateY 3.8s -2.1s linear infinite, boxOpacity 3.8s -2.1s linear infinite;
 }
 .box-particle-wrapper {
   position: absolute;
@@ -39,7 +106,7 @@ html body {
 .particle-0 {
   left: 33%;
   animation: boxTranslateY 1.8s -0.5s linear infinite;
-  transform: scale(1.05) translateZ(0);
+  transform: scale(1.05) translateZ(0) translate(-50%,-50%);
 }
 .particle-0 .rotaterX {
   animation: boxRotateX 3.5s -2.1s linear infinite;
@@ -53,7 +120,7 @@ html body {
 .particle-1 {
   left: 56%;
   animation: boxTranslateY 2s -0.3s linear infinite;
-  transform: scale(1) translateZ(-10vw);
+  transform: scale(1) translateZ(-10vw) translate(-50%,-50%);
 }
 .particle-1 .rotaterX {
   animation: boxRotateX 4s 0s linear infinite;
@@ -65,9 +132,9 @@ html body {
   animation: boxRotateZ 5.1s -2s linear infinite;
 }
 .particle-2 {
-  left: 42%;
+  left: 65%;
   animation: boxTranslateY 2.1s -1.7s linear infinite;
-  transform: scale(0.9) translateZ(-20vw);
+  transform: scale(0.9) translateZ(-20vw) translate(-50%,-50%);
 }
 .particle-2 .rotaterX {
   animation: boxRotateX 3.9s -0.5s linear infinite;
@@ -79,9 +146,9 @@ html body {
   animation: boxRotateZ 7.2s -2s linear infinite;
 }
 .particle-3 {
-  left: 46%;
+  left: 58%;
   animation: boxTranslateY 2.1s -1.3s linear infinite;
-  transform: scale(0.9) translateZ(-20vw);
+  transform: scale(0.9) translateZ(-20vw) translate(-50%,-50%);
 }
 .particle-3 .rotaterX {
   animation: boxRotateX 3.4s 0s linear infinite;
@@ -95,7 +162,7 @@ html body {
 .particle-4 {
   left: 51%;
   animation: boxTranslateY 2.25s -0.4s linear infinite;
-  transform: scale(0.85) translateZ(-30vw);
+  transform: scale(0.85) translateZ(-30vw) translate(-50%,-50%);
 }
 .particle-4 .rotaterX {
   animation: boxRotateX 4.2s -0.2s linear infinite;
@@ -109,7 +176,7 @@ html body {
 .particle-5 {
   left: 35%;
   animation: boxTranslateY 2.4s -0.9s linear infinite;
-  transform: scale(0.8) translateZ(-40vw);
+  transform: scale(0.8) translateZ(-40vw) translate(-50%,-50%);
 }
 .particle-5 .rotaterX {
   animation: boxRotateX 3.6s -0.2s linear infinite;
@@ -121,9 +188,9 @@ html body {
   animation: boxRotateZ 8.2s -1.2s linear infinite;
 }
 .particle-6 {
-  left: 45%;
+  left: 69%;
   animation: boxTranslateY 2.7s -1.2s linear infinite;
-  transform: scale(0.75) translateZ(-50vw);
+  transform: scale(0.75) translateZ(-50vw) translate(-50%,-50%);
 }
 .particle-6 .rotaterX {
   animation: boxRotateX 3.1s -0.1s linear infinite;
@@ -137,7 +204,7 @@ html body {
 .particle-7 {
   left: 55%;
   animation: boxTranslateY 2.7s -0.2s linear infinite;
-  transform: scale(0.75) translateZ(-50vw);
+  transform: scale(0.75) translateZ(-50vw) translate(-50%,-50%);
 }
 .particle-7 .rotaterX {
   animation: boxRotateX 5.2s 0s linear infinite;
@@ -151,7 +218,7 @@ html body {
 .particle-8 {
   left: 48%;
   animation: boxTranslateY 3.1s -1.2s linear infinite;
-  transform: scale(0.75) translateZ(-60vw);
+  transform: scale(0.75) translateZ(-60vw) translate(-50%,-50%);
 }
 .particle-8 .rotaterX {
   animation: boxRotateX 2.5s 0s linear infinite;
@@ -165,7 +232,7 @@ html body {
 .particle-9 {
   left: 31%;
   animation: boxTranslateY 3.4s -3.5s linear infinite;
-  transform: scale(0.7) translateZ(-70vw);
+  transform: scale(0.7) translateZ(-70vw) translate(-50%,-50%);
 }
 .particle-9 .rotaterX {
   animation: boxRotateX 1.5s -0.1s linear infinite;
@@ -179,7 +246,7 @@ html body {
 .particle-10 {
   left: 60%;
   animation: boxTranslateY 3.5s -0.9s linear infinite;
-  transform: scale(0.7) translateZ(-70vw);
+  transform: scale(0.7) translateZ(-70vw) translate(-50%,-50%);
 }
 .particle-10 .rotaterX {
   animation: boxRotateX 7.4s -0.2s linear infinite;
@@ -193,7 +260,7 @@ html body {
 .particle-11 {
   left: 52%;
   animation: boxTranslateY 3.8s -2.1s linear infinite;
-  transform: scale(0.7) translateZ(-80vw);
+  transform: scale(0.7) translateZ(-80vw) translate(-50%,-50%);
 }
 .particle-11 .rotaterX {
   animation: boxRotateX 6.2s -1.1s linear infinite;
@@ -246,6 +313,20 @@ html body {
   fill: var(--theme-color-3);
   -webkit-animation: colorDisco 60s ease infinite;
   animation: colorDisco 60s ease infinite;
+}
+@keyframes boxOpacity {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes boxTranslateY {
   0% {
