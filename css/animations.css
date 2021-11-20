@@ -1,1 +1,32 @@
-@-webkit-keyframes slideFromRight{0%{left:100%}100%{left:0}}@keyframes slideFromRight{0%{left:100%}100%{left:0}}@-webkit-keyframes slideToLeft{0%{left:0}100%{left:-100%}}@keyframes slideToLeft{0%{left:0}100%{left:-100%}}
+@-webkit-keyframes slideFromRight {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes slideToLeft {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@keyframes slideToLeft {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
