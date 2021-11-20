@@ -46,7 +46,7 @@
                                     placeholder="Username">
                                 <label class="side-form-img-upload">
                                     <div class="img-upload-icon"></div>Change Profile Picture
-                                    <input type="file" id="pic_upload" name="upload" placeholder="upload">
+                                    <input type="file" id="pic_upload" name="upload" >
                                 </label>
                                 <div class="side-form-buttons"><input type="reset"
                                         onclick="this.closest('.side-form').classList.remove('form-changed')"
@@ -297,7 +297,7 @@
             <div class="top-bar fluent-bg">
                 <div class="top-bar-line"><a class="top-bar-title" href=""><svg width="100%" height="100%"
                             viewBox="0 0 72.431946 8.3819732" version="1.1">
-                            <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1"
+                            <g  id="layer1"
                                 transform="translate(38.365964,-164.94903)">
                                 <path id="path840"
                                     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Diavlo;-inkscape-font-specification:'Diavlo Heavy';fill:var(--main-fg-color);fill-opacity:1;stroke:none;stroke-width:0.999999"
@@ -321,6 +321,7 @@
                                     d="M 0 0 L 0 1297.2598 L 1297.2617 1297.2598 L 1297.2617 0 L 0 0 z M 1490.957 0 L 1490.957 1297.2598 L 2788.2168 1297.2598 L 2788.2168 0 L 1490.957 0 z M 7250.2363 20 L 7250.2363 571.7832 L 7802.0176 571.7832 L 7802.0176 20 L 7250.2363 20 z M 7995.707 20 L 7995.707 571.7832 L 10038.445 571.7832 L 10038.445 20 L 7995.707 20 z M 7250.2363 765.47852 L 7250.2363 1317.2598 L 7802.0176 1317.2598 L 7802.0176 765.47852 L 7250.2363 765.47852 z M 7995.707 765.47852 L 7995.707 1317.2617 L 10038.445 1317.2617 L 10038.445 765.47852 L 7995.707 765.47852 z M 0 1490.9551 L 0 2788.2168 L 1297.2617 2788.2168 L 1297.2617 1490.9551 L 0 1490.9551 z M 1490.957 1490.9551 L 1490.957 2788.2168 L 2788.2168 2788.2168 L 2788.2168 1490.9551 L 1490.957 1490.9551 z M 7250.2363 1510.9551 L 7250.2363 2062.7383 L 7802.0176 2062.7383 L 7802.0176 1510.9551 L 7250.2363 1510.9551 z M 7995.707 1510.957 L 7995.707 2062.7383 L 10038.445 2062.7383 L 10038.445 1510.957 L 7995.707 1510.957 z M 7250.2363 2256.4336 L 7250.2363 2808.2168 L 7802.0176 2808.2168 L 7802.0176 2256.4336 L 7250.2363 2256.4336 z M 7995.707 2256.4336 L 7995.707 2808.2168 L 10038.445 2808.2168 L 10038.445 2256.4336 L 7995.707 2256.4336 z "
                                     transform="scale(0.26458335)" />
                             </svg></div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -335,14 +336,14 @@
                     <input type="text" id="file-name" name="file-name" placeholder="file name">
                     <label class="file-upload">
                         <div>select file</div>
-                        <input type="file" id="file-upload" name="file-upload" placeholder="upload">
+                        <input type="file" id="file-upload" name="file-upload" >
                     </label>
                 </form>
                 <form class="" id="form-1" data-submit-label="UPLOAD">
                     <input type="text" id="picture-name" name="picture-name" placeholder="picture name">
                     <label class="file-upload">
                         <div>select picture</div>
-                        <input type="file" id="upload" name="upload" placeholder="upload">
+                        <input type="file" id="upload" name="upload" >
                     </label>
                 </form>
                 <form class="" id="form-2" data-submit-label="CREATE">
@@ -393,7 +394,7 @@
             <div class="menu-button-wrapper">
                 <button type="button" class="menu-button fluent-bg" onclick="closeMenu()">CANCEL</button>
                 <div class="menu-spacer"></div>
-                <button type="button" type="submit" class="menu-button menu-button-submit"
+                <button type="submit" class="menu-button menu-button-submit"
                     id="menu-submit-button">SUBMIT</button>
             </div>
         </div>
