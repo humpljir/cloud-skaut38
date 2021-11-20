@@ -92,9 +92,9 @@ html body {
 }
 .line-2::before {
   -webkit-animation: boxTranslateY 2.1s -1.7s linear infinite,
-    boxOpacity 2.1s -1.7slinear infinite;
+    boxOpacity 2.1s -1.7s linear infinite;
   animation: boxTranslateY 2.1s -1.7s linear infinite,
-    boxOpacity 2.1s -1.7slinear infinite;
+    boxOpacity 2.1s -1.7s linear infinite;
 }
 .line-3::before {
   -webkit-animation: boxTranslateY 2.1s -1.3s linear infinite,
