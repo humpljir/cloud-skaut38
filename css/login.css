@@ -4,6 +4,12 @@ html body {
     var(--side-bg-color) 30%,
     var(--side-bg-color-2) 60%
   );
+  overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+.main-wrapper {
+  height: 100vh;
 }
 .top-bar-login {
   height: 43px !important ;
@@ -371,30 +377,6 @@ html body {
 .loading-loaded .particle-11 .rotaterZ {
   -webkit-animation: boxRotateZ 6.2s -2s linear infinite;
   animation: boxRotateZ 6.2s -2s linear infinite;
-}
-.side-0 {
-  transform: translateZ(2vh);
-  background: var(--theme-color-1) !important;
-}
-.side-1 {
-  transform: rotateX(90deg) translateZ(2vh);
-  background: var(--theme-color-2) !important;
-}
-.side-2 {
-  transform: rotateX(180deg) translateZ(2vh);
-  background: var(--theme-color-3) !important;
-}
-.side-3 {
-  transform: rotateX(90deg) translateZ(-2vh);
-  background: var(--theme-color-4) !important;
-}
-.side-4 {
-  transform: rotateY(90deg) translateZ(2vh);
-  background: var(--theme-color-5) !important;
-}
-.side-5 {
-  transform: rotateY(90deg) translateZ(-2vh);
-  background: var(--theme-color-9) !important;
 }
 .login-box {
   position: absolute;

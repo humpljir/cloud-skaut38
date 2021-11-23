@@ -8,7 +8,7 @@
   top: 50%;
   left: 50%;
   opacity: 1;
-  transition: transform 0.6s 1s;
+  transition: transform 0.6s;
 }
 .loading-wrapper {
   position: absolute;
@@ -20,15 +20,15 @@
   height: 100vh;
   z-index: 10;
   background-color: var(--main-bg-color);
-  transition: opacity 0.4s 1.6s ease;
+  transition: opacity 0.4s 0.6s ease;
   opacity: 1;
   pointer-events: all;
 }
 
 .loading-logo svg {
   position: relative;
-  margin-left: 7vh;
-  width: 260px;
+  margin-left: 2vh;
+  width: 30vh;
   max-width: 60%;
   vertical-align: middle;
 }
@@ -40,10 +40,10 @@
 
 .loading-loaded .loading-logo {
   transform: translate(-50%, -50%) scale(0.8);
-  animation: disappeare 0.4s 1s ease-in both;
+  animation: disappeare 0.4s ease-in both;
 }
 
-.particle-logo {
+.box-particle-wrapper.particle-logo {
   position: relative;
   left: unset;
   top: unset;
@@ -53,7 +53,30 @@
   vertical-align: middle;
   filter: drop-shadow(0px 0px 10px var(--main-line-color));
 }
-
+.side-0 {
+    transform: translateZ(2vh);
+    background: var(--theme-color-1) !important;
+  }
+  .side-1 {
+    transform: rotateX(90deg) translateZ(2vh);
+    background: var(--theme-color-2) !important;
+  }
+  .side-2 {
+    transform: rotateX(180deg) translateZ(2vh);
+    background: var(--theme-color-3) !important;
+  }
+  .side-3 {
+    transform: rotateX(90deg) translateZ(-2vh);
+    background: var(--theme-color-4) !important;
+  }
+  .side-4 {
+    transform: rotateY(90deg) translateZ(2vh);
+    background: var(--theme-color-5) !important;
+  }
+  .side-5 {
+    transform: rotateY(90deg) translateZ(-2vh);
+    background: var(--theme-color-9) !important;
+  }
 .box-particle {
   position: absolute;
   width: 4vh;

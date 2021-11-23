@@ -10,10 +10,12 @@ let loadingTimeout=setTimeout(() => {
 }, 10000);
 
 function loadingLoaded() {
-  document.getElementById("main-wrapper-div").classList.remove("loading");
-  document.getElementById("main-wrapper-div").classList.add("loading-loaded");
-  document.getElementById("loading-wrapper-div").classList.add("loading-loaded");
   clearTimeout(loadingTimeout);
+  setTimeout(() => {
+    document.getElementById("main-wrapper-div").classList.remove("loading");
+    document.getElementById("main-wrapper-div").classList.add("loading-loaded");
+    document.getElementById("loading-wrapper-div").classList.add("loading-loaded");    
+  }, 1000);
 }
 
 function generateSubmenu(scope, targettype, fileid, options) {
