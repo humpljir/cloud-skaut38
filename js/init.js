@@ -292,6 +292,7 @@ function initialize() {
   sideInit();
   }
   drawSVGAll();
+  initCustomNotifications();
 
   loadingLoaded();
 }
