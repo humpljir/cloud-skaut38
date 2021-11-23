@@ -2,7 +2,6 @@
   position: relative;
   width: 100vw;
   overflow: hidden;
-  transform: scale(1);
   transition: transform 0.4s 0.6s ease-out;  
 }
 .main-wrapper .window {
@@ -1040,6 +1039,18 @@ img.roated-return-icon svg {
   color: var(--main-fg-color);
   font-size: var(--menu-input-font-size);
 }
+.main-wrapper .menu-wrapper .menu-formbox label {
+  position: relative;
+  padding: 30px 20px 10px 20px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--interactive-color);
+  font-size: var(--menu-input-font-size);
+}
 .main-wrapper .menu-wrapper .menu-formbox .color-selector {
   display: flex;
   padding: 20px;
@@ -1123,7 +1134,7 @@ img.roated-return-icon svg {
   position: relative;
   overflow: hidden;
   border-radius: var(--menu-border-radius);
-  padding: 8px;drop-shadow(0px 0px 10px var(--main-line-color))
+  padding: 8px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;

@@ -284,7 +284,12 @@
                 <form class="form-visible" id="form-0" data-submit-label="LOGIN">
                     <input type="text" id="username" name="username" placeholder="username">
                     <input type="password" id="password" name="password" placeholder="password">
-                    <a href="">forgot password</a>
+                    <a onclick="openMenu('form-1')">forgot password</a>
+                </form>
+                <form class="form-visible" id="form-1" data-submit-label="SEND MAIL">
+                    <input type="text" id="forgot-username" name="forgot-username" placeholder="username or mail">
+                    <label>Check your mailbox to reset your password.</label>
+                    <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
                 </form>
             </div>
             <div class="menu-spacer"></div>
