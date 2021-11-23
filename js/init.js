@@ -5,6 +5,17 @@ const alwaysTopBarOffset = 20;
 const colorsInPalette = 12;
 const toolbarIconCount = 4;
 
+let loadingTimeout=setTimeout(() => {
+  errorHandler(0);
+}, 10000);
+
+function loadingLoaded() {
+  document.getElementById("main-wrapper-div").classList.remove("loading");
+  document.getElementById("main-wrapper-div").classList.add("loading-loaded");
+  document.getElementById("loading-wrapper-div").classList.add("loading-loaded");
+  clearTimeout(loadingTimeout);
+}
+
 function generateSubmenu(scope, targettype, fileid, options) {
   let submenu = document.createElement("div");
   submenu.className = "submenu-wrapper fluent-bg";
@@ -197,7 +208,6 @@ function loadThemeColors() {
       "--theme-color-" + index + "-complementary",
       session.style.palettes[session.style.activePalette].colorComplementary[index]
     );
-    console.log(session.style.palettes[session.style.activePalette].colorComplementary[index]);
   }
 
   for (let index = 0; index < toolbarIconCount; index++) {
@@ -280,4 +290,6 @@ function initialize() {
   sideInit();
   }
   drawSVGAll();
+
+  loadingLoaded();
 }

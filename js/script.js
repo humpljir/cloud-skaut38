@@ -1,3 +1,8 @@
+function errorHandler(code) {
+  //#code 0 -> loading timeout
+  console.log("error nr. " + code);
+}
+
 function changeHTMLTheme(color) {
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", color);
@@ -58,17 +63,16 @@ function closeSide() {
   changeHTMLTheme(
     document.documentElement.style.getPropertyValue("--main-bg-color")
   );
-  document.documentElement.scrollTop = 0;       
+  document.documentElement.scrollTop = 0;
   document.getElementById("main-wrapper-div").classList.remove("side-enable");
   document.getElementById("main-wrapper-div").classList.remove("side-open");
   document.getElementById("main-wrapper-div").classList.remove("top-bar-hide");
   if (session.settings.toolbarVisible) {
-      console.log("visible toolbar");
+    console.log("visible toolbar");
     document
       .getElementById("main-wrapper-div")
       .classList.remove("toolbar-hide");
-  }
-  else {
+  } else {
     console.log("unvisible toolbar");
     document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
   }
@@ -116,7 +120,8 @@ function openDir(target) {
     animatedDir.style.width = target.offsetWidth + "px";
     animatedDir.style.height = target.offsetHeight + "px";
     animatedDirReturnArrow = document.createElement("div");
-    animatedDirReturnArrow.className="arrow-icon arrow-icon-generate dir-box-return-icon";
+    animatedDirReturnArrow.className =
+      "arrow-icon arrow-icon-generate dir-box-return-icon";
     animatedDirReturn = document.createElement("button");
     animatedDirReturn.className = "dir-box-return";
     animatedDirReturn.innerHTML = "return";

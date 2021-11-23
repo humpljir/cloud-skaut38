@@ -1,0 +1,95 @@
+.loading.main-wrapper {
+  transform: scale(1.2);
+}
+.loading-logo {
+  transform: translate(-50%, -50%) scale(1);
+  animation: appeare 1s ease-out both;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transition: transform 0.6s 1s;
+}
+.loading-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: var(--main-bg-color);
+  transition: opacity 0.4s 1.6s ease;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loading-logo svg {
+  position: relative;
+  margin-left: 7vh;
+  width: 260px;
+  max-width: 60%;
+  vertical-align: middle;
+}
+
+.loading-loaded.loading-wrapper {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-loaded .loading-logo {
+  transform: translate(-50%, -50%) scale(0.8);
+  animation: disappeare 0.4s 1s ease-in both;
+}
+
+.particle-logo {
+  position: relative;
+  left: unset;
+  top: unset;
+  bottom: unset;
+  right: unset;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0px 0px 10px var(--main-line-color));
+}
+
+.box-particle {
+  position: absolute;
+  width: 4vh;
+  height: 4vh;
+  transform-style: preserve-3d;
+}
+.box-particle div {
+  background: var(--side-grey-bg);
+  width: 4vh;
+  height: 4vh;
+  position: absolute;
+}
+.rotaterX {
+  width: 4vh;
+  height: 4vh;
+  transform-style: preserve-3d;
+}
+.rotaterY {
+  width: 4vh;
+  height: 4vh;
+  transform-style: preserve-3d;
+}
+.rotaterZ {
+  width: 4vh;
+  height: 4vh;
+  transform-style: preserve-3d;
+}
+.particle-logo .rotaterX {
+  -webkit-animation: boxRotateX 4.3s 0s linear infinite;
+  animation: boxRotateX 4.3 s 0s linear infinite;
+}
+.particle-logo .rotaterY {
+  -webkit-animation: boxRotateY 2.2s -0.2s linear infinite;
+  animation: boxRotateY 2.2s -0.2s linear infinite;
+}
+.particle-logo .rotaterZ {
+  -webkit-animation: boxRotateZ 3.1s 0s linear infinite;
+  animation: boxRotateZ 3.1s 0s linear infinite;
+}
