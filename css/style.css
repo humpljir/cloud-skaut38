@@ -1162,3 +1162,32 @@ img.roated-return-icon svg {
   width: 100%;
   height: 100%;
 }
+.screen-size-error {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #020e1d;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: none;
+}
+.screen-size-error-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.screen-size-error-icon {
+  width: 30px;
+  margin: 20px;
+  opacity: 0.4;
+}
+.screen-size-error-text {
+  color: #ccc;
+  font: 13px/20px Kanit, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  max-width: 300px;
+  display:inline-block;
+}
