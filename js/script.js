@@ -1,21 +1,55 @@
+/*
+
+************************************
+script.js
+************************************
+
+  - Project:  cloud.skaut38
+  - Author:   J. Humpl   
+
+
+  Main file for all global js functions.
+*/
+
 function errorHandler(code) {
+  // function for handling with errors, in the future, they should probably be
+  // sent to server
+
   //#code 0 -> loading timeout
+
   pushCustomNotifications("ERROR! Appication run into problem. CODE #"+code,"var(--notifications-error-color)");
   console.log("error nr. " + code);
+
+  if(code==0) {
+    // when webapp doesn't load properly, try refresh the window without caching
+    // - hopping problem was only with network - otherwise this will lead to app
+    // refreshing all the time - better handler for this error should be created
+    // in the future
+
+    window.location.reload(true);
+  }
 }
 
 function changeHTMLTheme(color) {
+  // function for changing html5 theme color used by browser
+
   var metaThemeColor = document.querySelector("meta[name=theme-color]");
   metaThemeColor.setAttribute("content", color);
 }
 
 function closeMenu() {
+  // close menu form and show toolbar
+
   document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
 
 function openMenu(target) {
+  // hide bottom toolbar and show menu form defined by target variable
+
   if (!document.querySelector(".submenu-wrapper.visible")) {
     document.querySelectorAll("#menu-formbox-div form").forEach((element) => {
+      // hide all opened menu forms, if there are any
+
       element.classList.remove("form-visible");
     });
     document.getElementById(target).classList.add("form-visible");
@@ -28,13 +62,19 @@ function openMenu(target) {
 }
 
 function openSubmenu(x, y, target) {
+  // open submenu specified at target variable and move it to specified position
+
   target.style.top = y + `px`;
   target.style.left = x + `px`;
   target.classList.add("visible");
   document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
+
+  // hide toolbar to prevent any visual problems
 }
 
 function closeAllSubmenus() {
+  // make sure no submenu stays open when it shouldn't
+
   if (session.settings.toolbarVisible) {
     document
       .getElementById("main-wrapper-div")
@@ -47,6 +87,8 @@ function closeAllSubmenus() {
 }
 
 function openSide() {
+  // go to side page of app
+
   changeHTMLTheme(
     document.documentElement.style.getPropertyValue("--side-grey-bg")
   );
@@ -62,6 +104,8 @@ function openSide() {
 }
 
 function closeSide() {
+  // go back to main page of app
+
   changeHTMLTheme(
     document.documentElement.style.getPropertyValue("--main-bg-color")
   );
@@ -82,16 +126,22 @@ function closeSide() {
 }
 
 function openTopbar() {
+  // expand top-bar
+
   document.getElementById("main-wrapper-div").classList.add("top-bar-open");
 }
 
 function toggleDisplayStyle() {
+  // change style of displaying directories and files
+
   document
     .getElementById("main-wrapper-div")
     .classList.toggle("display-as-tiles");
 }
 
 function closeDir() {
+  // close opened directory and go back to their list
+
   changeHTMLTheme(
     document.documentElement.style.getPropertyValue("--main-bg-color")
   );
@@ -106,6 +156,8 @@ function closeDir() {
 }
 
 function openDir(target) {
+  // animated opening of directory, detailed comment should be added later
+
   if (!document.querySelector(".submenu-wrapper.visible")) {
     changeHTMLTheme(target.style.getPropertyValue("--dir-bg-color"));
     id = target.getAttribute("data-dir-id");
@@ -166,6 +218,5 @@ function openDir(target) {
     }, 100);
   }
 }
-
 
 console.log("✅ script.js successfully loaded!");

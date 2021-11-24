@@ -1,3 +1,17 @@
+/*
+
+************************************
+settings.js
+************************************
+
+  - Project:  cloud.skaut38
+  - Author:   J. Humpl   
+
+
+  File with all functions related only to settings in side page of app. All
+  changes should be locally visible even without saving to php.
+*/
+
 function sideNotifications(val) {
   if (val) {
     initNotifications();

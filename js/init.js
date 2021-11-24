@@ -1,3 +1,16 @@
+/*
+
+************************************
+init.js
+************************************
+
+  - Project:  cloud.skaut38
+  - Author:   J. Humpl   
+
+
+  Main file responsible for initializing app and all components.
+*/
+
 //const {storage} = require('./index.html');
 
 const hideTopBarOffset = 80;
