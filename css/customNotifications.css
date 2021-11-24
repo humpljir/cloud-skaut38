@@ -4,4 +4,32 @@
         right: 0;
         top: 43px;
         width: 100%;
+        transition: top 0.2s ease;
+    }
+
+.top-bar-open .custom-notifications-wrapper {
+top: 80px;
+}
+
+.custom-notifications-box.notifications-hide {
+    transform: translateY(-100%);
+}
+
+    .custom-notifications-box {
+        background-color: var(--notification-color);
+        width: caLc(100% - 20px);
+        position: relative;
+        border-radius: var(--menu-border-radius);
+        margin: 10px;
+        box-sizing: border-box;
+        padding: 16px 24px;
+        font-size: var(--menu-font-size);
+        font-weight: bold;
+        color: var(--black-color);
+        border-left: 1px solid var(--fluent-border-light);
+        border-top: 1px solid var(--fluent-border-light);
+        border-right: 1px solid var(--fluent-border-dark);
+        border-bottom: 1px solid var(--fluent-border-dark);
+        transform: translateY(0);
+        transition: transform 0.4s ease;
     }
