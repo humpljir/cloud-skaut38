@@ -1049,7 +1049,7 @@ img.roated-return-icon svg {
   color: var(--main-fg-color);
   font-size: var(--menu-input-font-size);
 }
-.main-wrapper .menu-wrapper .menu-formbox label {
+.main-wrapper .menu-wrapper .menu-formbox label.form-text {
   position: relative;
   padding: 30px 20px 10px 20px;
   display: block;
@@ -1058,7 +1058,7 @@ img.roated-return-icon svg {
   border: none;
   border-radius: 0;
   background-color: transparent;
-  color: var(--interactive-color);
+  color: var(--side-grey-arrow);
   font-size: var(--menu-input-font-size);
 }
 .main-wrapper .menu-wrapper .menu-formbox .color-selector {
