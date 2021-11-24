@@ -46,6 +46,9 @@ function toggleDarkTheme() {
       "#00000084"
     );
     document.documentElement.style.setProperty("--hyperlink-color", "#3e74ff");
+    document.documentElement.style.setProperty("--notifications-error-color", "#700000cf");
+    document.documentElement.style.setProperty("--notifications-warning-color", "#9a7b00c7");
+    document.documentElement.style.setProperty("--notifications-confirm-color", "#c8eabcb8");
   } else {
     document.body.classList.remove("dark-theme");
     document.documentElement.style.setProperty("--main-bg-color", "#fff");
@@ -67,6 +70,9 @@ function toggleDarkTheme() {
       "#00000020"
     );
     document.documentElement.style.setProperty("--hyperlink-color", "#1a4ed2");
+    document.documentElement.style.setProperty("--notifications-error-color", "#ff9e9ecf");
+    document.documentElement.style.setProperty("--notifications-warning-color", "#ffe16dbf");
+    document.documentElement.style.setProperty("--notifications-confirm-color", "#9eff7ab8");
   }
 }
 

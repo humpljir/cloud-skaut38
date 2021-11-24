@@ -1,5 +1,6 @@
 function errorHandler(code) {
   //#code 0 -> loading timeout
+  pushCustomNotifications("ERROR! Appication run into problem. CODE #"+code,"var(--notifications-error-color)",3000);
   console.log("error nr. " + code);
 }
 
