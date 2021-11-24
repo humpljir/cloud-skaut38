@@ -1,6 +1,6 @@
 function errorHandler(code) {
   //#code 0 -> loading timeout
-  pushCustomNotifications("ERROR! Appication run into problem. CODE #"+code,"var(--notifications-error-color)",3000);
+  pushCustomNotifications("ERROR! Appication run into problem. CODE #"+code,"var(--notifications-error-color)");
   console.log("error nr. " + code);
 }
 
@@ -54,6 +54,7 @@ function openSide() {
   document.getElementById("main-wrapper-div").classList.add("side-open");
   document.getElementById("main-wrapper-div").classList.add("top-bar-hide");
   document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
+  clearCustomNotifications();
 
   setTimeout(() => {
     document.getElementById("main-wrapper-div").classList.add("side-enable");
@@ -77,6 +78,7 @@ function closeSide() {
     console.log("unvisible toolbar");
     document.getElementById("main-wrapper-div").classList.add("toolbar-hide");
   }
+  clearCustomNotifications();
 }
 
 function openTopbar() {

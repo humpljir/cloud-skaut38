@@ -1,3 +1,5 @@
+let customNotificationsTimeout = 3000;
+
 function initCustomNotifications() {
   let customNotificationsWrapper = document.createElement("div");
   customNotificationsWrapper.className="custom-notifications-wrapper";
@@ -5,7 +7,7 @@ function initCustomNotifications() {
   document.getElementById("top-bar-div").before(customNotificationsWrapper);
 }
 
-function pushCustomNotifications(content,color,timeout) {
+function pushCustomNotifications(content,color) {
   let customNotificationsBox = document.createElement("div");
   customNotificationsBox.className = "custom-notifications-box notifications-hide fluent-bg";
   customNotificationsBox.setAttribute("style","--notification-color:"+color);
@@ -18,6 +20,12 @@ function pushCustomNotifications(content,color,timeout) {
     setTimeout(() => {
       customNotificationsBox.remove();
     }, 400);
-  }, timeout);
+  }, customNotificationsTimeout);
   document.getElementById("custom-notifications-wrapper-div").prepend(customNotificationsBox);
+}
+
+function clearCustomNotifications() {
+  document.querySelectorAll(".custom-notifications-box").forEach(element => {
+    element.remove();
+  });
 }
