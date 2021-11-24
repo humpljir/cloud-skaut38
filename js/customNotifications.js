@@ -29,3 +29,5 @@ function clearCustomNotifications() {
     element.remove();
   });
 }
+
+console.log("✅ customNotifications.js successfully loaded!");

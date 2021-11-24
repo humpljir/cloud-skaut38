@@ -166,3 +166,6 @@ function openDir(target) {
     }, 100);
   }
 }
+
+
+console.log("✅ script.js successfully loaded!");

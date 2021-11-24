@@ -296,3 +296,6 @@ function initialize() {
 
   loadingLoaded();
 }
+
+
+console.log("✅ init.js successfully loaded!");

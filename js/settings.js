@@ -230,3 +230,5 @@ function changePalette(nr) {
     );
   }
 }
+
+console.log("✅ settings.js successfully loaded!");

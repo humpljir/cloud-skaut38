@@ -16,3 +16,5 @@ async function initNotifications() {
           window.open(link);
       });
   }
+
+console.log("✅ app.js successfully loaded!");
