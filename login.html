@@ -302,12 +302,22 @@
                 <form class="form-visible" id="form-0" data-submit-label="LOGIN">
                     <input type="text" id="username" name="username" placeholder="username">
                     <input type="password" id="password" name="password" placeholder="password">
-                    <a onclick="openMenu('form-1')">forgot password</a>
+                    <a onclick="openMenu('form-2')">Create New Account</a>
+                    <a onclick="openMenu('form-1')">Forgot Password</a>
                 </form>
                 <form class="form-visible" id="form-1" data-submit-label="SEND MAIL">
                     <input type="text" id="forgot-username" name="forgot-username" placeholder="username or mail">
                     <label>Check your mailbox to reset your password.</label>
+                    <a onclick="openMenu('form-0')">Return To Login</a>
                     <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
+                </form>
+                <form class="form-visible" id="form-2" data-submit-label="REGISTER">
+                    <input type="text" id="username" name="username" placeholder="username">
+                    <input type="email" id="email" name="email" placeholder="email">
+                    <input type="password" id="password" name="password" placeholder="password">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="password again">
+                    <label>This is internal cloud storage, every registration has to be confirmed personally by contacting your scoutmaster.</label>
+                    <a onclick="openMenu('form-0')">Already have an account?</a>
                 </form>
             </div>
             <div class="menu-spacer"></div>

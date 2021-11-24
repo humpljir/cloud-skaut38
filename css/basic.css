@@ -94,6 +94,8 @@ body {
 }
 a {
   color: var(--hyperlink-color);
+  text-decoration: underline;
+  cursor: pointer;
 }
 button {
   color: #000;
