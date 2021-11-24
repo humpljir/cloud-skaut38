@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta name="theme-color" content="#fff">
@@ -25,6 +26,36 @@
     <meta name="application-name" content="cloud.skaut38">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#1d3557">
+    <link href="splashscreens/iphone5_splash.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphone6_splash.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphoneplus_splash.png"
+        media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonex_splash.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonexr_splash.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonexsmax_splash.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipad_splash.png"
+        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro1_splash.png"
+        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro3_splash.png"
+        media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro2_splash.png"
+        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
 
     <script>
         function onloadFromPHP() {
@@ -271,7 +302,7 @@
                 <p>Store, share, and collaborate on files and folders from any mobile device, tablet, or computer.
                     Securely on our custom platform.</p>
                 <button onclick="openSide()">Discover Possibilities<div class="arrow-icon arrow-icon-generate"></div>
-                    </button>
+                </button>
             </div>
             <div id="window-side-div" class="window-side">
                 <button class="side-return" onclick="closeSide()">
@@ -316,7 +347,8 @@
                     <input type="email" id="email" name="email" placeholder="email">
                     <input type="password" id="password" name="password" placeholder="password">
                     <input type="password" id="password_confirm" name="password_confirm" placeholder="password again">
-                    <label>This is internal cloud storage, every registration has to be confirmed personally by contacting your scoutmaster.</label>
+                    <label>This is internal cloud storage, every registration has to be confirmed personally by
+                        contacting your scoutmaster.</label>
                     <a onclick="openMenu('form-0')">Already have an account?</a>
                 </form>
             </div>

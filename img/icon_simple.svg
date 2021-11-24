@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="79.468407"
+   height="88.497482"
+   viewBox="0 0 79.468407 88.497482"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="icon_simple.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="2.1141281"
+     inkscape:cx="-50.848384"
+     inkscape:cy="-9.4601645"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="true"
+     inkscape:snap-page="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(24.101779,28.248741)">
+    <g
+       id="g2953"
+       transform="matrix(5.7113158,0,0,5.7113158,-164.00231,-57.54684)">
+      <path
+         id="path1914-1"
+         style="fill:#1d3557;fill-opacity:1;stroke-width:2.082;stroke-linecap:round;stroke-linejoin:round"
+         d="m 38.409527,8.6083862 -6.957102,-3.4785527 -6.957101,3.4785504 1e-6,8.5380121 6.957101,3.47855 6.957101,-3.47855 z"
+         sodipodi:nodetypes="ccccccc" />
+      <rect
+         style="fill:#e63946;fill-opacity:1;stroke:none;stroke-width:1.64597;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect1064-62"
+         width="7.778275"
+         height="7.778275"
+         x="4.0688367"
+         y="23.317768"
+         transform="matrix(0.89442719,-0.4472136,0.89442719,0.4472136,0,0)" />
+      <path
+         id="rect1064-6-9"
+         style="fill:#ffe066;fill-opacity:1;stroke-width:2.082;stroke-linecap:round;stroke-linejoin:round"
+         d="m 24.495325,8.6083862 6.957101,3.4785498 v 8.53801 l -6.957101,-3.47855 z"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+</svg>
