@@ -326,7 +326,7 @@ style.css
   border-right: 1px solid var(--fluent-border-dark);
   border-bottom: 1px solid var(--fluent-border-dark);
 }
-.submenu-wrapper.visible {
+.submenu-wrapper.visible, button:focus .submenu-wrapper {
   transform: scaleY(1);
   pointer-events: all;
 }
