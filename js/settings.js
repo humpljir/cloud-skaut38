@@ -13,23 +13,30 @@ settings.js
 */
 
 function sideNotifications(val) {
+  // checkbox is checked, initialize push notifications
+
   if (val) {
     initNotifications();
   }
 }
 
 function switchSessionVal(name, val) {
+// general function for changing any session.settings value
+
   session.settings[name] = val;
 }
 
+/*
 function toolbarEditOpen(target) {
   document.querySelectorAll(".icon-open").forEach((element) => {
     element.classList.remove("icon-open");
   });
   target.classList.add("icon-open");
-}
+}*/
 
 function toolbarEditColor(index, color, colorComplementary) {
+  // change color of toolbar icon in front-end
+
   document.documentElement.style.setProperty("--toolbar-color-" + index, color);
   document.documentElement.style.setProperty(
     "--toolbar-color-" + index + "-complementary",
@@ -38,6 +45,8 @@ function toolbarEditColor(index, color, colorComplementary) {
 }
 
 function toggleDarkTheme() {
+  // switch between dark and light mode
+
   session.style.darkTheme = !session.style.darkTheme;
   if (session.style.darkTheme) {
     document.body.classList.add("dark-theme");
@@ -91,12 +100,16 @@ function toggleDarkTheme() {
 }
 
 function toggleToolbarEditMode() {
+  // switch between advanced and simple edit mode
+
   document
     .getElementById("toolbar-edit-mode-div")
     .classList.toggle("toggle-edit");
 }
 
 function changeHighlightColor(color, colorComplementary) {
+  // change global main highlight color in front-end
+
   document.documentElement.style.setProperty("--interactive-color", color);
   document.documentElement.style.setProperty(
     "--interactive-color-complementary",
@@ -105,6 +118,8 @@ function changeHighlightColor(color, colorComplementary) {
 }
 
 function swapToolbarColor(index) {
+  // switch between fg and bg color of toolbar icon
+
   let toolbarColor = document.documentElement.style.getPropertyValue(
     "--toolbar-color-" + index
   );
@@ -122,6 +137,8 @@ function swapToolbarColor(index) {
 }
 
 function hideToolbarIcon(index, target) {
+  // hide/show toolbar icon from toolbar
+
   console.log(session.toolbar.display[index]);
   console.log(!session.toolbar.display[index]);
   session.toolbar.display[index] = !session.toolbar.display[index];
@@ -130,6 +147,8 @@ function hideToolbarIcon(index, target) {
 }
 
 function drawToolbarEditMode(target) {
+  // init toolbar element in edit mode
+
   target.innerHTML = "";
   for (let index = 0; index < toolbarIconCount; index++) {
     let indexReorder = session.toolbar.reorder[index];
@@ -224,6 +243,8 @@ function drawToolbarEditMode(target) {
 }
 
 function sideInit() {
+  // initialize settings in side page of app
+
   document.querySelectorAll(".side-form input").forEach((element) => {
     element.addEventListener("input", () => {
       element.closest(".side-form").classList.add("form-changed");
@@ -233,6 +254,8 @@ function sideInit() {
 }
 
 function changePalette(nr) {
+  // change css variables to new color palette
+
   for (let index = 0; index < colorsInPalette; index++) {
     document.documentElement.style.setProperty(
       "--theme-color-" + index,

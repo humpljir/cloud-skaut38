@@ -306,8 +306,9 @@ function initialize() {
   }
   drawSVGAll();
   initCustomNotifications();
-
   loadingLoaded();
+
+  onloadFromPHP();
 }
 
 

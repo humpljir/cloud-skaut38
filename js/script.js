@@ -17,14 +17,17 @@ function errorHandler(code) {
 
   //#code 0 -> loading timeout
 
-  pushCustomNotifications("ERROR! Appication run into problem. CODE #"+code,"var(--notifications-error-color)");
+  pushCustomNotifications(
+    "ERROR! Appication run into problem. CODE #" + code,
+    "var(--notifications-error-color)"
+  );
   console.log("error nr. " + code);
 
-  if(code==0) {
+  if (code == 0) {
     // when webapp doesn't load properly, try refresh the window without caching
     // - hopping problem was only with network - otherwise this will lead to app
-    // refreshing all the time - better handler for this error should be created
-    // in the future
+    //   refreshing all the time - better handler for this error should be
+    //   created in the future
 
     window.location.reload(true);
   }
@@ -156,10 +159,14 @@ function closeDir() {
 }
 
 function openDir(target) {
-  // animated opening of directory, detailed comment should be added later
+  // animated opening of directory
 
   if (!document.querySelector(".submenu-wrapper.visible")) {
+    // open dir only if there is no sbmenu open
+
     changeHTMLTheme(target.style.getPropertyValue("--dir-bg-color"));
+    // change theme color for browser to dir color
+
     id = target.getAttribute("data-dir-id");
     style = target.getAttribute("style");
     let viewportOffset = target.getBoundingClientRect();
@@ -183,6 +190,10 @@ function openDir(target) {
     animatedDirReturn.setAttribute("onClick", "closeDir()");
     animatedDirReturn.prepend(animatedDirReturnArrow);
     animatedDir.prepend(animatedDirReturn);
+    // duplicate dir element to animatedDir, hide all elements on canvas
+    // (transition), then remove them, redraw canvas with content of dir, after
+    // timeout show canvas and switch animatedDir with absolute postion to
+    // regular dir colorful header and remove animatedDir
 
     document.getElementById("window-scroll-div").append(animatedDir);
 
