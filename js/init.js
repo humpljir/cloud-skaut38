@@ -36,9 +36,14 @@ function generateSubmenu(scope, targettype, fileid, options) {
   submenu.className = "submenu-wrapper fluent-bg";
   options.forEach((option) => {
     let line = document.createElement("a");
+    if(option.function=="default") {
     line.href =
-      "?fileaction=" + option + "&typy=" + targettype + "&fileid=" + fileid;
-    line.innerHTML = option;
+      "?fileaction=" + option.label + "&typy=" + targettype + "&fileid=" + fileid;
+    }
+    else {
+      line.setAttribute("onclick",option.function);
+    }
+    line.innerHTML = option.label;
     submenu.append(line);
   });
 
@@ -116,12 +121,12 @@ function drawDirectories() {
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
     let submenu = generateSubmenu(dir, "dir", element.id, [
-      "share",
-      "edit",
-      "rename",
-      "delete",
-      "lorem",
-      "ipsum",
+      {"label":"share","function":"default"},
+      {"label":"edit","function":"openMenu('form-4',event)"},
+      {"label":"duplicate","function":"default"},
+      {"label":"move","function":"default"},
+      {"label":"convert","function":"default"},
+      {"label":"delete","function":"default"},
     ]);
 
     dir.append(submenu);
@@ -153,12 +158,12 @@ function drawFiles(dirID) {
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
-        "share",
-        "edit",
-        "rename",
-        "delete",
-        "lorem",
-        "ipsum",
+        {"label":"share","function":"default"},
+        {"label":"edit","function":"openMenu('form-3',event)"},
+        {"label":"duplicate","function":"default"},
+        {"label":"move","function":"default"},
+        {"label":"convert","function":"default"},
+        {"label":"delete","function":"default"},
       ])
     );
 

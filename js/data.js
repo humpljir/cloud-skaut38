@@ -38,7 +38,7 @@ var session = {
             ['three-dots-icon-generate', '<svg width="20px" height="20px" viewBox="0 0 87.039963 87.039963" version="1.1" id="svg5"> <defs id="defs2" /> <g  id="layer1" transform="translate(-31.378651,-43.946518)"> <g id="g226" transform="translate(0.37116051,5.381897)" style="fill:#ffffff00"> <circle style="fill:var(--local-color);fill-rule:evenodd;stroke-width:0.264583" id="path77" cx="53.106152" cy="82.084602" r="6.5254555" /> <circle style="fill:var(--local-color);fill-rule:evenodd;stroke-width:0.264583" id="path77-3" cx="74.527473" cy="82.084602" r="6.5254555" /> <circle style="fill:var(--local-color);fill-rule:evenodd;stroke-width:0.264583" id="path77-3-6" cx="95.948792" cy="82.084602" r="6.5254555" /> </g> </g> </svg>']],
     },
     "toolbar": {
-        "onclick": ["openMenu('form-0')", "openMenu('form-1')", "openMenu('form-2')", "openSide()"],
+        "onclick": ["openMenu('form-0',event)", "openMenu('form-1',event)", "openMenu('form-2',event)", "openSide()"],
         "reorder": [0, 1, 2, 3],
         "display": [true, true, true, true],
         "colors": ["var(--theme-color-1)", "var(--theme-color-3)", "var(--theme-color-4)", "var(--theme-color-5)"],

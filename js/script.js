@@ -46,10 +46,11 @@ function closeMenu() {
   document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
 
-function openMenu(target) {
+function openMenu(target,event) {
   // hide bottom toolbar and show menu form defined by target variable
 
-  if (!document.querySelector(".submenu-wrapper.visible")) {
+  closeAllSubmenus();
+  event.stopPropagation();
     document.querySelectorAll("#menu-formbox-div form").forEach((element) => {
       // hide all opened menu forms, if there are any
 
@@ -61,7 +62,6 @@ function openMenu(target) {
       .getAttribute("data-submit-label");
     document.getElementById("menu-submit-button").setAttribute("form", target);
     document.getElementById("main-wrapper-div").classList.add("menu-open");
-  }
 }
 
 function openSubmenu(x, y, target) {
