@@ -1,3 +1,12 @@
+/*
+
+************************************
+customNotifications.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
 .custom-notifications-wrapper {
   position: fixed;
   left: 0;
@@ -5,22 +14,19 @@
   top: 43px;
   width: 100%;
   transition: top 0.2s;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
-
 .top-bar-open .custom-notifications-wrapper {
   top: 80px;
 }
-
 .custom-notifications-box.notifications-hide {
   transform: translateY(-50%);
   opacity: 0;
   z-index: -1;
 }
-
 .custom-notifications-box {
   background: var(--notification-color) url(../img/noise.svg) !important;
-  width: caLc(100% - 20px);
+  width: calc(100% - 20px);
   position: relative;
   border-radius: var(--menu-border-radius);
   margin: 10px;
@@ -37,5 +43,6 @@
   transition: all 0.4s;
   z-index: 0;
   opacity: 1;
+  -webkit-animation: flashHighlight 0.4s 0.2s;
   animation: flashHighlight 0.4s 0.2s;
 }

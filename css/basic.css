@@ -1,3 +1,12 @@
+/*
+
+************************************
+basic.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
 @import "https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap";
 :root {
   --white-color: #fff;
@@ -12,8 +21,8 @@
   --hyperlink-color: #1a4ed2;
   --general-font-size: 16px;
   --title-font-size: 20px;
-  --body-bg-color:var(--side-bg-color);
-  --body-bg-color-2:var(--main-bg-color);
+  --body-bg-color: var(--side-bg-color);
+  --body-bg-color-2: var(--main-bg-color);
   --dir-border-radius: 4px;
   --main-spacing: 16px;
   --menu-input-font-size: 13px;
@@ -59,11 +68,10 @@
   --toolbar-color-1-complementary: var(--theme-color-3-complementary);
   --toolbar-color-2-complementary: var(--theme-color-4-complementary);
   --toolbar-color-3-complementary: var(--theme-color-5-complementary);
-
-  --notifications-regular-color:var(--menu-bg-color);
-  --notifications-error-color:#ff9e9ecf;
-  --notifications-warning-color:#ffe16dbf;
-  --notifications-confirm-color:#c8eabcb8;
+  --notifications-regular-color: var(--menu-bg-color);
+  --notifications-error-color: #ff9e9ecf;
+  --notifications-warning-color: #ffe16dbf;
+  --notifications-confirm-color: #c8eabcb8;
 }
 html,
 body {

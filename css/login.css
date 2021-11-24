@@ -1,3 +1,12 @@
+/*
+
+************************************
+login.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
 html body {
   background: linear-gradient(
     126deg,
@@ -12,7 +21,7 @@ html body {
   height: 100vh;
 }
 .top-bar-login {
-  height: 43px !important ;
+  height: 43px !important;
 }
 .window-scroll-login {
   transform-style: preserve-3d;

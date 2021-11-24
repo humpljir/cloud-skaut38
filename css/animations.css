@@ -1,3 +1,12 @@
+/*
+
+************************************
+animations.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
 @-webkit-keyframes slideFromRight {
   0% {
     left: 100%;
@@ -131,28 +140,50 @@
   }
 }
 @keyframes appeare {
-0% {
-  opacity: 0;
-}
-100% {
-  opacity: 1;
-}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-webkit-keyframes appeare {
-0% {
-  opacity: 0;
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-100% {
-  opacity: 1;
-}
+@-webkit-keyframes disappeare {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes disappeare {
-0% {
-  opacity: 1;
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-100% {
-  opacity: 0;
-}
+@-webkit-keyframes flashHighlight {
+  0% {
+    filter: brightness(1);
+  }
+  20% {
+    filter: brightness(1.6);
+  }
+  30% {
+    filter: brightness(1.5);
+  }
+  100% {
+    filter: brightness(1);
+  }
 }
 @keyframes flashHighlight {
   0% {
@@ -165,7 +196,6 @@
     filter: brightness(1.5);
   }
   100% {
-  filter: brightness(1);
-}
+    filter: brightness(1);
   }
-  
+}

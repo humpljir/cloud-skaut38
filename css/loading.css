@@ -1,8 +1,18 @@
+/*
+
+************************************
+loading.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
 .loading.main-wrapper {
   transform: scale(1.2);
 }
 .loading-logo {
   transform: translate(-50%, -50%) scale(1);
+  -webkit-animation: appeare 1s ease-out both;
   animation: appeare 1s ease-out both;
   position: absolute;
   top: 50%;
@@ -24,7 +34,6 @@
   opacity: 1;
   pointer-events: all;
 }
-
 .loading-logo svg {
   position: relative;
   margin-left: 2vh;
@@ -32,17 +41,15 @@
   max-width: 60%;
   vertical-align: middle;
 }
-
 .loading-loaded.loading-wrapper {
   opacity: 0;
   pointer-events: none;
 }
-
 .loading-loaded .loading-logo {
   transform: translate(-50%, -50%) scale(0.8);
+  -webkit-animation: disappeare 0.4s ease-in both;
   animation: disappeare 0.4s ease-in both;
 }
-
 .box-particle-wrapper.particle-logo {
   position: relative;
   left: unset;
@@ -54,29 +61,29 @@
   filter: drop-shadow(0px 0px 10px var(--main-line-color));
 }
 .side-0 {
-    transform: translateZ(2vh);
-    background: var(--theme-color-1) !important;
-  }
-  .side-1 {
-    transform: rotateX(90deg) translateZ(2vh);
-    background: var(--theme-color-2) !important;
-  }
-  .side-2 {
-    transform: rotateX(180deg) translateZ(2vh);
-    background: var(--theme-color-3) !important;
-  }
-  .side-3 {
-    transform: rotateX(90deg) translateZ(-2vh);
-    background: var(--theme-color-4) !important;
-  }
-  .side-4 {
-    transform: rotateY(90deg) translateZ(2vh);
-    background: var(--theme-color-5) !important;
-  }
-  .side-5 {
-    transform: rotateY(90deg) translateZ(-2vh);
-    background: var(--theme-color-9) !important;
-  }
+  transform: translateZ(2vh);
+  background: var(--theme-color-1) !important;
+}
+.side-1 {
+  transform: rotateX(90deg) translateZ(2vh);
+  background: var(--theme-color-2) !important;
+}
+.side-2 {
+  transform: rotateX(180deg) translateZ(2vh);
+  background: var(--theme-color-3) !important;
+}
+.side-3 {
+  transform: rotateX(90deg) translateZ(-2vh);
+  background: var(--theme-color-4) !important;
+}
+.side-4 {
+  transform: rotateY(90deg) translateZ(2vh);
+  background: var(--theme-color-5) !important;
+}
+.side-5 {
+  transform: rotateY(90deg) translateZ(-2vh);
+  background: var(--theme-color-9) !important;
+}
 .box-particle {
   position: absolute;
   width: 4vh;
