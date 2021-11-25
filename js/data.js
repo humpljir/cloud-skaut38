@@ -60,7 +60,7 @@ var session = {
 var storage = [{
     "id": 0,
     "name": "Lorem ipsum věci",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-3)",
     "colorComplementary": "var(--theme-color-3-complementary)",
     "content": [{
@@ -100,7 +100,7 @@ var storage = [{
 {
     "id": 1,
     "name": "Lorem ipsum data",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-1)",
     "colorComplementary": "var(--theme-color-1-complementary)",
     "content": [{
@@ -113,7 +113,7 @@ var storage = [{
     },
     {
         "id": 5,
-        "name": "Lorem ipsum",
+        "name": "Random soubor",
         "date": 1607110465663,
         "extension": "pdf",
         "link": "image.jpg",
@@ -129,7 +129,7 @@ var storage = [{
     },
     {
         "id": 7,
-        "name": "Lorem ipsum",
+        "name": "Lorem random",
         "date": 1607110465663,
         "extension": "pptx",
         "link": "image.jpg",
@@ -212,7 +212,7 @@ var storage = [{
 {
     "id": 2,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-2)",
     "colorComplementary": "var(--theme-color-2-complementary)",
     "content": [{
@@ -252,7 +252,7 @@ var storage = [{
 {
     "id": 3,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-9)",
     "colorComplementary": "var(--theme-color-9-complementary)",
     "content": [{
@@ -292,7 +292,7 @@ var storage = [{
 {
     "id": 4,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-11)",
     "colorComplementary": "var(--theme-color-11-complementary)",
     "content": [{
@@ -332,7 +332,7 @@ var storage = [{
 {
     "id": 5,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-5)",
     "colorComplementary": "var(--theme-color-5-complementary)",
     "content": [{
@@ -372,7 +372,7 @@ var storage = [{
 {
     "id": 6,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-8)",
     "colorComplementary": "var(--theme-color-8-complementary)",
     "content": [{
@@ -412,7 +412,7 @@ var storage = [{
 {
     "id": 7,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-2)",
     "colorComplementary": "var(--theme-color-2-complementary)",
     "content": [{
@@ -524,7 +524,7 @@ var storage = [{
 {
     "id": 8,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-6)",
     "colorComplementary": "var(--theme-color-6-complementary)",
     "content": [{
@@ -636,7 +636,7 @@ var storage = [{
 {
     "id": 9,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-2)",
     "colorComplementary": "var(--theme-color-2-complementary)",
     "content": [{
@@ -756,7 +756,7 @@ var storage = [{
 {
     "id": 10,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-3)",
     "colorComplementary": "var(--theme-color-3-complementary)",
     "content": [{
@@ -868,7 +868,7 @@ var storage = [{
 {
     "id": 11,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-10)",
     "colorComplementary": "var(--theme-color-10-complementary)",
     "content": [{
@@ -980,7 +980,7 @@ var storage = [{
 {
     "id": 12,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-7)",
     "colorComplementary": "var(--theme-color-7-complementary)",
     "content": [{
@@ -1092,7 +1092,7 @@ var storage = [{
 {
     "id": 13,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-9)",
     "colorComplementary": "var(--theme-color-9-complementary)",
     "content": [{
@@ -1204,7 +1204,7 @@ var storage = [{
 {
     "id": 14,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-4)",
     "colorComplementary": "var(--theme-color-4-complementary)",
     "content": [{
@@ -1316,7 +1316,7 @@ var storage = [{
 {
     "id": 15,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-6)",
     "colorComplementary": "var(--theme-color-1-complementary)",
     "content": [{
@@ -1428,7 +1428,7 @@ var storage = [{
 {
     "id": 16,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-8)",
     "colorComplementary": "var(--theme-color-1-complementary)",
     "content": [{
@@ -1540,7 +1540,7 @@ var storage = [{
 {
     "id": 17,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-3)",
     "colorComplementary": "var(--theme-color-1-complementary)",
     "content": [{
@@ -1652,7 +1652,7 @@ var storage = [{
 {
     "id": 18,
     "name": "Lorem ipsum",
-    "date": "1607110465663",
+    "date": 1623113495663,
     "color": "var(--theme-color-11)",
     "colorComplementary": "var(--theme-color-1-complementary)",
     "content": [{

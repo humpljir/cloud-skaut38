@@ -134,6 +134,8 @@ function drawFiles(dirID) {
   });
 
   filesList.content.forEach((element) => {
+    var date = new Date(element.date);
+    
     let filelabel = document.createElement("div");
     filelabel.className = "file-label";
     filelabel.innerHTML = element.name;
@@ -163,7 +165,8 @@ function drawFiles(dirID) {
     );
 
     let fileboxflex = document.createElement("div");
-    fileboxflex.className = "file-box-flex";
+    fileboxflex.className = "file-box-flex searchable";
+    fileboxflex.setAttribute("data-keyword",(element.name+" "+date.toUTCString()+" "+element.link));
     fileboxflex.append(filebox);
 
     canvas.append(fileboxflex);
