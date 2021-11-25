@@ -201,19 +201,41 @@ style.css
   transform: translateY(-50%);
   transition: all 0.4s;
   height: calc(100% - 6px);
-  padding: 10px 0;
   margin: 0;
   box-sizing: border-box;
   width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  opacity: 0;
+}
+.search-box input {
+  position: relative;
+  padding: 10px 0;
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
   border-radius: var(--menu-border-radius);
   background: var(--side-bg-color);
   border: none;
+  padding: 10px;
+  padding-left: 30px;
+  flex-grow: 1;
+}
+.search-box button {
+flex-grow: 0;
+background: transparent;
+border: none;
+min-height: 30px;
+height: 100%;
+padding: 0 10px;
+opacity: 0.6;
+color:var(--main-fg-color)
 }
 .top-bar-search .search-box {
   right: 6px;
-  padding: 10px;
-  padding-left: 30px;
   width: calc(100% - 12px);
+  opacity: 1;
 }
 .top-bar-search .top-bar-display, .top-bar-search .top-bar-icon-sort, .top-bar-search .top-bar-icon-settings {
 opacity: 0;
@@ -221,7 +243,7 @@ pointer-events: none;
 }
 .top-bar-search .top-bar-absolute-right {
   right: calc(100% - 110px);
-  pointer-events: all;
+  pointer-events: none;
 }
 .main-wrapper .window .window-scroll {
   position: relative;
