@@ -114,7 +114,10 @@ style.css
   cursor: pointer;
 }
 .top-bar-icon {
-  height: calc(100% - 12px);
+  height: 32px;
+  width: 32px;
+  min-height: 32px;
+  overflow: visible;
   border: none;
   background: transparent;
   padding: 0;
