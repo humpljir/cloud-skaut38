@@ -94,7 +94,9 @@ function openSubsortMenumenu(event) {
 
 function search(keyword) {
   document.querySelectorAll(".searchable").forEach(element => {
-    if(!(element.getAttribute("data-keyword").toLowerCase().includes(keyword.toLowerCase()))) {
+    var elementDate = new Date(element.getAttribute("data-date"));
+    let keywordmix = element.getAttribute("data-name").toLowerCase() + ";" + elementDate.toUTCstring().toLowerCase() + ";" + element.getAttribute("data-keyword").toLowerCase(); 
+    if(!(keywordmix.includes(keyword.toLowerCase()))) {
       element.classList.add("search-hide");
     }
     else {
@@ -109,6 +111,29 @@ function searchCancel() {
   document.querySelectorAll(".search-hide").forEach(element => {
     element.classList.remove("search-hide");
   });
+}
+
+function sort(parameter) {
+  var list=[];
+document.querySelectorAll(".searchable").forEach((element)=>{list.push(element.cloneNode(true))});
+document.getElementById("blank-canvas").innerHTML="";
+list.sort(function (a, b) {
+  if(parameter==0){
+    return a.getAttribute("data-name").localeCompare(b.getAttribute("data-name"));
+  }else if(parameter==1){
+    return (b.getAttribute("data-name")).localeCompare(a.getAttribute("data-name"));
+  }else if(parameter==2){
+    return a.getAttribute("data-date") - b.getAttribute("data-date");
+  }else if(parameter==3){
+    return b.getAttribute("data-date") - a.getAttribute("data-date");
+  }else if(parameter==4){
+    return a.getAttribute("data-size") - b.getAttribute("data-size");
+  }else if(parameter==5){
+    return b.getAttribute("data-size") - a.getAttribute("data-size");
+  }
+  });
+  list.forEach((element)=> {document.getElementById("blank-canvas").append(element)});
+  appendEmptyElements(20, document.getElementById("blank-canvas"), "dir-box");
 }
 
 function openSubmenu(x, y, target) {

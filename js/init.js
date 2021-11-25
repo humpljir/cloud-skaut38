@@ -95,11 +95,12 @@ function drawDirectories() {
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
   storage.forEach((element) => {
-    var date = new Date(element.date);
-
     let dir = document.createElement("button");
     dir.className = "dir-box searchable";
-    dir.setAttribute("data-keyword",(element.name+" "+date.toUTCString()));
+    dir.setAttribute("data-name",element.name);
+    dir.setAttribute("data-date",element.date);
+    dir.setAttribute("data-size",element.size);
+    dir.setAttribute("data-keyword","");
     dir.style =
       "--dir-bg-color:" +
       element.color +
@@ -134,8 +135,6 @@ function drawFiles(dirID) {
   });
 
   filesList.content.forEach((element) => {
-    var date = new Date(element.date);
-    
     let filelabel = document.createElement("div");
     filelabel.className = "file-label";
     filelabel.innerHTML = element.name;
@@ -166,7 +165,10 @@ function drawFiles(dirID) {
 
     let fileboxflex = document.createElement("div");
     fileboxflex.className = "file-box-flex searchable";
-    fileboxflex.setAttribute("data-keyword",(element.name+" "+date.toUTCString()+" "+element.link));
+    fileboxflex.setAttribute("data-name",element.name);
+    fileboxflex.setAttribute("data-date",element.date);
+    fileboxflex.setAttribute("data-size",element.size);
+    fileboxflex.setAttribute("data-keyword",element.link);
     fileboxflex.append(filebox);
 
     canvas.append(fileboxflex);
