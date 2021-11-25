@@ -149,10 +149,16 @@ function drawFiles(dirID) {
     filelabel.className = "file-label";
     filelabel.innerHTML = element.name;
 
+    let fileiconextension = document.createElement("div");
+    fileiconextension.innerHTML = "."+element.extension;
+    fileiconextension.className = "file-icon-extension";
+
     let fileicon = document.createElement("div");
     fileicon.className = "file-icon";
+    fileicon.append(fileiconextension);
 
-    let filebox = document.createElement("button");
+    let filebox = document.createElement("a");
+    filebox.href=element.link;
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);

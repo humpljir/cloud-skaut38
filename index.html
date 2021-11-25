@@ -358,10 +358,6 @@
                     </button>
                 </div>
                 <div class="top-bar-line">
-                    <button type="button" class="top-bar-switcher" onclick="toggleDisplayStyle()">
-                        <div>PUBLIC</div>
-                        <div>PRIVATE</div>
-                    </button>
                     <button type="button" class="top-bar-display" onclick="toggleDisplayStyle()">
                         <div><svg width="100%" height="100%" viewBox="0 0 2656.0052 743.00734" version="1.1" id="svg8">
                                 <path id="rect2361-7-5-9-28-3"
@@ -370,6 +366,12 @@
                                     transform="scale(0.26458335)" />
                             </svg></div>
                     </button>
+                    <input type="text" class="search-box" placeholder="search">
+                    <div class="top-bar-absolute-right">
+                    <button onclick="topbarSearch()" class="top-bar-icon top-bar-icon-search search-icon-generate"></button>
+                    <button class="top-bar-icon top-bar-icon-sort sort-icon-generate"></button>
+                    <button onclick="openSide()" class="top-bar-icon top-bar-icon-settings settings-icon-generate"></button>
+                </div>
                 </div>
             </div>
         </div>

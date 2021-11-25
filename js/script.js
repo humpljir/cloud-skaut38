@@ -142,6 +142,19 @@ function toggleDisplayStyle() {
     .classList.toggle("display-as-tiles");
 }
 
+function topbarSearch() {
+  // toggle search bar
+
+  closeAllSubmenus();
+  document.getElementById("top-bar-div").classList.toggle("top-bar-search");
+}
+
+function topbarSort() {
+  // toggle sort submenu
+
+  document.getElementById("top-bar-div").classList.add("top-bar-sort");
+}
+
 function closeDir() {
   // close opened directory and go back to their list
 
