@@ -40,28 +40,75 @@ function changeHTMLTheme(color) {
   metaThemeColor.setAttribute("content", color);
 }
 
+function normalizeValue(val, maxVal, offset) {
+  if (val + offset > maxVal) {
+    return val - offset;
+  } else {
+    return val;
+  }
+}
+
 function closeMenu() {
   // close menu form and show toolbar
 
   document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
 
-function openMenu(target,event) {
+function openMenu(target, event) {
   // hide bottom toolbar and show menu form defined by target variable
 
   closeAllSubmenus();
   event.stopPropagation();
-    document.querySelectorAll("#menu-formbox-div form").forEach((element) => {
-      // hide all opened menu forms, if there are any
+  document.querySelectorAll("#menu-formbox-div form").forEach((element) => {
+    // hide all opened menu forms, if there are any
 
-      element.classList.remove("form-visible");
-    });
-    document.getElementById(target).classList.add("form-visible");
-    document.getElementById("menu-submit-button").innerHTML = document
-      .getElementById(target)
-      .getAttribute("data-submit-label");
-    document.getElementById("menu-submit-button").setAttribute("form", target);
-    document.getElementById("main-wrapper-div").classList.add("menu-open");
+    element.classList.remove("form-visible");
+  });
+  document.getElementById(target).classList.add("form-visible");
+  document.getElementById("menu-submit-button").innerHTML = document
+    .getElementById(target)
+    .getAttribute("data-submit-label");
+  document.getElementById("menu-submit-button").setAttribute("form", target);
+  document.getElementById("main-wrapper-div").classList.add("menu-open");
+}
+
+function openSubsortMenumenu(event) {
+  event.stopPropagation();
+  closeAllSubmenus();
+  let rect = event.target.closest(".window").getBoundingClientRect();
+  let submenu = document.getElementById("sort-submenu-div");
+  let x =
+    normalizeValue(
+      event.clientX,
+      document.body.offsetWidth,
+      submenu.offsetWidth
+    ) - rect.left;
+  let y =
+    normalizeValue(
+      event.clientY,
+      document.body.offsetHeight,
+      submenu.offsetHeight
+    ) - rect.top;
+  openSubmenu(x, y, submenu);
+}
+
+function search(keyword) {
+  document.querySelectorAll(".searchable").forEach(element => {
+    if(!(element.getAttribute("data-keyword").toLowerCase().includes(keyword.toLowerCase()))) {
+      element.classList.add("search-hide");
+    }
+    else {
+      element.classList.remove("search-hide");
+    }
+  });
+}
+
+function searchCancel() {
+  topbarSearch();
+  document.querySelector(".search-box input").value="";
+  document.querySelectorAll(".search-hide").forEach(element => {
+    element.classList.remove("search-hide");
+  });
 }
 
 function openSubmenu(x, y, target) {

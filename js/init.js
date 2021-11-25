@@ -47,14 +47,6 @@ function generateSubmenu(scope, targettype, fileid, options) {
     submenu.append(line);
   });
 
-  function normalizeValue(val, maxVal, offset) {
-    if (val + offset > maxVal) {
-      return val - offset;
-    } else {
-      return val;
-    }
-  }
-
   scope.addEventListener("contextmenu", (event) => {
     closeAllSubmenus();
 
@@ -71,12 +63,6 @@ function generateSubmenu(scope, targettype, fileid, options) {
         document.body.offsetHeight,
         submenu.offsetHeight
       ) - rect.top;
-    console.log(
-      event.clientY,
-      document.body.offsetHeight,
-      submenu.offsetHeight - rect.top,
-      y
-    );
 
     openSubmenu(x, y, submenu);
   });
@@ -109,8 +95,11 @@ function drawDirectories() {
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
   storage.forEach((element) => {
+    var date = new Date(element.date);
+
     let dir = document.createElement("button");
-    dir.className = "dir-box";
+    dir.className = "dir-box searchable";
+    dir.setAttribute("data-keyword",(element.name+" "+date.toUTCString()));
     dir.style =
       "--dir-bg-color:" +
       element.color +
@@ -121,12 +110,12 @@ function drawDirectories() {
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
     let submenu = generateSubmenu(dir, "dir", element.id, [
-      {"label":"share","function":"default"},
-      {"label":"edit","function":"openMenu('form-4',event)"},
-      {"label":"duplicate","function":"default"},
-      {"label":"move","function":"default"},
-      {"label":"convert","function":"default"},
-      {"label":"delete","function":"default"},
+      {"label":"Share","function":"default"},
+      {"label":"Edit","function":"openMenu('form-4',event)"},
+      {"label":"Duplicate","function":"default"},
+      {"label":"Move","function":"default"},
+      {"label":"Convert","function":"default"},
+      {"label":"Delete","function":"default"},
     ]);
 
     dir.append(submenu);
@@ -164,12 +153,12 @@ function drawFiles(dirID) {
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
-        {"label":"share","function":"default"},
-        {"label":"edit","function":"openMenu('form-3',event)"},
-        {"label":"duplicate","function":"default"},
-        {"label":"move","function":"default"},
-        {"label":"convert","function":"default"},
-        {"label":"delete","function":"default"},
+        {"label":"Share","function":"default"},
+        {"label":"Edit","function":"openMenu('form-3',event)"},
+        {"label":"Duplicate","function":"default"},
+        {"label":"Move","function":"default"},
+        {"label":"Convert","function":"default"},
+        {"label":"Delete","function":"default"},
       ])
     );
 
