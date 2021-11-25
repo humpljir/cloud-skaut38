@@ -93,13 +93,14 @@ function openSubsortMenumenu(event) {
 }
 
 function search(keyword) {
-  document.querySelectorAll(".searchable").forEach(element => {
-    var elementDate = new Date(element.getAttribute("data-date"));
-    let keywordmix = element.getAttribute("data-name").toLowerCase() + ";" + elementDate.toUTCstring().toLowerCase() + ";" + element.getAttribute("data-keyword").toLowerCase(); 
-    if(!(keywordmix.includes(keyword.toLowerCase()))) {
+  document.querySelectorAll(".searchable").forEach((element) => {
+    let keywordmix =
+      element.getAttribute("data-name").toLowerCase() +
+      ";" +
+      element.getAttribute("data-keyword").toLowerCase();
+    if (!keywordmix.includes(keyword.toLowerCase())) {
       element.classList.add("search-hide");
-    }
-    else {
+    } else {
       element.classList.remove("search-hide");
     }
   });
@@ -107,32 +108,40 @@ function search(keyword) {
 
 function searchCancel() {
   topbarSearch();
-  document.querySelector(".search-box input").value="";
-  document.querySelectorAll(".search-hide").forEach(element => {
+  document.querySelector(".search-box input").value = "";
+  document.querySelectorAll(".search-hide").forEach((element) => {
     element.classList.remove("search-hide");
   });
 }
 
 function sort(parameter) {
-  var list=[];
-document.querySelectorAll(".searchable").forEach((element)=>{list.push(element.cloneNode(true))});
-document.getElementById("blank-canvas").innerHTML="";
-list.sort(function (a, b) {
-  if(parameter==0){
-    return a.getAttribute("data-name").localeCompare(b.getAttribute("data-name"));
-  }else if(parameter==1){
-    return (b.getAttribute("data-name")).localeCompare(a.getAttribute("data-name"));
-  }else if(parameter==2){
-    return a.getAttribute("data-date") - b.getAttribute("data-date");
-  }else if(parameter==3){
-    return b.getAttribute("data-date") - a.getAttribute("data-date");
-  }else if(parameter==4){
-    return a.getAttribute("data-size") - b.getAttribute("data-size");
-  }else if(parameter==5){
-    return b.getAttribute("data-size") - a.getAttribute("data-size");
-  }
+  var list = [];
+  document.querySelectorAll(".searchable").forEach((element) => {
+    list.push(element.cloneNode(true));
   });
-  list.forEach((element)=> {document.getElementById("blank-canvas").append(element)});
+  document.getElementById("blank-canvas").innerHTML = "";
+  list.sort(function (a, b) {
+    if (parameter == 0) {
+      return a
+        .getAttribute("data-name")
+        .localeCompare(b.getAttribute("data-name"));
+    } else if (parameter == 1) {
+      return b
+        .getAttribute("data-name")
+        .localeCompare(a.getAttribute("data-name"));
+    } else if (parameter == 2) {
+      return a.getAttribute("data-date") - b.getAttribute("data-date");
+    } else if (parameter == 3) {
+      return b.getAttribute("data-date") - a.getAttribute("data-date");
+    } else if (parameter == 4) {
+      return a.getAttribute("data-size") - b.getAttribute("data-size");
+    } else if (parameter == 5) {
+      return b.getAttribute("data-size") - a.getAttribute("data-size");
+    }
+  });
+  list.forEach((element) => {
+    document.getElementById("blank-canvas").append(element);
+  });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "dir-box");
 }
 
