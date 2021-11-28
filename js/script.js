@@ -37,6 +37,17 @@ function errorHandler(code, crucial) {
   }
 }
 
+function formValidator(form) {
+  let isValid=true;
+  form.querySelectorAll("[data-validate]").forEach(element => {
+    if(!element.getAttribute("data-valid-input")) {
+      isValid = false;
+    }
+  });
+
+  return isValid
+}
+
 function inputValidator(input, type) {
   let value = input.value;
   let errorMessage = "";
