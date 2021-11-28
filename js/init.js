@@ -47,8 +47,8 @@ function generateSubmenu(scope, targettype, fileid, options) {
         "&fileid=" +
         fileid;
     } else {
-      console.log("(event)=>{event.stopPropagation();"+option.function+";}");
-      line.setAttribute("onclick", "(event)=>{event.stopPropagation();window.open("+option.function+", '_blank');}");
+/*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
+      line.setAttribute("onclick", option.function);
     }
     line.innerHTML = option.label;
     submenu.append(line);
@@ -162,7 +162,7 @@ function drawFiles(dirID) {
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
-        { label: "Open", function: "window.open('"+element.link+"', '_blank');" },
+        { label: "Open", function: "window.open('"+element.link+"', '_blank')" },
         { label: "Share", function: "default" },
         { label: "Edit", function: "openMenu('form-3',event)" },
         { label: "Duplicate", function: "default" },
