@@ -47,7 +47,8 @@ function generateSubmenu(scope, targettype, fileid, options) {
         "&fileid=" +
         fileid;
     } else {
-      line.setAttribute("onclick", option.function);
+      console.log("(event)=>{event.stopPropagation();"+option.function+";}");
+      line.setAttribute("onclick", "(event)=>{event.stopPropagation();window.open("+option.function+", '_blank');}");
     }
     line.innerHTML = option.label;
     submenu.append(line);
@@ -75,9 +76,11 @@ function generateSubmenu(scope, targettype, fileid, options) {
 
   let submenuDots = document.createElement("div");
   submenuDots.className = "three-dots-icon-generate submenu-dots";
-  submenuDots.addEventListener("click", (e) => {
+  submenuDots.addEventListener("click", (event) => {
+
+  event.stopPropagation();
     closeAllSubmenus();
-    let rect = e.target.parentNode.parentNode.getBoundingClientRect();
+    let rect = event.target.parentNode.parentNode.getBoundingClientRect();
     let x =
       normalizeValue(
         event.clientX,
@@ -91,7 +94,6 @@ function generateSubmenu(scope, targettype, fileid, options) {
         submenu.offsetHeight
       ) - rect.top;
     openSubmenu(x, y, submenu);
-    e.stopPropagation();
   });
   scope.append(submenuDots);
   return submenu;
@@ -153,13 +155,14 @@ function drawFiles(dirID) {
     fileicon.className = "file-icon";
     fileicon.append(fileiconextension);
 
-    let filebox = document.createElement("a");
-    filebox.href = element.link;
+    let filebox = document.createElement("div");
+    filebox.setAttribute("onclick","window.location.href='"+element.link+"'");
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
+        { label: "Open", function: "window.open('"+element.link+"', '_blank');" },
         { label: "Share", function: "default" },
         { label: "Edit", function: "openMenu('form-3',event)" },
         { label: "Duplicate", function: "default" },
