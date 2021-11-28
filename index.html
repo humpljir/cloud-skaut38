@@ -89,12 +89,12 @@
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
-                                <input class="text-box" type="text" id="fullname" name="fullname" value="Jiří Humpl"
+                                <input class="text-box" type="text" data-validate="label" id="fullname" name="fullname" value="Jiří Humpl"
                                     placeholder="Full Name">
-                                <input class="text-box" type="text" id="nick" name="nickname" value="humpljir"
+                                <input class="text-box" type="text" data-validate="username" id="nick" name="nickname" value="humpljir"
                                     placeholder="Username">
                                 <label class="side-form-img-upload">
-                                    <div class="img-upload-icon"></div>Change Profile Picture
+                                    <div class="img-upload-icon"></div>Profile Picture
                                     <input type="file" id="pic_upload" name="upload">
                                 </label>
                                 <div class="side-form-buttons"><input type="reset"
@@ -109,9 +109,9 @@
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
                             <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
-                                <input class="text-box" type="password" id="new_password" name="password"
+                                <input class="text-box" type="password" data-validate="password" id="change-password" name="password"
                                     placeholder="new password">
-                                <input class="text-box" type="password" id="new_password_check" name="password_check"
+                                <input class="text-box" type="password" data-validate="match" data-validate-match-id="change-password" id="change-password-check" name="password-check"
                                     placeholder="password again">
                                 <div class="side-form-buttons"><input type="reset"
                                         onclick="this.closest('.side-form').classList.remove('form-changed')"
@@ -379,21 +379,21 @@
         <div class="menu-wrapper" id="menu-wrapper-div">
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                 <form class="" id="form-0" data-submit-label="UPLOAD">
-                    <input type="text" id="file-name" name="file-name" placeholder="file name">
+                    <input type="text" id="file-name" name="file-name" data-validate="label" placeholder="file name">
                     <label class="file-upload">
                         <div>select file</div>
                         <input type="file" id="file-upload" name="file-upload">
                     </label>
                 </form>
                 <form class="" id="form-1" data-submit-label="UPLOAD">
-                    <input type="text" id="picture-name" name="picture-name" placeholder="picture name">
+                    <input type="text" id="picture-name" name="picture-name" data-validate="label"  placeholder="picture name">
                     <label class="file-upload">
                         <div>select picture</div>
                         <input type="file" id="upload" name="upload">
                     </label>
                 </form>
                 <form class="" id="form-2" data-submit-label="CREATE">
-                    <input type="text" id="dir-name" name="dir-name" placeholder="directory name">
+                    <input type="text" id="dir-name" name="dir-name"data-validate="label"  data-validate="label"  placeholder="directory name">
                     <div class="color-selector">
                         <label>
                             <input type="radio" id="dir-color-0" name="dir-color" checked>
@@ -436,11 +436,11 @@
                     </div>
                 </form>
                 <form class="" id="form-3" data-submit-label="SAVE">
-                    <input type="text" id="file-name" name="file-name" placeholder="file name">
+                    <input type="text" id="file-name" name="file-name" data-validate="label"  placeholder="file name">
                     <label class="form-text">You're editting filename of selected file. Click SAVE to confirm changes.</label>
                 </form>
                 <form class="" id="form-4" data-submit-label="SAVE">
-                    <input type="text" id="dir-name" name="dir-name" placeholder="directory name">
+                    <input type="text" id="dir-name" name="dir-name" data-validate="label" placeholder="directory name">
                     <div class="color-selector">
                         <label>
                             <input type="radio" id="dir-color-0" name="dir-color" checked>

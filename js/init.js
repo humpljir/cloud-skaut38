@@ -18,7 +18,7 @@ const alwaysTopBarOffset = 20;
 const colorsInPalette = 12;
 const toolbarIconCount = 4;
 
-let loadingTimeout=setTimeout(() => {
+let loadingTimeout = setTimeout(() => {
   errorHandler(0);
 }, 10000);
 
@@ -27,7 +27,9 @@ function loadingLoaded() {
   setTimeout(() => {
     document.getElementById("main-wrapper-div").classList.remove("loading");
     document.getElementById("main-wrapper-div").classList.add("loading-loaded");
-    document.getElementById("loading-wrapper-div").classList.add("loading-loaded");    
+    document
+      .getElementById("loading-wrapper-div")
+      .classList.add("loading-loaded");
   }, 1000);
 }
 
@@ -36,12 +38,16 @@ function generateSubmenu(scope, targettype, fileid, options) {
   submenu.className = "submenu-wrapper fluent-bg";
   options.forEach((option) => {
     let line = document.createElement("a");
-    if(option.function=="default") {
-    line.href =
-      "?fileaction=" + option.label + "&typy=" + targettype + "&fileid=" + fileid;
-    }
-    else {
-      line.setAttribute("onclick",option.function);
+    if (option.function == "default") {
+      line.href =
+        "?fileaction=" +
+        option.label +
+        "&typy=" +
+        targettype +
+        "&fileid=" +
+        fileid;
+    } else {
+      line.setAttribute("onclick", option.function);
     }
     line.innerHTML = option.label;
     submenu.append(line);
@@ -97,10 +103,10 @@ function drawDirectories() {
   storage.forEach((element) => {
     let dir = document.createElement("button");
     dir.className = "dir-box searchable";
-    dir.setAttribute("data-name",element.name);
-    dir.setAttribute("data-date",element.date);
-    dir.setAttribute("data-size",element.size);
-    dir.setAttribute("data-keyword","");
+    dir.setAttribute("data-name", element.name);
+    dir.setAttribute("data-date", element.date);
+    dir.setAttribute("data-size", element.size);
+    dir.setAttribute("data-keyword", "");
     dir.style =
       "--dir-bg-color:" +
       element.color +
@@ -111,12 +117,12 @@ function drawDirectories() {
     dir.setAttribute("onclick", "openDir(this)");
     dir.innerHTML = element.name;
     let submenu = generateSubmenu(dir, "dir", element.id, [
-      {"label":"Share","function":"default"},
-      {"label":"Edit","function":"openMenu('form-4',event)"},
-      {"label":"Duplicate","function":"default"},
-      {"label":"Move","function":"default"},
-      {"label":"Convert","function":"default"},
-      {"label":"Delete","function":"default"},
+      { label: "Share", function: "default" },
+      { label: "Edit", function: "openMenu('form-4',event)" },
+      { label: "Duplicate", function: "default" },
+      { label: "Move", function: "default" },
+      { label: "Convert", function: "default" },
+      { label: "Delete", function: "default" },
     ]);
 
     dir.append(submenu);
@@ -140,7 +146,7 @@ function drawFiles(dirID) {
     filelabel.innerHTML = element.name;
 
     let fileiconextension = document.createElement("div");
-    fileiconextension.innerHTML = "."+element.extension;
+    fileiconextension.innerHTML = "." + element.extension;
     fileiconextension.className = "file-icon-extension";
 
     let fileicon = document.createElement("div");
@@ -148,27 +154,27 @@ function drawFiles(dirID) {
     fileicon.append(fileiconextension);
 
     let filebox = document.createElement("a");
-    filebox.href=element.link;
+    filebox.href = element.link;
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
-        {"label":"Share","function":"default"},
-        {"label":"Edit","function":"openMenu('form-3',event)"},
-        {"label":"Duplicate","function":"default"},
-        {"label":"Move","function":"default"},
-        {"label":"Convert","function":"default"},
-        {"label":"Delete","function":"default"},
+        { label: "Share", function: "default" },
+        { label: "Edit", function: "openMenu('form-3',event)" },
+        { label: "Duplicate", function: "default" },
+        { label: "Move", function: "default" },
+        { label: "Convert", function: "default" },
+        { label: "Delete", function: "default" },
       ])
     );
 
     let fileboxflex = document.createElement("div");
     fileboxflex.className = "file-box-flex searchable";
-    fileboxflex.setAttribute("data-name",element.name);
-    fileboxflex.setAttribute("data-date",element.date);
-    fileboxflex.setAttribute("data-size",element.size);
-    fileboxflex.setAttribute("data-keyword",element.link);
+    fileboxflex.setAttribute("data-name", element.name);
+    fileboxflex.setAttribute("data-date", element.date);
+    fileboxflex.setAttribute("data-size", element.size);
+    fileboxflex.setAttribute("data-keyword", element.link);
     fileboxflex.append(filebox);
 
     canvas.append(fileboxflex);
@@ -226,7 +232,9 @@ function loadThemeColors() {
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      session.style.palettes[session.style.activePalette].colorComplementary[index]
+      session.style.palettes[session.style.activePalette].colorComplementary[
+        index
+      ]
     );
   }
 
@@ -240,6 +248,22 @@ function loadThemeColors() {
       session.toolbar.colorsComplementary[index]
     );
   }
+}
+
+function initInputValidator() {
+  document.querySelectorAll("[data-validate]").forEach((element) => {
+    /*
+    element.closest("form").setAttribute("data-valid", true);
+    element.closest("form").setAttribute("onsubmit", "return this.getAttribute('data-valid')");
+    */
+    element.setAttribute("data-valid-input", true);
+    let type=element.getAttribute('data-validate');
+    console.log(type);
+    element.setAttribute("oninput", "inputValidator(this,'"+type+"')");
+    let validateWarning = document.createElement("div");
+    validateWarning.className = "validate-warning warning-hide";
+    element.after(validateWarning);
+  });
 }
 
 function initialize() {
@@ -307,14 +331,14 @@ function initialize() {
   });
 
   if (document.getElementById("blank-canvas")) {
-  sideInit();
+    sideInit();
   }
+  initInputValidator();
   drawSVGAll();
   initCustomNotifications();
   loadingLoaded();
 
   onloadFromPHP();
 }
-
 
 console.log("✅ init.js successfully loaded!");

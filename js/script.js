@@ -11,25 +11,98 @@ script.js
   Main file for all global js functions.
 */
 
-function errorHandler(code) {
+function errorHandler(code, crucial) {
   // function for handling with errors, in the future, they should probably be
   // sent to server
 
   //#code 0 -> loading timeout
+  //#code 1 -> missing DOM element
 
-  pushCustomNotifications(
-    "ERROR! Appication run into problem. CODE #" + code,
-    "var(--notifications-error-color)"
-  );
   console.log("error nr. " + code);
 
-  if (code == 0) {
-    // when webapp doesn't load properly, try refresh the window without caching
-    // - hopping problem was only with network - otherwise this will lead to app
-    //   refreshing all the time - better handler for this error should be
-    //   created in the future
+  if (crucial) {
+    pushCustomNotifications(
+      "ERROR! Appication run into problem. CODE #" + code,
+      "var(--notifications-error-color)"
+    );
 
-    window.location.reload(true);
+    setTimeout(() => {
+      // when webapp doesn't load properly, try refresh the window without caching
+      // - hopping problem was only with network - otherwise this will lead to app
+      //   refreshing all the time - better handler for this error should be
+      //   created in the future
+
+      window.location.reload(true);
+    }, customNotificationsTimeout);
+  }
+}
+
+function inputValidator(input, type) {
+  let value = input.value;
+  let errorMessage = "";
+  
+  var regexUpperAndLower = new RegExp(/^(?=.*[A-Z])(?=.*[a-z])([^\xyz]){0,}$/);
+  var regexDecimal = new RegExp(/^(?=.*\d)([^\xyz]){0,}$/);
+  var regexLabelUnallowed = new RegExp(/^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/);
+  var regexUsernameUnallowed = new RegExp(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/);
+  var regexEmail = new RegExp(/.+\@.+\..+/);
+
+  if (type == "username") {
+    if (!(value.length>8 && value.length<200)) {
+      errorMessage += "<li>length between 8 and 200 chars</li>";
+    }
+
+    if (!(regexUsernameUnallowed.test(value))) {
+      errorMessage += "<li>contains unallowed symbols</li>";
+    }
+  } else if (type == "label") {
+    if (!(value.length>1 && value.length<200)) {
+      errorMessage += "<li>length between 1 and 200 chars</li>";
+    }
+
+    if (!(regexLabelUnallowed.test(value))) {
+      errorMessage += "<li>conatins unallowed symbols</li>";
+    }
+  }else if (type == "email") {
+    if (!(regexEmail.test(value))) {
+      errorMessage += "<li>this is not an email adress</li>";
+    }
+  } else if (type == "password") {
+
+    if (!(value.length>8 && value.length<200)) {
+      errorMessage += "<li>length between 8 and 200 chars</li>";
+    }
+
+    if (!(regexUpperAndLower.test(value))) {
+      errorMessage += "<li>at least one uppercase and lowercase letter</li>";
+    }
+
+    if (!(regexDecimal.test(value))) {
+      errorMessage += "<li>at least one number</li>";
+    }
+  }else if (type == "match") {
+    if (!(document.getElementById(input.getAttribute("data-validate-match-id")).value == value)) {
+      errorMessage += "<li>password does not match</li>";
+    }
+  } 
+
+  if (errorMessage=="") {
+    input.setAttribute("data-valid-input", true);
+    if (input.nextElementSibling.className.includes("validate-warning")) {
+      input.nextElementSibling.innerHTML = "";
+      input.nextElementSibling.classList.add("warning-hide"); 
+    } else {
+      errorHandler(1, false);
+    }
+  } else {
+    input.setAttribute("data-valid-input", false);
+
+    if (input.nextElementSibling.className.includes("validate-warning")) {
+      input.nextElementSibling.innerHTML = errorMessage;
+      input.nextElementSibling.classList.remove("warning-hide"); 
+    } else {
+      errorHandler(1, false);
+    }
   }
 }
 
@@ -119,7 +192,6 @@ function sort(parameter) {
   document.querySelectorAll(".searchable").forEach((element) => {
     list.push(element.cloneNode(true));
   });
-  document.getElementById("blank-canvas").innerHTML = "";
   list.sort(function (a, b) {
     if (parameter == 0) {
       return a
@@ -139,6 +211,11 @@ function sort(parameter) {
       return b.getAttribute("data-size") - a.getAttribute("data-size");
     }
   });
+  if (document.querySelector(".dir-header")) {
+    let header = document.querySelector(".dir-header").cloneNode(true);
+    list.unshift(header);
+  }
+  document.getElementById("blank-canvas").innerHTML = "";
   list.forEach((element) => {
     document.getElementById("blank-canvas").append(element);
   });
