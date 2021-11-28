@@ -37,15 +37,23 @@ function errorHandler(code, crucial) {
   }
 }
 
-function formValidator(form) {
+function formValidator(form,event) {
   let isValid=true;
   form.querySelectorAll("[data-validate]").forEach(element => {
-    if(!element.getAttribute("data-valid-input")) {
+    if(element.getAttribute("data-valid-input")=="false") {
       isValid = false;
     }
   });
 
-  return isValid
+  if(isValid) {
+    return true
+  }
+  event.preventDefault();
+  pushCustomNotifications(
+    "Check entered values!",
+    "var(--notifications-error-color)"
+  );
+  return false
 }
 
 function inputValidator(input, type) {
@@ -59,7 +67,7 @@ function inputValidator(input, type) {
   var regexEmail = new RegExp(/.+\@.+\..+/);
 
   if (type == "username") {
-    if (!(value.length>8 && value.length<200)) {
+    if (!(value.length>7 && value.length<200)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 
@@ -67,7 +75,7 @@ function inputValidator(input, type) {
       errorMessage += "<li>contains unallowed symbols</li>";
     }
   } else if (type == "label") {
-    if (!(value.length>1 && value.length<200)) {
+    if (!(value.length>0 && value.length<200)) {
       errorMessage += "<li>length between 1 and 200 chars</li>";
     }
 
@@ -80,7 +88,7 @@ function inputValidator(input, type) {
     }
   } else if (type == "password") {
 
-    if (!(value.length>8 && value.length<200)) {
+    if (!(value.length>7 && value.length<200)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 

@@ -264,7 +264,7 @@ function initInputValidator() {
     validateWarning.className = "validate-warning warning-hide";
     element.after(validateWarning);
 
-    element.closest("form").setAttribute("onsubmit","return formValidator(this)");
+    element.closest("form").setAttribute("onsubmit","return formValidator(this,event)");
   });
 }
 

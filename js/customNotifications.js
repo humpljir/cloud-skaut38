@@ -43,6 +43,8 @@ function pushCustomNotifications(content,color) {
     }, 400);
   }, customNotificationsTimeout);
   document.getElementById("custom-notifications-wrapper-div").prepend(customNotificationsBox);
+
+  console.log("Custom notfication pushed: "+content);
 }
 
 function clearCustomNotifications() {
