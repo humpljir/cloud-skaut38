@@ -143,6 +143,7 @@ function normalizeValue(val, maxVal, offset) {
 function closeMenu() {
   // close menu form and show toolbar
 
+  clearCustomNotifications();
   document.getElementById("main-wrapper-div").classList.remove("menu-open");
 }
 

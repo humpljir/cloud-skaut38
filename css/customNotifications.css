@@ -11,14 +11,16 @@ customNotifications.css
   position: fixed;
   left: 0;
   right: 0;
-  top: 43px;
+  top: 0px;
   width: 100%;
   transition: top 0.2s;
   scroll-behavior: smooth;
 }
+/*
 .top-bar-open .custom-notifications-wrapper {
   top: 80px;
 }
+*/
 .custom-notifications-box.notifications-hide {
   transform: translateY(-50%);
   opacity: 0;

@@ -88,7 +88,7 @@
                             onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <div
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
-                            <form class="side-form" id="form-userchange" data-submit-label="USERCHANGE">
+                            <form class="side-form" id="form-userchange" method="PUT" data-submit-label="USERCHANGE">
                                 <input class="text-box" type="text" data-validate="label" id="fullname" name="fullname" value="Jiří Humpl"
                                     placeholder="Full Name">
                                 <input class="text-box" type="text" data-validate="username" id="nick" name="nickname" value="humpljir"
@@ -108,7 +108,7 @@
                             onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <div
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
-                            <form class="side-form" id="form-changepass" data-submit-label="CHANGEPASS">
+                            <form class="side-form" id="form-changepass" method="PUT" data-submit-label="CHANGEPASS">
                                 <input class="text-box" type="password" data-validate="password" id="change-password" name="password"
                                     placeholder="new password">
                                 <input class="text-box" type="password" data-validate="match" data-validate-match-id="change-password" id="change-password-check" name="password-check"
@@ -124,7 +124,7 @@
                             onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <div
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
-                            <form class="side-form" id="form-appearence" data-submit-label="CREATE">
+                            <form class="side-form" id="form-appearence" method="PUT" data-submit-label="CREATE">
                                 <label class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Turn On Dark Theme</span><input
                                         onclick="toggleDarkTheme()" type="checkbox" class="side-form-switch">
@@ -261,7 +261,7 @@
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
 
                         <div class="side-category-content">
-                            <form class="side-form" id="form-toolbar-edit" data-submit-label="USERCHANGE">
+                            <form class="side-form" id="form-toolbar-edit" method="PUT" data-submit-label="USERCHANGE">
                                 <label class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Show Toolbar</span><input type="checkbox"
                                         onchange="switchSessionVal('toolbarVisible',this.checked)" checked
@@ -287,7 +287,7 @@
                             onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div
                                 class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                         <div class="side-category-content">
-                            <form class="side-form" id="form-notifications" data-submit-label="USERCHANGE"><label
+                            <form class="side-form" id="form-notifications" method="PUT" data-submit-label="USERCHANGE"><label
                                     class="side-form-switch-wrapper">
                                     <span class="side-form-switch-label">Turn On PWA Notifications</span><input
                                         type="checkbox" class="side-form-switch"
@@ -378,21 +378,21 @@
         </div>
         <div class="menu-wrapper" id="menu-wrapper-div">
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
-                <form class="" id="form-0" data-submit-label="UPLOAD">
+                <form class="" id="form-0" method="POST" data-submit-label="UPLOAD">
                     <input type="text" id="file-name" name="file-name" data-validate="label" placeholder="file name">
                     <label class="file-upload">
                         <div>select file</div>
-                        <input type="file" id="file-upload" name="file-upload">
+                        <input type="file" id="file-upload" name="file-upload" required>
                     </label>
                 </form>
-                <form class="" id="form-1" data-submit-label="UPLOAD">
+                <form class="" id="form-1" method="POST" data-submit-label="UPLOAD">
                     <input type="text" id="picture-name" name="picture-name" data-validate="label"  placeholder="picture name">
                     <label class="file-upload">
                         <div>select picture</div>
-                        <input type="file" id="upload" name="upload">
+                        <input type="file" id="upload" name="upload" required>
                     </label>
                 </form>
-                <form class="" id="form-2" data-submit-label="CREATE">
+                <form class="" id="form-2" method="POST" data-submit-label="CREATE">
                     <input type="text" id="dir-name" name="dir-name"data-validate="label"  data-validate="label"  placeholder="directory name">
                     <div class="color-selector">
                         <label>
@@ -435,11 +435,11 @@
 
                     </div>
                 </form>
-                <form class="" id="form-3" data-submit-label="SAVE">
+                <form class="" id="form-3" method="POST" data-submit-label="SAVE">
                     <input type="text" id="file-name" name="file-name" data-validate="label"  placeholder="file name">
                     <label class="form-text">You're editting filename of selected file. Click SAVE to confirm changes.</label>
                 </form>
-                <form class="" id="form-4" data-submit-label="SAVE">
+                <form class="" id="form-4" method="POST" data-submit-label="SAVE">
                     <input type="text" id="dir-name" name="dir-name" data-validate="label" placeholder="directory name">
                     <div class="color-selector">
                         <label>

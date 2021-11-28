@@ -20,7 +20,7 @@ function initCustomNotifications() {
   let customNotificationsWrapper = document.createElement("div");
   customNotificationsWrapper.className="custom-notifications-wrapper";
   customNotificationsWrapper.id="custom-notifications-wrapper-div";
-  document.getElementById("top-bar-div").before(customNotificationsWrapper);
+  document.getElementById("window-div").after(customNotificationsWrapper);
 }
 
 function pushCustomNotifications(content,color) {
