@@ -331,25 +331,26 @@
         <div class="menu-wrapper" id="menu-wrapper-div">
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                 <form class="form-visible" id="form-0" data-submit-label="LOGIN">
-                    <input type="text" id="username" name="username" placeholder="username">
-                    <input type="password" id="password" name="password" placeholder="password">
-                    <a onclick="openMenu('form-2')">Create New Account</a>
-                    <a onclick="openMenu('form-1')">Forgot Password</a>
+                    <input type="text" id="login-username" name="username" data-validate="username" placeholder="username" required>
+                    <input type="password" id="login-password" name="password" data-validate="password" placeholder="password" required>
+                    <a onclick="openMenu('form-2',event)">Create New Account</a>
+                    <a onclick="openMenu('form-1',event)">Forgot Password</a>
                 </form>
                 <form class="form-visible" id="form-1" data-submit-label="SEND MAIL">
-                    <input type="text" id="forgot-username" name="forgot-username" placeholder="username or mail">
+                    <input type="text" id="forgot-username" name="forgot-username" data-validate="usernameOrMail" placeholder="username or mail" required>
                     <label class="form-text">Check your mailbox to reset your password.</label>
-                    <a onclick="openMenu('form-0')">Return To Login</a>
+                    <a onclick="openMenu('form-0',event)">Return To Login</a>
                     <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
                 </form>
                 <form class="form-visible" id="form-2" data-submit-label="REGISTER">
-                    <input type="text" id="username" name="username" placeholder="username">
-                    <input type="email" id="email" name="email" placeholder="email">
-                    <input type="password" id="password" name="password" placeholder="password">
-                    <input type="password" id="password_confirm" name="password_confirm" placeholder="password again">
+                    <input type="text" id="register-username" data-validate="username" name="username" placeholder="username" required>
+                    <input type="text" id="register-fullname" data-validate="label" name="fullname" placeholder="full name" required>
+                    <input type="email" id="register-email" data-validate="email" name="email" placeholder="email" required>
+                    <input type="password" id="register-password" data-validate="password" name="password" placeholder="password" required>
+                    <input type="password" id="register-password-confirm" data-validate="match" data-validate-match-id="register-password" name="password_confirm" placeholder="password again" required>
                     <label class="form-text">This is internal cloud storage, every registration has to be confirmed personally by
                         contacting your scoutmaster.</label>
-                    <a onclick="openMenu('form-0')">Already have an account?</a>
+                    <a onclick="openMenu('form-0',event)">Already have an account?</a>
                 </form>
             </div>
             <div class="menu-spacer"></div>
@@ -361,7 +362,7 @@
         </div>
         <div class="toolbar-wrapper toolbar-wrapper-login">
             <div class="menu-button-wrapper">
-                <button type="button" class="menu-button menu-button-submit" onclick="openMenu('form-0')">LOGIN</button>
+                <button type="button" class="menu-button menu-button-submit" onclick="openMenu('form-0',event)">LOGIN</button>
             </div>
         </div>
     </div>
