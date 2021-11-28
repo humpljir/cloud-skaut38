@@ -53,6 +53,7 @@ function formValidator(form,event) {
     "Check entered values!",
     "var(--notifications-error-color)"
   );
+  changeHTMLTheme("#rr0000");
   return false
 }
 
