@@ -197,6 +197,18 @@ function appendEmptyElements(n, target, chameleonClass) {
 function drawToolbar() {
   target = document.getElementById("toolbar-div");
   target.innerHTML = "";
+  target.setAttribute("onclick","openToolbar()");
+  let toolbarAutohideArrow = document.createElement("div");
+  toolbarAutohideArrow.className="arrow-toolbar-autohide arrow-icon-generate";
+  let toolbarAutohideBar = document.createElement("div");
+  toolbarAutohideBar.className="toolbar-autohide-bar";
+  toolbarAutohideBar.append(toolbarAutohideArrow);
+  target.append(toolbarAutohideBar);
+
+  let toolbarIconWrapper=document.createElement("div");
+  toolbarIconWrapper.className="toolbar-icon-wrapper";
+  target.append(toolbarIconWrapper);
+
   for (let index = 0; index < toolbarIconCount; index++) {
     let indexReorder = session.toolbar.reorder[index];
     if (session.toolbar.display[indexReorder]) {
@@ -213,7 +225,7 @@ function drawToolbar() {
       );
       toolbarIconDOM.innerHTML =
         session.toolbar["button" + indexReorder + "svg"];
-      target.append(toolbarIconDOM);
+        toolbarIconWrapper.append(toolbarIconDOM);
     }
   }
 }
@@ -305,6 +317,7 @@ function initialize() {
       scrollYDistance = scrollYLast - scrollY;
     }
 
+    // auto hide top bar
     if (scrollYDistance > hideTopBarOffset || scrollY < alwaysTopBarOffset) {
       document.getElementById("main-wrapper-div").classList.add("top-bar-open");
     } else if (
@@ -314,6 +327,21 @@ function initialize() {
       document
         .getElementById("main-wrapper-div")
         .classList.remove("top-bar-open");
+    }
+
+    // autohide bottom toolbar
+    if (scrollYDistance > hideTopBarOffset || scrollY < alwaysTopBarOffset) {
+      document.getElementById("main-wrapper-div").classList.remove("toolbar-autohide-hidden");
+    } else if (
+      scrollYDistance < -1 * hideTopBarOffset &&
+      session.toolbar.autoHide
+    ) {
+      document
+        .getElementById("main-wrapper-div")
+        .classList.add("toolbar-autohide");
+        document
+          .getElementById("main-wrapper-div")
+          .classList.add("toolbar-autohide-hidden");
     }
 
     /*

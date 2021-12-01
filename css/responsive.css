@@ -16,11 +16,13 @@ responsive.css
   .main-wrapper .toolbar-wrapper .toolbar {
     height: 100%;
   }
+  .main-wrapper .toolbar-wrapper .toolbar-icon-wrapper {
+    height: 80px;
+  }
   .main-wrapper .toolbar-wrapper {
     width: -webkit-fit-content;
     width: fit-content;
     width: -moz-fit-content;
-    height: 120px;
   }
   .main-wrapper .menu-wrapper {
     width: 330px;

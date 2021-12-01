@@ -313,6 +313,12 @@ function openTopbar() {
   document.getElementById("main-wrapper-div").classList.add("top-bar-open");
 }
 
+function openToolbar() {
+  // expand toolbar
+
+  document.getElementById("main-wrapper-div").classList.remove("toolbar-autohide");
+}
+
 function toggleDisplayStyle() {
   // change style of displaying directories and files
 
