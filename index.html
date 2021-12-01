@@ -263,8 +263,14 @@
                         <div class="side-category-content">
                             <form class="side-form" id="form-toolbar-edit" method="PUT" data-submit-label="USERCHANGE">
                                 <label class="side-form-switch-wrapper">
-                                    <span class="side-form-switch-label">Show Toolbar</span><input type="checkbox"
+                                    <span class="side-form-switch-label">Enable Toolbar</span><input type="checkbox"
                                         onchange="switchSessionVal('toolbarVisible',this.checked)" checked
+                                        class="side-form-switch">
+                                </label>
+                                <label class="side-form-switch-wrapper">
+                                    <span class="side-form-switch-label">Auto Hide Toolbar</span><input
+                                        type="checkbox" checked
+                                        onchange="switchSessionVal('toolbarAutoHeight',this.checked)"
                                         class="side-form-switch">
                                 </label>
                                 <label class="side-form-switch-wrapper">

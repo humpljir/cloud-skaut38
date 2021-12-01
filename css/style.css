@@ -1248,7 +1248,7 @@ input[data-valid-input="false"] {
 .main-wrapper.toolbar-hide .toolbar-wrapper,
 .main-wrapper.menu-open .toolbar-wrapper,
 .main-wrapper.side-open .toolbar-wrapper {
-  transform: translateY(100%);
+  transform: translateY(100%) !important;
 }
 .main-wrapper .toolbar-wrapper .toolbar {
   border-left: 1px solid var(--fluent-border-light);
@@ -1260,9 +1260,11 @@ input[data-valid-input="false"] {
   border-radius: var(--menu-border-radius);
   padding: 8px;
   box-sizing: border-box;
+  transition: padding-top 0.4s ease;
+}
+.main-wrapper .toolbar-wrapper .toolbar-icon-wrapper {
   display: flex;
   justify-content: space-around;
-  transition: padding-top 0.4s ease;
 }
 .main-wrapper .toolbar-wrapper .toolbar .toolbar-button {
   position: relative;

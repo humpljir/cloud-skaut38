@@ -334,7 +334,7 @@ function initialize() {
       document.getElementById("main-wrapper-div").classList.remove("toolbar-autohide-hidden");
     } else if (
       scrollYDistance < -1 * hideTopBarOffset &&
-      session.toolbar.autoHide
+      session.settings.toolbarAutoHeight
     ) {
       document
         .getElementById("main-wrapper-div")
