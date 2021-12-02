@@ -153,16 +153,20 @@ function drawFiles(dirID) {
 
     let fileicon = document.createElement("div");
     fileicon.className = "file-icon";
+    if(element.type=="image") {
+      fileicon.style.background="url(storage/thumbnails/"+element.link+")";
+      fileicon.classList.add("icon-thumbnail");
+    }
     fileicon.append(fileiconextension);
 
     let filebox = document.createElement("div");
-    filebox.setAttribute("onclick","window.location.href='"+element.link+"'");
+    filebox.setAttribute("onclick","window.location.href='storage/"+element.link+"'");
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
-        { label: "Open", function: "window.open('"+element.link+"', '_blank')" },
+        { label: "Open", function: "window.open('storage/"+element.link+"', '_blank')" },
         { label: "Share", function: "default" },
         { label: "Edit", function: "openMenu('form-3',event)" },
         { label: "Duplicate", function: "default" },

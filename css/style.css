@@ -554,6 +554,18 @@ style.css
   .window-inner
   .file-box-flex
   .file-box
+  .file-icon.icon-thumbnail {
+    border-radius: var(--dir-border-radius) !important;
+    width: 120px;
+    height: 80px;
+    background-size: cover !important;
+}
+.main-wrapper
+  .window
+  .window-scroll
+  .window-inner
+  .file-box-flex
+  .file-box
   .file-label {
   color: var(--main-fg-color);
   position: absolute;
