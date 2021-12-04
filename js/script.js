@@ -127,13 +127,6 @@ function inputValidator(input, type) {
   }
 }
 
-function changeHTMLTheme(color) {
-  // function for changing html5 theme color used by browser
-
-  var metaThemeColor = document.querySelector("meta[name=theme-color]");
-  metaThemeColor.setAttribute("content", color);
-}
-
 function normalizeValue(val, maxVal, offset) {
   if (val + offset > maxVal) {
     return val - offset;
@@ -245,12 +238,14 @@ function sort(parameter) {
 }
 
 function openGallery(target) {
-  console.log("target");
-  console.log(target);
+  let galleryBg = document.createElement("div");
+  galleryBg.className = "gallery-bg";
+
   let galleryImg=document.createElement("img");
   galleryImg.src=target.getAttribute("data-image");
   let galleryCloseWrapper = document.createElement("div");
   galleryCloseWrapper.className = "gallery-close-wrapper";
+  galleryCloseWrapper.setAttribute("onclick","closeGallery()");
 
   let galleryToolbar = document.createElement("div");
   galleryToolbar.className = "gallery-toolar-wrapper fluent-bg";
@@ -268,8 +263,8 @@ function openGallery(target) {
   galleryToolbar.append(galleryToolbarArrowRight);
 
   let galleryWrapper=document.createElement("div");
-  galleryWrapper.setAttribute("onclick","closeGallery()");
   galleryWrapper.className="gallery-wrapper gallery-wrapper-packed";
+  galleryWrapper.append(galleryBg);
   galleryWrapper.append(galleryImg);
   galleryWrapper.append(galleryToolbar);
   galleryWrapper.append(galleryCloseWrapper);
@@ -297,17 +292,19 @@ function closeGallery() {
 }
 
 function nextGallery(target,direction) {
-  let targetNext = target;
+  console.log("target");
+  console.log(target);
+  let targetNext = target.closest(".file-box-flex").querySelector(".file-box");
   if(direction) {
-    targetNext = target.nextElementSibling;
+    targetNext = target.closest(".file-box-flex").nextElementSibling.querySelector(".file-box");
   }
   else {
-    targetNext = target.previousElementSibling;
+    targetNext = target.closest(".file-box-flex").previousElementSibling.querySelector(".file-box");
   }
-  console.log(target);
+  console.log("targetNext");
   console.log(targetNext);
   if(document.querySelector(".gallery-wrapper")) {
-    document.querySelectorAll(".gallery-wrapper img").src=targetNext.getAttribute("data-image");
+    document.querySelector(".gallery-wrapper img").src=targetNext.getAttribute("data-image");
 } else {
     openGallery(targetNext);
 }

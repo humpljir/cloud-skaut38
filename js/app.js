@@ -35,4 +35,11 @@ async function initNotifications() {
       });
   }
 
+  function changeHTMLTheme(color) {
+    // function for changing html5 theme color used by browser
+  
+    var metaThemeColor = document.querySelector("meta[name=theme-color]");
+    metaThemeColor.setAttribute("content", color);
+  }
+
 console.log("✅ app.js successfully loaded!");

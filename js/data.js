@@ -122,7 +122,7 @@ var storage = [{
         "name": "Random soubor",
         "date": 1607110465663,
         "extension": "pdf",
-        "link": "jura019.jpg",
+        "link": "profile_pic.jpg",
         "type": "image",
         "size":1000000,
     },
