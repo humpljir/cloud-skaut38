@@ -17,6 +17,7 @@ function errorHandler(code, crucial) {
 
   //#code 0 -> loading timeout
   //#code 1 -> missing DOM element
+  //#code 2 -> unable to delete gallery element
 
   console.log("error nr. " + code);
 
@@ -241,6 +242,75 @@ function sort(parameter) {
     document.getElementById("blank-canvas").append(element);
   });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "dir-box");
+}
+
+function openGallery(target) {
+  console.log("target");
+  console.log(target);
+  let galleryImg=document.createElement("img");
+  galleryImg.src=target.getAttribute("data-image");
+  let galleryCloseWrapper = document.createElement("div");
+  galleryCloseWrapper.className = "gallery-close-wrapper";
+
+  let galleryToolbar = document.createElement("div");
+  galleryToolbar.className = "gallery-toolar-wrapper fluent-bg";
+  let galleryToolbarTitle = document.createElement("div");
+  galleryToolbarTitle.className = "gallery-title";
+  galleryToolbarTitle.innerHTML = target.getAttribute("data-name");
+  let galleryToolbarArrowRight = document.createElement("div");
+  galleryToolbarArrowRight.className = "arrow-icon-generate gallery-arrow-right gallery-arrow";
+  galleryToolbarArrowRight.addEventListener("click",()=>{nextGallery(target,true)});
+  let galleryToolbarArrowLeft = document.createElement("div");
+  galleryToolbarArrowLeft.className = "arrow-icon-generate gallery-arrow-left gallery-arrow";
+  galleryToolbarArrowLeft.addEventListener("click",()=>{nextGallery(target,false)});
+  galleryToolbar.append(galleryToolbarArrowLeft);
+  galleryToolbar.append(galleryToolbarTitle);
+  galleryToolbar.append(galleryToolbarArrowRight);
+
+  let galleryWrapper=document.createElement("div");
+  galleryWrapper.setAttribute("onclick","closeGallery()");
+  galleryWrapper.className="gallery-wrapper gallery-wrapper-packed";
+  galleryWrapper.append(galleryImg);
+  galleryWrapper.append(galleryToolbar);
+  galleryWrapper.append(galleryCloseWrapper);
+  //document.getElementById("blank-canvas").append(galleryWrapper);
+  document.querySelector("body").append(galleryWrapper);
+  drawSVGAll();
+
+  setTimeout(()=>{
+    galleryWrapper.classList.remove("gallery-wrapper-packed");
+  },0);
+}
+
+function closeGallery() {
+  document.querySelectorAll(".gallery-wrapper").forEach(element => {
+    element.classList.add("gallery-wrapper-packed");
+    setTimeout(()=>{
+      try {
+      element.remove();
+      }
+      catch {
+        errorHandler(2,false);
+      }
+    },400);
+  });
+}
+
+function nextGallery(target,direction) {
+  let targetNext = target;
+  if(direction) {
+    targetNext = target.nextElementSibling;
+  }
+  else {
+    targetNext = target.previousElementSibling;
+  }
+  console.log(target);
+  console.log(targetNext);
+  if(document.querySelector(".gallery-wrapper")) {
+    document.querySelectorAll(".gallery-wrapper img").src=targetNext.getAttribute("data-image");
+} else {
+    openGallery(targetNext);
+}
 }
 
 function openSubmenu(x, y, target) {

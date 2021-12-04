@@ -143,6 +143,8 @@ function drawFiles(dirID) {
   });
 
   filesList.content.forEach((element) => {
+    let fileboxflex = document.createElement("div");
+
     let filelabel = document.createElement("div");
     filelabel.className = "file-label";
     filelabel.innerHTML = element.name;
@@ -153,14 +155,17 @@ function drawFiles(dirID) {
 
     let fileicon = document.createElement("div");
     fileicon.className = "file-icon";
-    if(element.type=="image") {
-      fileicon.style.background="url(storage/thumbnails/"+element.link+")";
-      fileicon.classList.add("icon-thumbnail");
-    }
     fileicon.append(fileiconextension);
 
     let filebox = document.createElement("div");
     filebox.setAttribute("onclick","window.location.href='storage/"+element.link+"'");
+    if(element.type=="image") {
+      fileicon.style.background="url(storage/thumbnails/"+element.link+")";
+      fileicon.classList.add("icon-thumbnail");
+      filebox.setAttribute("data-image","storage/thumbnails/"+element.link);
+      filebox.setAttribute("data-name",element.name);
+      filebox.setAttribute("onclick","openGallery(this)");
+    }
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
@@ -175,8 +180,6 @@ function drawFiles(dirID) {
         { label: "Delete", function: "default" },
       ])
     );
-
-    let fileboxflex = document.createElement("div");
     fileboxflex.className = "file-box-flex searchable";
     fileboxflex.setAttribute("data-name", element.name);
     fileboxflex.setAttribute("data-date", element.date);
@@ -289,11 +292,13 @@ function initInputValidator() {
 
 function initialize() {
   loadThemeColors();
+
   if (document.getElementById("blank-canvas")) {
     drawDirectories();
     drawToolbar();
   }
 
+  document.documentElement.scrollTop = 0;
   let scrollYLast = 0;
   let scrollYDistance = 0;
   //let topBarOffsetSum = 0;
