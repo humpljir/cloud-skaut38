@@ -131,7 +131,7 @@ var storage = [{
         "name": "Lorem ipsum",
         "date": 1607110465663,
         "extension": "jsp",
-        "link": "jura019.jpg",
+        "link": "jura017.jpg",
         "type": "image",
         "size":1000000,
     },
