@@ -99,7 +99,6 @@ function nextGallery(target, direction) {
       let newGalleryImg = document.createElement("img");
       oldGalleryImg.id="";
       newGalleryImg.id="gallery-img";
-      newGalleryImg.src = targetNext.getAttribute("data-image");
 
       if (direction) {
         oldGalleryImg.after(newGalleryImg);
@@ -110,6 +109,9 @@ function nextGallery(target, direction) {
         newGalleryImg.style.animation="galleryBack 0.6s reverse";
         oldGalleryImg.style.animation="galleryFront 0.6s reverse";
       }
+
+      newGalleryImg.src = targetNext.getAttribute("data-image");
+      
       setTimeout(() => {
           // chnaging picture label in the middle of transition
         galleryTitle.innerHTML = targetNext.getAttribute("data-name");

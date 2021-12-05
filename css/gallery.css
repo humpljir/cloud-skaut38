@@ -42,6 +42,7 @@ gallery.css
     max-height: 95%;
     left: 50%;
     top: 50%;
+    background:var(--side-grey-light);
     transform: translate(-50%, -50%);
     opacity: 1;
     transition: opacity 0.4s, transform 0.4s;
