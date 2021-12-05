@@ -31,8 +31,8 @@ function loadingLoaded() {
       .getElementById("loading-wrapper-div")
       .classList.add("loading-loaded");
       setTimeout(() => {
-        
-      }, 400);
+        document.getElementById("loading-wrapper-div").remove();
+      }, 1000);
   }, 1000);
 }
 
