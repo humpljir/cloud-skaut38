@@ -556,10 +556,20 @@ style.css
   .file-box
   .file-icon.icon-thumbnail {
   border-radius: var(--dir-border-radius) !important;
-  width: 120px;
-  height: 80px;
+  width: 80px;
+  height: 60px;
   background-size: cover !important;
 }
+.main-wrapper.display-as-tiles
+  .window
+  .window-scroll
+  .window-inner
+  .file-box-flex
+  .file-box
+  .file-icon.icon-thumbnail {
+    width: 120px;
+    height: 80px;
+  }
 .main-wrapper
   .window
   .window-scroll
@@ -574,7 +584,7 @@ style.css
   white-space: nowrap;
   top: 50%;
   width: calc(100% - 100px);
-  left: 100px;
+  left: 120px;
   transform: translateY(-50%);
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -1302,7 +1312,7 @@ input[data-valid-input="false"] {
   height: 100%;
 }
 .main-wrapper.toolbar-autohide .toolbar-wrapper {
-  transform: translateY(calc(100% - 50px));
+  transform: translateY(calc(100% - 55px));
 }
 .main-wrapper.toolbar-autohide.toolbar-autohide-hidden .toolbar-wrapper {
   transform: translateY(100%);
