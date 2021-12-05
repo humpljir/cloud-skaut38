@@ -599,13 +599,6 @@ opacity: 0;
   opacity: 1;
   transition: opacity 0.4s, transform 0.4s;
 }
-.gallery-wrapper img.gallery-img-back {
-  transform: translate(-50%, -50%) scale(0.7);
-}
-.gallery-wrapper img.gallery-img-front {
-  transform: translate(50%, -50%);
-  opacity: 1;
-}
 .gallery-wrapper-packed {
   background: transparent;
   backdrop-filter: contrast(1) brightness(1) saturate(1) blur(0);
@@ -620,7 +613,7 @@ opacity: 0;
   top: 0;
   right: 0;
   width: 60px;
-  height: 100px;
+  height: 60px;
   transition: opacity 0.4s;
 }
 .gallery-wrapper-packed .gallery-close-wrapper {

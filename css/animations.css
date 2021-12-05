@@ -199,3 +199,31 @@ animations.css
     filter: brightness(1);
   }
 }
+@keyframes galleryBack {
+ 0% {
+   transform: translate(-50%,-50%) scale(1);
+   filter: none;
+   opacity: 1;
+ } 
+ 25% {
+   opacity: 1;
+ }
+ 100% {
+   transform: translate(-50%,-50%) scale(0.7);
+   filter: brightness(0.7) saturate(0.6);
+   opacity: 0;
+ }
+}
+@keyframes galleryFront {
+  0% {
+    transform: translate(75%,-50%);
+    opacity: 0;
+  } 
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
+ }

@@ -93,33 +93,30 @@ function nextGallery(target, direction) {
   }
 
   if (targetNext.hasAttribute("data-image")) {
-    if (direction) {
         galleryTarget = targetNext;
       let galleryTitle = document.getElementById("gallery-title-div");
       let oldGalleryImg = document.getElementById("gallery-img");
       let newGalleryImg = document.createElement("img");
       oldGalleryImg.id="";
       newGalleryImg.id="gallery-img";
-      oldGalleryImg.after(newGalleryImg);
       newGalleryImg.src = targetNext.getAttribute("data-image");
-      newGalleryImg.classList = ["gallery-img-front"];
-      
+
+      if (direction) {
+        oldGalleryImg.after(newGalleryImg);
+        oldGalleryImg.style.animation="galleryBack 0.6s";
+        newGalleryImg.style.animation="galleryFront 0.6s";
+      } else {
+        oldGalleryImg.before(newGalleryImg);
+        newGalleryImg.style.animation="galleryBack 0.6s reverse";
+        oldGalleryImg.style.animation="galleryFront 0.6s reverse";
+      }
       setTimeout(() => {
+          // chnaging picture label in the middle of transition
         galleryTitle.innerHTML = targetNext.getAttribute("data-name");
-        oldGalleryImg.classList.add("gallery-img-back");
-        newGalleryImg.classList.remove("gallery-img-front");
-          
         setTimeout(() => {
             oldGalleryImg.remove();
-        }, 900);
-      }, 200);
-    } else {
-      document.getElementById("gallery-img").src =
-        targetNext.getAttribute("data-image");
-      document.getElementById("gallery-title-div").innerHTML =
-        targetNext.getAttribute("data-name");
-      galleryTarget = targetNext;
-    }
+        }, 300);
+      }, 300);
   } else {
     nextGallery(targetNext, direction);
   }
