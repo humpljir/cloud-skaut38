@@ -30,6 +30,9 @@ function loadingLoaded() {
     document
       .getElementById("loading-wrapper-div")
       .classList.add("loading-loaded");
+      setTimeout(() => {
+        
+      }, 400);
   }, 1000);
 }
 
@@ -162,7 +165,7 @@ function drawFiles(dirID) {
     if(element.type=="image") {
       fileicon.style.background="url(storage/thumbnails/"+element.link+")";
       fileicon.classList.add("icon-thumbnail");
-      filebox.setAttribute("data-image","storage/thumbnails/"+element.link);
+      filebox.setAttribute("data-image","storage/"+element.link);
       filebox.setAttribute("data-name",element.name);
       filebox.setAttribute("onclick","openGallery(this)");
     }
