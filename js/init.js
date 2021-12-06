@@ -107,7 +107,7 @@ function drawDirectories() {
   canvas.innerHTML = "";
   storage.forEach((element) => {
     let dir = document.createElement("button");
-    dir.className = "dir-box searchable";
+    dir.className = "dir-box highlight-hover searchable";
     dir.setAttribute("data-name", element.name);
     dir.setAttribute("data-date", element.date);
     dir.setAttribute("data-size", element.size);
@@ -183,7 +183,7 @@ function drawFiles(dirID) {
         { label: "Delete", function: "default" },
       ])
     );
-    fileboxflex.className = "file-box-flex searchable";
+    fileboxflex.className = "file-box-flex highlight-hover searchable";
     fileboxflex.setAttribute("data-name", element.name);
     fileboxflex.setAttribute("data-date", element.date);
     fileboxflex.setAttribute("data-size", element.size);
@@ -223,7 +223,7 @@ function drawToolbar() {
     let indexReorder = session.toolbar.reorder[index];
     if (session.toolbar.display[indexReorder]) {
       let toolbarIconDOM = document.createElement("button");
-      toolbarIconDOM.className = "toolbar-button";
+      toolbarIconDOM.className = "toolbar-button highlight-hover";
       toolbarIconDOM.setAttribute("type", "button");
       toolbarIconDOM.setAttribute(
         "onclick",

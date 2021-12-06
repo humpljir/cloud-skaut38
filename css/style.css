@@ -114,6 +114,7 @@ style.css
   cursor: pointer;
 }
 .top-bar-icon {
+  position: relative;
   height: 32px;
   width: 32px;
   min-height: 32px;
@@ -1327,8 +1328,6 @@ input[data-valid-input="false"] {
   left: 0;
   right: 0;
   pointer-events: none;
-}
-.main-wrapper.toolbar-autohide .toolbar-autohide-bar {
 }
 .main-wrapper .arrow-toolbar-autohide svg {
   position: absolute;

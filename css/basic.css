@@ -24,6 +24,7 @@ basic.css
   --body-bg-color: var(--side-bg-color);
   --body-bg-color-2: var(--main-bg-color);
   --dir-border-radius: 4px;
+  --icon-bg-border-radius: 4px;
   --main-spacing: 22px;
   --menu-input-font-size: 13px;
   --menu-a-font-size: 14px;

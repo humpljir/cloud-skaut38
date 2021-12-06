@@ -22,7 +22,7 @@ function openGallery(target) {
   galleryImg.id = "gallery-img";
   galleryImg.src = target.getAttribute("data-image");
   let galleryCloseWrapper = document.createElement("div");
-  galleryCloseWrapper.className = "gallery-close-wrapper";
+  galleryCloseWrapper.className = "bright-hover gallery-close-wrapper";
   galleryCloseWrapper.setAttribute("onclick", "closeGallery()");
 
   let galleryToolbar = document.createElement("div");
@@ -33,13 +33,13 @@ function openGallery(target) {
   galleryToolbarTitle.innerHTML = target.getAttribute("data-name");
   let galleryToolbarArrowRight = document.createElement("div");
   galleryToolbarArrowRight.className =
-    "arrow-icon-generate gallery-arrow-right gallery-arrow";
+    "arrow-icon-generate gallery-arrow-right bright-hover gallery-arrow";
   galleryToolbarArrowRight.addEventListener("click", () => {
     nextGallery(galleryTarget, true);
   });
   let galleryToolbarArrowLeft = document.createElement("div");
   galleryToolbarArrowLeft.className =
-    "arrow-icon-generate gallery-arrow-left gallery-arrow";
+    "arrow-icon-generate gallery-arrow-left bright-hover gallery-arrow";
   galleryToolbarArrowLeft.addEventListener("click", () => {
     nextGallery(galleryTarget, false);
   });

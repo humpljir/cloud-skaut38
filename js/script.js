@@ -377,7 +377,7 @@ function openDir(target) {
     animatedDirReturnArrow.className =
       "arrow-icon arrow-icon-generate dir-box-return-icon";
     animatedDirReturn = document.createElement("button");
-    animatedDirReturn.className = "dir-box-return";
+    animatedDirReturn.className = "dir-box-return bright-hover";
     animatedDirReturn.innerHTML = "return";
     animatedDirReturn.setAttribute("onClick", "closeDir()");
     animatedDirReturn.prepend(animatedDirReturnArrow);
