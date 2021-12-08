@@ -1,0 +1,39 @@
+@media (hover: hover) {
+  .grey-box-hover::before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    background: var(--main-line-color);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: var(--icon-bg-border-radius);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.1s;
+  }
+  .grey-box-hover:hover::before {
+    opacity: 1;
+  }
+  .bright-hover {
+    transition: filter 0.1s;
+    cursor: pointer;
+  }
+  .bright-hover:hover {
+    filter: brightness(1.5) contrast(0.3);
+  }
+  .highlight-hover {
+    transition: filter 0.2s, transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+  }
+  .highlight-hover:hover {
+    transform: scale(1.05);
+    filter: brightness(1.3) drop-shadow(5px 3px 18px #00000030);
+  }
+  input {
+    transition: filter 0.2s;
+  }
+  input:hover {
+    filter: brightness(1.5) contrast(0.8);
+  }
+}

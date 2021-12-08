@@ -1,0 +1,122 @@
+/*
+
+************************************
+gallery.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+.gallery-wrapper {
+    position: fixed;
+    pointer-events: all;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: contrast(0.2) brightness(1.55) saturate(2) blur(24px);
+    transition: backdrop-filter 0.4s;
+  }
+  .gallery-bg {
+    position: absolute;
+    pointer-events: all;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background: linear-gradient(340deg, var(--body-bg-color) 10%, var(--body-bg-color-2) 40%);
+    transition: opacity 0.4s;
+  }
+  .gallery-wrapper-packed .gallery-bg {
+  opacity: 0;
+  }
+  .gallery-wrapper img {
+    position: absolute;
+    border-radius: var(--dir-border-radius);
+    max-width: 90%;
+    max-height: 95%;
+    left: 50%;
+    top: 50%;
+    background:var(--side-grey-light);
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .gallery-wrapper-packed {
+    background: transparent;
+    backdrop-filter: contrast(1) brightness(1) saturate(1) blur(0);
+    pointer-events: none;
+  }
+  .gallery-wrapper-packed img {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  .gallery-close-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    transition: opacity 0.4s;
+  }
+  .gallery-wrapper-packed .gallery-close-wrapper {
+    opacity: 0;
+  }
+  .gallery-close-wrapper::before, .gallery-close-wrapper::after {
+    content: "";
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--main-fg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .gallery-close-wrapper::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+  
+  }
+  .gallery-close-wrapper::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+  
+  }
+  .gallery-toolar-wrapper {
+    position: absolute;
+    overflow: hidden;
+    padding: 18px;
+    left: 50%;
+    bottom: var(--main-spacing);
+    transform: translateX(-50%);
+    border-radius: var(--menu-border-radius);
+    display: flex;
+    transition: transform 0.4s;
+  }
+  .gallery-wrapper-packed .gallery-toolar-wrapper {
+    transform: translateX(-50%) translateY(calc(100% + 20px));
+  }
+  .gallery-title {
+    color: var(--main-fg-color);
+    margin: 5px 22px;
+    vertical-align: middle;
+    font-size: var(--title-font-size);
+    white-space: nowrap;
+  }
+  .gallery-arrow {
+    --local-color: var(--main-fg-color);
+    vertical-align: middle;
+  }
+  .gallery-arrow svg {
+   height: 8px;
+  }
+  .gallery-arrow-right {
+    transform: rotate(-90deg);
+  }
+  .gallery-arrow-left {
+    transform: rotate(90deg);
+  }

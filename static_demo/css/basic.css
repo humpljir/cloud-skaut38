@@ -1,0 +1,115 @@
+/*
+
+************************************
+basic.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+@import "https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap";
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --main-bg-color: #fff;
+  --main-fg-color: #000;
+  --main-line-color: #00000020;
+  --menu-bg-color: #ffffffb8;
+  --interactive-color: var(--theme-color-3);
+  --login-color-var: var(--theme-color-3);
+  --interactive-color-complementary: var(--theme-color-3-complementary);
+  --hyperlink-color: #1a4ed2;
+  --general-font-size: 16px;
+  --title-font-size: 20px;
+  --body-bg-color: var(--side-bg-color);
+  --body-bg-color-2: var(--main-bg-color);
+  --dir-border-radius: 4px;
+  --icon-bg-border-radius: 4px;
+  --main-spacing: 22px;
+  --menu-input-font-size: 13px;
+  --menu-a-font-size: 12px;
+  --menu-border-radius: 10px;
+  --menu-spacing: 6px;
+  --side-grey-bg: #ededed;
+  --side-grey-arrow: #aaaaaa;
+  --side-bg-color: #ededed;
+  --side-bg-color-2: #ffffff;
+  --side-grey-light: #f2f2f2;
+  --fluent-border-light: #ffffff99;
+  --fluent-border-dark: #00000020;
+  --theme-color-0: #8b2c33;
+  --theme-color-1: #e63946;
+  --theme-color-2: #1d3557;
+  --theme-color-3: #457b9d;
+  --theme-color-4: #a8dadc;
+  --theme-color-5: #f1faee;
+  --theme-color-6: #457b9d;
+  --theme-color-7: #457b9d;
+  --theme-color-8: #457b9d;
+  --theme-color-9: #457b9d;
+  --theme-color-10: #457b9d;
+  --theme-color-11: #457b9d;
+  --theme-color-0-complementary: #f1faee;
+  --theme-color-1-complementary: #f1faee;
+  --theme-color-2-complementary: #a8dadc;
+  --theme-color-3-complementary: #a8dadc;
+  --theme-color-4-complementary: #1d3557;
+  --theme-color-5-complementary: #8b2c33;
+  --theme-color-6-complementary: #f1faee;
+  --theme-color-7-complementary: #f1faee;
+  --theme-color-8-complementary: #f1faee;
+  --theme-color-9-complementary: #f1faee;
+  --theme-color-10-complementary: #f1faee;
+  --theme-color-11-complementary: #f1faee;
+  --toolbar-color-0: var(--theme-color-1);
+  --toolbar-color-1: var(--theme-color-3);
+  --toolbar-color-2: var(--theme-color-4);
+  --toolbar-color-3: var(--theme-color-5);
+  --toolbar-color-0-complementary: var(--theme-color-1-complementary);
+  --toolbar-color-1-complementary: var(--theme-color-3-complementary);
+  --toolbar-color-2-complementary: var(--theme-color-4-complementary);
+  --toolbar-color-3-complementary: var(--theme-color-5-complementary);
+  --notifications-regular-color: var(--menu-bg-color);
+  --notifications-error-color: #ff9e9ecf;
+  --notifications-warning-color: #ffe16dbf;
+  --notifications-confirm-color: #c8eabcb8;
+}
+html,
+body {
+  position: absolute;
+  overflow-x: hidden;
+  margin: 0;
+  width: 100vw;
+  min-height: 100%;
+  top: 0;
+  scroll-behavior: smooth;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: var(--general-font-size);
+  background: linear-gradient(
+    340deg,
+    var(--body-bg-color) 10%,
+    var(--body-bg-color-2) 40%
+  );
+  background-attachment: fixed;
+}
+a {
+  color: var(--hyperlink-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+button {
+  color: #000;
+}
+button,
+a {
+  cursor: pointer;
+}
+.fluent-bg {
+  -webkit-backdrop-filter: saturate(4) blur(20px);
+  backdrop-filter: saturate(4) blur(20px);
+  background: var(--menu-bg-color) url(../img/noise.svg);
+}
+.dark-theme .fluent-bg {
+  background: var(--menu-bg-color) url(../img/noise_dark.svg);
+}

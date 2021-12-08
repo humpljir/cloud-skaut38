@@ -1,0 +1,439 @@
+/*
+
+************************************
+login.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+html body {
+  background: linear-gradient(
+    126deg,
+    var(--side-bg-color) 30%,
+    var(--side-bg-color-2) 60%
+  );
+  overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+.main-wrapper {
+  height: 100vh;
+}
+.top-bar-login {
+  height: 43px !important;
+}
+.window-scroll-login {
+  transform-style: preserve-3d;
+  height: calc(100vh + 4vh);
+  position: relative;
+  top: -2vh;
+}
+.toolbar-wrapper-login {
+  height: unset !important;
+}
+.main-wrapper.side-enable .window .window-scroll-login {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+.box-guide-line {
+  position: absolute;
+  height: 100vh;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  transform: translateZ(-90vw);
+  overflow: hidden;
+}
+.box-guide-line::before {
+  position: absolute;
+  transform: translateY(-50%);
+  content: "";
+  width: 100%;
+  height: 200vh;
+  background: radial-gradient(
+    circle,
+    #457b9d66 0%,
+    #457b9d20 10%,
+    #457b9d00 60%,
+    #457b9d00 100%
+  );
+}
+.line-0 {
+  left: 33%;
+}
+.line-1 {
+  left: 56%;
+}
+.line-2 {
+  left: 65%;
+}
+.line-3 {
+  left: 58%;
+}
+.line-4 {
+  left: 51%;
+}
+.line-5 {
+  left: 35%;
+}
+.line-6 {
+  left: 69%;
+}
+.line-7 {
+  left: 55%;
+}
+.line-8 {
+  left: 48%;
+}
+.line-9 {
+  left: 31%;
+}
+.line-10 {
+  left: 60%;
+}
+.line-11 {
+  left: 52%;
+}
+.loading-loaded .line-0::before {
+  -webkit-animation: boxTranslateY 1.8s -0.5s linear infinite,
+    boxOpacity 1.8s -0.5s linear infinite;
+  animation: boxTranslateY 1.8s -0.5s linear infinite,
+    boxOpacity 1.8s -0.5s linear infinite;
+}
+.loading-loaded .line-1::before {
+  -webkit-animation: boxTranslateY 2s -0.3s linear infinite,
+    boxOpacity 2s -0.3s linear infinite;
+  animation: boxTranslateY 2s -0.3s linear infinite,
+    boxOpacity 2s -0.3s linear infinite;
+}
+.loading-loaded .line-2::before {
+  -webkit-animation: boxTranslateY 2.1s -1.7s linear infinite,
+    boxOpacity 2.1s -1.7s linear infinite;
+  animation: boxTranslateY 2.1s -1.7s linear infinite,
+    boxOpacity 2.1s -1.7s linear infinite;
+}
+.loading-loaded .line-3::before {
+  -webkit-animation: boxTranslateY 2.1s -1.3s linear infinite,
+    boxOpacity 2.1s -1.3s linear infinite;
+  animation: boxTranslateY 2.1s -1.3s linear infinite,
+    boxOpacity 2.1s -1.3s linear infinite;
+}
+.loading-loaded .line-4::before {
+  -webkit-animation: boxTranslateY 2.25s -0.4s linear infinite,
+    boxOpacity 2.25s -0.4s linear infinite;
+  animation: boxTranslateY 2.25s -0.4s linear infinite,
+    boxOpacity 2.25s -0.4s linear infinite;
+}
+.loading-loaded .line-5::before {
+  -webkit-animation: boxTranslateY 2.4s -0.9s linear infinite,
+    boxOpacity 2.4s -0.9slinear infinite;
+  animation: boxTranslateY 2.4s -0.9s linear infinite,
+    boxOpacity 2.4s -0.9slinear infinite;
+}
+.loading-loaded .line-6::before {
+  -webkit-animation: boxTranslateY 2.7s -1.2s linear infinite,
+    boxOpacity 2.7s -1.2s linear infinite;
+  animation: boxTranslateY 2.7s -1.2s linear infinite,
+    boxOpacity 2.7s -1.2s linear infinite;
+}
+.loading-loaded .line-7::before {
+  -webkit-animation: boxTranslateY 2.7s -0.2s linear infinite,
+    boxOpacity 2.7s -0.2s linear infinite;
+  animation: boxTranslateY 2.7s -0.2s linear infinite,
+    boxOpacity 2.7s -0.2s linear infinite;
+}
+.loading-loaded .line-8::before {
+  -webkit-animation: boxTranslateY 3.1s -1.2s linear infinite,
+    boxOpacity 3.1s -1.2s linear infinite;
+  animation: boxTranslateY 3.1s -1.2s linear infinite,
+    boxOpacity 3.1s -1.2s linear infinite;
+}
+.loading-loaded .line-9::before {
+  -webkit-animation: boxTranslateY 3.4s -3.5s linear infinite,
+    boxOpacity 3.4s -3.5s linear infinite;
+  animation: boxTranslateY 3.4s -3.5s linear infinite,
+    boxOpacity 3.4s -3.5s linear infinite;
+}
+.loading-loaded .line-10::before {
+  -webkit-animation: boxTranslateY 3.5s -0.9s linear infinite,
+    boxOpacity 3.5s -0.9s linear infinite;
+  animation: boxTranslateY 3.5s -0.9s linear infinite,
+    boxOpacity 3.5s -0.9s linear infinite;
+}
+.loading-loaded .line-11::before {
+  -webkit-animation: boxTranslateY 3.8s -2.1s linear infinite,
+    boxOpacity 3.8s -2.1s linear infinite;
+  animation: boxTranslateY 3.8s -2.1s linear infinite,
+    boxOpacity 3.8s -2.1s linear infinite;
+}
+.box-particle-wrapper {
+  position: absolute;
+}
+.loading-loaded .particle-0 {
+  left: 33%;
+  -webkit-animation: boxTranslateY 1.8s -0.5s linear infinite;
+  animation: boxTranslateY 1.8s -0.5s linear infinite;
+  transform: scale(1.05) translateZ(0) translate(-50%, -50%);
+}
+.loading-loaded .particle-0 .rotaterX {
+  -webkit-animation: boxRotateX 3.5s -2.1s linear infinite;
+  animation: boxRotateX 3.5s -2.1s linear infinite;
+}
+.loading-loaded .particle-0 .rotaterY {
+  -webkit-animation: boxRotateY 4.2s -0.2s linear infinite;
+  animation: boxRotateY 4.2s -0.2s linear infinite;
+}
+.loading-loaded .particle-0 .rotaterZ {
+  -webkit-animation: boxRotateZ 8.1s -2s linear infinite;
+  animation: boxRotateZ 8.1s -2s linear infinite;
+}
+.loading-loaded .particle-1 {
+  left: 56%;
+  -webkit-animation: boxTranslateY 2s -0.3s linear infinite;
+  animation: boxTranslateY 2s -0.3s linear infinite;
+  transform: scale(1) translateZ(-4vh) translate(-50%, -50%);
+}
+.loading-loaded .particle-1 .rotaterX {
+  -webkit-animation: boxRotateX 4s 0s linear infinite;
+  animation: boxRotateX 4s 0s linear infinite;
+}
+.loading-loaded .particle-1 .rotaterY {
+  -webkit-animation: boxRotateY 7.2s -0.2s linear infinite;
+  animation: boxRotateY 7.2s -0.2s linear infinite;
+}
+.loading-loaded .particle-1 .rotaterZ {
+  -webkit-animation: boxRotateZ 5.1s -2s linear infinite;
+  animation: boxRotateZ 5.1s -2s linear infinite;
+}
+.loading-loaded .particle-2 {
+  left: 65%;
+  -webkit-animation: boxTranslateY 2.1s -1.7s linear infinite;
+  animation: boxTranslateY 2.1s -1.7s linear infinite;
+  transform: scale(0.9) translateZ(-20vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-2 .rotaterX {
+  -webkit-animation: boxRotateX 3.9s -0.5s linear infinite;
+  animation: boxRotateX 3.9s -0.5s linear infinite;
+}
+.loading-loaded .particle-2 .rotaterY {
+  -webkit-animation: boxRotateY 6.1s -0.2s linear infinite;
+  animation: boxRotateY 6.1s -0.2s linear infinite;
+}
+.loading-loaded .particle-2 .rotaterZ {
+  -webkit-animation: boxRotateZ 7.2s -2s linear infinite;
+  animation: boxRotateZ 7.2s -2s linear infinite;
+}
+.loading-loaded .particle-3 {
+  left: 58%;
+  -webkit-animation: boxTranslateY 2.1s -1.3s linear infinite;
+  animation: boxTranslateY 2.1s -1.3s linear infinite;
+  transform: scale(0.9) translateZ(-20vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-3 .rotaterX {
+  -webkit-animation: boxRotateX 3.4s 0s linear infinite;
+  animation: boxRotateX 3.4s 0s linear infinite;
+}
+.loading-loaded .particle-3 .rotaterY {
+  -webkit-animation: boxRotateY 7.3s -0.2s linear infinite;
+  animation: boxRotateY 7.3s -0.2s linear infinite;
+}
+.loading-loaded .particle-3 .rotaterZ {
+  -webkit-animation: boxRotateZ 5.1s -2s linear infinite;
+  animation: boxRotateZ 5.1s -2s linear infinite;
+}
+.loading-loaded .particle-4 {
+  left: 51%;
+  -webkit-animation: boxTranslateY 2.25s -0.4s linear infinite;
+  animation: boxTranslateY 2.25s -0.4s linear infinite;
+  transform: scale(0.85) translateZ(-30vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-4 .rotaterX {
+  -webkit-animation: boxRotateX 4.2s -0.2s linear infinite;
+  animation: boxRotateX 4.2s -0.2s linear infinite;
+}
+.loading-loaded .particle-4 .rotaterY {
+  -webkit-animation: boxRotateY 5.1s -0.2s linear infinite;
+  animation: boxRotateY 5.1s -0.2s linear infinite;
+}
+.loading-loaded .particle-4 .rotaterZ {
+  -webkit-animation: boxRotateZ 6.2s -2s linear infinite;
+  animation: boxRotateZ 6.2s -2s linear infinite;
+}
+.loading-loaded .particle-5 {
+  left: 35%;
+  -webkit-animation: boxTranslateY 2.4s -0.9s linear infinite;
+  animation: boxTranslateY 2.4s -0.9s linear infinite;
+  transform: scale(0.8) translateZ(-40vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-5 .rotaterX {
+  -webkit-animation: boxRotateX 3.6s -0.2s linear infinite;
+  animation: boxRotateX 3.6s -0.2s linear infinite;
+}
+.loading-loaded .particle-5 .rotaterY {
+  -webkit-animation: boxRotateY 4.3s -0.4s linear infinite;
+  animation: boxRotateY 4.3s -0.4s linear infinite;
+}
+.loading-loaded .particle-5 .rotaterZ {
+  -webkit-animation: boxRotateZ 8.2s -1.2s linear infinite;
+  animation: boxRotateZ 8.2s -1.2s linear infinite;
+}
+.loading-loaded .particle-6 {
+  left: 69%;
+  -webkit-animation: boxTranslateY 2.7s -1.2s linear infinite;
+  animation: boxTranslateY 2.7s -1.2s linear infinite;
+  transform: scale(0.75) translateZ(-50vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-6 .rotaterX {
+  -webkit-animation: boxRotateX 3.1s -0.1s linear infinite;
+  animation: boxRotateX 3.1s -0.1s linear infinite;
+}
+.loading-loaded .particle-6 .rotaterY {
+  -webkit-animation: boxRotateY 3s -0.2s linear infinite;
+  animation: boxRotateY 3s -0.2s linear infinite;
+}
+.loading-loaded .particle-6 .rotaterZ {
+  -webkit-animation: boxRotateZ 3s -2s linear infinite;
+  animation: boxRotateZ 3s -2s linear infinite;
+}
+.loading-loaded .particle-7 {
+  left: 55%;
+  -webkit-animation: boxTranslateY 2.7s -0.2s linear infinite;
+  animation: boxTranslateY 2.7s -0.2s linear infinite;
+  transform: scale(0.75) translateZ(-50vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-7 .rotaterX {
+  -webkit-animation: boxRotateX 5.2s 0s linear infinite;
+  animation: boxRotateX 5.2s 0s linear infinite;
+}
+.loading-loaded .particle-7 .rotaterY {
+  -webkit-animation: boxRotateY 9s -1.4s linear infinite;
+  animation: boxRotateY 9s -1.4s linear infinite;
+}
+.loading-loaded .particle-7 .rotaterZ {
+  -webkit-animation: boxRotateZ 12s -2.3s linear infinite;
+  animation: boxRotateZ 12s -2.3s linear infinite;
+}
+.loading-loaded .particle-8 {
+  left: 48%;
+  -webkit-animation: boxTranslateY 3.1s -1.2s linear infinite;
+  animation: boxTranslateY 3.1s -1.2s linear infinite;
+  transform: scale(0.75) translateZ(-60vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-8 .rotaterX {
+  -webkit-animation: boxRotateX 2.5s 0s linear infinite;
+  animation: boxRotateX 2.5s 0s linear infinite;
+}
+.loading-loaded .particle-8 .rotaterY {
+  -webkit-animation: boxRotateY 3.1s -0.5s linear infinite;
+  animation: boxRotateY 3.1s -0.5s linear infinite;
+}
+.loading-loaded .particle-8 .rotaterZ {
+  -webkit-animation: boxRotateZ 4.2s -1.1s linear infinite;
+  animation: boxRotateZ 4.2s -1.1s linear infinite;
+}
+.loading-loaded .particle-9 {
+  left: 31%;
+  -webkit-animation: boxTranslateY 3.4s -3.5s linear infinite;
+  animation: boxTranslateY 3.4s -3.5s linear infinite;
+  transform: scale(0.7) translateZ(-70vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-9 .rotaterX {
+  -webkit-animation: boxRotateX 1.5s -0.1s linear infinite;
+  animation: boxRotateX 1.5s -0.1s linear infinite;
+}
+.loading-loaded .particle-9 .rotaterY {
+  -webkit-animation: boxRotateY 3.1s -0.2s linear infinite;
+  animation: boxRotateY 3.1s -0.2s linear infinite;
+}
+.loading-loaded .particle-9 .rotaterZ {
+  -webkit-animation: boxRotateZ 2.2s -2s linear infinite;
+  animation: boxRotateZ 2.2s -2s linear infinite;
+}
+.loading-loaded .particle-10 {
+  left: 60%;
+  -webkit-animation: boxTranslateY 3.5s -0.9s linear infinite;
+  animation: boxTranslateY 3.5s -0.9s linear infinite;
+  transform: scale(0.7) translateZ(-70vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-10 .rotaterX {
+  -webkit-animation: boxRotateX 7.4s -0.2s linear infinite;
+  animation: boxRotateX 7.4s -0.2s linear infinite;
+}
+.loading-loaded .particle-10 .rotaterY {
+  -webkit-animation: boxRotateY 10s -0.2s linear infinite;
+  animation: boxRotateY 10s -0.2s linear infinite;
+}
+.loading-loaded .particle-10 .rotaterZ {
+  -webkit-animation: boxRotateZ 7s -2.2s linear infinite;
+  animation: boxRotateZ 7s -2.2s linear infinite;
+}
+.loading-loaded .particle-11 {
+  left: 52%;
+  -webkit-animation: boxTranslateY 3.8s -2.1s linear infinite;
+  animation: boxTranslateY 3.8s -2.1s linear infinite;
+  transform: scale(0.7) translateZ(-80vw) translate(-50%, -50%);
+}
+.loading-loaded .particle-11 .rotaterX {
+  -webkit-animation: boxRotateX 6.2s -1.1s linear infinite;
+  animation: boxRotateX 6.2s -1.1s linear infinite;
+}
+.loading-loaded .particle-11 .rotaterY {
+  -webkit-animation: boxRotateY 5.1s -0.2s linear infinite;
+  animation: boxRotateY 5.1s -0.2s linear infinite;
+}
+.loading-loaded .particle-11 .rotaterZ {
+  -webkit-animation: boxRotateZ 6.2s -2s linear infinite;
+  animation: boxRotateZ 6.2s -2s linear infinite;
+}
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 22px;
+  width: 80%;
+  max-width: 400px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: auto;
+  transform: translate(-50%, -60%);
+  border-left: 1px solid var(--fluent-border-light);
+  border-top: 1px solid var(--fluent-border-light);
+  border-right: 1px solid var(--fluent-border-dark);
+  border-bottom: 1px solid var(--fluent-border-dark);
+  overflow: hidden;
+  border-radius: var(--menu-border-radius);
+  box-sizing: border-box;
+}
+.login-box h1 {
+  color: var(--theme-color-3);
+  font-size: 1.65em;
+  margin: 0;
+  margin-bottom: 0.67em;
+}
+.login-box button {
+  background-color: transparent;
+  border: none;
+  color: var(--hyperlink-color);
+  --local-color: var(--hyperlink-color);
+  white-space: nowrap;
+  width: 100%;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  padding-bottom: 6px;
+}
+.login-box button div {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.login-box button svg {
+  transform: rotate(-90deg);
+  height: 8px;
+}
+.toolbar-wrapper .menu-button-wrapper {
+  min-width: 200px;
+}

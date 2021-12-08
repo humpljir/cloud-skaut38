@@ -1,0 +1,50 @@
+/*
+
+************************************
+customNotifications.css
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+.custom-notifications-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0px;
+  width: 100%;
+  transition: top 0.2s;
+  scroll-behavior: smooth;
+}
+/*
+.top-bar-open .custom-notifications-wrapper {
+  top: 80px;
+}
+*/
+.custom-notifications-box.notifications-hide {
+  transform: translateY(-50%);
+  opacity: 0;
+  z-index: -1;
+}
+.custom-notifications-box {
+  background: var(--notification-color) url(../img/noise.svg) !important;
+  width: calc(100% - 20px);
+  position: relative;
+  border-radius: var(--menu-border-radius);
+  margin: 10px;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  font-size: var(--menu-font-size);
+  font-weight: bold;
+  color: var(--main-fg-color);
+  border-left: 1px solid var(--fluent-border-light);
+  border-top: 1px solid var(--fluent-border-light);
+  border-right: 1px solid var(--fluent-border-dark);
+  border-bottom: 1px solid var(--fluent-border-dark);
+  transform: translateY(0);
+  transition: all 0.4s;
+  z-index: 0;
+  opacity: 1;
+  -webkit-animation: flashHighlight 0.4s 0s;
+  animation: flashHighlight 0.4s 0s;
+}
