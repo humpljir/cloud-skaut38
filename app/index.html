@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/hover.css">
+    <link rel="icon" href="icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icons/android-chrome-192x192.png">
@@ -556,6 +557,13 @@
     <script type="text/javascript" src="js/gallery.js">
     </script>
     <script type="text/javascript" src="js/script.js">
+    </script>
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker
+                   .register('/sw.js')
+                   .then(function() { console.log("Service Worker Registered"); });
+        }
     </script>
 </body>
 
