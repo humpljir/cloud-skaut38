@@ -23,12 +23,10 @@
     filter: brightness(1.5) contrast(0.3);
   }
   .resize-hover {
-    transition: filter 0.2s, transform 0.1s;
     cursor: pointer;
   }
   .resize-hover:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(5px 3px 18px #00000030);
+    outline: 1px solid var(--main-fg-color);
   }
   .highlight-hover {
     transition: filter 0.2s, transform 0.1s;
