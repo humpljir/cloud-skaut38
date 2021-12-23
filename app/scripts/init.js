@@ -54,8 +54,8 @@ function generateSubmenu(scope, targettype, fileid, options) {
         fileid;
     } else {
       /*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
-      // line.setAttribute("onclick", option.function);
-      line.addEventListener("click", option.function);
+      line.setAttribute("onclick", option.function);
+      // line.addEventListener("click", option.function);
     }
     line.innerHTML = option.label;
     submenu.append(line);
@@ -168,9 +168,6 @@ function drawFiles(dirID) {
 
     let filebox = document.createElement("div");
     // filebox.setAttribute("onclick","window.location.href='"+linkToStorage+element.link+"'");
-    filebox.addEventListener("click", () => {
-      window.location.href = linkToStorage + element.link;
-    });
     if (element.type == "image") {
       fileicon.style.background =
         "url(" + linkToStorageThumbnails + element.link + ")";
@@ -180,6 +177,10 @@ function drawFiles(dirID) {
       // filebox.setAttribute("onclick","openGallery(this)");
       filebox.addEventListener("click", () => {
         openGallery(filebox);
+      });
+    } else {
+      filebox.addEventListener("click", () => {
+        window.location.href = linkToStorage + element.link;
       });
     }
     filebox.className = "file-box";
@@ -211,6 +212,80 @@ function drawFiles(dirID) {
   });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "file-box");
   drawSVGAll();
+}
+
+function openDir(target) {
+  // animated opening of directory
+
+  if (!document.querySelector(".submenu-wrapper.visible")) {
+    // open dir only if there is no sbmenu open
+
+    changeHTMLTheme(target.style.getPropertyValue("--dir-bg-color"));
+    // change theme color for browser to dir color
+
+    id = target.getAttribute("data-dir-id");
+    style = target.getAttribute("style");
+    let viewportOffset = target.getBoundingClientRect();
+
+    blankCanvas = document.getElementById("blank-canvas");
+
+    animatedDir = document.createElement("div");
+    animatedDir.innerHTML = target.innerHTML;
+    animatedDir.classList.add("dir-box-animated");
+    animatedDir.style = style;
+    animatedDir.style.left = viewportOffset.left + "px";
+    animatedDir.style.top = viewportOffset.top + "px";
+    animatedDir.style.width = target.offsetWidth + "px";
+    animatedDir.style.height = target.offsetHeight + "px";
+    animatedDirReturnArrow = document.createElement("div");
+    animatedDirReturnArrow.className =
+      "arrow-icon arrow-icon-generate dir-box-return-icon";
+    animatedDirReturn = document.createElement("button");
+    animatedDirReturn.className = "dir-box-return resize-hover";
+    animatedDirReturn.innerHTML = "return";
+    animatedDirReturn.id="dir-return-button";
+    // animatedDirReturn.setAttribute("onClick", "closeDir()");
+    animatedDirReturn.prepend(animatedDirReturnArrow);
+    animatedDir.prepend(animatedDirReturn);
+    // duplicate dir element to animatedDir, hide all elements on canvas
+    // (transition), then remove them, redraw canvas with content of dir, after
+    // timeout show canvas and switch animatedDir with absolute postion to
+    // regular dir colorful header and remove animatedDir
+
+    document.getElementById("window-scroll-div").append(animatedDir);
+
+    blankCanvas.classList.add("blank-canvas");
+
+    drawSVGAll();
+
+    setTimeout(() => {
+      animatedDir.classList.add("dir-box-expanded");
+      animatedDir.style.left = "";
+      animatedDir.style.top = "";
+      animatedDir.style.width = "";
+      animatedDir.style.height = "";
+
+      setTimeout(() => {
+        document.documentElement.scrollTop = 0;
+
+        drawFiles(id);
+
+        headerDir = animatedDir.cloneNode(true);
+        headerDir.className = "dir-header";
+        headerSpacer = document.createElement("div");
+        headerSpacer.className = "dir-header-spacer";
+        blankCanvas.prepend(headerSpacer);
+        blankCanvas.prepend(headerDir);
+
+        blankCanvas.classList.remove("blank-canvas");
+
+        setTimeout(() => {
+          animatedDir.remove();
+          document.getElementById("dir-return-button").addEventListener("click", closeDir);
+        }, 400);
+      }, 400);
+    }, 100);
+  }
 }
 
 function appendEmptyElements(n, target, chameleonClass) {
