@@ -1,9 +1,9 @@
-importScripts('/cache-polyfill.js');
+/*importScripts('/cache-polyfill.js');
 
 
 self.addEventListener('install', function(e) {
  e.waitUntil(
-   caches.open('airhorner').then(function(cache) {
+   caches.open('cloud').then(function(cache) {
      return cache.addAll([
        '/',
        '/index.html',
@@ -26,3 +26,7 @@ self.addEventListener('install', function(e) {
    })
  );
 });
+
+
+I wasn't able to resolve this without any framewrok yet.
+*/
