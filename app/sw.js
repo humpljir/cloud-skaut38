@@ -15,10 +15,13 @@ self.addEventListener('install', function(e) {
        '/css/loading.css',
        '/css/responsive.css',
        '/css/style.css',
-       '/scripts/.js',
-       '/scripts/main.min.js',
-       '/scripts/main.min.js',
-       '/scripts/main.min.js',
+       '/scripts/app.js',
+       '/scripts/customNotifications.js',
+       '/scripts/data.js',
+       '/scripts/gallery.js',
+       '/scripts/init.js',
+       '/scripts/script.js',
+       '/scripts/settings.js',
      ]);
    })
  );

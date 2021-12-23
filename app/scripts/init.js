@@ -380,7 +380,9 @@ function initialize() {
   }
   initInputValidator();
   drawSVGAll();
+  initApp();
   initCustomNotifications();
+
   loadingLoaded();
 
   onloadFromPHP();

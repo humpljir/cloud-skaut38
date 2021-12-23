@@ -11,6 +11,44 @@ app.js
   This file contains all components for web to behave as app.
 */
 
+function initApp() {
+
+  window.addEventListener('online',  updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  
+  function updateOnlineStatus(event) {
+    if(navigator.onLine) {
+      pushCustomNotifications("Your internet connection has been restored.",
+      "var(--notifications-confirm-color)");
+    }
+    else {
+      pushCustomNotifications("Internet connection lost, some features may not be available.",
+      "var(--notifications-error-color)");
+    }
+  }
+
+let defferedPrompt;
+const addbtn = document.createElement("button");
+document.body.append(addbtn);
+
+window.addEventListener('beforeinstallprompt', event => {
+    event.preventDefault();
+    defferedPrompt = event
+    addbtn.style.display = 'block';
+});
+
+addbtn.addEventListener('click', event => {
+    defferedPrompt.prompt();
+
+    defferedPrompt.userChoice.then(choice => {
+        if(choice.outcome === 'accepted'){
+            console.log('user accepted the prompt')
+        }
+        defferedPrompt = null;
+    })
+});
+}
+
 async function initNotifications() {
   //init push notifications, allow them in browser, in the future we should save
   //endpoints here
