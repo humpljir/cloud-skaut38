@@ -38,16 +38,16 @@ function errorHandler(code, crucial) {
   }
 }
 
-function formValidator(form,event) {
-  let isValid=true;
-  form.querySelectorAll("[data-validate]").forEach(element => {
-    if(element.getAttribute("data-valid-input")=="false") {
+function formValidator(form, event) {
+  let isValid = true;
+  form.querySelectorAll("[data-validate]").forEach((element) => {
+    if (element.getAttribute("data-valid-input") == "false") {
       isValid = false;
     }
   });
 
-  if(isValid) {
-    return true
+  if (isValid) {
+    return true;
   }
   event.preventDefault();
   pushCustomNotifications(
@@ -55,63 +55,69 @@ function formValidator(form,event) {
     "var(--notifications-error-color)"
   );
   changeHTMLTheme("#rr0000");
-  return false
+  return false;
 }
 
 function inputValidator(input, type) {
   let value = input.value;
   let errorMessage = "";
-  
+
   var regexUpperAndLower = new RegExp(/^(?=.*[A-Z])(?=.*[a-z])([^\xyz]){0,}$/);
   var regexDecimal = new RegExp(/^(?=.*\d)([^\xyz]){0,}$/);
-  var regexLabelUnallowed = new RegExp(/^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/);
+  var regexLabelUnallowed = new RegExp(
+    /^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/
+  );
   var regexUsernameUnallowed = new RegExp(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/);
   var regexEmail = new RegExp(/.+\@.+\..+/);
 
   if (type == "username") {
-    if (!(value.length>7 && value.length<200)) {
+    if (!(value.length > 7 && value.length < 200)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 
-    if (!(regexUsernameUnallowed.test(value))) {
+    if (!regexUsernameUnallowed.test(value)) {
       errorMessage += "<li>contains unallowed symbols</li>";
     }
   } else if (type == "label") {
-    if (!(value.length>0 && value.length<200)) {
+    if (!(value.length > 0 && value.length < 200)) {
       errorMessage += "<li>length between 1 and 200 chars</li>";
     }
 
-    if (!(regexLabelUnallowed.test(value))) {
+    if (!regexLabelUnallowed.test(value)) {
       errorMessage += "<li>conatins unallowed symbols</li>";
     }
-  }else if (type == "email") {
-    if (!(regexEmail.test(value))) {
+  } else if (type == "email") {
+    if (!regexEmail.test(value)) {
       errorMessage += "<li>this is not an email adress</li>";
     }
   } else if (type == "password") {
-
-    if (!(value.length>7 && value.length<200)) {
+    if (!(value.length > 7 && value.length < 200)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 
-    if (!(regexUpperAndLower.test(value))) {
+    if (!regexUpperAndLower.test(value)) {
       errorMessage += "<li>at least one uppercase and lowercase letter</li>";
     }
 
-    if (!(regexDecimal.test(value))) {
+    if (!regexDecimal.test(value)) {
       errorMessage += "<li>at least one number</li>";
     }
-  }else if (type == "match") {
-    if (!(document.getElementById(input.getAttribute("data-validate-match-id")).value == value)) {
+  } else if (type == "match") {
+    if (
+      !(
+        document.getElementById(input.getAttribute("data-validate-match-id"))
+          .value == value
+      )
+    ) {
       errorMessage += "<li>password does not match</li>";
     }
-  } 
+  }
 
-  if (errorMessage=="") {
+  if (errorMessage == "") {
     input.setAttribute("data-valid-input", true);
     if (input.nextElementSibling.className.includes("validate-warning")) {
       input.nextElementSibling.innerHTML = "";
-      input.nextElementSibling.classList.add("warning-hide"); 
+      input.nextElementSibling.classList.add("warning-hide");
     } else {
       errorHandler(1, false);
     }
@@ -120,7 +126,7 @@ function inputValidator(input, type) {
 
     if (input.nextElementSibling.className.includes("validate-warning")) {
       input.nextElementSibling.innerHTML = errorMessage;
-      input.nextElementSibling.classList.remove("warning-hide"); 
+      input.nextElementSibling.classList.remove("warning-hide");
     } else {
       errorHandler(1, false);
     }
@@ -310,7 +316,9 @@ function openTopbar() {
 function openToolbar() {
   // expand toolbar
 
-  document.getElementById("main-wrapper-div").classList.remove("toolbar-autohide");
+  document
+    .getElementById("main-wrapper-div")
+    .classList.remove("toolbar-autohide");
 }
 
 function toggleDisplayStyle() {
@@ -377,9 +385,10 @@ function openDir(target) {
     animatedDirReturnArrow.className =
       "arrow-icon arrow-icon-generate dir-box-return-icon";
     animatedDirReturn = document.createElement("button");
-    animatedDirReturn.className = "dir-box-return bright-hover";
+    animatedDirReturn.className = "dir-box-return resize-hover";
     animatedDirReturn.innerHTML = "return";
-    animatedDirReturn.setAttribute("onClick", "closeDir()");
+    animatedDirReturn.id="dir-return-button";
+    // animatedDirReturn.setAttribute("onClick", "closeDir()");
     animatedDirReturn.prepend(animatedDirReturnArrow);
     animatedDir.prepend(animatedDirReturn);
     // duplicate dir element to animatedDir, hide all elements on canvas
@@ -416,6 +425,7 @@ function openDir(target) {
 
         setTimeout(() => {
           animatedDir.remove();
+          document.getElementById("dir-return-button").addEventListener("click", closeDir);
         }, 400);
       }, 400);
     }, 100);
