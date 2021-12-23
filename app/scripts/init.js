@@ -40,6 +40,7 @@ function loadingLoaded() {
 }
 
 function generateSubmenu(scope, targettype, fileid, options) {
+  console.log("scope",scope);
   let submenu = document.createElement("div");
   submenu.className = "submenu-wrapper fluent-bg";
   options.forEach((option) => {
@@ -52,6 +53,10 @@ function generateSubmenu(scope, targettype, fileid, options) {
         targettype +
         "&fileid=" +
         fileid;
+    }
+    else if (option.function == "download") {
+      line.href = scope.href;
+      line.setAttribute("download","true");
     } else {
       /*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
       line.setAttribute("onclick", option.function);
@@ -152,7 +157,7 @@ function drawFiles(dirID) {
   });
 
   filesList.content.forEach((element) => {
-    let fileboxflex = document.createElement("div");
+    let fileboxflex = document.createElement("a");
 
     let filelabel = document.createElement("div");
     filelabel.className = "file-label";
@@ -175,12 +180,9 @@ function drawFiles(dirID) {
       filebox.setAttribute("data-image", linkToStorage + element.link);
       filebox.setAttribute("data-name", element.name);
       // filebox.setAttribute("onclick","openGallery(this)");
-      filebox.addEventListener("click", () => {
+      filebox.addEventListener("click", (e) => {
+        e.preventDefault();
         openGallery(filebox);
-      });
-    } else {
-      filebox.addEventListener("click", () => {
-        window.location.href = linkToStorage + element.link;
       });
     }
     filebox.className = "file-box";
@@ -191,8 +193,9 @@ function drawFiles(dirID) {
         {
           label: "Open",
           function:
-            "window.open('" + linkToStorage + element.link + "', '_blank')",
+            "openGallery(this.parentNode.parentNode.parentNode);",
         },
+        { label: "Download", function: "download" },
         { label: "Share", function: "default" },
         { label: "Edit", function: "openMenu('form-3',event)" },
         { label: "Duplicate", function: "default" },
@@ -201,6 +204,8 @@ function drawFiles(dirID) {
         { label: "Delete", function: "default" },
       ])
     );
+    fileboxflex.href = linkToStorage+element.link;
+    fileboxflex.setAttribute("download","true");
     fileboxflex.className = "file-box-flex resize-hover searchable";
     fileboxflex.setAttribute("data-name", element.name);
     fileboxflex.setAttribute("data-date", element.date);
