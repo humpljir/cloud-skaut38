@@ -21,7 +21,7 @@ function sideNotifications(val) {
 }
 
 function switchSessionVal(name, val) {
-// general function for changing any session.settings value
+  // general function for changing any session.settings value
 
   session.settings[name] = val;
 }
@@ -69,9 +69,18 @@ function toggleDarkTheme() {
       "#00000084"
     );
     document.documentElement.style.setProperty("--hyperlink-color", "#3e74ff");
-    document.documentElement.style.setProperty("--notifications-error-color", "#700000cf");
-    document.documentElement.style.setProperty("--notifications-warning-color", "#9a7b00c7");
-    document.documentElement.style.setProperty("--notifications-confirm-color", "#c8eabcb8");
+    document.documentElement.style.setProperty(
+      "--notifications-error-color",
+      "#700000cf"
+    );
+    document.documentElement.style.setProperty(
+      "--notifications-warning-color",
+      "#9a7b00c7"
+    );
+    document.documentElement.style.setProperty(
+      "--notifications-confirm-color",
+      "#c8eabcb8"
+    );
   } else {
     document.body.classList.remove("dark-theme");
     document.documentElement.style.setProperty("--main-bg-color", "#fff");
@@ -93,9 +102,18 @@ function toggleDarkTheme() {
       "#00000020"
     );
     document.documentElement.style.setProperty("--hyperlink-color", "#1a4ed2");
-    document.documentElement.style.setProperty("--notifications-error-color", "#ff9e9ecf");
-    document.documentElement.style.setProperty("--notifications-warning-color", "#ffe16dbf");
-    document.documentElement.style.setProperty("--notifications-confirm-color", "#9eff7ab8");
+    document.documentElement.style.setProperty(
+      "--notifications-error-color",
+      "#ff9e9ecf"
+    );
+    document.documentElement.style.setProperty(
+      "--notifications-warning-color",
+      "#ffe16dbf"
+    );
+    document.documentElement.style.setProperty(
+      "--notifications-confirm-color",
+      "#9eff7ab8"
+    );
   }
 }
 
@@ -154,7 +172,10 @@ function drawToolbarEditMode(target) {
     let indexReorder = session.toolbar.reorder[index];
     let toolbarIconDOM = document.createElement("div");
     toolbarIconDOM.className = "side-toolbar-button";
-    toolbarIconDOM.setAttribute("onclick", "toolbarEditOpen(this.parentNode)");
+    // toolbarIconDOM.setAttribute("onclick", "toolbarEditOpen(this.parentNode)");
+    toolbarIconDOM.addEventListener("click", () => {
+      toolbarEditOpen(toolbarIconDOM.parentNode);
+    });
     toolbarIconDOM.setAttribute(
       "style",
       "background-color: var(--toolbar-color-" + indexReorder + ");"
@@ -163,18 +184,21 @@ function drawToolbarEditMode(target) {
 
     let toolbarIconOptionsSwapDOM = document.createElement("img");
     toolbarIconOptionsSwapDOM.className = "side-toolbar-edit-swap";
-    toolbarIconOptionsSwapDOM.setAttribute(
-      "onclick",
-      "swapToolbarColor(" + index + ")"
-    );
+    // toolbarIconOptionsSwapDOM.setAttribute("onclick","swapToolbarColor(" + index + ")");
+    toolbarIconOptionsSwapDOM.addEventListener("click", () => {
+      swapToolbarColor(index);
+    });
     toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
 
     let toolbarIconOptionsDeleteDOM = document.createElement("img");
     toolbarIconOptionsDeleteDOM.className = "side-toolbar-edit-delete";
-    toolbarIconOptionsDeleteDOM.setAttribute(
-      "onclick",
-      "hideToolbarIcon(" + index + ",this.parentNode.parentNode.parentNode)"
-    );
+    // toolbarIconOptionsDeleteDOM.setAttribute("onclick","hideToolbarIcon(" + index + ",this.parentNode.parentNode.parentNode)");
+    toolbarIconOptionsDeleteDOM.addEventListener("click", () => {
+      hideToolbarIcon(
+        index,
+        toolbarIconOptionsDeleteDOM.parentNode.parentNode.parentNode
+      );
+    });
     toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
     let toolbarIconOptionsReorderDOM = document.createElement("img");
@@ -197,16 +221,14 @@ function drawToolbarEditMode(target) {
 
     for (let index2 = 0; index2 < colorsInPalette; index2++) {
       let toolbarIconColorOptionDOM = document.createElement("label");
-      toolbarIconColorOptionDOM.setAttribute(
-        "onclick",
-        "toolbarEditColor(" +
-          index +
-          ",'var(--theme-color-" +
-          index2 +
-          ")','var(--theme-color-" +
-          index2 +
-          "-complementary)')"
-      );
+      // toolbarIconColorOptionDOM.setAttribute("onclick","toolbarEditColor(" + index + ",'var(--theme-color-" + index2 + ")','var(--theme-color-" + index2 + "-complementary)')");
+      toolbarIconColorOptionDOM.addEventListener("click", () => {
+        toolbarEditColor(
+          index,
+          "var(--theme-color-" + index2 + ")",
+          "var(--theme-color-" + index2 + "-complementary)"
+        );
+      });
       let toolbarIconColorOptionInputDOM = document.createElement("input");
       if (
         "var(--theme-color-" + index2 + ")" ==
@@ -221,7 +243,7 @@ function drawToolbarEditMode(target) {
         toolbarIconColorOptionInputDOM.checked = "checked";
       }
       toolbarIconColorOptionInputDOM.type = "radio";
-      toolbarIconColorOptionInputDOM.id = "icon" + index + "color"+index2;
+      toolbarIconColorOptionInputDOM.id = "icon" + index + "color" + index2;
       toolbarIconColorOptionInputDOM.name = "icon" + index + "color";
       let toolbarIconColorOptionDivDOM = document.createElement("div");
       toolbarIconColorOptionDivDOM.style =

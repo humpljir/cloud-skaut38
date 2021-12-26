@@ -38,16 +38,16 @@ function errorHandler(code, crucial) {
   }
 }
 
-function formValidator(form,event) {
-  let isValid=true;
-  form.querySelectorAll("[data-validate]").forEach(element => {
-    if(element.getAttribute("data-valid-input")=="false") {
+function formValidator(form, event) {
+  let isValid = true;
+  form.querySelectorAll("[data-validate]").forEach((element) => {
+    if (element.getAttribute("data-valid-input") == "false") {
       isValid = false;
     }
   });
 
-  if(isValid) {
-    return true
+  if (isValid) {
+    return true;
   }
   event.preventDefault();
   pushCustomNotifications(
@@ -55,63 +55,69 @@ function formValidator(form,event) {
     "var(--notifications-error-color)"
   );
   changeHTMLTheme("#rr0000");
-  return false
+  return false;
 }
 
 function inputValidator(input, type) {
   let value = input.value;
   let errorMessage = "";
-  
+
   var regexUpperAndLower = new RegExp(/^(?=.*[A-Z])(?=.*[a-z])([^\xyz]){0,}$/);
   var regexDecimal = new RegExp(/^(?=.*\d)([^\xyz]){0,}$/);
-  var regexLabelUnallowed = new RegExp(/^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/);
+  var regexLabelUnallowed = new RegExp(
+    /^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/
+  );
   var regexUsernameUnallowed = new RegExp(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/);
   var regexEmail = new RegExp(/.+\@.+\..+/);
 
   if (type == "username") {
-    if (!(value.length>7 && value.length<200)) {
+    if (!(value.length > 7 && value.length < 200)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 
-    if (!(regexUsernameUnallowed.test(value))) {
+    if (!regexUsernameUnallowed.test(value)) {
       errorMessage += "<li>contains unallowed symbols</li>";
     }
   } else if (type == "label") {
-    if (!(value.length>0 && value.length<200)) {
+    if (!(value.length > 0 && value.length < 200)) {
       errorMessage += "<li>length between 1 and 200 chars</li>";
     }
 
-    if (!(regexLabelUnallowed.test(value))) {
+    if (!regexLabelUnallowed.test(value)) {
       errorMessage += "<li>conatins unallowed symbols</li>";
     }
-  }else if (type == "email") {
-    if (!(regexEmail.test(value))) {
+  } else if (type == "email") {
+    if (!regexEmail.test(value)) {
       errorMessage += "<li>this is not an email adress</li>";
     }
   } else if (type == "password") {
-
-    if (!(value.length>7 && value.length<200)) {
+    if (!(value.length > 7 && value.length < 200)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 
-    if (!(regexUpperAndLower.test(value))) {
+    if (!regexUpperAndLower.test(value)) {
       errorMessage += "<li>at least one uppercase and lowercase letter</li>";
     }
 
-    if (!(regexDecimal.test(value))) {
+    if (!regexDecimal.test(value)) {
       errorMessage += "<li>at least one number</li>";
     }
-  }else if (type == "match") {
-    if (!(document.getElementById(input.getAttribute("data-validate-match-id")).value == value)) {
+  } else if (type == "match") {
+    if (
+      !(
+        document.getElementById(input.getAttribute("data-validate-match-id"))
+          .value == value
+      )
+    ) {
       errorMessage += "<li>password does not match</li>";
     }
-  } 
+  }
 
-  if (errorMessage=="") {
+  if (errorMessage == "") {
     input.setAttribute("data-valid-input", true);
     if (input.nextElementSibling.className.includes("validate-warning")) {
       input.nextElementSibling.innerHTML = "";
-      input.nextElementSibling.classList.add("warning-hide"); 
+      input.nextElementSibling.classList.add("warning-hide");
     } else {
       errorHandler(1, false);
     }
@@ -120,7 +126,7 @@ function inputValidator(input, type) {
 
     if (input.nextElementSibling.className.includes("validate-warning")) {
       input.nextElementSibling.innerHTML = errorMessage;
-      input.nextElementSibling.classList.remove("warning-hide"); 
+      input.nextElementSibling.classList.remove("warning-hide");
     } else {
       errorHandler(1, false);
     }
@@ -310,7 +316,9 @@ function openTopbar() {
 function openToolbar() {
   // expand toolbar
 
-  document.getElementById("main-wrapper-div").classList.remove("toolbar-autohide");
+  document
+    .getElementById("main-wrapper-div")
+    .classList.remove("toolbar-autohide");
 }
 
 function toggleDisplayStyle() {
@@ -348,78 +356,6 @@ function closeDir() {
     drawDirectories();
     blankCanvas.classList.remove("blank-canvas");
   }, 400);
-}
-
-function openDir(target) {
-  // animated opening of directory
-
-  if (!document.querySelector(".submenu-wrapper.visible")) {
-    // open dir only if there is no sbmenu open
-
-    changeHTMLTheme(target.style.getPropertyValue("--dir-bg-color"));
-    // change theme color for browser to dir color
-
-    id = target.getAttribute("data-dir-id");
-    style = target.getAttribute("style");
-    let viewportOffset = target.getBoundingClientRect();
-
-    blankCanvas = document.getElementById("blank-canvas");
-
-    animatedDir = document.createElement("div");
-    animatedDir.innerHTML = target.innerHTML;
-    animatedDir.classList.add("dir-box-animated");
-    animatedDir.style = style;
-    animatedDir.style.left = viewportOffset.left + "px";
-    animatedDir.style.top = viewportOffset.top + "px";
-    animatedDir.style.width = target.offsetWidth + "px";
-    animatedDir.style.height = target.offsetHeight + "px";
-    animatedDirReturnArrow = document.createElement("div");
-    animatedDirReturnArrow.className =
-      "arrow-icon arrow-icon-generate dir-box-return-icon";
-    animatedDirReturn = document.createElement("button");
-    animatedDirReturn.className = "dir-box-return bright-hover";
-    animatedDirReturn.innerHTML = "return";
-    animatedDirReturn.setAttribute("onClick", "closeDir()");
-    animatedDirReturn.prepend(animatedDirReturnArrow);
-    animatedDir.prepend(animatedDirReturn);
-    // duplicate dir element to animatedDir, hide all elements on canvas
-    // (transition), then remove them, redraw canvas with content of dir, after
-    // timeout show canvas and switch animatedDir with absolute postion to
-    // regular dir colorful header and remove animatedDir
-
-    document.getElementById("window-scroll-div").append(animatedDir);
-
-    blankCanvas.classList.add("blank-canvas");
-
-    drawSVGAll();
-
-    setTimeout(() => {
-      animatedDir.classList.add("dir-box-expanded");
-      animatedDir.style.left = "";
-      animatedDir.style.top = "";
-      animatedDir.style.width = "";
-      animatedDir.style.height = "";
-
-      setTimeout(() => {
-        document.documentElement.scrollTop = 0;
-
-        drawFiles(id);
-
-        headerDir = animatedDir.cloneNode(true);
-        headerDir.className = "dir-header";
-        headerSpacer = document.createElement("div");
-        headerSpacer.className = "dir-header-spacer";
-        blankCanvas.prepend(headerSpacer);
-        blankCanvas.prepend(headerDir);
-
-        blankCanvas.classList.remove("blank-canvas");
-
-        setTimeout(() => {
-          animatedDir.remove();
-        }, 400);
-      }, 400);
-    }, 100);
-  }
 }
 
 console.log("✅ script.js successfully loaded!");

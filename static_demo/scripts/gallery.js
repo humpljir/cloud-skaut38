@@ -23,7 +23,8 @@ function openGallery(target) {
   galleryImg.src = target.getAttribute("data-image");
   let galleryCloseWrapper = document.createElement("div");
   galleryCloseWrapper.className = "bright-hover gallery-close-wrapper";
-  galleryCloseWrapper.setAttribute("onclick", "closeGallery()");
+  //galleryCloseWrapper.setAttribute("onclick", "closeGallery()");
+  galleryCloseWrapper.addEventListener("click",closeGallery);
 
   let galleryToolbar = document.createElement("div");
   galleryToolbar.className = "gallery-toolar-wrapper fluent-bg";

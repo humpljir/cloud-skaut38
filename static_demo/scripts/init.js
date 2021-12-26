@@ -18,6 +18,9 @@ const alwaysTopBarOffset = 20;
 const colorsInPalette = 12;
 const toolbarIconCount = 4;
 
+const linkToStorage = "data/storage/";
+const linkToStorageThumbnails = "data/storage/thumbnails/";
+
 let loadingTimeout = setTimeout(() => {
   errorHandler(0);
 }, 10000);
@@ -30,9 +33,9 @@ function loadingLoaded() {
     document
       .getElementById("loading-wrapper-div")
       .classList.add("loading-loaded");
-      setTimeout(() => {
-        document.getElementById("loading-wrapper-div").remove();
-      }, 1000);
+    setTimeout(() => {
+      document.getElementById("loading-wrapper-div").remove();
+    }, 1000);
   }, 1000);
 }
 
@@ -49,11 +52,20 @@ function generateSubmenu(scope, targettype, fileid, options) {
         targettype +
         "&fileid=" +
         fileid;
+    }
+    else if (option.function == "download") {
+      line.href = scope.parentNode.href;
+      line.setAttribute("download",'');
     } else {
-/*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
+      /*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
       line.setAttribute("onclick", option.function);
+      // line.addEventListener("click", option.function);
     }
     line.innerHTML = option.label;
+    line.addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeAllSubmenus();
+    });
     submenu.append(line);
   });
 
@@ -80,8 +92,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
   let submenuDots = document.createElement("div");
   submenuDots.className = "three-dots-icon-generate submenu-dots";
   submenuDots.addEventListener("click", (event) => {
-
-  event.stopPropagation();
+    event.stopPropagation();
     closeAllSubmenus();
     let rect = event.target.parentNode.parentNode.getBoundingClientRect();
     let x =
@@ -107,7 +118,7 @@ function drawDirectories() {
   canvas.innerHTML = "";
   storage.forEach((element) => {
     let dir = document.createElement("button");
-    dir.className = "dir-box highlight-hover searchable";
+    dir.className = "dir-box resize-hover searchable";
     dir.setAttribute("data-name", element.name);
     dir.setAttribute("data-date", element.date);
     dir.setAttribute("data-size", element.size);
@@ -119,13 +130,15 @@ function drawDirectories() {
       element.colorComplementary +
       ";";
     dir.setAttribute("data-dir-id", element.id);
-    dir.setAttribute("onclick", "openDir(this)");
+    // dir.setAttribute("onclick", "openDir(this)");
+    dir.addEventListener("click", () => {
+      openDir(dir);
+    });
     dir.innerHTML = element.name;
     let submenu = generateSubmenu(dir, "dir", element.id, [
       { label: "Share", function: "default" },
       { label: "Edit", function: "openMenu('form-4',event)" },
       { label: "Duplicate", function: "default" },
-      { label: "Move", function: "default" },
       { label: "Convert", function: "default" },
       { label: "Delete", function: "default" },
     ]);
@@ -146,7 +159,7 @@ function drawFiles(dirID) {
   });
 
   filesList.content.forEach((element) => {
-    let fileboxflex = document.createElement("div");
+    let fileboxflex = document.createElement("a");
 
     let filelabel = document.createElement("div");
     filelabel.className = "file-label";
@@ -161,20 +174,39 @@ function drawFiles(dirID) {
     fileicon.append(fileiconextension);
 
     let filebox = document.createElement("div");
-    filebox.setAttribute("onclick","window.location.href='storage/"+element.link+"'");
-    if(element.type=="image") {
-      fileicon.style.background="url(storage/thumbnails/"+element.link+")";
+    fileboxflex.href = linkToStorage+element.link;
+    fileboxflex.setAttribute("download",'');
+    fileboxflex.className = "file-box-flex resize-hover searchable";
+    fileboxflex.setAttribute("data-name", element.name);
+    fileboxflex.setAttribute("data-date", element.date);
+    fileboxflex.setAttribute("data-size", element.size);
+    fileboxflex.setAttribute("data-keyword", element.link);
+    fileboxflex.append(filebox);
+    // filebox.setAttribute("onclick","window.location.href='"+linkToStorage+element.link+"'");
+
+    if (element.type == "image") {
+      fileicon.style.background =
+        "url(" + linkToStorageThumbnails + element.link + ")";
       fileicon.classList.add("icon-thumbnail");
-      filebox.setAttribute("data-image","storage/"+element.link);
-      filebox.setAttribute("data-name",element.name);
-      filebox.setAttribute("onclick","openGallery(this)");
+      filebox.setAttribute("data-image", linkToStorage + element.link);
+      filebox.setAttribute("data-name", element.name);
+      // filebox.setAttribute("onclick","openGallery(this)");
+      filebox.addEventListener("click", (e) => {
+        e.preventDefault();
+        openGallery(filebox);
+      });
     }
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
     filebox.append(
       generateSubmenu(filebox, "file", element.id, [
-        { label: "Open", function: "window.open('storage/"+element.link+"', '_blank')" },
+        {
+          label: "Open",
+          function:
+            "openGallery(this.parentNode.parentNode);",
+        },
+        { label: "Download", function: "download" },
         { label: "Share", function: "default" },
         { label: "Edit", function: "openMenu('form-3',event)" },
         { label: "Duplicate", function: "default" },
@@ -183,17 +215,85 @@ function drawFiles(dirID) {
         { label: "Delete", function: "default" },
       ])
     );
-    fileboxflex.className = "file-box-flex highlight-hover searchable";
-    fileboxflex.setAttribute("data-name", element.name);
-    fileboxflex.setAttribute("data-date", element.date);
-    fileboxflex.setAttribute("data-size", element.size);
-    fileboxflex.setAttribute("data-keyword", element.link);
-    fileboxflex.append(filebox);
 
     canvas.append(fileboxflex);
   });
   appendEmptyElements(20, document.getElementById("blank-canvas"), "file-box");
   drawSVGAll();
+}
+
+function openDir(target) {
+  // animated opening of directory
+
+  if (!document.querySelector(".submenu-wrapper.visible")) {
+    // open dir only if there is no sbmenu open
+
+    changeHTMLTheme(target.style.getPropertyValue("--dir-bg-color"));
+    // change theme color for browser to dir color
+
+    id = target.getAttribute("data-dir-id");
+    style = target.getAttribute("style");
+    let viewportOffset = target.getBoundingClientRect();
+
+    blankCanvas = document.getElementById("blank-canvas");
+
+    animatedDir = document.createElement("div");
+    animatedDir.innerHTML = target.innerHTML;
+    animatedDir.classList.add("dir-box-animated");
+    animatedDir.style = style;
+    animatedDir.style.left = viewportOffset.left + "px";
+    animatedDir.style.top = viewportOffset.top + "px";
+    animatedDir.style.width = target.offsetWidth + "px";
+    animatedDir.style.height = target.offsetHeight + "px";
+    animatedDirReturnArrow = document.createElement("div");
+    animatedDirReturnArrow.className =
+      "arrow-icon arrow-icon-generate dir-box-return-icon";
+    animatedDirReturn = document.createElement("button");
+    animatedDirReturn.className = "dir-box-return resize-hover";
+    animatedDirReturn.innerHTML = "return";
+    animatedDirReturn.id="dir-return-button";
+    // animatedDirReturn.setAttribute("onClick", "closeDir()");
+    animatedDirReturn.prepend(animatedDirReturnArrow);
+    animatedDir.prepend(animatedDirReturn);
+    // duplicate dir element to animatedDir, hide all elements on canvas
+    // (transition), then remove them, redraw canvas with content of dir, after
+    // timeout show canvas and switch animatedDir with absolute postion to
+    // regular dir colorful header and remove animatedDir
+
+    document.getElementById("window-scroll-div").append(animatedDir);
+
+    blankCanvas.classList.add("blank-canvas");
+
+    drawSVGAll();
+
+    setTimeout(() => {
+      animatedDir.classList.add("dir-box-expanded");
+      animatedDir.style.left = "";
+      animatedDir.style.top = "";
+      animatedDir.style.width = "";
+      animatedDir.style.height = "";
+
+      setTimeout(() => {
+        document.documentElement.scrollTop = 0;
+
+        drawFiles(id);
+
+        headerDir = animatedDir.cloneNode(true);
+        headerDir.className = "dir-header";
+        headerSpacer = document.createElement("div");
+        headerSpacer.className = "dir-header-spacer";
+        blankCanvas.prepend(headerSpacer);
+        blankCanvas.prepend(headerDir);
+
+        blankCanvas.classList.remove("blank-canvas");
+
+        setTimeout(() => {
+          animatedDir.remove();
+          document.getElementById("dir-return-button").addEventListener("click", closeDir);
+        }, 400);
+      }, 400);
+    }, 100);
+  }
 }
 
 function appendEmptyElements(n, target, chameleonClass) {
@@ -207,16 +307,17 @@ function appendEmptyElements(n, target, chameleonClass) {
 function drawToolbar() {
   target = document.getElementById("toolbar-div");
   target.innerHTML = "";
-  target.setAttribute("onclick","openToolbar()");
+  // target.setAttribute("onclick", "openToolbar()");
+  target.addEventListener("click",openToolbar);
   let toolbarAutohideArrow = document.createElement("div");
-  toolbarAutohideArrow.className="arrow-toolbar-autohide arrow-icon-generate";
+  toolbarAutohideArrow.className = "arrow-toolbar-autohide arrow-icon-generate";
   let toolbarAutohideBar = document.createElement("div");
-  toolbarAutohideBar.className="toolbar-autohide-bar";
+  toolbarAutohideBar.className = "toolbar-autohide-bar";
   toolbarAutohideBar.append(toolbarAutohideArrow);
   target.append(toolbarAutohideBar);
 
-  let toolbarIconWrapper=document.createElement("div");
-  toolbarIconWrapper.className="toolbar-icon-wrapper";
+  let toolbarIconWrapper = document.createElement("div");
+  toolbarIconWrapper.className = "toolbar-icon-wrapper";
   target.append(toolbarIconWrapper);
 
   for (let index = 0; index < toolbarIconCount; index++) {
@@ -235,7 +336,7 @@ function drawToolbar() {
       );
       toolbarIconDOM.innerHTML =
         session.toolbar["button" + indexReorder + "svg"];
-        toolbarIconWrapper.append(toolbarIconDOM);
+      toolbarIconWrapper.append(toolbarIconDOM);
     }
   }
 }
@@ -282,14 +383,16 @@ function initInputValidator() {
     element.closest("form").setAttribute("onsubmit", "return this.getAttribute('data-valid')");
     */
     element.setAttribute("data-valid-input", true);
-    let type=element.getAttribute('data-validate');
+    let type = element.getAttribute("data-validate");
     console.log(type);
-    element.setAttribute("oninput", "inputValidator(this,'"+type+"')");
+    element.setAttribute("oninput", "inputValidator(this,'" + type + "')");
     let validateWarning = document.createElement("div");
     validateWarning.className = "validate-warning warning-hide";
     element.after(validateWarning);
 
-    element.closest("form").setAttribute("onsubmit","return formValidator(this,event)");
+    element
+      .closest("form")
+      .setAttribute("onsubmit", "return formValidator(this,event)");
   });
 }
 
@@ -343,7 +446,9 @@ function initialize() {
 
     // autohide bottom toolbar
     if (scrollYDistance > hideTopBarOffset || scrollY < alwaysTopBarOffset) {
-      document.getElementById("main-wrapper-div").classList.remove("toolbar-autohide-hidden");
+      document
+        .getElementById("main-wrapper-div")
+        .classList.remove("toolbar-autohide-hidden");
     } else if (
       scrollYDistance < -1 * hideTopBarOffset &&
       session.settings.toolbarAutoHeight
@@ -351,9 +456,9 @@ function initialize() {
       document
         .getElementById("main-wrapper-div")
         .classList.add("toolbar-autohide");
-        document
-          .getElementById("main-wrapper-div")
-          .classList.add("toolbar-autohide-hidden");
+      document
+        .getElementById("main-wrapper-div")
+        .classList.add("toolbar-autohide-hidden");
     }
 
     /*
@@ -380,7 +485,9 @@ function initialize() {
   }
   initInputValidator();
   drawSVGAll();
+  initApp();
   initCustomNotifications();
+
   loadingLoaded();
 
   onloadFromPHP();

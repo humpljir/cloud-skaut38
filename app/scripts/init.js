@@ -40,7 +40,6 @@ function loadingLoaded() {
 }
 
 function generateSubmenu(scope, targettype, fileid, options) {
-  console.log("scope",scope);
   let submenu = document.createElement("div");
   submenu.className = "submenu-wrapper fluent-bg";
   options.forEach((option) => {
@@ -55,14 +54,18 @@ function generateSubmenu(scope, targettype, fileid, options) {
         fileid;
     }
     else if (option.function == "download") {
-      line.href = scope.href;
-      line.setAttribute("download","true");
+      line.href = scope.parentNode.href;
+      line.setAttribute("download",'');
     } else {
       /*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
       line.setAttribute("onclick", option.function);
       // line.addEventListener("click", option.function);
     }
     line.innerHTML = option.label;
+    line.addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeAllSubmenus();
+    });
     submenu.append(line);
   });
 
@@ -136,7 +139,6 @@ function drawDirectories() {
       { label: "Share", function: "default" },
       { label: "Edit", function: "openMenu('form-4',event)" },
       { label: "Duplicate", function: "default" },
-      { label: "Move", function: "default" },
       { label: "Convert", function: "default" },
       { label: "Delete", function: "default" },
     ]);
@@ -172,7 +174,16 @@ function drawFiles(dirID) {
     fileicon.append(fileiconextension);
 
     let filebox = document.createElement("div");
+    fileboxflex.href = linkToStorage+element.link;
+    fileboxflex.setAttribute("download",'');
+    fileboxflex.className = "file-box-flex resize-hover searchable";
+    fileboxflex.setAttribute("data-name", element.name);
+    fileboxflex.setAttribute("data-date", element.date);
+    fileboxflex.setAttribute("data-size", element.size);
+    fileboxflex.setAttribute("data-keyword", element.link);
+    fileboxflex.append(filebox);
     // filebox.setAttribute("onclick","window.location.href='"+linkToStorage+element.link+"'");
+
     if (element.type == "image") {
       fileicon.style.background =
         "url(" + linkToStorageThumbnails + element.link + ")";
@@ -193,7 +204,7 @@ function drawFiles(dirID) {
         {
           label: "Open",
           function:
-            "openGallery(this.parentNode.parentNode.parentNode);",
+            "openGallery(this.parentNode.parentNode);",
         },
         { label: "Download", function: "download" },
         { label: "Share", function: "default" },
@@ -204,14 +215,6 @@ function drawFiles(dirID) {
         { label: "Delete", function: "default" },
       ])
     );
-    fileboxflex.href = linkToStorage+element.link;
-    fileboxflex.setAttribute("download","true");
-    fileboxflex.className = "file-box-flex resize-hover searchable";
-    fileboxflex.setAttribute("data-name", element.name);
-    fileboxflex.setAttribute("data-date", element.date);
-    fileboxflex.setAttribute("data-size", element.size);
-    fileboxflex.setAttribute("data-keyword", element.link);
-    fileboxflex.append(filebox);
 
     canvas.append(fileboxflex);
   });

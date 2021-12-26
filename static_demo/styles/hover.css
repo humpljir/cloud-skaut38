@@ -22,8 +22,14 @@
   .bright-hover:hover {
     filter: brightness(1.5) contrast(0.3);
   }
+  .resize-hover {
+    cursor: pointer;
+  }
+  .resize-hover:hover {
+    outline: 1px solid var(--main-fg-color);
+  }
   .highlight-hover {
-    transition: filter 0.2s, transform 0.1s, box-shadow 0.1s;
+    transition: filter 0.2s, transform 0.1s;
     cursor: pointer;
   }
   .highlight-hover:hover {
