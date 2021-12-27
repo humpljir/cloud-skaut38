@@ -180,7 +180,7 @@ function drawToolbarEditMode(target) {
       "style",
       "background-color: var(--toolbar-color-" + indexReorder + ");"
     );
-    toolbarIconDOM.innerHTML = session.toolbar["button" + indexReorder + "svg"];
+    toolbarIconDOM.innerHTML = static.svg["button" + indexReorder + "svg"];
 
     let toolbarIconOptionsSwapDOM = document.createElement("img");
     toolbarIconOptionsSwapDOM.className = "side-toolbar-edit-swap";

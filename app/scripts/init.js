@@ -328,21 +328,21 @@ function drawToolbar() {
       toolbarIconDOM.setAttribute("type", "button");
       toolbarIconDOM.setAttribute(
         "onclick",
-        session.toolbar.onclick[indexReorder]
+        static.toolbarOnclick[indexReorder]
       );
       toolbarIconDOM.setAttribute(
         "style",
         "background-color: var(--toolbar-color-" + indexReorder + ");"
       );
       toolbarIconDOM.innerHTML =
-        session.toolbar["button" + indexReorder + "svg"];
+        static.svg["button" + indexReorder + "svg"];
       toolbarIconWrapper.append(toolbarIconDOM);
     }
   }
 }
 
 function drawSVGAll() {
-  session.style.svgAll.forEach((svg) => {
+  static.svg.svgAll.forEach((svg) => {
     document.querySelectorAll("." + svg[0]).forEach((element) => {
       element.innerHTML = svg[1];
       element.classList.remove(svg[0]);
@@ -384,7 +384,6 @@ function initInputValidator() {
     */
     element.setAttribute("data-valid-input", true);
     let type = element.getAttribute("data-validate");
-    console.log(type);
     element.setAttribute("oninput", "inputValidator(this,'" + type + "')");
     let validateWarning = document.createElement("div");
     validateWarning.className = "validate-warning warning-hide";

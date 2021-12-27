@@ -1,13 +1,16 @@
 <?php
-$servername = "localhost";
-$username = "humpljir";
-$password = "webove aplikace";
-
-$db_conn = new mysqli($servername, $username, $password);
-
-if ($db_conn->connect_error) {
-echo "<script>console.log('connection error')</script>";
-  die("Connection failed: " . $db_conn->connect_error);
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'humpljir');
+define('DB_PASSWORD', 'webove aplikace');
+define('DB_NAME', 'humpljir');
+ 
+/* Attempt to connect to MySQL database */
+$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
+// Check connection
+if($mysqli === false){
+    die("ERROR: Could not connect. " . $mysqli->connect_error);
 }
-echo "<script>console.log('connected to db')</script>";
-?>  
+?>
