@@ -1,46 +1,195 @@
 <?php
+// Include necessary file
+require_once('modules/config.php');
 
-include_once "modules/config.php";
-
-if (isset($_POST['username'])) {
-// Now we check if the data from the login form was submitted, isset() will check if the data exists.
-if ( !isset($_POST['username'], $_POST['password']) ) {
-	// Could not get the data that should have been sent.
-	exit('Please fill both the username and password fields!');
+// Check if user is already logged in
+if ($user->is_logged_in()) {
+    // Redirect logged in user to their home page
+    $user->redirect('index.php');
 }
-// Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
-	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();
-	// Store the result so we can check if the account exists in the database.
-	$stmt->store_result();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
-        $stmt->fetch();
-        // Account exists, now we verify the password.
-        // Note: remember to use password_hash in your registration file to store the hashed passwords.
-        if ($_POST['password'] === $password) {
-            // Verification success! User has logged-in!
-            // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
-            session_regenerate_id();
-            $_SESSION['loggedin'] = TRUE;
-            $_SESSION['name'] = $_POST['username'];
-            $_SESSION['id'] = $id;
-            echo 'Welcome ' . $_SESSION['name'] . '!';
-        } else {
-            // Incorrect password
-            echo 'Incorrect username and/or password!';
-        }
+// Check if log-in form is submitted
+if (isset($_POST['log_in'])) {
+    // Retrieve form input
+    $user_name = trim($_POST['user_name_email']);
+    $user_email = trim($_POST['user_name_email']);
+    $user_password = trim($_POST['user_password']);
+
+    // Check for empty and invalid inputs
+    if (empty($user_name) || empty($user_email)) {
+        array_push($errors, "Please enter a valid username or e-mail address");
+    } elseif (empty($user_password)) {
+        array_push($errors, "Please enter a valid password.");
     } else {
-        // Incorrect username
-        echo 'Incorrect username and/or password!';
+        // Check if the user may be logged in
+        if ($user->login($user_name, $user_email, $user_password)) {
+            // Redirect if logged in successfully
+            $user->redirect('home.php');
+        } else {
+            array_push($errors, "Incorrect log-in credentials.");
+        }
     }
-
-	$stmt->close();
 }
 
+// Check if register form is submitted
+if (isset($_POST['register'])) {
+    // Retrieve form input
+    $user_name = trim($_POST['user_name']);
+    $user_email = trim($_POST['user_email']);
+    $user_password = trim($_POST['user_password']);
+
+    // Check for empty and invalid inputs
+    if (empty($user_name)) {
+        array_push($errors, "Please enter a valid username.");
+    } elseif (empty($user_email)) {
+        array_push($errors, "Please enter a valid e-mail address.");
+    } elseif (empty($user_password)) {
+        array_push($errors, "Please enter a valid password.");
+    } elseif (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+        array_push($errors, "Please enter a valid e-mail address.");
+    } else {
+        try {
+            // Define query to select matching values
+            $sql = "SELECT user_name, user_email FROM users WHERE user_name=:user_name OR user_email=:user_email";
+
+            // Prepare the statement
+            $query = $db_conn->prepare($sql);
+
+            // Bind parameters
+            $query->bindParam(':user_name', $user_name);
+            $query->bindParam(':user_email', $user_email);
+
+            // Execute the query
+            $query->execute();
+
+            // Return clashes row as an array indexed by both column name
+            $returned_clashes_row = $query->fetch(PDO::FETCH_ASSOC);
+
+            // Check for usernames or e-mail addresses that have already been used
+            if ($returned_clashes_row['user_name'] == $user_name) {
+                array_push($errors, "That username is taken. Please choose something different.");
+            } elseif ($returned_clashes_row['user_email'] == $user_email) {
+                array_push($errors, "That e-mail address is taken. Please choose something different.");
+            } else {
+                // Check if the user may be registered
+                if ($user->register($user_name, $user_email, $user_password)) {
+                    echo "Registered";
+                }
+            }
+        } catch (PDOException $e) {
+            array_push($errors, $e->getMessage());
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OOP PHP - Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+
+    <?php if (count($errors > 0)): ?>
+    <p>Error(s):</p>
+    <ul>
+        <?php foreach ($errors as $error): ?>
+            <li><?= $error ?></li>
+        <?php endforeach ?>
+    </ul>
+    <?php endif ?>
+
+    <p>Welcome, <?= $returned_row['user_name']; ?>. <a href="?logout=true">Log out</a></p>
+</body>
+</html>
+./index.php
+
+<?php
+// Include necessary file
+require_once('./includes/db.inc.php');
+
+// Check if user is already logged in
+if ($user->is_logged_in()) {
+    // Redirect logged in user to their home page
+    $user->redirect('home.php');
+}
+
+// Check if log-in form is submitted
+if (isset($_POST['log_in'])) {
+    // Retrieve form input
+    $user_name = trim($_POST['user_name_email']);
+    $user_email = trim($_POST['user_name_email']);
+    $user_password = trim($_POST['user_password']);
+
+    // Check for empty and invalid inputs
+    if (empty($user_name) || empty($user_email)) {
+        array_push($errors, "Please enter a valid username or e-mail address");
+    } elseif (empty($user_password)) {
+        array_push($errors, "Please enter a valid password.");
+    } else {
+        // Check if the user may be logged in
+        if ($user->login($user_name, $user_email, $user_password)) {
+            // Redirect if logged in successfully
+            $user->redirect('home.php');
+        } else {
+            array_push($errors, "Incorrect log-in credentials.");
+        }
+    }
+}
+
+// Check if register form is submitted
+if (isset($_POST['register'])) {
+    // Retrieve form input
+    $user_name = trim($_POST['user_name']);
+    $user_email = trim($_POST['user_email']);
+    $user_password = trim($_POST['user_password']);
+
+    // Check for empty and invalid inputs
+    if (empty($user_name)) {
+        array_push($errors, "Please enter a valid username.");
+    } elseif (empty($user_email)) {
+        array_push($errors, "Please enter a valid e-mail address.");
+    } elseif (empty($user_password)) {
+        array_push($errors, "Please enter a valid password.");
+    } elseif (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+        array_push($errors, "Please enter a valid e-mail address.");
+    } else {
+        try {
+            // Define query to select matching values
+            $sql = "SELECT user_name, user_email FROM users WHERE user_name=:user_name OR user_email=:user_email";
+
+            // Prepare the statement
+            $query = $db_conn->prepare($sql);
+
+            // Bind parameters
+            $query->bindParam(':user_name', $user_name);
+            $query->bindParam(':user_email', $user_email);
+
+            // Execute the query
+            $query->execute();
+
+            // Return clashes row as an array indexed by both column name
+            $returned_clashes_row = $query->fetch(PDO::FETCH_ASSOC);
+
+            // Check for usernames or e-mail addresses that have already been used
+            if ($returned_clashes_row['user_name'] == $user_name) {
+                array_push($errors, "That username is taken. Please choose something different.");
+            } elseif ($returned_clashes_row['user_email'] == $user_email) {
+                array_push($errors, "That e-mail address is taken. Please choose something different.");
+            } else {
+                // Check if the user may be registered
+                if ($user->register($user_name, $user_email, $user_password)) {
+                    echo "Registered";
+                }
+            }
+        } catch (PDOException $e) {
+            array_push($errors, $e->getMessage());
+        }
+    }
 }
 ?>
 <!DOCTYPE html>

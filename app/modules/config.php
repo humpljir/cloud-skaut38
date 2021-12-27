@@ -3,11 +3,11 @@ $servername = "localhost";
 $username = "humpljir";
 $password = "webove aplikace";
 
-$conn = new mysqli($servername, $username, $password);
+$db_conn = new mysqli($servername, $username, $password);
 
-if ($conn->connect_error) {
+if ($db_conn->connect_error) {
 echo "<script>console.log('connection error')</script>";
-  die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $db_conn->connect_error);
 }
 echo "<script>console.log('connected to db')</script>";
 ?>  
