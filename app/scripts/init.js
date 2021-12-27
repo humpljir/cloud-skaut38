@@ -22,8 +22,8 @@ const linkToStorage = "data/storage/";
 const linkToStorageThumbnails = "data/storage/thumbnails/";
 
 let loadingTimeout = setTimeout(() => {
-  errorHandler(0);
-}, 10000);
+  errorHandler(0,true);
+}, 15000);
 
 function loadingLoaded() {
   clearTimeout(loadingTimeout);
@@ -354,11 +354,11 @@ function loadThemeColors() {
   for (let index = 0; index < colorsInPalette; index++) {
     document.documentElement.style.setProperty(
       "--theme-color-" + index,
-      session.style.palettes[session.style.activePalette].colors[index]
+      static.palettes[session.style.activePalette].colors[index]
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      session.style.palettes[session.style.activePalette].colorComplementary[
+      static.palettes[session.style.activePalette].colorComplementary[
         index
       ]
     );
