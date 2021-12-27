@@ -1,0 +1,21 @@
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  `fullname` text NOT NULL,
+  `email` text NOT NULL,
+  `img` tinytext NOT NULL,
+  `darktheme` tinyint NOT NULL,
+  `activePalette` int NOT NULL,
+  `colorHighlight` text NOT NULL,
+  `toolbarOrder` text NOT NULL,
+  `toolbarDisplay` text NOT NULL,
+  `toolbarColors` text NOT NULL,
+  `toolbarColorsComplementary` tinytext NOT NULL,
+  `topbarAutoHeight` int NOT NULL,
+  `toolbarAutoHeight` int NOT NULL,
+  `toolbarVisible` int NOT NULL,
+  `toolbarCustom` int NOT NULL,
+  `notifications` int NOT NULL,
+  `customNotificationsTimeout` int NOT NULL
+);

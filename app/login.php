@@ -1,3 +1,48 @@
+<?php
+
+include_once "modules/config.php";
+
+if (isset($_POST['username'])) {
+// Now we check if the data from the login form was submitted, isset() will check if the data exists.
+if ( !isset($_POST['username'], $_POST['password']) ) {
+	// Could not get the data that should have been sent.
+	exit('Please fill both the username and password fields!');
+}
+// Prepare our SQL, preparing the SQL statement will prevent SQL injection.
+if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
+	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
+	$stmt->bind_param('s', $_POST['username']);
+	$stmt->execute();
+	// Store the result so we can check if the account exists in the database.
+	$stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $password);
+        $stmt->fetch();
+        // Account exists, now we verify the password.
+        // Note: remember to use password_hash in your registration file to store the hashed passwords.
+        if ($_POST['password'] === $password) {
+            // Verification success! User has logged-in!
+            // Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
+            session_regenerate_id();
+            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['name'] = $_POST['username'];
+            $_SESSION['id'] = $id;
+            echo 'Welcome ' . $_SESSION['name'] . '!';
+        } else {
+            // Incorrect password
+            echo 'Incorrect username and/or password!';
+        }
+    } else {
+        // Incorrect username
+        echo 'Incorrect username and/or password!';
+    }
+
+	$stmt->close();
+}
+
+}
+?>
 <!DOCTYPE html>
 <html lang="cs">
 
@@ -331,19 +376,19 @@
         </div>
         <div class="menu-wrapper" id="menu-wrapper-div">
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
-                <form class="form-visible" id="form-0" data-submit-label="LOGIN">
+                <form method="post" class="form-visible" id="form-0" data-submit-label="LOGIN">
                     <input type="text" id="login-username" name="username" placeholder="username" required>
                     <input type="password" id="login-password" name="password" placeholder="password" required>
                     <a onclick="openMenu('form-2',event)">Create New Account</a>
                     <a onclick="openMenu('form-1',event)">Forgot Password</a>
                 </form>
-                <form class="form-visible" id="form-1" data-submit-label="SEND MAIL">
+                <form method="post" class="form-visible" id="form-1" data-submit-label="SEND MAIL">
                     <input type="text" id="forgot-username" name="forgot-username" placeholder="username or mail" required>
                     <label class="form-text">Check your mailbox to reset your password.</label>
                     <a onclick="openMenu('form-0',event)">Return To Login</a>
                     <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
                 </form>
-                <form class="form-visible" id="form-2" data-submit-label="REGISTER">
+                <form method="post" class="form-visible" id="form-2" data-submit-label="REGISTER">
                     <input type="text" id="register-username" data-validate="username" name="username" placeholder="username" required>
                     <input type="text" id="register-fullname" data-validate="label" name="fullname" placeholder="full name" required>
                     <input type="email" id="register-email" data-validate="email" name="email" placeholder="email" required>

@@ -1,3 +1,8 @@
+<?php
+include_once "modules/config.php";
+include_once "modules/session.php";
+
+?>
 <!DOCTYPE html>
 <html lang="cs">
 
