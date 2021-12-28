@@ -47,8 +47,8 @@ function toolbarEditColor(index, color, colorComplementary) {
 function toggleDarkTheme() {
   // switch between dark and light mode
 
-  session.style.darkTheme = !session.style.darkTheme;
-  if (session.style.darkTheme) {
+  session.settings.darkTheme = !session.settings.darkTheme;
+  if (session.settings.darkTheme) {
     document.body.classList.add("dark-theme");
     document.documentElement.style.setProperty("--main-bg-color", "#000");
     document.documentElement.style.setProperty("--main-fg-color", "#fff");
@@ -157,9 +157,9 @@ function swapToolbarColor(index) {
 function hideToolbarIcon(index, target) {
   // hide/show toolbar icon from toolbar
 
-  console.log(session.toolbar.display[index]);
-  console.log(!session.toolbar.display[index]);
-  session.toolbar.display[index] = !session.toolbar.display[index];
+  console.log(session.settings.toolbarDisplayIcon[index]);
+  console.log(!session.settings.toolbarDisplayIcon[index]);
+  session.settings.toolbarDisplayIcon[index] = !session.settings.toolbarDisplayIcon[index];
   target.classList.toggle("hidden-toolbar-icon");
   drawToolbar();
 }
@@ -169,7 +169,7 @@ function drawToolbarEditMode(target) {
 
   target.innerHTML = "";
   for (let index = 0; index < toolbarIconCount; index++) {
-    let indexReorder = session.toolbar.reorder[index];
+    let indexReorder = session.settings.toolbarReorder[index];
     let toolbarIconDOM = document.createElement("div");
     toolbarIconDOM.className = "side-toolbar-button";
     // toolbarIconDOM.setAttribute("onclick", "toolbarEditOpen(this.parentNode)");
@@ -281,11 +281,11 @@ function changePalette(nr) {
   for (let index = 0; index < colorsInPalette; index++) {
     document.documentElement.style.setProperty(
       "--theme-color-" + index,
-      session.style.palettes[nr].colors[index]
+      session.settings.palettes[nr].colors[index]
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      session.style.palettes[nr].colorComplementary[index]
+      session.settings.palettes[nr].colorComplementary[index]
     );
   }
 }

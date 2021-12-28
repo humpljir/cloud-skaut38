@@ -321,8 +321,8 @@ function drawToolbar() {
   target.append(toolbarIconWrapper);
 
   for (let index = 0; index < toolbarIconCount; index++) {
-    let indexReorder = session.toolbar.reorder[index];
-    if (session.toolbar.display[indexReorder]) {
+    let indexReorder = session.settings.toolbarReorder[index];
+    if (session.settings.toolbarDisplayIcon[indexReorder]) {
       let toolbarIconDOM = document.createElement("button");
       toolbarIconDOM.className = "toolbar-button highlight-hover";
       toolbarIconDOM.setAttribute("type", "button");
@@ -354,11 +354,11 @@ function loadThemeColors() {
   for (let index = 0; index < colorsInPalette; index++) {
     document.documentElement.style.setProperty(
       "--theme-color-" + index,
-      static.palettes[session.style.activePalette].colors[index]
+      static.palettes[session.settings.activePalette].colors[index]
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      static.palettes[session.style.activePalette].colorComplementary[
+      static.palettes[session.settings.activePalette].colorComplementary[
         index
       ]
     );
@@ -367,11 +367,11 @@ function loadThemeColors() {
   for (let index = 0; index < toolbarIconCount; index++) {
     document.documentElement.style.setProperty(
       "--toolbar-color-" + index,
-      session.toolbar.colors[index]
+      session.settings.toolbarColors[index]
     );
     document.documentElement.style.setProperty(
       "--toolbar-color-" + index + "-complementary",
-      session.toolbar.colorsComplementary[index]
+      session.settings.toolbarColorsComplementary[index]
     );
   }
 }
@@ -486,9 +486,9 @@ function initialize() {
   drawSVGAll();
   initApp();
   initCustomNotifications();
-
   loadingLoaded();
 
+  console.log("buuu");
   onloadFromPHP();
 }
 

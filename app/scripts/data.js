@@ -11,43 +11,6 @@ data.js
   This file is JSON-like dataset, in the future will be probably merged into head of html -> so it can be generated easily by PHP.
 */
 
-var session = {
-  user: {
-    name: "Jiří Humpl",
-    nick: "humpljir",
-    img: "img/profile_pic.jpg",
-  },
-  style: {
-    darkTheme: false,
-    activePalette: 1,
-    "color-highlight": ["var(--theme-color-3)"],
-  },
-  toolbar: {
-    reorder: [0, 1, 2, 3],
-    display: [true, true, true, true],
-    colors: [
-      "var(--theme-color-1)",
-      "var(--theme-color-3)",
-      "var(--theme-color-4)",
-      "var(--theme-color-5)",
-    ],
-    colorsComplementary: [
-      "var(--theme-color-1-complementary)",
-      "var(--theme-color-3-complementary)",
-      "var(--theme-color-4-complementary)",
-      "var(--theme-color-5-complementary)",
-    ],
-  },
-  settings: {
-    topbarAutoHeight: true,
-    toolbarAutoHeight: true,
-    toolbarVisible: true,
-    toolbarCustom: true,
-    notifications: false,
-    customNotificationsTimeout: 3000,
-  },
-};
-
 var storage = [
   {
     id: 0,
