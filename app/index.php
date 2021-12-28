@@ -81,7 +81,7 @@ if ($user = $result->fetch_assoc()) {
 
             function onloadFromPHP() {
                 console.log("onloadFromPHP funtion is running");
-                <?= ($user['darktheme'] == 1) ? "console.log('this works!');" : "" ?>
+                <?= ($user['darktheme'] == 1) ? "toggleDarkTheme();" : "" ?>
             }
         </script>
     </head>
