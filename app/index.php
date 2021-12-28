@@ -63,24 +63,25 @@ if ($user = $result->fetch_assoc()) {
                     img: "img/<?= $user['img'] ?>",
                 },
                 settings: {
-                    darkTheme: <?= ($user['darktheme']==1) ? "true" : "false" ?>,
+                    darkTheme: <?= ($user['darktheme'] == 1) ? "true" : "false" ?>,
                     activePalette: <?= $user['activePalette'] ?>,
                     colorHighlight: <?= $user['colorHighlight'] ?>,
-                    topbarAutoHeight: <?= ($user['topbarAutoHeight']==1) ? "true" : "false" ?>,
-                    toolbarAutoHeight: <?= ($user['toolbarAutoHeight']==1) ? "true" : "false" ?>,
-                    toolbarVisible: <?= ($user['toolbarVisible']==1) ? "true" : "false" ?>,
-                    toolbarCustom: <?= ($user['toolbarCustom']==1) ? "true" : "false" ?>,
+                    topbarAutoHeight: <?= ($user['topbarAutoHeight'] == 1) ? "true" : "false" ?>,
+                    toolbarAutoHeight: <?= ($user['toolbarAutoHeight'] == 1) ? "true" : "false" ?>,
+                    toolbarVisible: <?= ($user['toolbarVisible'] == 1) ? "true" : "false" ?>,
+                    toolbarCustom: <?= ($user['toolbarCustom'] == 1) ? "true" : "false" ?>,
                     toolbarReorder: <?= $user['toolbarReorder'] ?>,
                     toolbarDisplayIcon: <?= $user['toolbarDisplayIcon'] ?>,
                     toolbarColors: <?= $user['toolbarColors'] ?>,
                     toolbarColorsComplementary: <?= $user['toolbarColorsComplementary'] ?>,
-                    notifications: <?= ($user['notifications']==1) ? "true" : "false" ?>,
+                    notifications: <?= ($user['notifications'] == 1) ? "true" : "false" ?>,
                     customNotificationsTimeout: <?= $user['customNotificationsTimeout'] ?>,
                 },
             };
 
             function onloadFromPHP() {
-                <?= ($user['darktheme']==1) ? "toggleDarkTheme();" : "" ?>
+                console.log("onloadFromPHP funtion is running");
+                <?= ($user['darktheme'] == 1) ? "console.log('this works!');" : "" ?>
             }
         </script>
     </head>
@@ -134,10 +135,10 @@ if ($user = $result->fetch_assoc()) {
                             <div class="side-category-content">
                                 <form class="side-form" id="form-appearence" method="PUT" data-submit-label="CREATE">
                                     <label class="side-form-switch-wrapper">
-                                        <span class="side-form-switch-label">Turn On Dark Theme</span><input onclick="toggleDarkTheme()" type="checkbox" class="side-form-switch"<?= ($user['darktheme']==1) ? " checked" : "" ?>>
+                                        <span class="side-form-switch-label">Turn On Dark Theme</span><input onclick="toggleDarkTheme()" type="checkbox" class="side-form-switch" <?= ($user['darktheme'] == 1) ? " checked" : "" ?>>
                                     </label>
                                     <label class="side-form-switch-wrapper">
-                                        <span class="side-form-switch-label">Auto Resize Top Bar</span><input type="checkbox"<?= ($user['topbarAutoHeight']==1) ? " checked" : "" ?> onchange="switchSessionVal('topbarAutoHeight',this.checked)" class="side-form-switch">
+                                        <span class="side-form-switch-label">Auto Resize Top Bar</span><input type="checkbox" <?= ($user['topbarAutoHeight'] == 1) ? " checked" : "" ?> onchange="switchSessionVal('topbarAutoHeight',this.checked)" class="side-form-switch">
                                     </label>
                                     <div class="side-form-title-div">
                                         <span class="side-form-title">Select Global Theme</span>
@@ -145,39 +146,39 @@ if ($user = $result->fetch_assoc()) {
                                     </div>
                                     <div class="side-theme-selector">
                                         <label>
-                                            <input type="radio" id="theme-0" name="palette" data-palette-nr=0 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==0) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-0" name="palette" data-palette-nr=0 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 0) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-1" name="palette" checked data-palette-nr=1 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==1) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-1" name="palette" checked data-palette-nr=1 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 1) ? " checked" : "" ?>>
                                             <div style="--inner-color: #E63946;--theme-palette:#457B9D 0%, #457B9D 20%, #1D3557 20%, #1D3557 40%,#A8DADC 40%, #A8DADC 60%,#F1FAEE 60%, #F1FAEE 80%,#8b2c33 80%, #8b2c33 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-2" name="palette" data-palette-nr=2 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==2) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-2" name="palette" data-palette-nr=2 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 2) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-3" name="palette" data-palette-nr=3 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==3) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-3" name="palette" data-palette-nr=3 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 3) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-4" name="palette" data-palette-nr=4 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==4) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-4" name="palette" data-palette-nr=4 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 4) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-5" name="palette" data-palette-nr=5 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==5) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-5" name="palette" data-palette-nr=5 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 5) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label><label>
-                                            <input type="radio" id="theme-6" name="palette" data-palette-nr=6 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==6) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-6" name="palette" data-palette-nr=6 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 6) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-7" name="palette" data-palette-nr=7 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==7) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-7" name="palette" data-palette-nr=7 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 7) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label> <label>
-                                            <input type="radio" id="theme-8" name="palette" data-palette-nr=8 onclick="changePalette(this.getAttribute('data-palette-nr'))"<?= ($user['activePalette']==8) ? " checked" : "" ?>>
+                                            <input type="radio" id="theme-8" name="palette" data-palette-nr=8 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 8) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
                                         </label>
@@ -187,31 +188,32 @@ if ($user = $result->fetch_assoc()) {
                                         <span class="side-form-line"></span>
                                     </div>
                                     <div class="side-color-palette">
-                                        <label onclick="changeHighlightColor('var(--theme-color-0)','var(--theme-color-0-complementary)')"><input type="radio" id="blabla0" name="color"<?= ($user['colorHighlight']==0) ? " checked" : "" ?>>
+                                        <label onclick="changeHighlightColor('var(--theme-color-0)','var(--theme-color-0-complementary)')"><input type="radio" id="blabla0" name="color" <?= ($user['colorHighlight'] == 0) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-0);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-1)','var(--theme-color-1-complementary)')"><input type="radio" id="blabla1" name="color"<?= ($user['colorHighlight']==1) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-1)','var(--theme-color-1-complementary)')"><input type="radio" id="blabla1" name="color" <?= ($user['colorHighlight'] == 1) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-1);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-2)','var(--theme-color-2-complementary)')"><input type="radio" id="blabla2" name="color"<?= ($user['colorHighlight']==2) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-2)','var(--theme-color-2-complementary)')"><input type="radio" id="blabla2" name="color" <?= ($user['colorHighlight'] == 2) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-2);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-3)','var(--theme-color-3-complementary)')"><input type="radio" id="blabla3" name="color"<?= ($user['colorHighlight']==3) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-3)','var(--theme-color-3-complementary)')"><input type="radio" id="blabla3" name="color" <?= ($user['colorHighlight'] == 3) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-3);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-4)','var(--theme-color-4-complementary)')"><input type="radio" id="blabla4" name="color"<?= ($user['colorHighlight']==4) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-4)','var(--theme-color-4-complementary)')"><input type="radio" id="blabla4" name="color" <?= ($user['colorHighlight'] == 4) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-4);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-5)','var(--theme-color-5-complementary)')"><input type="radio" id="blabla5" name="color"<?= ($user['colorHighlight']==5) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-5)','var(--theme-color-5-complementary)')"><input type="radio" id="blabla5" name="color" <?= ($user['colorHighlight'] == 5) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-5);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-6)','var(--theme-color-6-complementary)')"><input type="radio" id="blabla6" name="color"<?= ($user['colorHighlight']==6) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-6)','var(--theme-color-6-complementary)')"><input type="radio" id="blabla6" name="color" <?= ($user['colorHighlight'] == 6) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-6);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-7)','var(--theme-color-7-complementary)')"><input type="radio" id="blabla7" name="color"<?= ($user['colorHighlight']==7) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-7)','var(--theme-color-7-complementary)')"><input type="radio" id="blabla7" name="color" <?= ($user['colorHighlight'] == 7) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-7);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-8)','var(--theme-color-8-complementary)')"><input type="radio" id="blabla8" name="color"<?= ($user['colorHighlight']==8) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-8)','var(--theme-color-8-complementary)')"><input type="radio" id="blabla8" name="color" <?= ($user['colorHighlight'] == 8) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-8);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-9)','var(--theme-color-9-complementary)')"><input type="radio" id="blabla9" name="color"<?= ($user['colorHighlight']==9) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-9)','var(--theme-color-9-complementary)')"><input type="radio" id="blabla9" name="color" <?= ($user['colorHighlight'] == 9) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-9);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-10)','var(--theme-color-10-complementary)')"><input type="radio" id="blabla10" name="color"<?= ($user['colorHighlight']==10) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-10)','var(--theme-color-10-complementary)')"><input type="radio" id="blabla10" name="color" <?= ($user['colorHighlight'] == 10) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-10);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-11)','var(--theme-color-11-complementary)')"><input type="radio" id="blabla11" name="color"<?= ($user['colorHighlight']==11) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-11)','var(--theme-color-11-complementary)')"><input type="radio" id="blabla11" name="color" <?= ($user['colorHighlight'] == 11) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-11);"></div>
-                                        </label></div>
+                                        </label>
+                                    </div>
                                     <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                                 </form>
                             </div>
@@ -222,13 +224,13 @@ if ($user = $result->fetch_assoc()) {
                             <div class="side-category-content">
                                 <form class="side-form" id="form-toolbar-edit" method="PUT" data-submit-label="USERCHANGE">
                                     <label class="side-form-switch-wrapper">
-                                        <span class="side-form-switch-label">Enable Toolbar</span><input type="checkbox" onchange="switchSessionVal('toolbarVisible',this.checked)" class="side-form-switch"<?= ($user['toolbarVisible']==1) ? " checked" : "" ?>>
+                                        <span class="side-form-switch-label">Enable Toolbar</span><input type="checkbox" onchange="switchSessionVal('toolbarVisible',this.checked)" class="side-form-switch" <?= ($user['toolbarVisible'] == 1) ? " checked" : "" ?>>
                                     </label>
                                     <label class="side-form-switch-wrapper">
-                                        <span class="side-form-switch-label">Auto Hide Toolbar</span><input type="checkbox" onchange="switchSessionVal('toolbarAutoHeight',this.checked)" class="side-form-switch"<?= ($user['toolbarAutoHeight']==1) ? " checked" : "" ?>>
+                                        <span class="side-form-switch-label">Auto Hide Toolbar</span><input type="checkbox" onchange="switchSessionVal('toolbarAutoHeight',this.checked)" class="side-form-switch" <?= ($user['toolbarAutoHeight'] == 1) ? " checked" : "" ?>>
                                     </label>
                                     <label class="side-form-switch-wrapper">
-                                        <span class="side-form-switch-label">Advanced Customization</span><input onchange="toggleToolbarEditMode()" type="checkbox" class="side-form-switch"<?= ($user['toolbarCustom']==1) ? " checked" : "" ?>>
+                                        <span class="side-form-switch-label">Advanced Customization</span><input onchange="toggleToolbarEditMode()" type="checkbox" class="side-form-switch" <?= ($user['toolbarCustom'] == 1) ? " checked" : "" ?>>
                                     </label>
                                     <div class="side-form-title-div">
                                         <span class="side-form-title">Edit Toolbar</span>
@@ -243,7 +245,7 @@ if ($user = $result->fetch_assoc()) {
                             <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                             <div class="side-category-content">
                                 <form class="side-form" id="form-notifications" method="PUT" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
-                                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="sideNotifications(this.checked)"<?= ($user['notifications']==1) ? " checked" : "" ?>>
+                                        <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="sideNotifications(this.checked)" <?= ($user['notifications'] == 1) ? " checked" : "" ?>>
                                     </label>
                                     <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                                 </form>
@@ -425,7 +427,7 @@ if ($user = $result->fetch_assoc()) {
                     <div class="menu-spacer"></div>
                     <button type="submit" class="menu-button menu-button-submit" id="menu-submit-button">SUBMIT</button>
                 </div>
-            </div>          
+            </div>
             <div class="toolbar-wrapper">
                 <div class="toolbar fluent-bg" id="toolbar-div">
                 </div>

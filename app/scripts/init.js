@@ -488,7 +488,6 @@ function initialize() {
   initCustomNotifications();
   loadingLoaded();
 
-  console.log("buuu");
   onloadFromPHP();
 }
 
