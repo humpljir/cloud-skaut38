@@ -131,68 +131,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="data/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="data/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="data/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-
+    <?php
+    include_once "modules/palettes.php";
+    ?>
     <script>
-
-var session = {
-                user: {
-                    name: "Signed out",
-                    nick: "undefined",
-                    img: "undefined",
-                },
-                settings: {
-                    darkTheme: false,
-                    activePalette: 1,
-                    colorHighlight: 2,
-                    topbarAutoHeight: true,
-                    toolbarAutoHeight: true,
-                    toolbarVisible: true,
-                    toolbarCustom: true,
-                    toolbarReorder: [0, 1, 2, 3],
-                    toolbarDisplayIcon: [true, true, true, true],
-                    toolbarColors: ["var(--theme-color-1)", "var(--theme-color-3)", "var(--theme-color-4)", "var(--theme-color-5)"],
-                    toolbarColorsComplementary: ["var(--theme-color-1-complementary)", "var(--theme-color-3-complementary)", "var(--theme-color-4-complementary)", "var(--theme-color-5-complementary)"],
-                    notifications: false,
-                    customNotificationsTimeout: 3000,
-                },
-            };
-
-            var palettes = [<?php
-                            $palette_sql = "SELECT * FROM palette";
-                            $palette_result = $mysqli->query($palette_sql);
-                            while ($palette = $palette_result->fetch_assoc()) {
-                            ?> {
-                        colors: [
-                            "#<?= $palette['color0'] ?>",
-                            "#<?= $palette['color1'] ?>",
-                            "#<?= $palette['color2'] ?>",
-                            "#<?= $palette['color3'] ?>",
-                            "#<?= $palette['color4'] ?>",
-                            "#<?= $palette['color5'] ?>",
-                            "#<?= $palette['color6'] ?>",
-                            "#<?= $palette['color7'] ?>",
-                            "#<?= $palette['color8'] ?>",
-                            "#<?= $palette['color9'] ?>",
-                            "#<?= $palette['color10'] ?>",
-                            "#<?= $palette['color11'] ?>",
-                        ],
-                        colorComplementary: [
-                            "#<?= $palette['colorComplementary0'] ?>",
-                            "#<?= $palette['colorComplementary1'] ?>",
-                            "#<?= $palette['colorComplementary2'] ?>",
-                            "#<?= $palette['colorComplementary3'] ?>",
-                            "#<?= $palette['colorComplementary4'] ?>",
-                            "#<?= $palette['colorComplementary5'] ?>",
-                            "#<?= $palette['colorComplementary6'] ?>",
-                            "#<?= $palette['colorComplementary7'] ?>",
-                            "#<?= $palette['colorComplementary8'] ?>",
-                            "#<?= $palette['colorComplementary9'] ?>",
-                            "#<?= $palette['colorComplementary10'] ?>",
-                            "#<?= $palette['colorComplementary11'] ?>",
-                        ],
-                    },
-                <?php } ?>];
-
+        var session = {
+            user: {
+                name: "Signed out",
+                nick: "undefined",
+                img: "undefined",
+            },
+            settings: {
+                darkTheme: false,
+                activePalette: 1,
+                colorHighlight: 2,
+                topbarAutoHeight: true,
+                toolbarAutoHeight: true,
+                toolbarVisible: true,
+                toolbarCustom: true,
+                toolbarReorder: [0, 1, 2, 3],
+                toolbarDisplayIcon: [true, true, true, true],
+                toolbarColors: ["var(--theme-color-1)", "var(--theme-color-3)", "var(--theme-color-4)", "var(--theme-color-5)"],
+                toolbarColorsComplementary: ["var(--theme-color-1-complementary)", "var(--theme-color-3-complementary)", "var(--theme-color-4-complementary)", "var(--theme-color-5-complementary)"],
+                notifications: false,
+                customNotificationsTimeout: 3000,
+            },
+        };
         function onloadFromPHP() {
             <?php
 
