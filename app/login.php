@@ -133,120 +133,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="data/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 
     <script>
-        var session = {
-            user: {
-                name: "fullname",
-                nick: "username",
-                img: "img/img",
-            },
-            settings: {
-                darkTheme: false,
-                activePalette: 1,
-                colorHighlight: 2,
-                topbarAutoHeight: true,
-                toolbarAutoHeight: false,
-                toolbarVisible: true,
-                toolbarCustom: true,
-                toolbarReorder: [0, 1, 2, 3],
-                toolbarDisplayIcon: [true, true, true, true],
-                toolbarColors: "gdgsgd",
-                toolbarColorsComplementary: "asfaf",
-                notifications: true,
-                customNotificationsTimeout: 3000,
-            },
-        };
 
-        palettes = [{
-                colors: [
-                    "#78412C",
-                    "#AB5530",
-                    "#D46025",
-                    "#F17F29",
-                    "#8C9496",
-                    "#A4778B",
-                    "#6D4E62",
-                    "#40433F",
-                    "#537E49",
-                    "#8A9860",
-                    "#7B7B42",
-                    "#1E1800",
-                ],
-                colorComplementary: [
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#ffffff",
-                    "#7B7B42",
-                    "#1E1800",
-                ],
-            },
-            {
-                colors: [
-                    "#8B2C33",
-                    "#E63946",
-                    "#1D3557",
-                    "#457B9D",
-                    "#A8DADC",
-                    "#F1FAEE",
-                    "#A1E887",
-                    "#41D3BD",
-                    "#80B192",
-                    "#FFE066",
-                    "#FBCAEF",
-                    "#FF9AE6",
-                ],
-                colorComplementary: [
-                    "#F1FAEE",
-                    "#F1FAEE",
-                    "#A8DADC",
-                    "#A8DADC",
-                    "#1D3557",
-                    "#8B2C33",
-                    "#000000",
-                    "#000000",
-                    "#000000",
-                    "#000000",
-                    "#000000",
-                    "#000000",
-                ],
-            },
-            {
-                colors: [
-                    "#78412C",
-                    "#AB5530",
-                    "#D46025",
-                    "#F17F29",
-                    "#8C9496",
-                    "#A4778B",
-                    "#6D4E62",
-                    "#40433F",
-                    "#537E49",
-                    "#8A9860",
-                    "#7B7B42",
-                    "#1E1800",
-                ],
-                colorComplementary: [
-                    "#78412C",
-                    "#AB5530",
-                    "#D46025",
-                    "#F17F29",
-                    "#8C9496",
-                    "#A4778B",
-                    "#6D4E62",
-                    "#40433F",
-                    "#537E49",
-                    "#8A9860",
-                    "#7B7B42",
-                    "#1E1800",
-                ],
-            },
-        ];
+var session = {
+                user: {
+                    name: "Signed out",
+                    nick: "undefined",
+                    img: "undefined",
+                },
+                settings: {
+                    darkTheme: false,
+                    activePalette: 1,
+                    colorHighlight: 2,
+                    topbarAutoHeight: true,
+                    toolbarAutoHeight: true,
+                    toolbarVisible: true,
+                    toolbarCustom: true,
+                    toolbarReorder: [0, 1, 2, 3],
+                    toolbarDisplayIcon: [true, true, true, true],
+                    toolbarColors: ["var(--theme-color-1)", "var(--theme-color-3)", "var(--theme-color-4)", "var(--theme-color-5)"],
+                    toolbarColorsComplementary: ["var(--theme-color-1-complementary)", "var(--theme-color-3-complementary)", "var(--theme-color-4-complementary)", "var(--theme-color-5-complementary)"],
+                    notifications: false,
+                    customNotificationsTimeout: 3000,
+                },
+            };
+
+            var palettes = [<?php
+                            $palette_sql = "SELECT * FROM palette";
+                            $palette_result = $mysqli->query($palette_sql);
+                            while ($palette = $palette_result->fetch_assoc()) {
+                            ?> {
+                        colors: [
+                            "#<?= $palette['color0'] ?>",
+                            "#<?= $palette['color1'] ?>",
+                            "#<?= $palette['color2'] ?>",
+                            "#<?= $palette['color3'] ?>",
+                            "#<?= $palette['color4'] ?>",
+                            "#<?= $palette['color5'] ?>",
+                            "#<?= $palette['color6'] ?>",
+                            "#<?= $palette['color7'] ?>",
+                            "#<?= $palette['color8'] ?>",
+                            "#<?= $palette['color9'] ?>",
+                            "#<?= $palette['color10'] ?>",
+                            "#<?= $palette['color11'] ?>",
+                        ],
+                        colorComplementary: [
+                            "#<?= $palette['colorComplementary0'] ?>",
+                            "#<?= $palette['colorComplementary1'] ?>",
+                            "#<?= $palette['colorComplementary2'] ?>",
+                            "#<?= $palette['colorComplementary3'] ?>",
+                            "#<?= $palette['colorComplementary4'] ?>",
+                            "#<?= $palette['colorComplementary5'] ?>",
+                            "#<?= $palette['colorComplementary6'] ?>",
+                            "#<?= $palette['colorComplementary7'] ?>",
+                            "#<?= $palette['colorComplementary8'] ?>",
+                            "#<?= $palette['colorComplementary9'] ?>",
+                            "#<?= $palette['colorComplementary10'] ?>",
+                            "#<?= $palette['colorComplementary11'] ?>",
+                        ],
+                    },
+                <?php } ?>];
 
         function onloadFromPHP() {
             <?php
