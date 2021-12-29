@@ -22,7 +22,12 @@ const linkToStorage = "data/storage/";
 const linkToStorageThumbnails = "data/storage/thumbnails/";
 
 let loadingTimeout = setTimeout(() => {
+  try {
   errorHandler(0,true);
+  }
+  catch {
+    loadingLoaded();
+  }
 }, 15000);
 
 function loadingLoaded() {
@@ -354,11 +359,11 @@ function loadThemeColors() {
   for (let index = 0; index < colorsInPalette; index++) {
     document.documentElement.style.setProperty(
       "--theme-color-" + index,
-      static.palettes[session.settings.activePalette].colors[index]
+      palettes[session.settings.activePalette].colors[index]
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      static.palettes[session.settings.activePalette].colorComplementary[
+      palettes[session.settings.activePalette].colorComplementary[
         index
       ]
     );

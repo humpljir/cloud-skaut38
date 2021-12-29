@@ -78,10 +78,46 @@ if ($user = $result->fetch_assoc()) {
                     customNotificationsTimeout: <?= $user['customNotificationsTimeout'] ?>,
                 },
             };
+            var palettes = [<?php
+                            $palette_sql = "SELECT * FROM palette";
+                            $palette_result = $mysqli->query($palette_sql);
+                            while ($palette = $palette_result->fetch_assoc()) {
+                            ?> {
+                        colors: [
+                            "#<?= $palette['color0'] ?>",
+                            "#<?= $palette['color1'] ?>",
+                            "#<?= $palette['color2'] ?>",
+                            "#<?= $palette['color3'] ?>",
+                            "#<?= $palette['color4'] ?>",
+                            "#<?= $palette['color5'] ?>",
+                            "#<?= $palette['color6'] ?>",
+                            "#<?= $palette['color7'] ?>",
+                            "#<?= $palette['color8'] ?>",
+                            "#<?= $palette['color9'] ?>",
+                            "#<?= $palette['color10'] ?>",
+                            "#<?= $palette['color11'] ?>",
+                        ],
+                        colorComplementary: [
+                            "#<?= $palette['colorComplementary0'] ?>",
+                            "#<?= $palette['colorComplementary1'] ?>",
+                            "#<?= $palette['colorComplementary2'] ?>",
+                            "#<?= $palette['colorComplementary3'] ?>",
+                            "#<?= $palette['colorComplementary4'] ?>",
+                            "#<?= $palette['colorComplementary5'] ?>",
+                            "#<?= $palette['colorComplementary6'] ?>",
+                            "#<?= $palette['colorComplementary7'] ?>",
+                            "#<?= $palette['colorComplementary8'] ?>",
+                            "#<?= $palette['colorComplementary9'] ?>",
+                            "#<?= $palette['colorComplementary10'] ?>",
+                            "#<?= $palette['colorComplementary11'] ?>",
+                        ],
+                    },
+                <?php } ?>];
 
             function onloadFromPHP() {
                 console.log("onloadFromPHP funtion is running");
                 <?= ($user['darktheme'] == 1) ? "toggleDarkTheme();" : "" ?>
+                <?= ($user['toolbarCustom'] == 1) ? "toggleToolbarEditMode();" : "" ?>
             }
         </script>
     </head>
@@ -100,9 +136,9 @@ if ($user = $result->fetch_assoc()) {
                     <div class="side-title">SETTINGS</div>
                     <div class="side-box">
                         <div class="side-user">
-                            <div class="side-user-picture" style="background-image: url('img/profile_pic.jpg');"></div>
-                            <div class="side-user-name">Jiří Humpl</div>
-                            <div class="side-user-nick">@humpljir</div>
+                            <div class="side-user-picture" style="background-image: url('img/<?= $user['img'] ?>');"></div>
+                            <div class="side-user-name"><?= $user['fullname'] ?></div>
+                            <div class="side-user-nick">@<?= $user['username'] ?></div>
                         </div>
                     </div>
                     <div class="side-box">
@@ -110,8 +146,8 @@ if ($user = $result->fetch_assoc()) {
                             <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                             <div class="side-category-content">
                                 <form class="side-form" id="form-userchange" method="PUT" data-submit-label="USERCHANGE">
-                                    <input class="text-box" type="text" data-validate="label" id="fullname" name="fullname" value="Jiří Humpl" placeholder="Full Name">
-                                    <input class="text-box" type="text" data-validate="username" id="nick" name="nickname" value="humpljir" placeholder="Username">
+                                    <input class="text-box" type="text" data-validate="label" id="fullname" name="fullname" value="<?= $user['fullname'] ?>" placeholder="Full Name">
+                                    <input class="text-box" type="text" data-validate="username" id="nick" name="nickname" value="<?= $user['username'] ?>" placeholder="Username">
                                     <label class="side-form-img-upload">
                                         <div class="img-upload-icon"></div>Profile Picture
                                         <input type="file" id="pic_upload" name="upload">
