@@ -1,5 +1,6 @@
 <?php
-include_once "modules/config.php";
+include_once("modules/config.php");
+include_once("modules/files.php");
 
 // Initialize the session
 session_start();
@@ -8,6 +9,14 @@ session_start();
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php?why=notlogin");
     exit;
+}
+
+if (isset($_GET['file_delete'])) {
+    file_delete($_GET['file_delete']);
+}
+
+if (isset($_GET['file_upload'])) {
+    file_upload($_GET['file_upload']);
 }
 
 $sql = " SELECT * FROM users WHERE username='$_SESSION[username]'";
@@ -55,7 +64,8 @@ if ($user = $result->fetch_assoc()) {
         <link href="data/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
         <link href="data/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
         <?php
-        include_once "modules/palettes.php";
+        include_once("modules/palettes.php");
+        include_once("modules/storage.php");
         ?>
         <script>
             var session = {
@@ -320,7 +330,7 @@ if ($user = $result->fetch_assoc()) {
             <div class="menu-wrapper" id="menu-wrapper-div">
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                     <form class="" id="form-0" method="POST" data-submit-label="UPLOAD">
-                        <input type="text" id="file-name" name="file-name" data-validate="label" placeholder="file name">
+                        <input type="text" id="file_upload" name="file_upload" data-validate="label" placeholder="file name">
                         <label class="file-upload">
                             <div>select file</div>
                             <input type="file" id="file-upload" name="file-upload" required>

@@ -16,7 +16,7 @@ style.css
 .main-wrapper .window {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   transition: filter 0.4s ease;
   background-attachment: fixed;
   color: var(--main-fg-color);

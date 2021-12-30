@@ -56,3 +56,21 @@ VALUES ('0', '78412C', 'AB5530', 'D46025', 'F17F29', '8C9496', 'A4778B', '6D4E62
 
 INSERT INTO `palette` (`id`, `color0`, `color1`, `color2`, `color3`, `color4`, `color5`, `color6`, `color7`, `color8`, `color9`, `color10`, `color11`, `colorComplementary0`, `colorComplementary1`, `colorComplementary2`, `colorComplementary3`, `colorComplementary4`, `colorComplementary5`, `colorComplementary6`, `colorComplementary7`, `colorComplementary8`, `colorComplementary9`, `colorComplementary10`, `colorComplementary11`)
 VALUES ('0', '8B2C33', 'E63946', '1D3557', '457B9D', 'A8DADC', 'F1FAEE', 'A1E887', '41D3BD', '80B192', 'FFE066', 'FBCAEF', 'FF9AE6', 'F1FAEE', 'F1FAEE', 'A8DADC', 'A8DADC', '1D3557', '8B2C33', 'FFFFFF', 'FFFFFF', 'FFFFFF', 'FFFFFF', 'FFFFFF', 'FFFFFF');
+
+CREATE TABLE `files` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` tinytext NOT NULL,
+  `date` int NOT NULL,
+  `extension` tinytext NOT NULL,
+  `link` text NOT NULL,
+  `type` tinytext NOT NULL,
+  `size` int NOT NULL,
+  `dirid` int NOT NULL
+);
+
+CREATE TABLE `directories` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` tinytext NOT NULL,
+  `date` int NOT NULL,
+  `color` int NOT NULL
+);

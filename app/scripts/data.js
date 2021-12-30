@@ -10,7 +10,7 @@ data.js
 
   This file is JSON-like dataset, in the future will be probably merged into head of html -> so it can be generated easily by PHP.
 */
-
+/*
 var storage = [
   {
     id: 0,
@@ -1932,5 +1932,5 @@ var storage = [
     ],
   },
 ];
-
+*/
 console.log("✅ data.js successfully loaded!");
