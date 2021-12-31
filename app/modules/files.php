@@ -4,47 +4,46 @@ function file_delete($id) {
     $del_path = mysqli_query($mysqli, "SELECT url FROM files WHERE id='$id'");
     while ($path = mysqli_fetch_array($del_path)) {
         if (unlink("../files/uploads/" . $path['link'])) {
-            echo "<script type='text/javascript'>alert('Soubor byl odstraněn!');</script>";
+            add_global_error("Soubor byl odstraněn!");
             $sql = "DELETE FROM soubory WHERE id='$id'";
             if ($mysqli->query($sql) === TRUE) {
-                echo "<script type='text/javascript'>alert('Záznam v databázi byl odstraněn!');</script>";
+                add_global_error("Záznam v databázi byl odstraněn!");
             } else {
-                echo "<script type='text/javascript'>alert('Error v databázi: " . $mysqli->error;
-                "');</script>";
+                add_global_error("Error v databázi: " . $mysqli->error);
             }
         } else {
-            echo "<script type='text/javascript'>alert('Error mazání souboru. ID='" . $id . "url=" . $path['url'] . ");</script>";
+            add_global_error("Error mazání souboru. ID='" . $id . " url= " . $path['url']);
         }
     }
 }
 
 function file_upload($name) {
     echo "<script>console.log('uploading file')</script>";
-    $target_dir = "../files/uploads/";
-    $target_file = $target_dir . basename($_FILES["file-upload"]["name"]);
-    $uploadOk = 1;
+    $target_dir = "data/storage/";
+    $target_file = $target_dir.basename($_FILES["file_upload"]["name"]);
+    echo $target_file;
+    $uploadError = 0;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if file already exists
     if (file_exists($target_file)) {
-        echo "<script type='text/javascript'>alert('Tento soubor už jednou nahrán byl.');</script>";
-        $uploadOk = 0;
+        add_global_error("Tento soubor už jednou nahrán byl.");
+        $uploadError = 1;
     }
     // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "<script type='text/javascript'>alert('Soubor nebyl nahrán!');</script>";
+    if ($uploadError == 1) {
+        add_global_error("Soubor nebyl nahrán!");
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["file-upload"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
             $sql = "INSERT INTO files (name, date, extension, link, type, size, dirid)
         VALUES ('$name', '1640867409', 'unknown', '$target_file', 'unknown', '1000', '0')";
 
             if ($mysqli->query($sql) !== TRUE) {
-                echo "<script type='text/javascript'>alert('Error uplaoding file: " . $mysqli->error;
-                "');</script>";
+                add_global_error("Error uplaoding file: " . $mysqli->error);
             }
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            add_global_error("Sorry, there was an error uploading your file.");
         }
     }
 }

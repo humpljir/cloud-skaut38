@@ -1,4 +1,5 @@
 <?php
+include_once("modules/error.php");
 include_once("modules/config.php");
 include_once("modules/files.php");
 
@@ -15,8 +16,8 @@ if (isset($_GET['file_delete'])) {
     file_delete($_GET['file_delete']);
 }
 
-if (isset($_GET['file_upload'])) {
-    file_upload($_GET['file_upload']);
+if (isset($_POST['file_upload_name'])) {
+    file_upload($_POST['file_upload_name']);
 }
 
 $sql = " SELECT * FROM users WHERE username='$_SESSION[username]'";
@@ -95,6 +96,7 @@ if ($user = $result->fetch_assoc()) {
                 console.log("onloadFromPHP funtion is running");
                 <?= ($user['darktheme'] == 1) ? "toggleDarkTheme();" : "" ?>
                 <?= ($user['toolbarCustom'] == 1) ? "toggleToolbarEditMode();" : "" ?>
+                <?= $global_error ?>
             }
         </script>
     </head>
@@ -329,11 +331,11 @@ if ($user = $result->fetch_assoc()) {
             </div>
             <div class="menu-wrapper" id="menu-wrapper-div">
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
-                    <form class="" id="form-0" method="POST" data-submit-label="UPLOAD">
-                        <input type="text" id="file_upload" name="file_upload" data-validate="label" placeholder="file name">
+                    <form class="" id="form-0" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
+                        <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="file name">
                         <label class="file-upload">
                             <div>select file</div>
-                            <input type="file" id="file-upload" name="file-upload" required>
+                            <input type="file" id="file_upload" name="file_upload" required>
                         </label>
                     </form>
                     <form class="" id="form-1" method="POST" data-submit-label="UPLOAD">
