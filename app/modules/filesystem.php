@@ -83,7 +83,7 @@ function directory_new($name, $color)
     $now = new DateTime();
 
     $sql = "INSERT INTO directories (name, date, color)
-    VALUES ('$name', '$now->getTimestamp()', '$color')";
+    VALUES ('$name', now(), '$color')";
     if ($mysqli->query($sql) == TRUE) {
         add_global_error("Directory created!", "var(--notifications-regular-color)");
     } else {
