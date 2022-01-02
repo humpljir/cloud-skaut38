@@ -56,8 +56,8 @@ function file_new($name)
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
-            if (filesize($target_file == TRUE)) {
-                $fileSize = (filesize(($target_file)));
+            if (filesize($target_file) == TRUE) {
+                $fileSize = filesize($target_file);
             } else {
                 $fileSize = 0;
                 add_global_error("Error determining size of file " . $target_file, "var(--notifications-warning-color)");

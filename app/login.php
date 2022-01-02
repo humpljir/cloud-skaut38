@@ -12,7 +12,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 // Define variables and initialize with empty values
-$username = $password = "";
+$username = $password = $authorized = "";
 $username_err = $password_err = $global_err = "";
 
 // Processing form data when form is submitted
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($username_err) && empty($password_err)) {
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password, authorized FROM users WHERE username = ?";
 
         if ($stmt = $mysqli->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
@@ -51,26 +51,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if username exists, if yes then verify password
                 if ($stmt->num_rows == 1) {
                     // Bind result variables
-                    $stmt->bind_result($id, $username, $hashed_password);
+                    $stmt->bind_result($id, $username, $hashed_password, $authorized);
                     if ($stmt->fetch()) {
-                        if (password_verify($password, $hashed_password)) {
 
-                            // Destroy the session.
-                            session_destroy();
-                            // Password is correct, so start a new session
-                            session_start();
+                        if ($authorized == 1) {
+                            if (password_verify($password, $hashed_password)) {
 
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
+                                // Destroy the session.
+                                session_destroy();
+                                // Password is correct, so start a new session
+                                session_start();
 
-                            // Redirect user to welcome page
-                            header("location: index.php?");
+                                // Store data in session variables
+                                $_SESSION["loggedin"] = true;
+                                $_SESSION["id"] = $id;
+                                $_SESSION["username"] = $username;
+
+                                // Redirect user to welcome page
+                                header("location: index.php?");
+                            } else {
+                                // Display an error message if password is not valid
+                                // echo "The password you entered was not valid.";
+                                $global_err .= 'pushCustomNotifications("The password you entered was not valid.", "var(--notifications-error-color)");';
+                            }
                         } else {
-                            // Display an error message if password is not valid
-                            // echo "The password you entered was not valid.";
-                            $global_err .= 'pushCustomNotifications("The password you entered was not valid.", "var(--notifications-error-color)");';
+                            $global_err .= 'pushCustomNotifications("Your account needs to be manually verified to start using this cloud. Please, contact your scoutmaster.", "var(--notifications-error-color)");';
                         }
                     }
                 } else {
@@ -87,9 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
         }
     }
-
-    // Close connection
-    $mysqli->close();
 }
 ?>
 <!DOCTYPE html>
@@ -157,6 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 customNotificationsTimeout: 3000,
             },
         };
+
         function onloadFromPHP() {
             <?php
 
