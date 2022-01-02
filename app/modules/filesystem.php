@@ -1,6 +1,8 @@
 <?php
 
 use \Datetime;
+$now = new DateTime();
+echo $now->getTimestamp();
 
 function file_delete($id)
 {
