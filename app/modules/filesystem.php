@@ -1,5 +1,6 @@
 <?php
 function file_delete($id) {
+    global $mysqli;
     echo "<script>console.log('deleting file')</script>";
     $del_path = mysqli_query($mysqli, "SELECT url FROM files WHERE id='$id'");
     while ($path = mysqli_fetch_array($del_path)) {
@@ -17,7 +18,8 @@ function file_delete($id) {
     }
 }
 
-function file_upload($name) {
+function file_new($name) {
+    global $mysqli;
     echo "<script>console.log('uploading file')</script>";
     $target_dir = "data/storage/";
     $target_file = $target_dir.basename($_FILES["file_upload"]["name"]);
@@ -47,4 +49,14 @@ function file_upload($name) {
     }
 }
 
-?>
+function directory_new($name,$color) {
+    global $mysqli;
+    $sql = "INSERT INTO directories (name, date, color)
+    VALUES ('$name', '1640867409', '$color')";
+                if ($mysqli->query($sql) == TRUE) {
+                    add_global_error("Directory created!","var(--notifications-regular-color)");
+                }
+                else {
+                    add_global_error("Error creating directory: " . $mysqli->error,"var(--notifications-warning-color)");
+                }
+}
