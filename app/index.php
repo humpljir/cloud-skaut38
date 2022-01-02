@@ -341,6 +341,23 @@ if ($user = $result->fetch_assoc()) {
                             <div>select file</div>
                             <input type="file" id="file_upload" name="file_upload" required>
                         </label>
+                        <div class="custom-select" style="width:200px;">
+  <select>
+    <option value="0">Select car:</option>
+    <option value="1">Audi</option>
+    <option value="2">BMW</option>
+    <option value="3">Citroen</option>
+    <option value="4">Ford</option>
+    <option value="5">Honda</option>
+    <option value="6">Jaguar</option>
+    <option value="7">Land Rover</option>
+    <option value="8">Mercedes</option>
+    <option value="9">Mini</option>
+    <option value="10">Nissan</option>
+    <option value="11">Toyota</option>
+    <option value="12">Volvo</option>
+  </select>
+</div>
                     </form>
                     <form class="" id="form-1" data-submit-label="UPLOAD" method="post">
                         <input type="text" id="picture-name" name="picture-name" data-validate="label" placeholder="picture name">
