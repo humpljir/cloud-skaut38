@@ -121,6 +121,5 @@ function createThumbnail($src, $dest, $targetHeight, $targetWidth = null) {
         $dest,
         IMAGE_HANDLERS[$type]['quality']
     );
-    echo "resized";
 }
 ?>

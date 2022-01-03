@@ -37,26 +37,6 @@ function file_new($name, $target)
     $fileExtension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $tmpname = generate_name($target_dir, $fileExtension);
 
-    if (
-        $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
-        || $fileExtension == "gif"
-    ) {
-        createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120);
-        $fileType = "image";
-        /*
-        if(createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120)){
-            $fileType = "image";
-        }
-        else {
-            $fileType = "unknown";
-            add_global_error("Error creating thumbnail, preview of this picture is disabled", "var(--notifications-error-color)");
-        }*/
-    } else if ($fileExtension == "pdf" || $fileExtension == "docx" || $fileExtension == "odt") {
-        $fileType = "document";
-    } else {
-        $fileType = "unknown";
-    }
-
     // Check if $uploadOk is set to 0 by an error
     if ($uploadError == 1) {
         add_global_error("Error uploading file!", "var(--notifications-error-color)");
@@ -68,6 +48,26 @@ function file_new($name, $target)
             } else {
                 $fileSize = 0;
                 add_global_error("Error determining size of file " . $target_dir . $tmpname, "var(--notifications-warning-color)");
+            }
+
+            if (
+                $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
+                || $fileExtension == "gif"
+            ) {
+                createThumbnail($target_dir . $tmpname, $target_dir . "thumbnails/" . $tmpname, 120);
+                $fileType = "image";
+                /*
+                if(createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120)){
+                    $fileType = "image";
+                }
+                else {
+                    $fileType = "unknown";
+                    add_global_error("Error creating thumbnail, preview of this picture is disabled", "var(--notifications-error-color)");
+                }*/
+            } else if ($fileExtension == "pdf" || $fileExtension == "docx" || $fileExtension == "odt") {
+                $fileType = "document";
+            } else {
+                $fileType = "unknown";
             }
 
             $sql = "INSERT INTO files (name, date, extension, link, legacylink, type, size, dirid, author)
