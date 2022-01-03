@@ -1,11 +1,5 @@
 <?php
-function generate_name($place,$extension) {
-    while (true) {
-        $filename = uniqid('cloud_skaut38_', true) . $extension;
-        if (!file_exists($place . $filename)) break;
-       }
-       return $filename;
-}
+include_once("name_generator.php");
 
 function file_delete($id)
 {
@@ -35,16 +29,10 @@ function file_new($name,$target)
     echo "<script>console.log('uploading file')</script>";
     $target_dir = "data/storage/";
     $uploadError = 0;
-    $fileExtension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $filename = basename($_FILES["file_upload"]["name"]);
-    $tmpname = generate_name($target_dir,$fileExtension);
     $target_file = $target_dir . $filename;
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        add_global_error("Tento soubor už jednou nahrán byl.", "var(--notifications-warning-color)");
-        $uploadError = 1;
-    }
+    $fileExtension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $tmpname = generate_name($target_dir,$fileExtension);
 
     if (
         $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
