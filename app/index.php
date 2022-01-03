@@ -13,19 +13,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 
 if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])) {
-    if($_GET['typy']=='file'){
-    if($_GET['fileaction']=='Delete'){
-    file_delete($_GET['fileid']);
-    } elseif($_GET['fileaction']=='Move') {
-
-    }elseif($_GET['fileaction']=='Duplicate') {
-        
+    if ($_GET['typy'] == 'file') {
+        if ($_GET['fileaction'] == 'Delete') {
+            file_delete($_GET['fileid']);
+        } elseif ($_GET['fileaction'] == 'Move') {
+        } elseif ($_GET['fileaction'] == 'Duplicate') {
+        }
     }
-}
 }
 
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
-    file_new($_POST['file_upload_name'],$_POST['file_upload_select']);
+    file_new($_POST['file_upload_name'], $_POST['file_upload_select']);
 }
 
 if (isset($_POST['dir-name'])) {
@@ -344,6 +342,7 @@ if ($user = $result->fetch_assoc()) {
             <div class="menu-wrapper" id="menu-wrapper-div">
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                     <form class="" id="form-0" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
+                    <div class="formbox-title">Upload file</div>
                         <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="File name">
                         <select id="file_upload_select" name="file_upload_select" required>
                             <option disabled selected value>Target directory:</option>
@@ -359,6 +358,7 @@ if ($user = $result->fetch_assoc()) {
                         </label>
                     </form>
                     <form class="" id="form-1" data-submit-label="UPLOAD" method="post">
+                    <div class="formbox-title">Upload picture</div>
                         <input type="text" id="picture_upload_name" name="picture_upload_name" data-validate="label" placeholder="Picture name">
                         <select id="picture_upload_select" name="picture_upload_select" required>
                             <option disabled selected value>Target directory:</option>
@@ -374,6 +374,7 @@ if ($user = $result->fetch_assoc()) {
                         </label>
                     </form>
                     <form class="" id="form-2" data-submit-label="CREATE" method="post">
+                    <div class="formbox-title">New directory</div>
                         <input type="text" id="dir-name" name="dir-name" data-validate="label" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label class="resize-hover">
