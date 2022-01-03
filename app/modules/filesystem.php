@@ -1,13 +1,7 @@
 <?php
-
-use \Datetime;
-$now = new DateTime();
-echo $now->getTimestamp();
-
 function file_delete($id)
 {
     global $mysqli;
-    echo "<script>console.log('deleting file')</script>";
     $del_path = mysqli_query($mysqli, "SELECT url FROM files WHERE id='$id'");
     while ($path = mysqli_fetch_array($del_path)) {
         if (unlink("../files/uploads/" . $path['link'])) {
@@ -83,7 +77,7 @@ function directory_new($name, $color)
     $now = new DateTime();
 
     $sql = "INSERT INTO directories (name, date, color)
-    VALUES ('$name', now(), '$color')";
+    VALUES ('$name',UTC_TIMESTAMP(), '$color')";
     if ($mysqli->query($sql) == TRUE) {
         add_global_error("Directory created!", "var(--notifications-regular-color)");
     } else {

@@ -6,7 +6,7 @@
                     ?> {
                 id: <?= $dir['id'] ?>,
                 name: "<?= $dir['name'] ?>",
-                date: <?= $dir['date'] ?>,
+                date: <?= strtotime($dir['date']) ?>,
                 color: "var(--theme-color-<?= $dir['color'] ?>)",
                 colorComplementary: "var(--theme-color-<?= $dir['color'] ?>-complementary)",
                 content: [<?php

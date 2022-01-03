@@ -1206,6 +1206,17 @@ input[data-valid-input="false"] {
   color: var(--main-fg-color);
   font-size: var(--menu-input-font-size);
 }
+.main-wrapper .menu-wrapper .menu-formbox select {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+.main-wrapper .menu-wrapper .menu-formbox select:focus {
+  outline: none;
+    background-color: #0000000f;
+}
 .main-wrapper .menu-wrapper .menu-formbox label.form-text {
   position: relative;
   padding: 30px 20px 10px 20px;

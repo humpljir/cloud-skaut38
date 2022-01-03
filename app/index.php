@@ -21,7 +21,7 @@ if (isset($_POST['file_upload_name'])) {
 }
 
 if (isset($_POST['dir-name'])) {
-    directory_new($_POST['dir-name'],$_POST['dir-color']);
+    directory_new($_POST['dir-name'], $_POST['dir-color']);
 }
 
 $sql = " SELECT * FROM users WHERE username='$_SESSION[username]'";
@@ -337,27 +337,17 @@ if ($user = $result->fetch_assoc()) {
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                     <form class="" id="form-0" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
                         <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="file name">
+                        <select id="file_upload_select">
+                            <?php
+                            $dir_sql = "SELECT * FROM directories";
+                            $dir_result = $mysqli->query($dir_sql);
+                            while ($dir = $dir_result->fetch_assoc()) {
+                            ?><option value="<?= $dir['id'] ?>"><?= $dir['name'] ?></option><?php } ?>
+                        </select>
                         <label class="file-upload">
                             <div>select file</div>
                             <input type="file" id="file_upload" name="file_upload" required>
                         </label>
-                        <div class="custom-select" style="width:200px;">
-  <select>
-    <option value="0">Select car:</option>
-    <option value="1">Audi</option>
-    <option value="2">BMW</option>
-    <option value="3">Citroen</option>
-    <option value="4">Ford</option>
-    <option value="5">Honda</option>
-    <option value="6">Jaguar</option>
-    <option value="7">Land Rover</option>
-    <option value="8">Mercedes</option>
-    <option value="9">Mini</option>
-    <option value="10">Nissan</option>
-    <option value="11">Toyota</option>
-    <option value="12">Volvo</option>
-  </select>
-</div>
                     </form>
                     <form class="" id="form-1" data-submit-label="UPLOAD" method="post">
                         <input type="text" id="picture-name" name="picture-name" data-validate="label" placeholder="picture name">
