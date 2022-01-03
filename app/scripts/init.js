@@ -190,9 +190,8 @@ function drawFiles(dirID) {
     // filebox.setAttribute("onclick","window.location.href='"+linkToStorage+element.link+"'");
 
     if (element.type == "image") {
-      let fileiconpreview = document.createElement("img");
-      fileiconpreview.src = linkToStorageThumbnails + element.link;
-      fileicon.append(fileiconpreview);
+      fileicon.style.background =
+        "url(" + linkToStorageThumbnails + element.link + ")";
       fileicon.classList.add("icon-thumbnail");
       filebox.setAttribute("data-image", linkToStorage + element.link);
       filebox.setAttribute("data-name", element.name);
