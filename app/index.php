@@ -340,9 +340,9 @@ if ($user = $result->fetch_assoc()) {
                 <div class="submenu-wrapper fluent-bg" id="sort-submenu-div"><a onclick="sort(0)">Name Ascending</a><a onclick="sort(1)">Name Descending</a><a onclick="sort(2)">Date Ascending</a><a onclick="sort(3)">Date Descending</a><a onclick="sort(4)">Size Ascending</a><a onclick="sort(5)">Size Descending</a></div>
             </div>
             <div class="menu-wrapper" id="menu-wrapper-div">
+                <div class="formbox-title" id="formbox-title-div"></div>
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
-                    <form class="" id="form-0" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
-                    <div class="formbox-title">Upload file</div>
+                    <form class="" id="form-0" data-form-title="Upload file" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
                         <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="File name">
                         <select id="file_upload_select" name="file_upload_select" required>
                             <option disabled selected value>Target directory:</option>
@@ -357,8 +357,7 @@ if ($user = $result->fetch_assoc()) {
                             <input type="file" id="file_upload" name="file_upload" required>
                         </label>
                     </form>
-                    <form class="" id="form-1" data-submit-label="UPLOAD" method="post">
-                    <div class="formbox-title">Upload picture</div>
+                    <form class="" id="form-1" data-form-title="Upload picture" data-submit-label="UPLOAD" method="post">
                         <input type="text" id="picture_upload_name" name="picture_upload_name" data-validate="label" placeholder="Picture name">
                         <select id="picture_upload_select" name="picture_upload_select" required>
                             <option disabled selected value>Target directory:</option>
@@ -373,8 +372,7 @@ if ($user = $result->fetch_assoc()) {
                             <input type="file" id="picture_upload" name="picture_upload" required>
                         </label>
                     </form>
-                    <form class="" id="form-2" data-submit-label="CREATE" method="post">
-                    <div class="formbox-title">New directory</div>
+                    <form class="" id="form-2" data-form-title="New directory" data-submit-label="CREATE" method="post">
                         <input type="text" id="dir-name" name="dir-name" data-validate="label" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label class="resize-hover">

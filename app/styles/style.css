@@ -1269,7 +1269,7 @@ input[data-valid-input="false"] {
   display: block;
   font-size: var(--menu-a-font-size);
 }
-.main-wrapper .menu-wrapper .menu-formbox .formbox-title {
+.main-wrapper .menu-wrapper .formbox-title {
   position: absolute;
   left: 15px;
   top: -20px;
