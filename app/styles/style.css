@@ -1208,6 +1208,7 @@ input[data-valid-input="false"] {
 }
 .main-wrapper .menu-wrapper .menu-formbox select {
   position: relative;
+  color: var(--main-fg-color);
   padding: 30px 20px 10px 20px;
   width: 100%;
   border: none;
