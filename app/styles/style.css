@@ -45,8 +45,8 @@ style.css
   pointer-events: all;
 }
 .dark-theme .main-wrapper.menu-open .window::after {
-  -webkit-backdrop-filter: contrast(0.3) brightness(0.3) saturate(2) blur(24px);
-  backdrop-filter: contrast(0.3) brightness(0.3) saturate(2) blur(24px);
+  -webkit-backdrop-filter: contrast(0.6) brightness(0.3) saturate(2) blur(24px);
+  backdrop-filter: contrast(0.6) brightness(0.3) saturate(2) blur(24px);
   pointer-events: all;
 }
 .main-wrapper .window .top-bar {

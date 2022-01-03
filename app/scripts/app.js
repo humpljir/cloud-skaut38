@@ -29,6 +29,7 @@ function initApp() {
 
 let defferedPrompt;
 const addbtn = document.createElement("button");
+addbtn.style.display = "none";
 document.body.append(addbtn);
 
 window.addEventListener('beforeinstallprompt', event => {

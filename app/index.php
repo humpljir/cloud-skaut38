@@ -110,7 +110,7 @@ if ($user = $result->fetch_assoc()) {
         </script>
     </head>
 
-    <body onload="initialize()">
+    <body onload="initialize()"<?= ($user['darktheme'] == 1) ? "class='dark-theme'" : "" ?>>;
         <div class="main-wrapper top-bar-open display-as-tiles loading" id="main-wrapper-div">
             <div class="window" id="window-div" onclick="closeMenu()">
                 <div class="window-scroll" id="window-scroll-div">
