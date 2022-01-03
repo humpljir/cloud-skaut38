@@ -1,4 +1,12 @@
 <?php
+function generate_name($place,$extension) {
+    while (true) {
+        $filename = uniqid('cloud_skaut38_', true) . $extension;
+        if (!file_exists($place . $filename)) break;
+       }
+       return $filename;
+}
+
 function file_delete($id)
 {
     global $mysqli;
@@ -21,13 +29,16 @@ function file_delete($id)
 function file_new($name,$target)
 {
     global $mysqli;
+    global $user;
     $now = new DateTime();
 
     echo "<script>console.log('uploading file')</script>";
     $target_dir = "data/storage/";
-    $target_file = $target_dir . basename($_FILES["file_upload"]["name"]);
     $uploadError = 0;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $fileExtension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $filename = basename($_FILES["file_upload"]["name"]);
+    $tmpname = generate_name($target_dir,$fileExtension);
+    $target_file = $target_dir . $filename;
 
     // Check if file already exists
     if (file_exists($target_file)) {
@@ -36,11 +47,11 @@ function file_new($name,$target)
     }
 
     if (
-        $imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg"
-        || $imageFileType == "gif"
+        $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
+        || $fileExtension == "gif"
     ) {
         $fileType = "image";
-    } else if ($imageFileType == "pdf" || $imageFileType == "docx" || $imageFileType == "odt") {
+    } else if ($fileExtension == "pdf" || $fileExtension == "docx" || $fileExtension == "odt") {
         $fileType = "document";
     } else {
         $fileType = "unknown";
@@ -51,7 +62,7 @@ function file_new($name,$target)
         add_global_error("Soubor nebyl nahrán!", "var(--notifications-error-color)");
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
+        if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_dir.$tmpname)) {
             if (filesize($target_file) == TRUE) {
                 $fileSize = filesize($target_file);
             } else {
@@ -59,8 +70,8 @@ function file_new($name,$target)
                 add_global_error("Error determining size of file " . $target_file, "var(--notifications-warning-color)");
             }
 
-            $sql = "INSERT INTO files (name, date, extension, link, type, size, dirid)
-        VALUES ('$name', '$now->getTimestamp()', '$imageFileType', '$target_file', '$fileType', '$fileSize', '$target')";
+            $sql = "INSERT INTO files (name, date, extension, link, legacylink, type, size, dirid, author)
+        VALUES ('$name', '$now->getTimestamp()', '$fileExtension', '$tmpname', 'basename($_FILES[file_upload][name])', '$fileType', '$fileSize', '$target', '$user[username]')";
 
             if ($mysqli->query($sql) !== TRUE) {
                 add_global_error("Error uplaoding file: " . $mysqli->error, "var(--notifications-warning-color)");
@@ -74,10 +85,11 @@ function file_new($name,$target)
 function directory_new($name, $color)
 {
     global $mysqli;
+    global $user;
     $now = new DateTime();
 
-    $sql = "INSERT INTO directories (name, date, color)
-    VALUES ('$name',UTC_TIMESTAMP(), '$color')";
+    $sql = "INSERT INTO directories (name, date, color, author)
+    VALUES ('$name',UTC_TIMESTAMP(), '$color', '$user[username]')";
     if ($mysqli->query($sql) == TRUE) {
         add_global_error("Directory created!", "var(--notifications-regular-color)");
     } else {

@@ -208,11 +208,11 @@ function changePalette(nr) {
   for (let index = 0; index < colorsInPalette; index++) {
     document.documentElement.style.setProperty(
       "--theme-color-" + index,
-      session.settings.palettes[nr].colors[index]
+      palettes[nr].colors[index]
     );
     document.documentElement.style.setProperty(
       "--theme-color-" + index + "-complementary",
-      session.settings.palettes[nr].colorComplementary[index]
+      palettes[nr].colorComplementary[index]
     );
   }
 }
