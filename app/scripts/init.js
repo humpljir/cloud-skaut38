@@ -292,6 +292,14 @@ function openDir(target) {
 
         blankCanvas.classList.remove("blank-canvas");
 
+        try {
+        document.getElementById("file_upload_select").value=id;
+        document.getElementById("picture_upload_select").value=id;
+        }
+        catch {
+          errorHandler(1,false);
+        }
+
         setTimeout(() => {
           animatedDir.remove();
           document.getElementById("dir-return-button").addEventListener("click", closeDir);

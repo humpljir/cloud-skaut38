@@ -1208,10 +1208,12 @@ input[data-valid-input="false"] {
 }
 .main-wrapper .menu-wrapper .menu-formbox select {
   position: relative;
-  padding: 20px;
+  padding: 30px 20px 10px 20px;
   width: 100%;
   border: none;
   background: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid var(--main-line-color);
 }
 .main-wrapper .menu-wrapper .menu-formbox select:focus {
   outline: none;

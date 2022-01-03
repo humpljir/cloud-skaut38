@@ -336,8 +336,9 @@ if ($user = $result->fetch_assoc()) {
             <div class="menu-wrapper" id="menu-wrapper-div">
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                     <form class="" id="form-0" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
-                        <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="file name">
-                        <select id="file_upload_select">
+                        <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="File name">
+                        <select id="file_upload_select" name="file_upload_select">
+                            <option disabled selected value>Target directory:</option>
                             <?php
                             $dir_sql = "SELECT * FROM directories";
                             $dir_result = $mysqli->query($dir_sql);
@@ -350,49 +351,57 @@ if ($user = $result->fetch_assoc()) {
                         </label>
                     </form>
                     <form class="" id="form-1" data-submit-label="UPLOAD" method="post">
-                        <input type="text" id="picture-name" name="picture-name" data-validate="label" placeholder="picture name">
+                        <input type="text" id="picture_upload_name" name="picture_upload_name" data-validate="label" placeholder="Picture name">
+                        <select id="picture_upload_select" name="picture_upload_select">
+                            <option disabled selected value>Target directory:</option>
+                            <?php
+                            $dir_sql = "SELECT * FROM directories";
+                            $dir_result = $mysqli->query($dir_sql);
+                            while ($dir = $dir_result->fetch_assoc()) {
+                            ?><option value="<?= $dir['id'] ?>"><?= $dir['name'] ?></option><?php } ?>
+                        </select>
                         <label class="file-upload">
                             <div>select picture</div>
-                            <input type="file" id="upload" name="upload" required>
+                            <input type="file" id="picture_upload" name="picture_upload" required>
                         </label>
                     </form>
                     <form class="" id="form-2" data-submit-label="CREATE" method="post">
                         <input type="text" id="dir-name" name="dir-name" data-validate="label" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
-                            <label>
+                            <label class="resize-hover">
                                 <input type="radio" id="dir-color-0" name="dir-color" value="0" checked>
                                 <div style="--circle-color: var(--theme-color-0);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-1" name="dir-color" value="1">
                                 <div style="--circle-color: var(--theme-color-1);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-2" name="dir-color" value="2">
                                 <div style="--circle-color: var(--theme-color-2);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-3" name="dir-color" value="3">
                                 <div style="--circle-color: var(--theme-color-3);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-4" name="dir-color" value="4">
                                 <div style="--circle-color: var(--theme-color-4);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-5" name="dir-color" value="5">
                                 <div style="--circle-color: var(--theme-color-5);"></div>
-                            </label><label>
+                            </label class="resize-hover"><label>
                                 <input type="radio" id="dir-color-6" name="dir-color" value="6">
                                 <div style="--circle-color: var(--theme-color-6);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-7" name="dir-color" value="7">
                                 <div style="--circle-color: var(--theme-color-7);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-8" name="dir-color" value="8">
                                 <div style="--circle-color: var(--theme-color-8);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-9" name="dir-color" value="9">
                                 <div style="--circle-color: var(--theme-color-9);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-10" name="dir-color" value="10">
                                 <div style="--circle-color: var(--theme-color-10);"></div>
-                            </label> <label>
+                            </label class="resize-hover"> <label>
                                 <input type="radio" id="dir-color-11" name="dir-color" value="11">
                                 <div style="--circle-color: var(--theme-color-11);"></div>
                             </label>
