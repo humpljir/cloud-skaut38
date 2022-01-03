@@ -372,43 +372,43 @@ if ($user = $result->fetch_assoc()) {
                             <input type="file" id="picture_upload" name="picture_upload" required>
                         </label>
                     </form>
-                    <form class="" id="form-2" data-form-title="New directory" data-submit-label="CREATE" method="post">
+                    <form class="" id="form-2" data-form-title="Create directory" data-submit-label="CREATE" method="post">
                         <input type="text" id="dir-name" name="dir-name" data-validate="label" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label class="resize-hover">
                                 <input type="radio" id="dir-color-0" name="dir-color" value="0" checked>
                                 <div style="--circle-color: var(--theme-color-0);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-1" name="dir-color" value="1">
                                 <div style="--circle-color: var(--theme-color-1);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-2" name="dir-color" value="2">
                                 <div style="--circle-color: var(--theme-color-2);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-3" name="dir-color" value="3">
                                 <div style="--circle-color: var(--theme-color-3);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-4" name="dir-color" value="4">
                                 <div style="--circle-color: var(--theme-color-4);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-5" name="dir-color" value="5">
                                 <div style="--circle-color: var(--theme-color-5);"></div>
                             </label class="resize-hover"><label>
                                 <input type="radio" id="dir-color-6" name="dir-color" value="6">
                                 <div style="--circle-color: var(--theme-color-6);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-7" name="dir-color" value="7">
                                 <div style="--circle-color: var(--theme-color-7);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-8" name="dir-color" value="8">
                                 <div style="--circle-color: var(--theme-color-8);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-9" name="dir-color" value="9">
                                 <div style="--circle-color: var(--theme-color-9);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-10" name="dir-color" value="10">
                                 <div style="--circle-color: var(--theme-color-10);"></div>
-                            </label class="resize-hover"> <label>
+                            </label> <label class="resize-hover">
                                 <input type="radio" id="dir-color-11" name="dir-color" value="11">
                                 <div style="--circle-color: var(--theme-color-11);"></div>
                             </label>

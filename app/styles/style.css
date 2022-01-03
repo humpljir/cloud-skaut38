@@ -1271,10 +1271,16 @@ input[data-valid-input="false"] {
 }
 .main-wrapper .menu-wrapper .formbox-title {
   position: absolute;
-  left: 15px;
-  top: -20px;
+  left: 28px;
+  top: -18px;
   font-weight: 700;
   font-size: 20px;
+  color: var(--main-fg-color);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.main-wrapper.menu-open .menu-wrapper .formbox-title {
+  opacity: 1;
 }
 .main-wrapper .menu-button-wrapper {
   display: flex;

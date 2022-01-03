@@ -448,20 +448,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="menu-wrapper" id="menu-wrapper-div">
+                <div class="formbox-title" id="formbox-title-div"></div>
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
-                <form method="post" class="form-visible" id="form-0" data-submit-label="LOGIN">
+                <form method="post" class="form-visible" id="form-0" data-form-title="Login" data-submit-label="LOGIN">
                     <input type="text" id="login-username" name="username" placeholder="username" required>
                     <input type="password" id="login-password" name="password" placeholder="password" required>
                     <a onclick="openMenu('form-2',event)">Create New Account</a>
                     <a onclick="openMenu('form-1',event)">Forgot Password</a>
                 </form>
-                <form method="post" class="form-visible" id="form-1" data-submit-label="SEND MAIL">
+                <form method="post" class="form-visible" id="form-1" data-form-title="Forgot password" data-submit-label="SEND MAIL">
                     <input type="text" id="forgot-username" name="forgot-username" placeholder="username or mail" required>
                     <label class="form-text">Check your mailbox to reset your password.</label>
                     <a onclick="openMenu('form-0',event)">Return To Login</a>
                     <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
                 </form>
-                <form method="post" class="form-visible" id="form-2" data-submit-label="REGISTER">
+                <form method="post" class="form-visible" id="form-2" data-form-title="Create account" data-submit-label="REGISTER">
                     <input type="text" id="register-username" data-validate="username" name="username" placeholder="username" required>
                     <input type="text" id="register-fullname" data-validate="label" name="fullname" placeholder="full name" required>
                     <input type="email" id="register-email" data-validate="email" name="email" placeholder="email" required>
