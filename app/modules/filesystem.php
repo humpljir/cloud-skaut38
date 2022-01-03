@@ -54,7 +54,7 @@ function file_new($name, $target)
                 $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
                 || $fileExtension == "gif"
             ) {
-                createThumbnail($target_dir . $tmpname, $target_dir . "thumbnails/" . $tmpname, 120);
+                createThumbnail($target_dir . $tmpname, $target_dir . "thumbnails/" . $tmpname, 120, 80);
                 $fileType = "image";
                 /*
                 if(createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120)){

@@ -25,7 +25,7 @@ const IMAGE_HANDLERS = [
  * @param $targetWidth - desired output width
  * @param $targetHeight - desired output height or null
  */
-function createThumbnail($src, $dest, $targetHeight, $targetWidth)
+function createThumbnail($src, $dest, $targetWidth, $targetHeight)
 {
 
     // 1. Load the image from the given $src
@@ -64,17 +64,20 @@ function createThumbnail($src, $dest, $targetHeight, $targetWidth)
 
     // get width to height ratio
     $ratio = $width / $height;
+    $targetRatio = $targetWidth / $targetHeight;
 
     // if is wider than 3:2
     // use ratio to scale height to fit in 120:80 box
-    if ($ratio > (120 / 80)) {
-        $targetWidth = floor($targetHeight * $ratio);
+    if ($ratio > $targetRatio) {
+        //$targetWidth = floor($targetHeight * $ratio);
+        $width = $height * $targetRatio;
     }
     // if is too tall
     // use ratio to scale width to fit in 120:80 box
     else {
-        $targetWidth = $targetHeight;
-        $targetHeight = floor($targetWidth / $ratio);
+        //$targetWidth = $targetHeight;
+        //$targetHeight = floor($targetWidth / $ratio);
+        $height = $width / $targetRatio;
     }
 
 
