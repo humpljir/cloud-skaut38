@@ -43,7 +43,7 @@ if ($user = $result->fetch_assoc()) {
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="theme-color" content="#fff">
+        <meta name="theme-color" content="<?= ($user['darktheme'] == 1) ? "#000" : "#fff" ?>">
         <title>cloud.skaut38</title>
         <link rel="stylesheet" href="styles/basic.css">
         <link rel="stylesheet" href="styles/animations.css">
@@ -75,6 +75,7 @@ if ($user = $result->fetch_assoc()) {
         <link href="data/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
         <link href="data/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
         <?php
+        include_once("modules/theme.php");
         include_once("modules/palettes.php");
         include_once("modules/storage.php");
         ?>
@@ -104,7 +105,6 @@ if ($user = $result->fetch_assoc()) {
 
             function onloadFromPHP() {
                 console.log("onloadFromPHP funtion is running");
-                <?= ($user['darktheme'] == 1) ? "toggleDarkTheme();" : "" ?>
                 <?= ($user['toolbarCustom'] == 1) ? "toggleToolbarEditMode();" : "" ?>
                 <?= $global_error ?>
             }

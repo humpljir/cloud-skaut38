@@ -1183,12 +1183,12 @@ img.roated-return-icon svg {
   font-size: var(--menu-a-font-size);
 }
 input[data-valid-input="false"] {
-  border-bottom: 1px solid #d70000 !important;
+  border-bottom: 1px solid #ff3333 !important;
 }
 .validate-warning {
   padding: 10px 20px 10px 20px;
   font-size: var(--menu-a-font-size);
-  color: #d70000;
+  color: #ff3333;
 }
 .validate-warning.warning-hide {
   display: none;
