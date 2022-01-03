@@ -62,6 +62,9 @@ function createThumbnail($src, $dest, $targetWidth, $targetHeight)
     $width = imagesx($image);
     $height = imagesy($image);
 
+    $widthOffset = 0;
+    $heightOffset = 0;
+
     // get width to height ratio
     $ratio = $width / $height;
     $targetRatio = $targetWidth / $targetHeight;
@@ -69,14 +72,17 @@ function createThumbnail($src, $dest, $targetWidth, $targetHeight)
     // if is wider than 3:2
     // use ratio to scale height to fit in 120:80 box
     if ($ratio > $targetRatio) {
-        //$targetWidth = floor($targetHeight * $ratio);
+        //get the difference between original width and used width and divide it by 2
+        //so it return offset for centering result
+        $widthOffset = ($width - ($height*$targetRatio))/2;
+        //change width of source, so it will be in desired aspect ratio
         $width = $height * $targetRatio;
     }
     // if is too tall
     // use ratio to scale width to fit in 120:80 box
     else {
-        //$targetWidth = $targetHeight;
-        //$targetHeight = floor($targetWidth / $ratio);
+        //same as above, just for the case image is too tall instaead of wide
+        $heightOffset = ($height - ($width/$targetRatio))/2;
         $height = $width / $targetRatio;
     }
 
@@ -106,8 +112,8 @@ function createThumbnail($src, $dest, $targetWidth, $targetHeight)
         $image,
         0,
         0,
-        0,
-        0,
+        $widthOffset,
+        $heightOffset,
         $targetWidth,
         $targetHeight,
         $width,
