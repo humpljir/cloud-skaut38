@@ -25,7 +25,8 @@ const IMAGE_HANDLERS = [
  * @param $targetWidth - desired output width
  * @param $targetHeight - desired output height or null
  */
-function createThumbnail($src, $dest, $targetHeight, $targetWidth = null) {
+function createThumbnail($src, $dest, $targetHeight, $targetWidth)
+{
 
     // 1. Load the image from the given $src
     // - see if the file actually exists
@@ -61,23 +62,19 @@ function createThumbnail($src, $dest, $targetHeight, $targetWidth = null) {
     $width = imagesx($image);
     $height = imagesy($image);
 
-    // maintain aspect ratio when no WIDTH set
-    if ($targetWidth == null) {
+    // get width to height ratio
+    $ratio = $width / $height;
 
-        // get width to height ratio
-        $ratio = $width / $height;
-
-        // if is portrait
-        // use ratio to scale height to fit in square
-        if ($width > $height) {
-            $targetWidth = floor($targetHeight * $ratio);
-        }
-        // if is landscape
-        // use ratio to scale width to fit in square
-        else {
-            $targetWidth = $targetHeight;
-            $targetHeight = floor($targetWidth / $ratio);
-        }
+    // if is wider than 3:2
+    // use ratio to scale height to fit in 120:80 box
+    if ($ratio > (120 / 80)) {
+        $targetWidth = floor($targetHeight * $ratio);
+    }
+    // if is too tall
+    // use ratio to scale width to fit in 120:80 box
+    else {
+        $targetWidth = $targetHeight;
+        $targetHeight = floor($targetWidth / $ratio);
     }
 
 
@@ -104,9 +101,14 @@ function createThumbnail($src, $dest, $targetHeight, $targetWidth = null) {
     imagecopyresampled(
         $thumbnail,
         $image,
-        0, 0, 0, 0,
-        $targetWidth, $targetHeight,
-        $width, $height
+        0,
+        0,
+        0,
+        0,
+        $targetWidth,
+        $targetHeight,
+        $width,
+        $height
     );
 
 
@@ -122,4 +124,3 @@ function createThumbnail($src, $dest, $targetHeight, $targetWidth = null) {
         IMAGE_HANDLERS[$type]['quality']
     );
 }
-?>
