@@ -104,7 +104,6 @@ if ($user = $result->fetch_assoc()) {
             };
 
             function onloadFromPHP() {
-                console.log("onloadFromPHP funtion is running");
                 <?= ($user['toolbarCustom'] == 1) ? "toggleToolbarEditMode();" : "" ?>
                 <?= $global_error ?>
             }

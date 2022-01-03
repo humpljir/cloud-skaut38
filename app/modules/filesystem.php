@@ -1,21 +1,24 @@
 <?php
 include_once("name_generator.php");
+$target_dir = "data/storage/";
 
 function file_delete($id)
 {
     global $mysqli;
-    $del_path = mysqli_query($mysqli, "SELECT url FROM files WHERE id='$id'");
+    global $target_dir;
+
+    $del_path = mysqli_query($mysqli, "SELECT link FROM files WHERE id='$id'");
     while ($path = mysqli_fetch_array($del_path)) {
-        if (unlink("../files/uploads/" . $path['link'])) {
+        if (unlink($target_dir . $path['link'])) {
             add_global_error("Soubor byl odstraněn!", "var(--notifications-regular-color)");
-            $sql = "DELETE FROM soubory WHERE id='$id'";
+            $sql = "DELETE FROM files WHERE id='$id'";
             if ($mysqli->query($sql) === TRUE) {
                 add_global_error("Záznam v databázi byl odstraněn!", "var(--notifications-regular-color)");
             } else {
                 add_global_error("Error v databázi: " . $mysqli->error, "var(--notifications-error-color)");
             }
         } else {
-            add_global_error("Error mazání souboru. ID='" . $id . " url= " . $path['url'], "var(--notifications-error-color)");
+            add_global_error("Error mazání souboru. ID='" . $id . " url= " . $path['link'], "var(--notifications-error-color)");
         }
     }
 }
@@ -24,10 +27,10 @@ function file_new($name,$target)
 {
     global $mysqli;
     global $user;
+    global $target_dir;
     $now = new DateTime();
 
     echo "<script>console.log('uploading file')</script>";
-    $target_dir = "data/storage/";
     $uploadError = 0;
     $filename = basename($_FILES["file_upload"]["name"]);
     $target_file = $target_dir . $filename;
@@ -59,7 +62,7 @@ function file_new($name,$target)
             }
 
             $sql = "INSERT INTO files (name, date, extension, link, legacylink, type, size, dirid, author)
-        VALUES ('$name', '$now->getTimestamp()', '$fileExtension', '$tmpname', 'basename($_FILES[file_upload][name])', '$fileType', '$fileSize', '$target', '$user[username]')";
+        VALUES ('$name', '$now->getTimestamp()', '$fileExtension', '$tmpname', '$filename', '$fileType', '$fileSize', '$target', '$user[username]')";
 
             if ($mysqli->query($sql) !== TRUE) {
                 add_global_error("Error uplaoding file: " . $mysqli->error, "var(--notifications-warning-color)");
