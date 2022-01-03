@@ -18,7 +18,7 @@ function file_delete($id)
     }
 }
 
-function file_new($name)
+function file_new($name,$target)
 {
     global $mysqli;
     $now = new DateTime();
@@ -60,7 +60,7 @@ function file_new($name)
             }
 
             $sql = "INSERT INTO files (name, date, extension, link, type, size, dirid)
-        VALUES ('$name', '$now->getTimestamp()', '$imageFileType', '$target_file', '$fileType', '$fileSize', '0')";
+        VALUES ('$name', '$now->getTimestamp()', '$imageFileType', '$target_file', '$fileType', '$fileSize', '$target')";
 
             if ($mysqli->query($sql) !== TRUE) {
                 add_global_error("Error uplaoding file: " . $mysqli->error, "var(--notifications-warning-color)");

@@ -12,12 +12,20 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-if (isset($_GET['file_delete'])) {
-    file_delete($_GET['file_delete']);
+if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])) {
+    if($_GET['typy']=='file'){
+    if($_GET['fileaction']=='Delete'){
+    file_delete($_GET['fileid']);
+    } elseif($_GET['fileaction']=='Move') {
+
+    }elseif($_GET['fileaction']=='Duplicate') {
+        
+    }
+}
 }
 
-if (isset($_POST['file_upload_name'])) {
-    file_new($_POST['file_upload_name']);
+if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
+    file_new($_POST['file_upload_name'],$_POST['file_upload_select']);
 }
 
 if (isset($_POST['dir-name'])) {
@@ -337,7 +345,7 @@ if ($user = $result->fetch_assoc()) {
                 <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                     <form class="" id="form-0" data-submit-label="UPLOAD" method="post" enctype="multipart/form-data">
                         <input type="text" id="file_upload_name" name="file_upload_name" data-validate="label" placeholder="File name">
-                        <select id="file_upload_select" name="file_upload_select">
+                        <select id="file_upload_select" name="file_upload_select" required>
                             <option disabled selected value>Target directory:</option>
                             <?php
                             $dir_sql = "SELECT * FROM directories";
@@ -352,7 +360,7 @@ if ($user = $result->fetch_assoc()) {
                     </form>
                     <form class="" id="form-1" data-submit-label="UPLOAD" method="post">
                         <input type="text" id="picture_upload_name" name="picture_upload_name" data-validate="label" placeholder="Picture name">
-                        <select id="picture_upload_select" name="picture_upload_select">
+                        <select id="picture_upload_select" name="picture_upload_select" required>
                             <option disabled selected value>Target directory:</option>
                             <?php
                             $dir_sql = "SELECT * FROM directories";
