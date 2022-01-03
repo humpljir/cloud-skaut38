@@ -1,5 +1,6 @@
 <?php
 include_once("name_generator.php");
+include_once("image_resize.php");
 $target_dir = "data/storage/";
 
 function file_delete($id)
@@ -23,25 +24,33 @@ function file_delete($id)
     }
 }
 
-function file_new($name,$target)
+function file_new($name, $target)
 {
     global $mysqli;
     global $user;
     global $target_dir;
     $now = new DateTime();
 
-    echo "<script>console.log('uploading file')</script>";
     $uploadError = 0;
     $filename = basename($_FILES["file_upload"]["name"]);
     $target_file = $target_dir . $filename;
     $fileExtension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $tmpname = generate_name($target_dir,$fileExtension);
+    $tmpname = generate_name($target_dir, $fileExtension);
 
     if (
         $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
         || $fileExtension == "gif"
     ) {
+        createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120);
         $fileType = "image";
+        /*
+        if(createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120)){
+            $fileType = "image";
+        }
+        else {
+            $fileType = "unknown";
+            add_global_error("Error creating thumbnail, preview of this picture is disabled", "var(--notifications-error-color)");
+        }*/
     } else if ($fileExtension == "pdf" || $fileExtension == "docx" || $fileExtension == "odt") {
         $fileType = "document";
     } else {
@@ -50,15 +59,15 @@ function file_new($name,$target)
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadError == 1) {
-        add_global_error("Soubor nebyl nahrán!", "var(--notifications-error-color)");
+        add_global_error("Error uploading file!", "var(--notifications-error-color)");
         // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_dir.$tmpname)) {
-            if (filesize($target_file) == TRUE) {
-                $fileSize = filesize($target_file);
+        if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_dir . $tmpname)) {
+            if (filesize($target_dir.$tmpname) == TRUE) {
+                $fileSize = filesize($target_dir.$tmpname);
             } else {
                 $fileSize = 0;
-                add_global_error("Error determining size of file " . $target_file, "var(--notifications-warning-color)");
+                add_global_error("Error determining size of file " . $target_dir . $tmpname, "var(--notifications-warning-color)");
             }
 
             $sql = "INSERT INTO files (name, date, extension, link, legacylink, type, size, dirid, author)
