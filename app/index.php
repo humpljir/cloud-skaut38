@@ -437,40 +437,40 @@ if ($user = $result->fetch_assoc()) {
                         <input type="text" id="edit-dir-name" name="edit-dir-name" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label>
-                                <input type="radio" id="dir-color-0" name="edit-dir-color" checked>
+                                <input type="radio" id="dir-color-0" name="edit-dir-color" value="0">
                                 <div style="--circle-color: var(--theme-color-0);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-1" name="edit-dir-color">
+                                <input type="radio" id="dir-color-1" name="edit-dir-color" value="1">
                                 <div style="--circle-color: var(--theme-color-1);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-2" name="edit-dir-color">
+                                <input type="radio" id="dir-color-2" name="edit-dir-color" value="2">
                                 <div style="--circle-color: var(--theme-color-2);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-3" name="edit-dir-color">
+                                <input type="radio" id="dir-color-3" name="edit-dir-color" value="3">
                                 <div style="--circle-color: var(--theme-color-3);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-4" name="edit-dir-color">
+                                <input type="radio" id="dir-color-4" name="edit-dir-color" value="4">
                                 <div style="--circle-color: var(--theme-color-4);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-5" name="edit-dir-color">
+                                <input type="radio" id="dir-color-5" name="edit-dir-color" value="5">
                                 <div style="--circle-color: var(--theme-color-5);"></div>
                             </label><label>
-                                <input type="radio" id="dir-color-6" name="edit-dir-color">
+                                <input type="radio" id="dir-color-6" name="edit-dir-color" value="6">
                                 <div style="--circle-color: var(--theme-color-6);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-7" name="edit-dir-color">
+                                <input type="radio" id="dir-color-7" name="edit-dir-color" value="7">
                                 <div style="--circle-color: var(--theme-color-7);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-8" name="edit-dir-color">
+                                <input type="radio" id="dir-color-8" name="edit-dir-color" value="8">
                                 <div style="--circle-color: var(--theme-color-8);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-9" name="edit-dir-color">
+                                <input type="radio" id="dir-color-9" name="edit-dir-color" value="9">
                                 <div style="--circle-color: var(--theme-color-9);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-10" name="edit-dir-color">
+                                <input type="radio" id="dir-color-10" name="edit-dir-color" value="10">
                                 <div style="--circle-color: var(--theme-color-10);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-11" name="edit-dir-color">
+                                <input type="radio" id="dir-color-11" name="edit-dir-color" value="11">
                                 <div style="--circle-color: var(--theme-color-11);"></div>
                             </label>
                         </div>
