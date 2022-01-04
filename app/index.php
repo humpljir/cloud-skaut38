@@ -32,7 +32,7 @@ if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
 }
 
 if (isset($_POST['edit-dir-id']) && isset($_POST['edit-dir-name']) && isset($_POST['edit-dir-color'])) {
-    file_edit($_POST['edit-dir-id'],$_POST['edit-dir-name'],$_POST['edit-dir-color']);
+    dir_edit($_POST['edit-dir-id'],$_POST['edit-dir-name'],$_POST['edit-dir-color']);
 }
 
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
@@ -428,12 +428,12 @@ if ($user = $result->fetch_assoc()) {
                         </div>
                     </form>
                     <form class="" id="form-3" method="POST" data-form-title="Edit file" data-submit-label="SAVE">
-                        <input type="hidden" id="edit-file-id">
+                        <input type="hidden" id="edit-file-id" name="edit-file-id">
                         <input type="text" id="edit-file-name" name="edit-file-name" data-validate="label" placeholder="file name">
                         <label class="form-text">You're editting filename of selected file. Click SAVE to confirm changes.</label>
                     </form>
                     <form class="" id="form-4" method="POST" data-form-title="Edit directory" data-submit-label="SAVE">
-                        <input type="hidden" id="edit-dir-id">
+                        <input type="hidden" id="edit-dir-id" name="edit-dir-id">
                         <input type="text" id="edit-dir-name" name="edit-dir-name" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label>

@@ -11,6 +11,7 @@ config.js
   Main file for all global js variables and values.
 */
 
+const appLoadingTimeout = 30000;
 const hideTopBarOffset = 80;
 const alwaysTopBarOffset = 20;
 const colorsInPalette = 12;

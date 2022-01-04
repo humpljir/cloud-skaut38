@@ -18,7 +18,7 @@ let loadingTimeout = setTimeout(() => {
   catch {
     loadingLoaded();
   }
-}, 15000);
+}, appLoadingTimeout);
 
 function loadingLoaded() {
   clearTimeout(loadingTimeout);

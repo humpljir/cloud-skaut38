@@ -275,13 +275,16 @@ function closeAllSubmenus() {
   });
 }
 
-function editFile(id, event) {
+function editFile(id, name, event) {
   document.getElementById("edit-file-id").value=id;
+  document.getElementById("edit-file-name").value=name;
   openMenu('form-3',event);
 }
 
-function editDir(id, event) {
+function editDir(id, name, color, event) {
+  document.querySelector('input[name="edit-dir-color"][value="'+color+'"]').setAttribute("checked","true");
   document.getElementById("edit-dir-id").value=id;
+  document.getElementById("edit-dir-name").value=name;
   openMenu('form-4',event);
 }
 
