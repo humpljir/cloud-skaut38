@@ -16,7 +16,7 @@
                             ?> {
                         id: <?= $fil['id'] ?>,
                         name: "<?= $fil['name'] ?>",
-                        date: <?= $fil['date'] ?>,
+                        date: <?= strtotime($fil['date']) ?>,
                         extension: "<?= $fil['extension'] ?>",
                         link: "<?= $fil['link'] ?>",
                         type: "<?= $fil['type'] ?>",

@@ -45,6 +45,7 @@ gallery.css
     background:var(--side-grey-light);
     transform: translate(-50%, -50%);
     opacity: 1;
+    box-shadow: 4px 5px 24px #00000026;
     transition: opacity 0.4s, transform 0.4s;
   }
   .gallery-wrapper-packed {
@@ -95,6 +96,7 @@ gallery.css
     transform: translateX(-50%);
     border-radius: var(--menu-border-radius);
     display: flex;
+    box-shadow: 4px 5px 24px #00000026;
     transition: transform 0.4s;
   }
   .gallery-wrapper-packed .gallery-toolar-wrapper {

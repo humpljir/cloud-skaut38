@@ -133,79 +133,6 @@ function inputValidator(input, type) {
   }
 }
 
-function toggleDarkTheme() {
-  // switch between dark and light mode
-
-  session.settings.darkTheme = !session.settings.darkTheme;
-  if (session.settings.darkTheme) {
-    document.body.classList.add("dark-theme");
-    document.documentElement.style.setProperty("--main-bg-color", "#000");
-    document.documentElement.style.setProperty("--main-fg-color", "#fff");
-    document.documentElement.style.setProperty(
-      "--main-line-color",
-      "#ffffff20"
-    );
-    document.documentElement.style.setProperty("--menu-bg-color", "#2d2d2dc7");
-    document.documentElement.style.setProperty("--side-bg-color", "#000");
-    document.documentElement.style.setProperty("--side-bg-color-2", "#282828");
-    document.documentElement.style.setProperty("--side-grey-light", "#4f4f4f");
-    document.documentElement.style.setProperty(
-      "--fluent-border-light",
-      "#ffffff24"
-    );
-    document.documentElement.style.setProperty(
-      "--fluent-border-dark",
-      "#00000084"
-    );
-    document.documentElement.style.setProperty("--hyperlink-color", "#3e74ff");
-    document.documentElement.style.setProperty(
-      "--notifications-error-color",
-      "#700000cf"
-    );
-    document.documentElement.style.setProperty(
-      "--notifications-warning-color",
-      "#9a7b00c7"
-    );
-    document.documentElement.style.setProperty(
-      "--notifications-confirm-color",
-      "#c8eabcb8"
-    );
-  } else {
-    document.body.classList.remove("dark-theme");
-    document.documentElement.style.setProperty("--main-bg-color", "#fff");
-    document.documentElement.style.setProperty("--main-fg-color", "#000");
-    document.documentElement.style.setProperty(
-      "--main-line-color",
-      "#00000020"
-    );
-    document.documentElement.style.setProperty("--menu-bg-color", "#ffffffb8");
-    document.documentElement.style.setProperty("--side-bg-color", "#ededed");
-    document.documentElement.style.setProperty("--side-bg-color-2", "#ffffff");
-    document.documentElement.style.setProperty("--side-grey-light", "#f2f2f2");
-    document.documentElement.style.setProperty(
-      "--fluent-border-light",
-      "#ffffff99"
-    );
-    document.documentElement.style.setProperty(
-      "--fluent-border-dark",
-      "#00000020"
-    );
-    document.documentElement.style.setProperty("--hyperlink-color", "#1a4ed2");
-    document.documentElement.style.setProperty(
-      "--notifications-error-color",
-      "#ff9e9ecf"
-    );
-    document.documentElement.style.setProperty(
-      "--notifications-warning-color",
-      "#ffe16dbf"
-    );
-    document.documentElement.style.setProperty(
-      "--notifications-confirm-color",
-      "#9eff7ab8"
-    );
-  }
-}
-
 function normalizeValue(val, maxVal, offset) {
   if (val + offset > maxVal) {
     return val - offset;
@@ -240,6 +167,10 @@ function openMenu(target, event) {
   .getAttribute("data-form-title");
   document.getElementById("menu-submit-button").setAttribute("form", target);
   document.getElementById("main-wrapper-div").classList.add("menu-open");
+}
+
+function editFile(id, event) {
+  openMenu('form-3',event);
 }
 
 function openSubsortMenumenu(event) {

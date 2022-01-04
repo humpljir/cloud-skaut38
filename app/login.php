@@ -1,6 +1,7 @@
 <?php
 // Include necessary file
 require_once('modules/config.php');
+require_once('modules/error.php');
 
 // Initialize the session
 session_start();
@@ -11,12 +12,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     exit;
 }
 
-// Define variables and initialize with empty values
-$username = $password = $authorized = "";
-$username_err = $password_err = $global_err = "";
+if (isset($_POST["username"])) {
 
-// Processing form data when form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Define variables and initialize with empty values
+    $username = $password = $authorized = "";
+    $username_err = $password_err = $global_err = "";
 
     // Check if username is empty
     if (empty(trim($_POST["username"]))) {
@@ -91,6 +91,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Close statement
             $stmt->close();
         }
+    }
+}
+
+if (isset($_POST["register_username"])) {
+
+    $param_password = password_hash($_POST['register_password'], PASSWORD_DEFAULT);
+    $img = 'default.svg';
+    $toolbarReorder = '[0,1,2,3]';
+    $toolbarDisplayIcon = '[true, true, true, true]';
+    $toolbarColors = '["var(--theme-color-1)", "var(--theme-color-3)", "var(--theme-color-4)", "var(--theme-color-5)"]';
+    $toolbarColorsComplementary = '["var(--theme-color-1-complementary)", "var(--theme-color-3-complementary)", "var(--theme-color-4-complementary)", "var(--theme-color-5-complementary)"]';
+
+    $sql = "INSERT INTO users (username, password, fullname, email, img, toolbarReorder, toolbarDisplayIcon, toolbarColors, toolbarColorsComplementary)
+    VALUES ('$_POST[register_username]','$param_password', '$_POST[register_fullname]', '$_POST[register_email]', '$img', '$toolbarReorder', '$toolbarDisplayIcon', '$toolbarColors', '$toolbarColorsComplementary')";
+    if ($mysqli->query($sql) == TRUE) {
+        add_global_error("Registration requested!", "var(--notifications-regular-color)");
+    } else {
+        add_global_error("Error requesting registration: " . $mysqli->error, "var(--notifications-warning-color)");
     }
 }
 ?>
@@ -448,7 +466,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <div class="menu-wrapper" id="menu-wrapper-div">
-                <div class="formbox-title" id="formbox-title-div"></div>
+            <div class="formbox-title" id="formbox-title-div"></div>
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                 <form method="post" class="form-visible" id="form-0" data-form-title="Login" data-submit-label="LOGIN">
                     <input type="text" id="login-username" name="username" placeholder="username" required>
@@ -463,11 +481,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
                 </form>
                 <form method="post" class="form-visible" id="form-2" data-form-title="Create account" data-submit-label="REGISTER">
-                    <input type="text" id="register-username" data-validate="username" name="username" placeholder="username" required>
-                    <input type="text" id="register-fullname" data-validate="label" name="fullname" placeholder="full name" required>
-                    <input type="email" id="register-email" data-validate="email" name="email" placeholder="email" required>
-                    <input type="password" id="register-password" data-validate="password" name="password" placeholder="password" required>
-                    <input type="password" id="register-password-confirm" data-validate="match" data-validate-match-id="register-password" name="password_confirm" placeholder="password again" required>
+                    <input type="text" id="register_username" data-validate="username" name="register_username" placeholder="username" required>
+                    <input type="text" id="register_fullname" data-validate="label" name="register_fullname" placeholder="full name" required>
+                    <input type="email" id="register_email" data-validate="email" name="register_email" placeholder="email" required>
+                    <input type="password" id="register_password" data-validate="password" name="register_password" placeholder="password" required>
+                    <input type="password" id="register_password_confirm" data-validate="match" data-validate-match-id="register-password" name="register_password_confirm" placeholder="password again" required>
                     <label class="form-text">This is internal cloud storage, every registration has to be confirmed by contacting your scoutmaster.</label>
                     <a onclick="openMenu('form-0',event)">Already have an account?</a>
                 </form>
@@ -522,11 +540,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
+    <script type="text/javascript" src="scripts/config.js">
+    </script>
     <script type="text/javascript" src="scripts/static.js">
     </script>
     <script type="text/javascript" src="scripts/data.js">
     </script>
     <script type="text/javascript" src="scripts/customNotifications.js">
+    </script>
+    <script type="text/javascript" src="scripts/theme.js">
+    </script>
+    <script type="text/javascript" src="scripts/render.js">
     </script>
     <script type="text/javascript" src="scripts/init.js">
     </script>

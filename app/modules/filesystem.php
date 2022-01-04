@@ -3,6 +3,23 @@ include_once("name_generator.php");
 include_once("image_resize.php");
 $target_dir = "data/storage/";
 
+function dir_delete($id)
+{
+    global $mysqli;
+
+    $del_path = mysqli_query($mysqli, "SELECT id FROM files WHERE dirid='$id'");
+    while ($path = mysqli_fetch_array($del_path)) {
+        file_delete($path['id']);
+    }
+
+    $sql = "DELETE FROM directories WHERE id='$id'";
+    if ($mysqli->query($sql) === TRUE) {
+        add_global_error("Záznam v databázi byl odstraněn!", "var(--notifications-regular-color)");
+    } else {
+        add_global_error("Error v databázi: " . $mysqli->error, "var(--notifications-error-color)");
+    }
+}
+
 function file_delete($id)
 {
     global $mysqli;
@@ -29,7 +46,6 @@ function file_new($name, $target)
     global $mysqli;
     global $user;
     global $target_dir;
-    $now = new DateTime();
 
     $uploadError = 0;
     $filename = basename($_FILES["file_upload"]["name"]);
@@ -43,8 +59,9 @@ function file_new($name, $target)
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_dir . $tmpname)) {
-            if (filesize($target_dir.$tmpname) == TRUE) {
-                $fileSize = filesize($target_dir.$tmpname);
+
+            if (filesize($target_dir . $tmpname) == TRUE) {
+                $fileSize = filesize($target_dir . $tmpname);
             } else {
                 $fileSize = 0;
                 add_global_error("Error determining size of file " . $target_dir . $tmpname, "var(--notifications-warning-color)");
@@ -70,8 +87,8 @@ function file_new($name, $target)
                 $fileType = "unknown";
             }
 
-            $sql = "INSERT INTO files (name, date, extension, link, legacylink, type, size, dirid, author)
-        VALUES ('$name', '$now->getTimestamp()', '$fileExtension', '$tmpname', '$filename', '$fileType', '$fileSize', '$target', '$user[username]')";
+            $sql = "INSERT INTO files (name, extension, link, legacylink, type, size, dirid, author)
+        VALUES ('$name', '$fileExtension', '$tmpname', '$filename', '$fileType', '$fileSize', '$target', '$user[username]')";
 
             if ($mysqli->query($sql) !== TRUE) {
                 add_global_error("Error uplaoding file: " . $mysqli->error, "var(--notifications-warning-color)");
@@ -86,7 +103,6 @@ function directory_new($name, $color)
 {
     global $mysqli;
     global $user;
-    $now = new DateTime();
 
     $sql = "INSERT INTO directories (name, date, color, author)
     VALUES ('$name',UTC_TIMESTAMP(), '$color', '$user[username]')";

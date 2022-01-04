@@ -11,7 +11,7 @@ gallery.js
   Generating and using gallery for image previews.
 */
 
-galleryTarget = "";
+let galleryTarget = "";
 
 function openGallery(target) {
   galleryTarget = target;

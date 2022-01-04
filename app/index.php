@@ -20,6 +20,11 @@ if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])
         } elseif ($_GET['fileaction'] == 'Duplicate') {
         }
     }
+    if ($_GET['typy'] == 'dir') {
+        if ($_GET['fileaction'] == 'Delete') {
+            dir_delete($_GET['fileid']);
+        }
+    }
 }
 
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
@@ -110,7 +115,7 @@ if ($user = $result->fetch_assoc()) {
         </script>
     </head>
 
-    <body onload="initialize()"<?= ($user['darktheme'] == 1) ? "class='dark-theme'" : "" ?>>;
+    <body onload="initialize()" <?= ($user['darktheme'] == 1) ? "class='dark-theme'" : "" ?>>
         <div class="main-wrapper top-bar-open display-as-tiles loading" id="main-wrapper-div">
             <div class="window" id="window-div" onclick="closeMenu()">
                 <div class="window-scroll" id="window-scroll-div">
@@ -124,7 +129,7 @@ if ($user = $result->fetch_assoc()) {
                     <div class="side-title">SETTINGS</div>
                     <div class="side-box">
                         <div class="side-user">
-                            <div class="side-user-picture" style="background-image: url('img/<?= $user['img'] ?>');"></div>
+                            <div class="side-user-picture" style="background-image: url('data/users/profile_img/<?= $user['img'] ?>');"></div>
                             <div class="side-user-name"><?= $user['fullname'] ?></div>
                             <div class="side-user-nick">@<?= $user['username'] ?></div>
                         </div>
@@ -511,11 +516,17 @@ if ($user = $result->fetch_assoc()) {
             </div>
         </div>
 
+        <script type="text/javascript" src="scripts/config.js">
+        </script>
         <script type="text/javascript" src="scripts/static.js">
         </script>
         <script type="text/javascript" src="scripts/data.js">
         </script>
         <script type="text/javascript" src="scripts/customNotifications.js">
+        </script>
+        <script type="text/javascript" src="scripts/theme.js">
+        </script>
+        <script type="text/javascript" src="scripts/render.js">
         </script>
         <script type="text/javascript" src="scripts/init.js">
         </script>

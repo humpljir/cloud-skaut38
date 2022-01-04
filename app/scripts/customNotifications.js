@@ -11,9 +11,6 @@ customNotifications.js
   This file contains functions and all js for custom in-app notifications.
 */
 
-let customNotificationsTimeout = 3000;
-// user should be able to change this value from the UI in the future
-
 function initCustomNotifications() {
 // create main wrapper for appending custom notifications
 
