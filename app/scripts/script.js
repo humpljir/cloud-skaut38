@@ -275,6 +275,16 @@ function closeAllSubmenus() {
   });
 }
 
+function editFile(id, event) {
+  document.getElementById("edit-file-id").value=id;
+  openMenu('form-3',event);
+}
+
+function editDir(id, event) {
+  document.getElementById("edit-dir-id").value=id;
+  openMenu('form-4',event);
+}
+
 function openSide() {
   // go to side page of app
 

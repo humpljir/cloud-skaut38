@@ -109,7 +109,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
       dir.innerHTML = element.name;
       let submenu = generateSubmenu(dir, "dir", element.id, [
         { label: "Share", function: "default" },
-        { label: "Edit", function: "openMenu('form-4',event)" },
+        { label: "Edit", function: "editDir("+element.id+",event)" },
         { label: "Duplicate", function: "default" },
         { label: "Convert", function: "default" },
         { label: "Delete", function: "default" },
@@ -180,7 +180,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
           },
           { label: "Download", function: "download" },
           { label: "Share", function: "default" },
-          { label: "Edit", function: "editFile('',event)" },
+          { label: "Edit", function: "editFile("+element.id+",event)" },
           { label: "Duplicate", function: "default" },
           { label: "Move", function: "default" },
           { label: "Delete", function: "default" },

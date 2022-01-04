@@ -27,6 +27,14 @@ if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])
     }
 }
 
+if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
+    file_edit($_POST['edit-file-id'],$_POST['edit-file-name']);
+}
+
+if (isset($_POST['edit-dir-id']) && isset($_POST['edit-dir-name']) && isset($_POST['edit-dir-color'])) {
+    file_edit($_POST['edit-dir-id'],$_POST['edit-dir-name'],$_POST['edit-dir-color']);
+}
+
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
     file_new($_POST['file_upload_name'], $_POST['file_upload_select']);
 }
@@ -419,48 +427,50 @@ if ($user = $result->fetch_assoc()) {
 
                         </div>
                     </form>
-                    <form class="" id="form-3" method="POST" data-submit-label="SAVE">
-                        <input type="text" id="file-name" name="file-name" data-validate="label" placeholder="file name">
+                    <form class="" id="form-3" method="POST" data-form-title="Edit file" data-submit-label="SAVE">
+                        <input type="hidden" id="edit-file-id">
+                        <input type="text" id="edit-file-name" name="edit-file-name" data-validate="label" placeholder="file name">
                         <label class="form-text">You're editting filename of selected file. Click SAVE to confirm changes.</label>
                     </form>
-                    <form class="" id="form-4" method="POST" data-submit-label="SAVE">
-                        <input type="text" id="dir-name" name="dir-name" data-validate="label" placeholder="directory name">
+                    <form class="" id="form-4" method="POST" data-form-title="Edit directory" data-submit-label="SAVE">
+                        <input type="hidden" id="edit-dir-id">
+                        <input type="text" id="edit-dir-name" name="edit-dir-name" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label>
-                                <input type="radio" id="dir-color-0" name="dir-color" checked>
+                                <input type="radio" id="dir-color-0" name="edit-dir-color" checked>
                                 <div style="--circle-color: var(--theme-color-0);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-1" name="dir-color">
+                                <input type="radio" id="dir-color-1" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-1);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-2" name="dir-color">
+                                <input type="radio" id="dir-color-2" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-2);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-3" name="dir-color">
+                                <input type="radio" id="dir-color-3" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-3);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-4" name="dir-color">
+                                <input type="radio" id="dir-color-4" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-4);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-5" name="dir-color">
+                                <input type="radio" id="dir-color-5" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-5);"></div>
                             </label><label>
-                                <input type="radio" id="dir-color-6" name="dir-color">
+                                <input type="radio" id="dir-color-6" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-6);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-7" name="dir-color">
+                                <input type="radio" id="dir-color-7" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-7);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-8" name="dir-color">
+                                <input type="radio" id="dir-color-8" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-8);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-9" name="dir-color">
+                                <input type="radio" id="dir-color-9" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-9);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-10" name="dir-color">
+                                <input type="radio" id="dir-color-10" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-10);"></div>
                             </label> <label>
-                                <input type="radio" id="dir-color-11" name="dir-color">
+                                <input type="radio" id="dir-color-11" name="edit-dir-color">
                                 <div style="--circle-color: var(--theme-color-11);"></div>
                             </label>
                         </div>

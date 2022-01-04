@@ -109,6 +109,32 @@ function file_new($name, $target)
     }
 }
 
+function file_edit($id, $name) {
+
+    global $mysqli;
+
+    $sql = "UPDATE files SET name='$name' WHERE id='$id'";
+
+        if ($mysqli->query($sql) !== TRUE) {
+            add_global_error("Error updating file: " . $mysqli->error, "var(--notifications-warning-color)");
+        } else {
+        add_global_error("File updated.", "var(--notifications-error-color)");
+    }
+}
+
+function dir_edit($id, $name, $color) {
+
+    global $mysqli;
+
+    $sql = "UPDATE directories SET name='$name', color='$color' WHERE id='$id'";
+
+        if ($mysqli->query($sql) !== TRUE) {
+            add_global_error("Error updating file: " . $mysqli->error, "var(--notifications-warning-color)");
+        } else {
+        add_global_error("File updated.", "var(--notifications-error-color)");
+    }
+}
+
 function directory_new($name, $color)
 {
     global $mysqli;
