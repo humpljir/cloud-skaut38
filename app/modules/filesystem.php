@@ -25,18 +25,28 @@ function file_delete($id)
     global $mysqli;
     global $target_dir;
 
-    $del_path = mysqli_query($mysqli, "SELECT link FROM files WHERE id='$id'");
+    $del_path = mysqli_query($mysqli, "SELECT link, type FROM files WHERE id='$id'");
     while ($path = mysqli_fetch_array($del_path)) {
         if (unlink($target_dir . $path['link'])) {
-            add_global_error("Soubor byl odstraněn!", "var(--notifications-regular-color)");
+            add_global_error("File deleted!", "var(--notifications-regular-color)");
+
+            if($path['type']=='image') {
+            if (unlink($target_dir . "thumbnails/" . $path['link'])) {
+            add_global_error("Thumbnail deleted!", "var(--notifications-regular-color)");
+            }
+            else {
+            add_global_error("ERROR deleting thumbnail of file. ID='" . $id . " url= " . $path['link'], "var(--notifications-error-color)");
+            }
+        }
+
             $sql = "DELETE FROM files WHERE id='$id'";
             if ($mysqli->query($sql) === TRUE) {
-                add_global_error("Záznam v databázi byl odstraněn!", "var(--notifications-regular-color)");
+                add_global_error("MySQL line deleted!", "var(--notifications-regular-color)");
             } else {
-                add_global_error("Error v databázi: " . $mysqli->error, "var(--notifications-error-color)");
+                add_global_error("MySQL deleting error: " . $mysqli->error, "var(--notifications-error-color)");
             }
         } else {
-            add_global_error("Error mazání souboru. ID='" . $id . " url= " . $path['link'], "var(--notifications-error-color)");
+            add_global_error("ERROR deleting file. ID='" . $id . " url= " . $path['link'], "var(--notifications-error-color)");
         }
     }
 }

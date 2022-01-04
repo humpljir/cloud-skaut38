@@ -11,7 +11,6 @@ init.js
   Main file responsible for initializing app and all components.
 */
 
-
 let loadingTimeout = setTimeout(() => {
   try {
   errorHandler(0,true);
