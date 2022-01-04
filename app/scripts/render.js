@@ -110,7 +110,7 @@ function drawDirectories() {
       { label: "Share", function: "default" },
       {
         label: "Edit",
-        function: "editDir('" + element.id + "','" + element.name + "',event)",
+        function: "editDir('" + element.id + "','" + element.name + "','"+element.color+"',event)",
       },
       { label: "Duplicate", function: "default" },
       { label: "Convert", function: "default" },
@@ -183,7 +183,7 @@ function drawFiles(dirID) {
         { label: "Share", function: "default" },
         {
           label: "Edit",
-          function: "editFile('" + element.id + "','" + element.name + "','"+element.color+"',event)",
+          function: "editFile('" + element.id + "','" + element.name + "',event)",
         },
         { label: "Duplicate", function: "default" },
         { label: "Move", function: "default" },

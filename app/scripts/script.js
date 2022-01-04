@@ -282,7 +282,9 @@ function editFile(id, name, event) {
 }
 
 function editDir(id, name, color, event) {
-  document.querySelector('input[name="edit-dir-color"][value="'+color+'"]').setAttribute("checked","true");
+  console.log('input[name="edit-dir-color"][value="'+color+'"]');
+  console.log(color);
+//  document.querySelector('input[name="edit-dir-color"][value="'+color+'"]').setAttribute("checked","true");
   document.getElementById("edit-dir-id").value=id;
   document.getElementById("edit-dir-name").value=name;
   openMenu('form-4',event);
