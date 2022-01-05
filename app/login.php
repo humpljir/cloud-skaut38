@@ -16,106 +16,14 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 if (isset($_POST["username"])) {
 
     if (validate($_POST['username'], 'username')) {
-
-        // Define variables and initialize with empty values
-        $username = $password = $authorized = "";
-        $username_err = $password_err = $global_err = "";
-
-        // Check if username is empty
-        if (empty(trim($_POST["username"]))) {
-            $username_err = "Please enter username.";
-        } else {
-            $username = trim($_POST["username"]);
-        }
-
-        // Check if password is empty
-        if (empty(trim($_POST["password"]))) {
-            $password_err = "Please enter your password.";
-        } else {
-            $password = trim($_POST["password"]);
-        }
-        // Validate credentials
-        if (empty($username_err) && empty($password_err)) {
-            // Prepare a select statement
-            $sql = "SELECT id, username, password, authorized FROM users WHERE username = ?";
-
-            if ($stmt = $mysqli->prepare($sql)) {
-                // Bind variables to the prepared statement as parameters
-                $stmt->bind_param("s", $param_username);
-
-                // Set parameters
-                $param_username = $username;
-
-                // Attempt to execute the prepared statement
-                if ($stmt->execute()) {
-                    // Store result
-                    $stmt->store_result();
-
-                    // Check if username exists, if yes then verify password
-                    if ($stmt->num_rows == 1) {
-                        // Bind result variables
-                        $stmt->bind_result($id, $username, $hashed_password, $authorized);
-                        if ($stmt->fetch()) {
-
-                            if ($authorized == 1) {
-                                if (password_verify($password, $hashed_password)) {
-
-                                    // Destroy the session.
-                                    session_destroy();
-                                    // Password is correct, so start a new session
-                                    session_start();
-
-                                    // Store data in session variables
-                                    $_SESSION["loggedin"] = true;
-                                    $_SESSION["id"] = $id;
-                                    $_SESSION["username"] = $username;
-
-                                    // Redirect user to welcome page
-                                    header("location: index.php?");
-                                } else {
-                                    // Display an error message if password is not valid
-                                    // echo "The password you entered was not valid.";
-                                    $global_err .= 'pushCustomNotifications("The password you entered was not valid.", "var(--notifications-error-color)");';
-                                }
-                            } else {
-                                $global_err .= 'pushCustomNotifications("Your account needs to be manually verified to start using this cloud. Please, contact your scoutmaster.", "var(--notifications-error-color)");';
-                            }
-                        }
-                    } else {
-                        // Display an error message if username doesn't exist
-                        // echo "No account found with that username.";
-                        $global_err .= 'pushCustomNotifications("No account found with that username.", "var(--notifications-error-color)");';
-                    }
-                } else {
-                    // echo "Oops! Something went wrong. Please try again later.";
-                    $global_err .= 'pushCustomNotifications("Oops! Something went wrong. Please try again later.", "var(--notifications-error-color)");';
-                }
-
-                // Close statement
-                $stmt->close();
-            }
-        }
+        include("modules/login.php");
     }
 }
 
 if (isset($_POST["register_username"])) {
     if (isset($_POST["register_username"]) && isset($_POST["register_fullname"]) && isset($_POST["register_email"]) && isset($_POST["register_password"]) && isset($_POST["register_password_confirm"])) {
         if (validate($_POST['register_username'], 'username') && validate($_POST['register_fullname'], 'label') && validate($_POST['register_email'], 'email') && validate($_POST['register_password'], 'password') && $_POST['register_password'] == $_POST['register_password_confirm']) {
-
-            $param_password = password_hash($_POST['register_password'], PASSWORD_DEFAULT);
-            $img = 'default.svg';
-            $toolbarReorder = '[0,1,2,3]';
-            $toolbarDisplayIcon = '[true, true, true, true]';
-            $toolbarColors = '["var(--theme-color-1)", "var(--theme-color-3)", "var(--theme-color-4)", "var(--theme-color-5)"]';
-            $toolbarColorsComplementary = '["var(--theme-color-1-complementary)", "var(--theme-color-3-complementary)", "var(--theme-color-4-complementary)", "var(--theme-color-5-complementary)"]';
-
-            $sql = "INSERT INTO users (username, password, fullname, email, img, toolbarReorder, toolbarDisplayIcon, toolbarColors, toolbarColorsComplementary)
-    VALUES ('$_POST[register_username]','$param_password', '$_POST[register_fullname]', '$_POST[register_email]', '$img', '$toolbarReorder', '$toolbarDisplayIcon', '$toolbarColors', '$toolbarColorsComplementary')";
-            if ($mysqli->query($sql) == TRUE) {
-                add_global_error("Registration requested!", "var(--notifications-regular-color)");
-            } else {
-                add_global_error("Error requesting registration: " . $mysqli->error, "var(--notifications-warning-color)");
-            }
+            include("modules/register.php");
         }
     } else {
         add_global_error("All values are required.", "var(--notifications-warning-color)");
