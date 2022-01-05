@@ -203,39 +203,39 @@ if ($user = $result->fetch_assoc()) {
                                         <span class="side-form-line"></span>
                                     </div>
                                     <div class="side-theme-selector">
-                                        <label>
+                                        <label class="resize-hover">
                                             <input type="radio" id="theme-0" name="palette" data-palette-nr=0 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 0) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-1" name="palette" checked data-palette-nr=1 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 1) ? " checked" : "" ?>>
                                             <div style="--inner-color: #E63946;--theme-palette:#457B9D 0%, #457B9D 20%, #1D3557 20%, #1D3557 40%,#A8DADC 40%, #A8DADC 60%,#F1FAEE 60%, #F1FAEE 80%,#8b2c33 80%, #8b2c33 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-2" name="palette" data-palette-nr=2 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 2) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-3" name="palette" data-palette-nr=3 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 3) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-4" name="palette" data-palette-nr=4 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 4) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-5" name="palette" data-palette-nr=5 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 5) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label><label>
+                                        </label><label class="resize-hover">
                                             <input type="radio" id="theme-6" name="palette" data-palette-nr=6 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 6) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-7" name="palette" data-palette-nr=7 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 7) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
-                                        </label> <label>
+                                        </label> <label class="resize-hover">
                                             <input type="radio" id="theme-8" name="palette" data-palette-nr=8 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 8) ? " checked" : "" ?>>
                                             <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
                                             </div>
@@ -246,29 +246,29 @@ if ($user = $result->fetch_assoc()) {
                                         <span class="side-form-line"></span>
                                     </div>
                                     <div class="side-color-palette">
-                                        <label onclick="changeHighlightColor('var(--theme-color-0)','var(--theme-color-0-complementary)')"><input type="radio" id="blabla0" name="color" <?= ($user['colorHighlight'] == 0) ? " checked" : "" ?>>
+                                        <label onclick="changeHighlightColor('var(--theme-color-0)','var(--theme-color-0-complementary)')" class="resize-hover"><input type="radio" id="blabla0" name="color" <?= ($user['colorHighlight'] == 0) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-0);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-1)','var(--theme-color-1-complementary)')"><input type="radio" id="blabla1" name="color" <?= ($user['colorHighlight'] == 1) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-1)','var(--theme-color-1-complementary)')" class="resize-hover"><input type="radio" id="blabla1" name="color" <?= ($user['colorHighlight'] == 1) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-1);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-2)','var(--theme-color-2-complementary)')"><input type="radio" id="blabla2" name="color" <?= ($user['colorHighlight'] == 2) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-2)','var(--theme-color-2-complementary)')" class="resize-hover"><input type="radio" id="blabla2" name="color" <?= ($user['colorHighlight'] == 2) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-2);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-3)','var(--theme-color-3-complementary)')"><input type="radio" id="blabla3" name="color" <?= ($user['colorHighlight'] == 3) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-3)','var(--theme-color-3-complementary)')" class="resize-hover"><input type="radio" id="blabla3" name="color" <?= ($user['colorHighlight'] == 3) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-3);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-4)','var(--theme-color-4-complementary)')"><input type="radio" id="blabla4" name="color" <?= ($user['colorHighlight'] == 4) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-4)','var(--theme-color-4-complementary)')" class="resize-hover"><input type="radio" id="blabla4" name="color" <?= ($user['colorHighlight'] == 4) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-4);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-5)','var(--theme-color-5-complementary)')"><input type="radio" id="blabla5" name="color" <?= ($user['colorHighlight'] == 5) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-5)','var(--theme-color-5-complementary)')" class="resize-hover"><input type="radio" id="blabla5" name="color" <?= ($user['colorHighlight'] == 5) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-5);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-6)','var(--theme-color-6-complementary)')"><input type="radio" id="blabla6" name="color" <?= ($user['colorHighlight'] == 6) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-6)','var(--theme-color-6-complementary)')" class="resize-hover"><input type="radio" id="blabla6" name="color" <?= ($user['colorHighlight'] == 6) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-6);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-7)','var(--theme-color-7-complementary)')"><input type="radio" id="blabla7" name="color" <?= ($user['colorHighlight'] == 7) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-7)','var(--theme-color-7-complementary)')" class="resize-hover"><input type="radio" id="blabla7" name="color" <?= ($user['colorHighlight'] == 7) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-7);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-8)','var(--theme-color-8-complementary)')"><input type="radio" id="blabla8" name="color" <?= ($user['colorHighlight'] == 8) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-8)','var(--theme-color-8-complementary)')" class="resize-hover"><input type="radio" id="blabla8" name="color" <?= ($user['colorHighlight'] == 8) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-8);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-9)','var(--theme-color-9-complementary)')"><input type="radio" id="blabla9" name="color" <?= ($user['colorHighlight'] == 9) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-9)','var(--theme-color-9-complementary)')" class="resize-hover"><input type="radio" id="blabla9" name="color" <?= ($user['colorHighlight'] == 9) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-9);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-10)','var(--theme-color-10-complementary)')"><input type="radio" id="blabla10" name="color" <?= ($user['colorHighlight'] == 10) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-10)','var(--theme-color-10-complementary)')" class="resize-hover"><input type="radio" id="blabla10" name="color" <?= ($user['colorHighlight'] == 10) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-10);"></div>
-                                        </label><label onclick="changeHighlightColor('var(--theme-color-11)','var(--theme-color-11-complementary)')"><input type="radio" id="blabla11" name="color" <?= ($user['colorHighlight'] == 11) ? " checked" : "" ?>>
+                                        </label><label onclick="changeHighlightColor('var(--theme-color-11)','var(--theme-color-11-complementary)')" class="resize-hover"><input type="radio" id="blabla11" name="color" <?= ($user['colorHighlight'] == 11) ? " checked" : "" ?>>
                                             <div style="--circle-color:var(--theme-color-11);"></div>
                                         </label>
                                     </div>

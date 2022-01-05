@@ -391,8 +391,8 @@ function generateLink(link) {
 
   if (navigator.clipboard.writeText(copyText.value)) {
     pushCustomNotifications(
-      "ERROR! Appication run into problem. CODE #" + code,
-      "var(--notifications-error-color)"
+      "Link copied to clipboard!",
+      "var(--notifications-warning-color)"
     );
   } else {
     pushCustomNotifications(

@@ -164,7 +164,7 @@ function initialize() {
     closeAllSubmenus();
   });
 
-  document.addEventListener("contextmenu", (event) => {
+  document.getElementById("main-wrapper-div").addEventListener("contextmenu", (event) => {
     event.preventDefault();
   });
 
