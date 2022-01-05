@@ -17,6 +17,7 @@ const alwaysTopBarOffset = 20;
 const colorsInPalette = 12;
 const toolbarIconCount = 4;
 
+const url = "skaut38.cz/demo-jura/cloud/";
 const linkToStorage = "data/storage/";
 const linkToStorageThumbnails = "data/storage/thumbnails/";
 

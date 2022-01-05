@@ -1,14 +1,12 @@
 <?php
-        $username = $password = $authorized = "";
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        $id = $username = $password = $authorized = "";
+        $username = htmlspecialchars($_POST["username"]);
+        $password = htmlspecialchars($_POST["password"]);
+        
 
             $sql = "SELECT id, username, password, authorized FROM users WHERE username = '$username'";
 
             if ($stmt = $mysqli->prepare($sql)) {
-                $stmt->bind_param("s", $param_username);
-
-                $param_username = $username;
 
                 if ($stmt->execute()) {
                     $stmt->store_result();
@@ -19,7 +17,6 @@
                             if ($authorized == 1) {
                                 if (password_verify($password, $hashed_password)) {
 
-                                    session_destroy();
                                     session_start();
 
                                     $_SESSION["loggedin"] = true;

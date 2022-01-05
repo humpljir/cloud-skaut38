@@ -89,6 +89,7 @@ function drawDirectories() {
   canvas.innerHTML = "";
   storage.forEach((element) => {
     let dir = document.createElement("button");
+    dir.id = "dir-box-"+element.id;
     dir.className = "dir-box resize-hover searchable";
     dir.setAttribute("data-name", element.name);
     dir.setAttribute("data-date", element.date);

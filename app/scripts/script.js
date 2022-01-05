@@ -64,7 +64,9 @@ function inputValidator(input, type) {
 
   var regexUpperAndLower = new RegExp(/^(?=.*[A-Z])(?=.*[a-z])([^\xyz]){0,}$/);
   var regexDecimal = new RegExp(/^(?=.*\d)([^\xyz]){0,}$/);
-  var regexLabelUnallowed = new RegExp(/^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/);
+  var regexLabelUnallowed = new RegExp(
+    /^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/
+  );
   var regexUsernameUnallowed = new RegExp(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/);
   var regexEmail = new RegExp(/.+\@.+\..+/);
 
@@ -161,14 +163,14 @@ function openMenu(target, event) {
     .getElementById(target)
     .getAttribute("data-submit-label");
   document.getElementById("formbox-title-div").innerHTML = document
-  .getElementById(target)
-  .getAttribute("data-form-title");
+    .getElementById(target)
+    .getAttribute("data-form-title");
   document.getElementById("menu-submit-button").setAttribute("form", target);
   document.getElementById("main-wrapper-div").classList.add("menu-open");
 }
 
 function editFile(id, event) {
-  openMenu('form-3',event);
+  openMenu("form-3", event);
 }
 
 function openSubsortMenumenu(event) {
@@ -274,18 +276,18 @@ function closeAllSubmenus() {
 }
 
 function editFile(id, name, event) {
-  document.getElementById("edit-file-id").value=id;
-  document.getElementById("edit-file-name").value=name;
-  openMenu('form-3',event);
+  document.getElementById("edit-file-id").value = id;
+  document.getElementById("edit-file-name").value = name;
+  openMenu("form-3", event);
 }
 
 function editDir(id, name, color, event) {
-  console.log('input[name="edit-dir-color"][value="'+color+'"]');
+  console.log('input[name="edit-dir-color"][value="' + color + '"]');
   console.log(color);
-//  document.querySelector('input[name="edit-dir-color"][value="'+color+'"]').setAttribute("checked","true");
-  document.getElementById("edit-dir-id").value=id;
-  document.getElementById("edit-dir-name").value=name;
-  openMenu('form-4',event);
+  //  document.querySelector('input[name="edit-dir-color"][value="'+color+'"]').setAttribute("checked","true");
+  document.getElementById("edit-dir-id").value = id;
+  document.getElementById("edit-dir-name").value = name;
+  openMenu("form-4", event);
 }
 
 function openSide() {
@@ -381,14 +383,26 @@ function closeDir() {
 function generateLink(link) {
   let copyText = document.createElement("input");
   copyText.style.display = "none";
-  copyText.value = "skaut38.cz/demo-jura/cloud/index.php?"+link;
+  copyText.value = url + "index.php?" + link;
   document.body.append(copyText);
   /* Select the text field */
   copyText.select();
   copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
+  if (navigator.clipboard.writeText(copyText.value)) {
+    pushCustomNotifications(
+      "ERROR! Appication run into problem. CODE #" + code,
+      "var(--notifications-error-color)"
+    );
+  } else {
+    pushCustomNotifications(
+      "ERROR! Unable to copy link to clipboard. Link: " +
+        url +
+        "index.php?" +
+        link,
+      "var(--notifications-error-color)"
+    );
+  }
   copyText.remove();
 }
 

@@ -17,14 +17,14 @@ if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])
     if (validate($_GET['fileid'], 'numeric')) {
         if ($_GET['typy'] == 'file') {
             if ($_GET['fileaction'] == 'Delete') {
-                file_delete($_GET['fileid']);
+                file_delete(htmlspecialchars($_GET['fileid']));
             } elseif ($_GET['fileaction'] == 'Move') {
             } elseif ($_GET['fileaction'] == 'Duplicate') {
             }
         }
         if ($_GET['typy'] == 'dir') {
             if ($_GET['fileaction'] == 'Delete') {
-                dir_delete($_GET['fileid']);
+                dir_delete(htmlspecialchars($_GET['fileid']));
             }
         }
     }
@@ -32,25 +32,25 @@ if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])
 
 if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
     if (validate($_POST['edit-file-id'], 'numeric') && validate($_POST['edit-file-name'], 'label')) {
-        file_edit($_POST['edit-file-id'], $_POST['edit-file-name']);
+        file_edit(htmlspecialchars($_POST['edit-file-id']), htmlspecialchars($_POST['edit-file-name']));
     }
 }
 
 if (isset($_POST['edit-dir-id']) && isset($_POST['edit-dir-name']) && isset($_POST['edit-dir-color'])) {
     if (validate($_POST['edit-dir-id'], 'numeric') && validate($_POST['edit-dir-name'], 'label') && validate($_POST['edit-dir-color'], 'numeric')) {
-        dir_edit($_POST['edit-dir-id'], $_POST['edit-dir-name'], $_POST['edit-dir-color']);
+        dir_edit(htmlspecialchars($_POST['edit-dir-id']), htmlspecialchars($_POST['edit-dir-name']), htmlspecialchars($_POST['edit-dir-color']));
     }
 }
 
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
     if (validate($_POST['file_upload_name'], 'label') && validate($_POST['file_upload_select'], 'numeric')) {
-        file_new($_POST['file_upload_name'], $_POST['file_upload_select']);
+        file_new(htmlspecialchars($_POST['file_upload_name']), htmlspecialchars($_POST['file_upload_select']));
     }
 }
 
 if (isset($_POST['dir-name']) && isset($_POST['dir-color'])) {
     if (validate($_POST['dir-name'], 'label') && validate($_POST['dir-color'], 'numeric')) {
-        directory_new($_POST['dir-name'], $_POST['dir-color']);
+        directory_new(htmlspecialchars($_POST['dir-name']), htmlspecialchars($_POST['dir-color']));
     }
 }
 
@@ -129,6 +129,13 @@ if ($user = $result->fetch_assoc()) {
 
             function onloadFromPHP() {
                 <?= ($user['toolbarCustom'] == 1) ? "toggleToolbarEditMode();" : "" ?>
+                <?php
+                if (isset($_GET['dir'])) {
+                    if(validate($_GET['dir'],'numceric')) {
+                    echo "openDir(document.getElementById('dir-box-" + $_GET['dir'] + "'))";
+                    }
+                }
+                 ?>
 
                 setTimeout(() => {
                     <?= $global_error ?>
@@ -402,40 +409,40 @@ if ($user = $result->fetch_assoc()) {
                         <input type="text" id="dir-name" name="dir-name" data-validate="label" data-validate="label" placeholder="directory name">
                         <div class="color-selector">
                             <label class="resize-hover">
-                                <input type="radio" id="dir-color-0" name="dir-color" value="0" checked>
+                                <input type="radio" id="new-dir-color-0" name="dir-color" value="0" checked>
                                 <div style="--circle-color: var(--theme-color-0);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-1" name="dir-color" value="1">
+                                <input type="radio" id="new-dir-color-1" name="dir-color" value="1">
                                 <div style="--circle-color: var(--theme-color-1);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-2" name="dir-color" value="2">
+                                <input type="radio" id="new-dir-color-2" name="dir-color" value="2">
                                 <div style="--circle-color: var(--theme-color-2);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-3" name="dir-color" value="3">
+                                <input type="radio" id="new-dir-color-3" name="dir-color" value="3">
                                 <div style="--circle-color: var(--theme-color-3);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-4" name="dir-color" value="4">
+                                <input type="radio" id="new-dir-color-4" name="dir-color" value="4">
                                 <div style="--circle-color: var(--theme-color-4);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-5" name="dir-color" value="5">
+                                <input type="radio" id="new-dir-color-5" name="dir-color" value="5">
                                 <div style="--circle-color: var(--theme-color-5);"></div>
-                            </label class="resize-hover"><label>
-                                <input type="radio" id="dir-color-6" name="dir-color" value="6">
+                            </label><label class="resize-hover">
+                                <input type="radio" id="new-dir-color-6" name="dir-color" value="6">
                                 <div style="--circle-color: var(--theme-color-6);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-7" name="dir-color" value="7">
+                                <input type="radio" id="new-dir-color-7" name="dir-color" value="7">
                                 <div style="--circle-color: var(--theme-color-7);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-8" name="dir-color" value="8">
+                                <input type="radio" id="new-dir-color-8" name="dir-color" value="8">
                                 <div style="--circle-color: var(--theme-color-8);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-9" name="dir-color" value="9">
+                                <input type="radio" id="new-dir-color-9" name="dir-color" value="9">
                                 <div style="--circle-color: var(--theme-color-9);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-10" name="dir-color" value="10">
+                                <input type="radio" id="new-dir-color-10" name="dir-color" value="10">
                                 <div style="--circle-color: var(--theme-color-10);"></div>
                             </label> <label class="resize-hover">
-                                <input type="radio" id="dir-color-11" name="dir-color" value="11">
+                                <input type="radio" id="new-dir-color-11" name="dir-color" value="11">
                                 <div style="--circle-color: var(--theme-color-11);"></div>
                             </label>
 
