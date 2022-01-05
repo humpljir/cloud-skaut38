@@ -116,7 +116,7 @@ function file_edit($id, $name) {
     $sql = "UPDATE files SET name='$name' WHERE id='$id'";
 
         if ($mysqli->query($sql) !== TRUE) {
-            add_global_error("Error updating file: " . $mysqli->error, "var(--notifications-warning-color)");
+            add_global_error("Error updating file: " . $mysqli->error, "var(--notifications-error-color)");
         } else {
         add_global_error("File updated.", "var(--notifications-regular-color)");
     }
@@ -145,6 +145,6 @@ function directory_new($name, $color)
     if ($mysqli->query($sql) == TRUE) {
         add_global_error("Directory created!", "var(--notifications-regular-color)");
     } else {
-        add_global_error("Error creating directory: " . $mysqli->error, "var(--notifications-warning-color)");
+        add_global_error("Error creating directory: " . $mysqli->error, "var(--notifications-error-color)");
     }
 }
