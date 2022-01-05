@@ -64,22 +64,20 @@ function inputValidator(input, type) {
 
   var regexUpperAndLower = new RegExp(/^(?=.*[A-Z])(?=.*[a-z])([^\xyz]){0,}$/);
   var regexDecimal = new RegExp(/^(?=.*\d)([^\xyz]){0,}$/);
-  var regexLabelUnallowed = new RegExp(
-    /^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/
-  );
+  var regexLabelUnallowed = new RegExp(/^[a-zA-Zá-žÁ-Ž0-9\s!?.\$%\^\&*\)\(+=._-]+$/);
   var regexUsernameUnallowed = new RegExp(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/);
   var regexEmail = new RegExp(/.+\@.+\..+/);
 
   if (type == "username") {
-    if (!(value.length > 7 && value.length < 200)) {
-      errorMessage += "<li>length between 8 and 200 chars</li>";
+    if (!(value.length > 5 && value.length < 201)) {
+      errorMessage += "<li>length between 6 and 200 chars</li>";
     }
 
     if (!regexUsernameUnallowed.test(value)) {
       errorMessage += "<li>contains unallowed symbols</li>";
     }
   } else if (type == "label") {
-    if (!(value.length > 0 && value.length < 200)) {
+    if (!(value.length > 0 && value.length < 201)) {
       errorMessage += "<li>length between 1 and 200 chars</li>";
     }
 
@@ -91,7 +89,7 @@ function inputValidator(input, type) {
       errorMessage += "<li>this is not an email adress</li>";
     }
   } else if (type == "password") {
-    if (!(value.length > 7 && value.length < 200)) {
+    if (!(value.length > 7 && value.length < 201)) {
       errorMessage += "<li>length between 8 and 200 chars</li>";
     }
 
@@ -378,6 +376,20 @@ function closeDir() {
     drawDirectories();
     blankCanvas.classList.remove("blank-canvas");
   }, 400);
+}
+
+function generateLink(link) {
+  let copyText = document.createElement("input");
+  copyText.style.display = "none";
+  copyText.value = "skaut38.cz/demo-jura/cloud/index.php?"+link;
+  document.body.append(copyText);
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  copyText.remove();
 }
 
 console.log("✅ script.js successfully loaded!");

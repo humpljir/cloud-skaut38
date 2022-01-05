@@ -2,6 +2,7 @@
 include_once("modules/error.php");
 include_once("modules/config.php");
 include_once("modules/filesystem.php");
+include_once("modules/validation.php");
 
 // Initialize the session
 session_start();
@@ -13,34 +14,44 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 
 if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])) {
-    if ($_GET['typy'] == 'file') {
-        if ($_GET['fileaction'] == 'Delete') {
-            file_delete($_GET['fileid']);
-        } elseif ($_GET['fileaction'] == 'Move') {
-        } elseif ($_GET['fileaction'] == 'Duplicate') {
+    if (validate($_GET['fileid'], 'numeric')) {
+        if ($_GET['typy'] == 'file') {
+            if ($_GET['fileaction'] == 'Delete') {
+                file_delete($_GET['fileid']);
+            } elseif ($_GET['fileaction'] == 'Move') {
+            } elseif ($_GET['fileaction'] == 'Duplicate') {
+            }
         }
-    }
-    if ($_GET['typy'] == 'dir') {
-        if ($_GET['fileaction'] == 'Delete') {
-            dir_delete($_GET['fileid']);
+        if ($_GET['typy'] == 'dir') {
+            if ($_GET['fileaction'] == 'Delete') {
+                dir_delete($_GET['fileid']);
+            }
         }
     }
 }
 
 if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
-    file_edit($_POST['edit-file-id'],$_POST['edit-file-name']);
+    if(validate($_POST['edit-file-id'],'numeric') && validate($_POST['edit-file-name'],'label')){
+    file_edit($_POST['edit-file-id'], $_POST['edit-file-name']);
+    }
 }
 
 if (isset($_POST['edit-dir-id']) && isset($_POST['edit-dir-name']) && isset($_POST['edit-dir-color'])) {
-    dir_edit($_POST['edit-dir-id'],$_POST['edit-dir-name'],$_POST['edit-dir-color']);
+    if(validate($_POST['edit-dir-id'],'numeric') && validate($_POST['edit-dir-name'],'label') && validate($_POST['edit-dir-color'],'numeric')){
+    dir_edit($_POST['edit-dir-id'], $_POST['edit-dir-name'], $_POST['edit-dir-color']);
+    }
 }
 
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
+    if(validate($_POST['file_upload_name'],'label') && validate($_POST['file_upload_select'],'numeric')){
     file_new($_POST['file_upload_name'], $_POST['file_upload_select']);
+    }
 }
 
-if (isset($_POST['dir-name'])) {
+if (isset($_POST['dir-name']) && isset($_POST['dir-color'])) {
+    if(validate($_POST['dir-name'],'label') && validate($_POST['dir-color'],'numeric')){
     directory_new($_POST['dir-name'], $_POST['dir-color']);
+    }
 }
 
 $sql = " SELECT * FROM users WHERE username='$_SESSION[username]'";

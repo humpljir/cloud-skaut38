@@ -107,13 +107,11 @@ function drawDirectories() {
     });
     dir.innerHTML = element.name;
     let submenu = generateSubmenu(dir, "dir", element.id, [
-      { label: "Share", function: "default" },
+      { label: "Share", function: "generateLink('dir="+element.id+"')"},
       {
         label: "Edit",
         function: "editDir('" + element.id + "','" + element.name + "','"+element.color+"',event)",
       },
-      { label: "Duplicate", function: "default" },
-      { label: "Convert", function: "default" },
       { label: "Delete", function: "default" },
     ]);
 
@@ -180,13 +178,11 @@ function drawFiles(dirID) {
           function: "openGallery(this.parentNode.parentNode);",
         },
         { label: "Download", function: "download" },
-        { label: "Share", function: "default" },
         {
           label: "Edit",
           function: "editFile('" + element.id + "','" + element.name + "',event)",
         },
-        { label: "Duplicate", function: "default" },
-        { label: "Move", function: "default" },
+        { label: "Move", function: "editFile('" + element.id + "','" + element.name + "',event)" },
         { label: "Delete", function: "default" },
       ])
     );

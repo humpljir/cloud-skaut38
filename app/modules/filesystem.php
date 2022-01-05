@@ -118,7 +118,7 @@ function file_edit($id, $name) {
         if ($mysqli->query($sql) !== TRUE) {
             add_global_error("Error updating file: " . $mysqli->error, "var(--notifications-warning-color)");
         } else {
-        add_global_error("File updated.", "var(--notifications-error-color)");
+        add_global_error("File updated.", "var(--notifications-regular-color)");
     }
 }
 
