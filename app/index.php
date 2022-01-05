@@ -31,26 +31,26 @@ if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])
 }
 
 if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
-    if(validate($_POST['edit-file-id'],'numeric') && validate($_POST['edit-file-name'],'label')){
-    file_edit($_POST['edit-file-id'], $_POST['edit-file-name']);
+    if (validate($_POST['edit-file-id'], 'numeric') && validate($_POST['edit-file-name'], 'label')) {
+        file_edit($_POST['edit-file-id'], $_POST['edit-file-name']);
     }
 }
 
 if (isset($_POST['edit-dir-id']) && isset($_POST['edit-dir-name']) && isset($_POST['edit-dir-color'])) {
-    if(validate($_POST['edit-dir-id'],'numeric') && validate($_POST['edit-dir-name'],'label') && validate($_POST['edit-dir-color'],'numeric')){
-    dir_edit($_POST['edit-dir-id'], $_POST['edit-dir-name'], $_POST['edit-dir-color']);
+    if (validate($_POST['edit-dir-id'], 'numeric') && validate($_POST['edit-dir-name'], 'label') && validate($_POST['edit-dir-color'], 'numeric')) {
+        dir_edit($_POST['edit-dir-id'], $_POST['edit-dir-name'], $_POST['edit-dir-color']);
     }
 }
 
 if (isset($_POST['file_upload_name']) && isset($_POST['file_upload_select'])) {
-    if(validate($_POST['file_upload_name'],'label') && validate($_POST['file_upload_select'],'numeric')){
-    file_new($_POST['file_upload_name'], $_POST['file_upload_select']);
+    if (validate($_POST['file_upload_name'], 'label') && validate($_POST['file_upload_select'], 'numeric')) {
+        file_new($_POST['file_upload_name'], $_POST['file_upload_select']);
     }
 }
 
 if (isset($_POST['dir-name']) && isset($_POST['dir-color'])) {
-    if(validate($_POST['dir-name'],'label') && validate($_POST['dir-color'],'numeric')){
-    directory_new($_POST['dir-name'], $_POST['dir-color']);
+    if (validate($_POST['dir-name'], 'label') && validate($_POST['dir-color'], 'numeric')) {
+        directory_new($_POST['dir-name'], $_POST['dir-color']);
     }
 }
 
@@ -129,7 +129,10 @@ if ($user = $result->fetch_assoc()) {
 
             function onloadFromPHP() {
                 <?= ($user['toolbarCustom'] == 1) ? "toggleToolbarEditMode();" : "" ?>
-                <?= $global_error ?>
+
+                setTimeout(() => {
+                    <?= $global_error ?>
+                }, 2000);
             }
         </script>
     </head>

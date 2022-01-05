@@ -100,15 +100,7 @@ if (isset($_POST["register_username"])) {
             <?php
 
             echo 'setTimeout(() => {';
-            echo $global_err;
-            if (!empty($username_err)) {
-                echo 'pushCustomNotifications( "' . $username_err . '", "var(--notifications-error-color)");';
-            }
-
-            if (!empty($password_err)) {
-                echo 'pushCustomNotifications( "' . $password_err . '", "var(--notifications-error-color)");';
-            }
-
+            echo $global_error;
             if (isset($_GET['why'])) {
                 if ($_GET['why'] == 'notlogin') {
                     echo 'pushCustomNotifications( "ERROR! You need to login first to open this link.", "var(--notifications-warning-color)");';

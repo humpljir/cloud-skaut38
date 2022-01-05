@@ -1,7 +1,9 @@
 <?php
         $username = $password = $authorized = "";
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
-            $sql = "SELECT id, username, password, authorized FROM users WHERE username = ?";
+            $sql = "SELECT id, username, password, authorized FROM users WHERE username = '$username'";
 
             if ($stmt = $mysqli->prepare($sql)) {
                 $stmt->bind_param("s", $param_username);
