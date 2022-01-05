@@ -1,7 +1,5 @@
 <?php
-        // Define variables and initialize with empty values
         $username = $password = $authorized = "";
-        $username_err = $password_err = $global_err = "";
 
             $sql = "SELECT id, username, password, authorized FROM users WHERE username = ?";
 
@@ -28,17 +26,17 @@
 
                                     header("location: index.php?");
                                 } else {
-                                    $global_err .= 'pushCustomNotifications("The password you entered was not valid.", "var(--notifications-error-color)");';
+                                    add_global_error('The password you entered was not valid.','var(--notifications-error-color)');
                                 }
                             } else {
-                                $global_err .= 'pushCustomNotifications("Your account needs to be manually verified to start using this cloud. Please, contact your scoutmaster.", "var(--notifications-error-color)");';
+                                add_global_error('Your account needs to be manually verified to start using this cloud. Please, contact your scoutmaster.','var(--notifications-error-color)');
                             }
                         }
                     } else {
-                        $global_err .= 'pushCustomNotifications("No account found with that username.", "var(--notifications-error-color)");';
+                        add_global_error('No account found with that username.','var(--notifications-error-color)');
                     }
                 } else {
-                    $global_err .= 'pushCustomNotifications("Oops! Something went wrong. Please try again later.", "var(--notifications-error-color)");';
+                    add_global_error('Oops! Something went wrong. Please try again later.','var(--notifications-error-color)');
                 }
 
                 $stmt->close();
