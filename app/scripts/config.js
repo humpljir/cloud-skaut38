@@ -18,6 +18,7 @@ const colorsInPalette = 12;
 const toolbarIconCount = 4;
 
 const url = "skaut38.cz/demo-jura/cloud/";
+const linkToProfilePic = "data/users/profile_img/";
 const linkToStorage = "data/storage/";
 const linkToStorageThumbnails = "data/storage/thumbnails/";
 

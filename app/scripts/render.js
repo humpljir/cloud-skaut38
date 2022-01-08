@@ -28,20 +28,18 @@ function generateSubmenu(scope, targettype, element, options) {
 
   let submenuInfoBox = document.createElement("div");
   submenuInfoBox.className = "submenu-infobox fluent-bg";
-
-  let submenuInfoBoxTitle = document.createElement("div");
-  submenuInfoBoxTitle.className = "infobox-title";
-  submenuInfoBoxTitle.innerHTML = element.name;
-  let submenuInfoBoxFilename = document.createElement("div");
-  submenuInfoBoxFilename.className = "infobox-filename";
-  submenuInfoBoxFilename.innerHTML = element.legacyLink;
-  let submenuInfoBoxText = document.createElement("div");
-  submenuInfoBoxText.className = "infobox-text";
-
   if (targettype == "file") {
     let submenuInfoBoxExtension = document.createElement("div");
     submenuInfoBoxExtension.className = "infobox-extension";
     submenuInfoBoxExtension.innerHTML = element.extension;
+    let submenuInfoBoxTitle = document.createElement("div");
+    submenuInfoBoxTitle.className = "infobox-title";
+    submenuInfoBoxTitle.innerHTML = element.name;
+    let submenuInfoBoxFilename = document.createElement("div");
+    submenuInfoBoxFilename.className = "infobox-filename";
+    submenuInfoBoxFilename.innerHTML = element.legacyLink;
+    let submenuInfoBoxText = document.createElement("div");
+    submenuInfoBoxText.className = "infobox-text";
     submenuInfoBoxText.innerHTML =
       '<div class="infobox-line"><div class="infobox-parameter">Size</div><div class="infobox-value">' +
       convertFileSizeString(element.size) +
@@ -61,16 +59,43 @@ function generateSubmenu(scope, targettype, element, options) {
     } else {
       submenuInfoBoxIcon.className = "infobox-icon infobox-fileicon";
     }
-  }
-  submenuInfoBox.append(submenuInfoBoxExtension);
-  else {
+    submenuInfoBox.append(submenuInfoBoxExtension);
+    submenuInfoBox.append(submenuInfoBoxTitle);
+    submenuInfoBox.append(submenuInfoBoxFilename);
+    submenuInfoBox.append(submenuInfoBoxText);
+    submenuInfoBox.append(submenuInfoBoxIcon);
+    submenu.append(submenuInfoBox);
 
+  } else if (targettype == "dir") {
+    let submenuInfoBox = document.createElement("div");
+    submenuInfoBox.className = "submenu-infobox fluent-bg";
+    let submenuInfoBoxTitle = document.createElement("div");
+    submenuInfoBoxTitle.className = "infobox-title";
+    submenuInfoBoxTitle.innerHTML = element.name;
+    let submenuInfoBoxText = document.createElement("div");
+    submenuInfoBoxText.className = "infobox-text";
+    submenuInfoBoxText.innerHTML =
+      '<div class="infobox-line"><div class="infobox-parameter">Size</div><div class="infobox-value">' +
+      convertFileSizeString(element.size) +
+      '</div></div><div class="infobox-line"><div class="infobox-parameter">Uploaded</div><div class="infobox-value">' +
+      new Date(element.date * 1000).toLocaleDateString("cs-CZ") +
+      '</div></div><div class="infobox-line"><div class="infobox-parameter">Author</div><div class="infobox-value"><div class="infobox-author-icon" style="background-image:url(' +
+      linkToProfilePic +
+      element.authorImg +
+      ')"></div>' +
+      element.author +
+      "</div></div></div>";
+    let submenuInfoBoxIcon = document.createElement("div");
+    submenuInfoBoxIcon.className = "infobox-diricon";
+    submenuInfoBoxIcon.innerHTML = element.name;
+    submenuInfoBoxIcon.style.backgroundColor = element.color;
+    submenuInfoBoxIcon.style.color = element.colorComplementary;
+
+    submenuInfoBox.append(submenuInfoBoxTitle);
+    submenuInfoBox.append(submenuInfoBoxText);
+    submenuInfoBox.append(submenuInfoBoxIcon);
+    submenu.append(submenuInfoBox);
   }
-  submenuInfoBox.append(submenuInfoBoxTitle);
-  submenuInfoBox.append(submenuInfoBoxFilename);
-  submenuInfoBox.append(submenuInfoBoxText);
-  submenuInfoBox.append(submenuInfoBoxIcon);
-  submenu.append(submenuInfoBox);
 
   let submenuBox = document.createElement("div");
   submenuBox.className = "submenu-box fluent-bg";
