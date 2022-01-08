@@ -400,23 +400,87 @@ style.css
   position: absolute;
   left: 0;
   top: 0;
-  padding: 4px;
-  border-radius: var(--menu-border-radius);
-  overflow: hidden;
   transform: scaleY(0);
   transform-origin: left top;
   pointer-events: none;
   transition: transform 0.2s ease;
-  border-left: 1px solid var(--fluent-border-light);
-  border-top: 1px solid var(--fluent-border-light);
-  border-right: 1px solid var(--fluent-border-dark);
-  border-bottom: 1px solid var(--fluent-border-dark);
-  box-shadow: 4px 5px 24px #00000026;
   z-index: 1;
 }
 .submenu-wrapper.visible {
   transform: scaleY(1);
   pointer-events: all;
+}
+.submenu-infobox {
+  position: absolute;
+  top: 0;
+  transform: translateY(calc(-100% - var(--menu-spacing)));
+  overflow: hidden;
+  padding: 20px;
+  border-radius: var(
+--menu-border-radius);
+  border-left: 1px solid var(
+--fluent-border-light);
+  border-top: 1px solid var(
+--fluent-border-light);
+  border-right: 1px solid var(
+--fluent-border-dark);
+  border-bottom: 1px solid var(
+--fluent-border-dark);
+  box-shadow: 4px 5px 24px #00000026;
+  width: 260px;
+  color: var(
+--main-fg-color);
+  box-sizing: border-box;
+}
+.infobox-text {
+padding-left: 80px;
+}
+.infobox-icon {
+position: absolute;
+}
+.infobox-title {
+  text-align: left;
+  font-weight: 700;
+  padding: 5px 0;
+}
+.infobox-line {
+  position: relative;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin: 3px 0;
+}
+.infobox-parameter {
+display: inline-block;
+opacity: 0.6;
+}
+.infobox-value {
+  display: inline-block;
+  max-width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.infobox-icon::before {
+content: "";
+}
+.infobox-icon.infobox-img {
+
+}
+.infobox-icon.infobox-img::before {
+
+}
+.submenu-box {
+  position: relative;
+  overflow: hidden;
+  padding: 4px;
+  border-radius: var(--menu-border-radius);
+  border-left: 1px solid var(--fluent-border-light);
+  border-top: 1px solid var(--fluent-border-light);
+  border-right: 1px solid var(--fluent-border-dark);
+  border-bottom: 1px solid var(--fluent-border-dark);
+  box-shadow: 4px 5px 24px #00000026;
+  width: 160px;
+  box-sizing: border-box;
 }
 .submenu-dots {
   position: absolute;

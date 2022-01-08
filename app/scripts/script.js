@@ -394,6 +394,7 @@ function generateLink(link) {
       "Link copied to clipboard!",
       "var(--notifications-warning-color)"
     );
+    copyText.remove();
   } else {
     pushCustomNotifications(
       "ERROR! Unable to copy link to clipboard. Link: " +
@@ -402,8 +403,8 @@ function generateLink(link) {
         link,
       "var(--notifications-error-color)"
     );
+    copyText.remove();
   }
-  copyText.remove();
 }
 
 console.log("✅ script.js successfully loaded!");

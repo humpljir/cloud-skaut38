@@ -1,7 +1,9 @@
 <style>        <?php
-        $active_palette_sql = "SELECT * FROM palette";
+        $id = $user['activePalette'];
+        $active_palette_sql = "SELECT * FROM palette WHERE id='$id' LIMIT 1";
         $active_palette_result = $mysqli->query($active_palette_sql);
-        $active_palette = $active_palette_result->fetch_assoc()[$user['activePalette']];
+        $active_palette = $active_palette_result->fetch_assoc();
+        
         ?>
     :root {
         --theme-color-0: #<?= $active_palette['color0'] ?>;

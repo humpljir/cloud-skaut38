@@ -15,10 +15,12 @@
                             while ($fil = $fil_result->fetch_assoc()) {
                             ?> {
                         id: <?= $fil['id'] ?>,
+                        author: "<?= $fil['author'] ?>",
                         name: "<?= $fil['name'] ?>",
                         date: <?= strtotime($fil['date']) ?>,
                         extension: "<?= $fil['extension'] ?>",
                         link: "<?= $fil['link'] ?>",
+                        legacyLink: "<?= $fil['legacylink'] ?>",
                         type: "<?= $fil['type'] ?>",
                         size: <?= $fil['size'] ?>,
                     }, <?php } ?>]

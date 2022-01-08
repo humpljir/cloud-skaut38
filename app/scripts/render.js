@@ -11,9 +11,43 @@ render.js
   File contains all funtions related to rendering content.
 */
 
-function generateSubmenu(scope, targettype, fileid, options) {
+function generateSubmenu(scope, targettype, element, options) {
   let submenu = document.createElement("div");
-  submenu.className = "submenu-wrapper fluent-bg";
+  submenu.className = "submenu-wrapper";
+
+  if (targettype == "file") {
+    let submenuInfoBox = document.createElement("div");
+    submenuInfoBox.className = "submenu-infobox fluent-bg";
+    let submenuInfoBoxText = document.createElement("div");
+    submenuInfoBoxText.className = "infobox-text";
+    submenuInfoBoxText.innerHTML =
+      '<div class="infobox-title">' +
+      element.name +
+      '</div><div class="infobox-line"><div class="infobox-parameter">Filename</div><div class="infobox-value">' +
+      element.legacyLink +
+      '</div></div><div class="infobox-line"><div class="infobox-parameter">Size</div><div class="infobox-value">' +
+      element.size +
+      '</div></div><div class="infobox-line"><div class="infobox-parameter">Uploaded</div><div class="infobox-value">' +
+      element.date +
+      '</div></div><div class="infobox-line"><div class="infobox-parameter">Author</div><div class="infobox-value">' +
+      element.author +
+      "</div></div></div>";
+    let submenuInfoBoxIcon = document.createElement("div");
+    if (element.type == "image") {
+      submenuInfoBoxIcon.className = "infobox-icon infobox-img";
+      submenuInfoBoxIcon.style.backgroundImage =
+        "url(" + linkToStorageThumbnails + element.link + ")";
+    } else {
+      submenuInfoBoxIcon.className = "infobox-icon";
+    }
+    submenuInfoBox.append(submenuInfoBoxIcon);
+    submenuInfoBox.append(submenuInfoBoxText);
+
+  submenu.append(submenuInfoBox);
+  }
+
+  let submenuBox = document.createElement("div");
+  submenuBox.className = "submenu-box fluent-bg";
   options.forEach((option) => {
     let line = document.createElement("a");
     if (option.function == "default") {
@@ -23,7 +57,7 @@ function generateSubmenu(scope, targettype, fileid, options) {
         "&typy=" +
         targettype +
         "&fileid=" +
-        fileid;
+        element.id;
     } else if (option.function == "download") {
       line.href = scope.parentNode.href;
       line.setAttribute("download", "");
@@ -37,8 +71,10 @@ function generateSubmenu(scope, targettype, fileid, options) {
       event.stopPropagation();
       closeAllSubmenus();
     });
-    submenu.append(line);
+    submenuBox.append(line);
   });
+
+  submenu.append(submenuBox);
 
   scope.addEventListener("contextmenu", (event) => {
     closeAllSubmenus();
@@ -89,7 +125,7 @@ function drawDirectories() {
   canvas.innerHTML = "";
   storage.forEach((element) => {
     let dir = document.createElement("button");
-    dir.id = "dir-box-"+element.id;
+    dir.id = "dir-box-" + element.id;
     dir.className = "dir-box resize-hover searchable";
     dir.setAttribute("data-name", element.name);
     dir.setAttribute("data-date", element.date);
@@ -107,11 +143,18 @@ function drawDirectories() {
       openDir(dir);
     });
     dir.innerHTML = element.name;
-    let submenu = generateSubmenu(dir, "dir", element.id, [
-      { label: "Share", function: "generateLink('dir="+element.id+"')"},
+    let submenu = generateSubmenu(dir, "dir", element, [
+      { label: "Share", function: "generateLink('dir=" + element.id + "')" },
       {
         label: "Edit",
-        function: "editDir('" + element.id + "','" + element.name + "','"+element.color+"',event)",
+        function:
+          "editDir('" +
+          element.id +
+          "','" +
+          element.name +
+          "','" +
+          element.color +
+          "',event)",
       },
       { label: "Delete", function: "default" },
     ]);
@@ -173,7 +216,7 @@ function drawFiles(dirID) {
     filebox.append(fileicon);
     filebox.append(filelabel);
     filebox.append(
-      generateSubmenu(filebox, "file", element.id, [
+      generateSubmenu(filebox, "file", element, [
         {
           label: "Open",
           function: "openGallery(this.parentNode.parentNode);",
@@ -181,9 +224,14 @@ function drawFiles(dirID) {
         { label: "Download", function: "download" },
         {
           label: "Edit",
-          function: "editFile('" + element.id + "','" + element.name + "',event)",
+          function:
+            "editFile('" + element.id + "','" + element.name + "',event)",
         },
-        { label: "Move", function: "editFile('" + element.id + "','" + element.name + "',event)" },
+        {
+          label: "Move",
+          function:
+            "editFile('" + element.id + "','" + element.name + "',event)",
+        },
         { label: "Delete", function: "default" },
       ])
     );
