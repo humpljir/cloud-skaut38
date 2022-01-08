@@ -11,25 +11,46 @@ render.js
   File contains all funtions related to rendering content.
 */
 
+function convertFileSizeString(fileSizeInBytes) {
+  var i = -1;
+  var byteUnits = [" kB", " MB", " GB", " TB", "PB", "EB", "ZB", "YB"];
+  do {
+    fileSizeInBytes = fileSizeInBytes / 1024;
+    i++;
+  } while (fileSizeInBytes > 1024);
+
+  return Math.max(fileSizeInBytes, 0.1).toFixed(1) + byteUnits[i];
+}
+
 function generateSubmenu(scope, targettype, element, options) {
   let submenu = document.createElement("div");
   submenu.className = "submenu-wrapper";
 
+  let submenuInfoBox = document.createElement("div");
+  submenuInfoBox.className = "submenu-infobox fluent-bg";
+
+  let submenuInfoBoxTitle = document.createElement("div");
+  submenuInfoBoxTitle.className = "infobox-title";
+  submenuInfoBoxTitle.innerHTML = element.name;
+  let submenuInfoBoxFilename = document.createElement("div");
+  submenuInfoBoxFilename.className = "infobox-filename";
+  submenuInfoBoxFilename.innerHTML = element.legacyLink;
+  let submenuInfoBoxText = document.createElement("div");
+  submenuInfoBoxText.className = "infobox-text";
+
   if (targettype == "file") {
-    let submenuInfoBox = document.createElement("div");
-    submenuInfoBox.className = "submenu-infobox fluent-bg";
-    let submenuInfoBoxText = document.createElement("div");
-    submenuInfoBoxText.className = "infobox-text";
+    let submenuInfoBoxExtension = document.createElement("div");
+    submenuInfoBoxExtension.className = "infobox-extension";
+    submenuInfoBoxExtension.innerHTML = element.extension;
     submenuInfoBoxText.innerHTML =
-      '<div class="infobox-title">' +
-      element.name +
-      '</div><div class="infobox-line"><div class="infobox-parameter">Filename</div><div class="infobox-value">' +
-      element.legacyLink +
-      '</div></div><div class="infobox-line"><div class="infobox-parameter">Size</div><div class="infobox-value">' +
-      element.size +
+      '<div class="infobox-line"><div class="infobox-parameter">Size</div><div class="infobox-value">' +
+      convertFileSizeString(element.size) +
       '</div></div><div class="infobox-line"><div class="infobox-parameter">Uploaded</div><div class="infobox-value">' +
-      element.date +
-      '</div></div><div class="infobox-line"><div class="infobox-parameter">Author</div><div class="infobox-value">' +
+      new Date(element.date * 1000).toLocaleDateString("cs-CZ") +
+      '</div></div><div class="infobox-line"><div class="infobox-parameter">Author</div><div class="infobox-value"><div class="infobox-author-icon" style="background-image:url(' +
+      linkToProfilePic +
+      element.authorImg +
+      ')"></div>' +
       element.author +
       "</div></div></div>";
     let submenuInfoBoxIcon = document.createElement("div");
@@ -38,13 +59,18 @@ function generateSubmenu(scope, targettype, element, options) {
       submenuInfoBoxIcon.style.backgroundImage =
         "url(" + linkToStorageThumbnails + element.link + ")";
     } else {
-      submenuInfoBoxIcon.className = "infobox-icon";
+      submenuInfoBoxIcon.className = "infobox-icon infobox-fileicon";
     }
-    submenuInfoBox.append(submenuInfoBoxIcon);
-    submenuInfoBox.append(submenuInfoBoxText);
-
-  submenu.append(submenuInfoBox);
   }
+  submenuInfoBox.append(submenuInfoBoxExtension);
+  else {
+
+  }
+  submenuInfoBox.append(submenuInfoBoxTitle);
+  submenuInfoBox.append(submenuInfoBoxFilename);
+  submenuInfoBox.append(submenuInfoBoxText);
+  submenuInfoBox.append(submenuInfoBoxIcon);
+  submenu.append(submenuInfoBox);
 
   let submenuBox = document.createElement("div");
   submenuBox.className = "submenu-box fluent-bg";
