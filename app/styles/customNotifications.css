@@ -47,4 +47,6 @@ customNotifications.css
   opacity: 1;
   -webkit-animation: flashHighlight 0.4s 0s;
   animation: flashHighlight 0.4s 0s;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
