@@ -385,26 +385,37 @@ function generateLink(link) {
   copyText.style.display = "none";
   copyText.value = url + "index.php?" + link;
   document.body.append(copyText);
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    try {
 
-  if (navigator.clipboard.writeText(copyText.value)) {
-    pushCustomNotifications(
-      "Link copied to clipboard!",
-      "var(--notifications-warning-color)"
-    );
+      copyText.focus();
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+      if (document.execCommand('copy')) {
+        pushCustomNotifications(
+          "Link copied to clipboard!",
+          "var(--notifications-warning-color)"
+        );
+      } else {pushCustomNotifications(
+        "ERROR! Unable to copy link to clipboard. Link: " +
+          url +
+          "index.php?" +
+          link,
+        "var(--notifications-error-color)"
+      );
+      }
+    } catch (err) {
+      pushCustomNotifications(
+        "ERROR! Unable to copy link to clipboard. Link: " +
+          url +
+          "index.php?" +
+          link,
+        "var(--notifications-error-color)"
+      );
+    }
+
     copyText.remove();
-  } else {
-    pushCustomNotifications(
-      "ERROR! Unable to copy link to clipboard. Link: " +
-        url +
-        "index.php?" +
-        link,
-      "var(--notifications-error-color)"
-    );
-    copyText.remove();
-  }
 }
 
 console.log("✅ script.js successfully loaded!");
