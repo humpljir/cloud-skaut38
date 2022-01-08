@@ -388,6 +388,7 @@ style.css
   height: 8px;
 }
 .main-wrapper .window .window-scroll .window-inner .file-box-flex {
+  position: relative;
   flex-grow: 1;
   width: 100%;
   text-align: center;

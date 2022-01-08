@@ -110,8 +110,8 @@ function generateSubmenu(scope, targettype, element, options) {
         "&fileid=" +
         element.id;
     } else if (option.function == "download") {
-      line.href = scope.parentNode.href;
-      line.setAttribute("download", "");
+      line.href = linkToStorage+element.link;
+      line.setAttribute("download", element.legacyLink);
     } else {
       /*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
       line.setAttribute("onclick", option.function);
@@ -226,7 +226,7 @@ function drawFiles(dirID) {
   });
 
   filesList.content.forEach((element) => {
-    let fileboxflex = document.createElement("a");
+    let fileboxflex = document.createElement("div");
 
     let filelabel = document.createElement("div");
     filelabel.className = "file-label";
@@ -240,9 +240,10 @@ function drawFiles(dirID) {
     fileicon.className = "file-icon";
     fileicon.append(fileiconextension);
 
-    let filebox = document.createElement("div");
-    fileboxflex.href = linkToStorage + element.link;
-    fileboxflex.setAttribute("download", "");
+    let filebox = document.createElement("a");
+    filebox.id = "filehref"+element.id;
+    filebox.href = linkToStorage + element.link;
+    filebox.setAttribute("download", element.legacyLink);
     fileboxflex.className = "file-box-flex resize-hover searchable";
     fileboxflex.setAttribute("data-name", element.name);
     fileboxflex.setAttribute("data-date", element.date);
@@ -266,11 +267,11 @@ function drawFiles(dirID) {
     filebox.className = "file-box";
     filebox.append(fileicon);
     filebox.append(filelabel);
-    filebox.append(
-      generateSubmenu(filebox, "file", element, [
+    fileboxflex.append(
+      generateSubmenu(fileboxflex, "file", element, [
         {
           label: "Open",
-          function: "openGallery(this.parentNode.parentNode);",
+          function: "openGallery(document.querySelector('#filehref"+element.id+"'));",
         },
         { label: "Download", function: "download" },
         {
