@@ -966,6 +966,7 @@ style.css
 }
 .side-form-img-upload {
   padding-top: 18px;
+  cursor: pointer;
 }
 .side-form-img-upload input {
   position: absolute;
@@ -1299,7 +1300,8 @@ img.roated-return-icon svg {
   position: relative;
 }
 .main-wrapper .menu-wrapper .menu-formbox form .file-upload input {
-  display: none;
+  position: absolute;
+  opacity: 0;
 }
 .main-wrapper .menu-wrapper .menu-formbox form .file-upload div {
   text-decoration: underline;

@@ -13,9 +13,8 @@ init.js
 
 let loadingTimeout = setTimeout(() => {
   try {
-  errorHandler(0,true);
-  }
-  catch {
+    errorHandler(0, true);
+  } catch {
     loadingLoaded();
   }
 }, appLoadingTimeout);
@@ -63,7 +62,7 @@ function openDir(target) {
     animatedDirReturn = document.createElement("button");
     animatedDirReturn.className = "dir-box-return resize-hover";
     animatedDirReturn.innerHTML = "return";
-    animatedDirReturn.id="dir-return-button";
+    animatedDirReturn.id = "dir-return-button";
     // animatedDirReturn.setAttribute("onClick", "closeDir()");
     animatedDirReturn.prepend(animatedDirReturnArrow);
     animatedDir.prepend(animatedDirReturn);
@@ -100,16 +99,17 @@ function openDir(target) {
         blankCanvas.classList.remove("blank-canvas");
 
         try {
-        document.getElementById("file_upload_select").value=id;
-        document.getElementById("picture_upload_select").value=id;
-        }
-        catch {
-          errorHandler(1,false);
+          document.getElementById("file_upload_select").value = id;
+          document.getElementById("picture_upload_select").value = id;
+        } catch {
+          errorHandler(1, false);
         }
 
         setTimeout(() => {
           animatedDir.remove();
-          document.getElementById("dir-return-button").addEventListener("click", closeDir);
+          document
+            .getElementById("dir-return-button")
+            .addEventListener("click", closeDir);
         }, 400);
       }, 400);
     }, 100);
@@ -149,6 +149,22 @@ function initialize() {
   if (document.getElementById("blank-canvas")) {
     drawDirectories();
     drawToolbar();
+
+    let storageText = "";
+    if (session.data.maxSize == -1) {
+      storageText =
+        convertFileSizeString(session.data.size) + " used of unlimited storage.";
+    } else {
+      storageText =
+        convertFileSizeString(session.data.size) +
+        " used of " +
+        convertFileSizeString(session.data.size + ".");
+    }
+    try {
+      document.getElementById("side-storage-div").innerHTML = storageText;
+    } catch {
+      errorHandler(1, false);
+    }
   }
 
   document.documentElement.scrollTop = 0;
@@ -164,9 +180,11 @@ function initialize() {
     closeAllSubmenus();
   });
 
-  document.getElementById("main-wrapper-div").addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-  });
+  document
+    .getElementById("main-wrapper-div")
+    .addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+    });
 
   document.addEventListener("scroll", (e) => {
     closeAllSubmenus();

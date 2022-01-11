@@ -1,10 +1,8 @@
 <?php
-/* Database credentials. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-define('DB_SERVER', 'a027um.forpsi.com');
-define('DB_USERNAME', 'f131261');
-define('DB_PASSWORD', '8vvqhvC5');
-define('DB_NAME', 'f131261');
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'humpljir');
+define('DB_PASSWORD', 'webove aplikace');
+define('DB_NAME', 'humpljir');
  
 /* Attempt to connect to MySQL database */
 $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);

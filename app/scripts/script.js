@@ -16,25 +16,29 @@ function errorHandler(code, crucial) {
   // sent to server
 
   //#code 0 -> loading timeout
-  //#code 1 -> missing DOM element
+  //#code 1 -> missing DOM element - unimportant
   //#code 2 -> unable to delete gallery element
 
   console.log("error nr. " + code);
 
   if (crucial) {
-    pushCustomNotifications(
-      "ERROR! Appication run into problem. CODE #" + code,
-      "var(--notifications-error-color)"
-    );
+    try {
+      pushCustomNotifications(
+        "ERROR! Appication run into problem. CODE #" + code,
+        "var(--notifications-error-color)"
+      );
 
-    setTimeout(() => {
-      // when webapp doesn't load properly, try refresh the window without caching
-      // - hopping problem was only with network - otherwise this will lead to app
-      //   refreshing all the time - better handler for this error should be
-      //   created in the future
+      setTimeout(() => {
+        // when webapp doesn't load properly, try refresh the window without caching
+        // - hopping problem was only with network - otherwise this will lead to app
+        //   refreshing all the time - better handler for this error should be
+        //   created in the future
 
+        window.location.reload(true);
+      }, customNotificationsTimeout);
+    } catch {
       window.location.reload(true);
-    }, customNotificationsTimeout);
+    }
   }
 }
 
@@ -385,27 +389,18 @@ function generateLink(link) {
   copyText.style.display = "none";
   copyText.value = url + "index.php?" + link;
   document.body.append(copyText);
-  
-    try {
 
-      copyText.focus();
-      copyText.select();
-      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  try {
+    copyText.focus();
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-      if (document.execCommand('copy')) {
-        pushCustomNotifications(
-          "Link copied to clipboard!",
-          "var(--notifications-warning-color)"
-        );
-      } else {pushCustomNotifications(
-        "ERROR! Unable to copy link to clipboard. Link: " +
-          url +
-          "index.php?" +
-          link,
-        "var(--notifications-error-color)"
+    if (document.execCommand("copy")) {
+      pushCustomNotifications(
+        "Link copied to clipboard!",
+        "var(--notifications-warning-color)"
       );
-      }
-    } catch (err) {
+    } else {
       pushCustomNotifications(
         "ERROR! Unable to copy link to clipboard. Link: " +
           url +
@@ -414,8 +409,17 @@ function generateLink(link) {
         "var(--notifications-error-color)"
       );
     }
+  } catch (err) {
+    pushCustomNotifications(
+      "ERROR! Unable to copy link to clipboard. Link: " +
+        url +
+        "index.php?" +
+        link,
+      "var(--notifications-error-color)"
+    );
+  }
 
-    copyText.remove();
+  copyText.remove();
 }
 
 console.log("✅ script.js successfully loaded!");
