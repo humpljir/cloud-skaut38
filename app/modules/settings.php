@@ -71,17 +71,13 @@ function settingsPassword($password)
     }
 }
 
-function settingsTheme()
+function settingsTheme($palette,$color)
 {
     global $mysqli;
-    $palette= $_POST['palette'];
-    $color= $_POST['color'];
-    $dark=isset($_POST['switch-dark']);
-    $topBar=isset($_POST['switch-top-bar']);
+    $dark=(int)isset($_POST['switch-dark']);
+    $topBar=(int)isset($_POST['switch-top-bar']);
 
-    add_global_error("Values are: ".$palette."/".$color."/".$dark."/".$topBar, "var(--notifications-regular-color)");
-
-    $sql = "UPDATE users SET darktheme='$dark', activePalette=' str_replace(, , $palette)', colorHighlight='$color', topbarAutoHeight='$topBar' WHERE id='$_SESSION[id]'";
+    $sql = "UPDATE users SET darktheme='$dark', activePalette='$palette', colorHighlight='$color', topbarAutoHeight='$topBar' WHERE id='$_SESSION[id]'";
     if ($mysqli->query($sql) !== TRUE) {
         add_global_error("Error updating password: " . $mysqli->error, "var(--notifications-error-color)");
     } else {
@@ -89,7 +85,10 @@ function settingsTheme()
     }
 }
 
-function settingsToolbar() {
-
+function settingsToolbar()
+{
+    global $mysqli;
+    $dark=(int)isset($_POST['switch-toolbar-enable']);
+    $topBar=(int)isset($_POST['switch-toolbar-autohide']);
 }
 ?>

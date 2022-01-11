@@ -95,11 +95,19 @@ function drawToolbarEditMode(target) {
   // init toolbar element in edit mode
 
   target.innerHTML = "";
+  let toolbarHiddenSwap = document.createElement("input");
+  toolbarHiddenSwap.type = "hidden";
+  toolbarHiddenSwap.id = "side-toolbar-swap";
+  let toolbarHiddenDelete = document.createElement("input");
+  toolbarHiddenDelete.type = "hidden";
+  toolbarHiddenDelete.id = "side-toolbar-delete";
+  target.append(toolbarHiddenSwap);
+  target.append(toolbarHiddenDelete);
+
   for (let index = 0; index < toolbarIconCount; index++) {
     let indexReorder = session.settings.toolbarReorder[index];
     let toolbarIconDOM = document.createElement("div");
     toolbarIconDOM.className = "side-toolbar-button";
-    // toolbarIconDOM.setAttribute("onclick", "toolbarEditOpen(this.parentNode)");
     toolbarIconDOM.addEventListener("click", () => {
       toolbarEditOpen(toolbarIconDOM.parentNode);
     });
@@ -111,15 +119,15 @@ function drawToolbarEditMode(target) {
 
     let toolbarIconOptionsSwapDOM = document.createElement("img");
     toolbarIconOptionsSwapDOM.className = "side-toolbar-edit-swap";
-    // toolbarIconOptionsSwapDOM.setAttribute("onclick","swapToolbarColor(" + index + ")");
     toolbarIconOptionsSwapDOM.addEventListener("click", () => {
       swapToolbarColor(index);
+
+      session.settings.toolbarColors[index] = session.settings.toolbarColors[index];
     });
     toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
 
     let toolbarIconOptionsDeleteDOM = document.createElement("img");
     toolbarIconOptionsDeleteDOM.className = "side-toolbar-edit-delete";
-    // toolbarIconOptionsDeleteDOM.setAttribute("onclick","hideToolbarIcon(" + index + ",this.parentNode.parentNode.parentNode)");
     toolbarIconOptionsDeleteDOM.addEventListener("click", () => {
       hideToolbarIcon(
         index,
@@ -148,7 +156,6 @@ function drawToolbarEditMode(target) {
 
     for (let index2 = 0; index2 < colorsInPalette; index2++) {
       let toolbarIconColorOptionDOM = document.createElement("label");
-      // toolbarIconColorOptionDOM.setAttribute("onclick","toolbarEditColor(" + index + ",'var(--theme-color-" + index2 + ")','var(--theme-color-" + index2 + "-complementary)')");
       toolbarIconColorOptionDOM.addEventListener("click", () => {
         toolbarEditColor(
           index,
