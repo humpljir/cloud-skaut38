@@ -38,11 +38,6 @@ if (isset($_POST['fullname']) && (isset($_POST['nickname']))) {
     }
 }
 
-if (isset($_FILES['profile_pic'])) {
-    if ($_FILES['profile_pic']['size'] != 0 && $_FILES['profile_pic']['error'] == 0)
-        chaneProfilePic();
-}
-
 if (isset($_POST['password']) && isset($_POST['password-check'])) {
     if (validate($_POST['password'], 'password') && ($_POST['password'] == $_POST['password-check'])) {
         settingsPassword($_POST['password']);
@@ -53,8 +48,8 @@ if (isset($_POST['palette']) && isset($_POST['color'])) {
     settingsTheme($_POST['palette'],$_POST['color']);
 }
 
-if(isset($_POST['icon0color']) && isset($_POST['icon1color']) && isset($_POST['icon2color']) && isset($_POST['icon3color'])) {
-    settingsToolbar();
+if(isset($_POST['side-toolbar-colors']) && isset($_POST['side-toolbar-colors-complementary']) && isset($_POST['side-toolbar-delete']) && isset($_POST['side-toolbar-reorder'])) {
+    settingsToolbar($_POST['side-toolbar-colors'], $_POST['side-toolbar-colors-complementary'], $_POST['side-toolbar-delete'], $_POST['side-toolbar-reorder']);
 }
 
 if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
@@ -148,10 +143,10 @@ if ($user = $user_result->fetch_assoc()) {
                         toolbarAutoHeight: <?= ($user['toolbarAutoHeight'] == 1) ? "true" : "false" ?>,
                         toolbarVisible: <?= ($user['toolbarVisible'] == 1) ? "true" : "false" ?>,
                         toolbarCustom: <?= ($user['toolbarCustom'] == 1) ? "true" : "false" ?>,
-                        toolbarReorder: <?= $user['toolbarReorder'] ?>,
-                        toolbarDisplayIcon: <?= $user['toolbarDisplayIcon'] ?>,
-                        toolbarColors: <?= $user['toolbarColors'] ?>,
-                        toolbarColorsComplementary: <?= $user['toolbarColorsComplementary'] ?>,
+                        toolbarReorder: [<?= $user['toolbarReorder'] ?>],
+                        toolbarDisplayIcon: [<?= $user['toolbarDisplayIcon'] ?>],
+                        toolbarColors: [<?= $user['toolbarColors'] ?>],
+                        toolbarColorsComplementary: [<?= $user['toolbarColorsComplementary'] ?>],
                         notifications: <?= ($user['notifications'] == 1) ? "true" : "false" ?>,
                         customNotificationsTimeout: <?= $user['customNotificationsTimeout'] ?>,
                     },
@@ -323,7 +318,7 @@ if ($user = $user_result->fetch_assoc()) {
                                             <span class="side-form-switch-label">Auto Hide Toolbar</span><input type="checkbox" name="switch-toolbar-autohide" onchange="switchSessionVal('toolbarAutoHeight',this.checked)" class="side-form-switch" <?= ($user['toolbarAutoHeight'] == 1) ? " checked" : "" ?>>
                                         </label>
                                         <label class="side-form-switch-wrapper">
-                                            <span class="side-form-switch-label">Advanced Customization</span><input onchange="toggleToolbarEditMode()" type="checkbox" class="side-form-switch" <?= ($user['toolbarCustom'] == 1) ? " checked" : "" ?>>
+                                            <span class="side-form-switch-label">Advanced Customization</span><input onchange="toggleToolbarEditMode()" type="checkbox" name="switch-toolbar-custom" class="side-form-switch" <?= ($user['toolbarCustom'] == 1) ? " checked" : "" ?>>
                                         </label>
                                         <div class="side-form-title-div">
                                             <span class="side-form-title">Edit Toolbar</span>

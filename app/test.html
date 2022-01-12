@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="theme-color" content="#fff" />
+    <title>cloud.skaut38</title>
+    <link rel="stylesheet" href="styles/basic.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="stylesheet" href="styles/loading.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/customNotifications.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/responsive.css" />
+    <link rel="stylesheet" href="styles/hover.css" />
+    <link rel="icon" href="data/icons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="data/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="data/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="data/icons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="data/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="data/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="data/icons/safari-pinned-tab.svg"
+      color="#457b9d"
+    />
+    <meta name="apple-mobile-web-app-title" content="cloud.skaut38" />
+    <meta name="application-name" content="cloud.skaut38" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#1d3557" />
+    <link
+      href="data/splashscreens/iphone5_splash.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/iphone6_splash.png"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/iphoneplus_splash.png"
+      media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/iphonex_splash.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/iphonexr_splash.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/iphonexsmax_splash.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/ipad_splash.png"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/ipadpro1_splash.png"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/ipadpro3_splash.png"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="data/splashscreens/ipadpro2_splash.png"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <style>
+      :root {
+        --theme-color-0: #78412c;
+        --theme-color-1: #ab5530;
+        --theme-color-2: #d46025;
+        --theme-color-3: #f17f29;
+        --theme-color-4: #8c9496;
+        --theme-color-5: #a4778b;
+        --theme-color-6: #6d4e62;
+        --theme-color-7: #40433f;
+        --theme-color-8: #537e49;
+        --theme-color-9: #8a9860;
+        --theme-color-10: #7b7b42;
+        --theme-color-11: #1e1800;
+        --theme-color-0-complementary: #ffffff;
+        --theme-color-1-complementary: #ffffff;
+        --theme-color-2-complementary: #ffffff;
+        --theme-color-3-complementary: #ffffff;
+        --theme-color-4-complementary: #ffffff;
+        --theme-color-5-complementary: #ffffff;
+        --theme-color-6-complementary: #ffffff;
+        --theme-color-7-complementary: #ffffff;
+        --theme-color-8-complementary: #ffffff;
+        --theme-color-9-complementary: #ffffff;
+        --theme-color-10-complementary: #ffffff;
+        --theme-color-11-complementary: #ffffff;
+      }
+
+      :root {
+        --main-bg-color: #fff;
+        --main-fg-color: #000;
+        --main-line-color: #00000020;
+        --menu-bg-color: #ffffffb8;
+        --side-bg-color: #ededed;
+        --side-bg-color-2: #ffffff;
+        --side-grey-light: #f2f2f2;
+        --fluent-border-light: #ffffff99;
+        --fluent-border-dark: #00000020;
+        --hyperlink-color: #1a4ed2;
+        --notifications-error-color: #ff9e9ecf;
+        --notifications-warning-color: #ffe16dbf;
+        --notifications-confirm-color: #9eff7ab8;
+      }
+    </style>
+    <script>
+      var palettes = [
+        {
+          colors: [
+            "#78412C",
+            "#AB5530",
+            "#D46025",
+            "#F17F29",
+            "#8C9496",
+            "#A4778B",
+            "#6D4E62",
+            "#40433F",
+            "#537E49",
+            "#8A9860",
+            "#7B7B42",
+            "#1E1800",
+          ],
+          colorComplementary: [
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+          ],
+        },
+        {
+          colors: [
+            "#8B2C33",
+            "#E63946",
+            "#1D3557",
+            "#457B9D",
+            "#A8DADC",
+            "#F1FAEE",
+            "#A1E887",
+            "#41D3BD",
+            "#80B192",
+            "#FFE066",
+            "#FBCAEF",
+            "#FF9AE6",
+          ],
+          colorComplementary: [
+            "#F1FAEE",
+            "#F1FAEE",
+            "#A8DADC",
+            "#A8DADC",
+            "#1D3557",
+            "#8B2C33",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+          ],
+        },
+        {
+          colors: [
+            "#8B2C33",
+            "#E63946",
+            "#1D3557",
+            "#457B9D",
+            "#A8DADC",
+            "#F1FAEE",
+            "#A1E887",
+            "#41D3BD",
+            "#80B192",
+            "#FFE066",
+            "#FBCAEF",
+            "#FF9AE6",
+          ],
+          colorComplementary: [
+            "#F1FAEE",
+            "#F1FAEE",
+            "#A8DADC",
+            "#A8DADC",
+            "#1D3557",
+            "#8B2C33",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+          ],
+        },
+        {
+          colors: [
+            "#8B2C33",
+            "#E63946",
+            "#1D3557",
+            "#457B9D",
+            "#A8DADC",
+            "#F1FAEE",
+            "#A1E887",
+            "#41D3BD",
+            "#80B192",
+            "#FFE066",
+            "#FBCAEF",
+            "#FF9AE6",
+          ],
+          colorComplementary: [
+            "#F1FAEE",
+            "#F1FAEE",
+            "#A8DADC",
+            "#A8DADC",
+            "#1D3557",
+            "#8B2C33",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+          ],
+        },
+        {
+          colors: [
+            "#8B2C33",
+            "#E63946",
+            "#1D3557",
+            "#457B9D",
+            "#A8DADC",
+            "#F1FAEE",
+            "#A1E887",
+            "#41D3BD",
+            "#80B192",
+            "#FFE066",
+            "#FBCAEF",
+            "#FF9AE6",
+          ],
+          colorComplementary: [
+            "#F1FAEE",
+            "#F1FAEE",
+            "#A8DADC",
+            "#A8DADC",
+            "#1D3557",
+            "#8B2C33",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+          ],
+        },
+        {
+          colors: [
+            "#8B2C33",
+            "#E63946",
+            "#1D3557",
+            "#457B9D",
+            "#A8DADC",
+            "#F1FAEE",
+            "#A1E887",
+            "#41D3BD",
+            "#80B192",
+            "#FFE066",
+            "#FBCAEF",
+            "#FF9AE6",
+          ],
+          colorComplementary: [
+            "#F1FAEE",
+            "#F1FAEE",
+            "#A8DADC",
+            "#A8DADC",
+            "#1D3557",
+            "#8B2C33",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+            "#FFFFFF",
+          ],
+        },
+      ];
+    </script>
+    <script>
+      var storage = [
+        {
+          id: 1,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "Lorem Ipsum druha",
+          date: 1641840296,
+          size: 4195407,
+          color: "var(--theme-color-2)",
+          colorComplementary: "var(--theme-color-2-complementary)",
+          content: [
+            {
+              id: 35,
+              author: "humpljir",
+              authorImg: "profile_pic.jpg",
+              name: "Z telefonu edited",
+              date: 1641314981,
+              extension: "png",
+              link: "cloud_skaut38_61d47aa79cd527.59222772.png",
+              legacyLink: "C5EB2BCA-BBBE-473D-9CDA-55152D2D6A1B.png",
+              type: "image",
+              size: 751510,
+            },
+            {
+              id: 36,
+              author: "helloworld",
+              authorImg: "default.svg",
+              name: "Image",
+              date: 1641383073,
+              extension: "png",
+              link: "cloud_skaut38_61d584a24f93a1.43383262.png",
+              legacyLink: "A01E9F9F-DAAA-414C-9605-51A6F9D17228.png",
+              type: "image",
+              size: 262593,
+            },
+            {
+              id: 37,
+              author: "humpljir",
+              authorImg: "profile_pic.jpg",
+              name: "Screenshot",
+              date: 1641383099,
+              extension: "png",
+              link: "cloud_skaut38_61d584bb91e631.64408556.png",
+              legacyLink: "7566CBFD-6DA7-4918-9C8C-09F41490BB45.png",
+              type: "image",
+              size: 502070,
+            },
+            {
+              id: 38,
+              author: "test_user",
+              authorImg: "default.svg",
+              name: "Obrázek",
+              date: 1641383132,
+              extension: "png",
+              link: "cloud_skaut38_61d584dd3dd709.19204849.png",
+              legacyLink: "135E3766-5F49-4EAB-8EED-165D998764E6.png",
+              type: "image",
+              size: 603864,
+            },
+            {
+              id: 40,
+              author: "humpljir",
+              authorImg: "profile_pic.jpg",
+              name: "Dokument",
+              date: 1641383206,
+              extension: "pdf",
+              link: "cloud_skaut38_61d58526d4db10.32548998.pdf",
+              legacyLink: "Screenshot 2021-12-30 at 19.03.34.pdf",
+              type: "document",
+              size: 248865,
+            },
+            {
+              id: 41,
+              author: "humpljir",
+              authorImg: "profile_pic.jpg",
+              name: "Praha",
+              date: 1641383273,
+              extension: "jpeg",
+              link: "cloud_skaut38_61d585697be528.29044711.jpeg",
+              legacyLink: "40C7B0D1-7854-4AC9-AC10-EB399A72A377.jpeg",
+              type: "image",
+              size: 1826505,
+            },
+          ],
+        },
+        {
+          id: 3,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "testovaci dir edited",
+          date: 1641841037,
+          size: 2033351,
+          color: "var(--theme-color-5)",
+          colorComplementary: "var(--theme-color-5-complementary)",
+          content: [
+            {
+              id: 39,
+              author: "bare_smrdi_palec",
+              authorImg: "default.svg",
+              name: "s bětkou",
+              date: 1641383178,
+              extension: "jpeg",
+              link: "cloud_skaut38_61d5850a202908.28558897.jpeg",
+              legacyLink: "B9BB0B4F-A566-45A4-B1CF-76125DF54CA1.jpeg",
+              type: "image",
+              size: 2033351,
+            },
+          ],
+        },
+        {
+          id: 4,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "timetamp dir",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-10)",
+          colorComplementary: "var(--theme-color-10-complementary)",
+          content: [],
+        },
+        {
+          id: 5,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "timetamp dir",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-10)",
+          colorComplementary: "var(--theme-color-10-complementary)",
+          content: [],
+        },
+        {
+          id: 6,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "timetamp dir",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-10)",
+          colorComplementary: "var(--theme-color-10-complementary)",
+          content: [],
+        },
+        {
+          id: 7,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "timetamp dir",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-10)",
+          colorComplementary: "var(--theme-color-10-complementary)",
+          content: [],
+        },
+        {
+          id: 8,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "new dir",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-3)",
+          colorComplementary: "var(--theme-color-3-complementary)",
+          content: [],
+        },
+        {
+          id: 9,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "direktory",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-8)",
+          colorComplementary: "var(--theme-color-8-complementary)",
+          content: [],
+        },
+        {
+          id: 10,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "direktory",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-8)",
+          colorComplementary: "var(--theme-color-8-complementary)",
+          content: [],
+        },
+        {
+          id: 11,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "haha extra dir",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-1)",
+          colorComplementary: "var(--theme-color-1-complementary)",
+          content: [],
+        },
+        {
+          id: 12,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "testovaci dir jiny",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-0)",
+          colorComplementary: "var(--theme-color-0-complementary)",
+          content: [],
+        },
+        {
+          id: 13,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "testovaci dir jiny 2",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-0)",
+          colorComplementary: "var(--theme-color-0-complementary)",
+          content: [],
+        },
+        {
+          id: 14,
+          author: "humpljir",
+          authorImg: "profile_pic.jpg",
+          name: "testovaci dir jiny 2",
+          date: 1641647057,
+          size: 0,
+          color: "var(--theme-color-0)",
+          colorComplementary: "var(--theme-color-0-complementary)",
+          content: [],
+        },
+      ];
+    </script>
+    <script>
+      var session = {
+        user: {
+          name: "afasfa ASDAS",
+          nick: "bare_smrdi_palec",
+          img: "img/default.svg",
+        },
+        settings: {
+          darkTheme: false,
+          activePalette: 1,
+          colorHighlight: 2,
+          topbarAutoHeight: true,
+          toolbarAutoHeight: true,
+          toolbarVisible: true,
+          toolbarCustom: false,
+          toolbarReorder: [0, 1, 2, 3],
+          toolbarDisplayIcon: [true, true, true, true],
+          toolbarColors: [
+            "var(--theme-color-1)",
+            "var(--theme-color-3)",
+            "var(--theme-color-4)",
+            "var(--theme-color-5)",
+          ],
+          toolbarColorsComplementary: [
+            "var(--theme-color-1-complementary)",
+            "var(--theme-color-3-complementary)",
+            "var(--theme-color-4-complementary)",
+            "var(--theme-color-5-complementary)",
+          ],
+          notifications: false,
+          customNotificationsTimeout: 4000,
+        },
+        data: {
+          size: 6228758,
+          maxSize: -1,
+        },
+      };
+
+      function onloadFromPHP() {
+        setTimeout(() => {
+          pushCustomNotifications(
+            "[8] Undefined index: cover_image<br>Error on line 41 in /home/humpljir/www/semestralka/index.php",
+            "var(--notifications-error-color)"
+          );
+          pushCustomNotifications(
+            "[8] Trying to access array offset on value of type null<br>Error on line 41 in /home/humpljir/www/semestralka/index.php",
+            "var(--notifications-error-color)"
+          );
+        }, 2000);
+      }
+    </script>
+  </head>
+
+  <body onload=""></body>
+</html>
