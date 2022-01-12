@@ -68,7 +68,6 @@ function swapToolbarColor(index) {
   let toolbarColor = document.documentElement.style.getPropertyValue(
     "--toolbar-color-" + index
   );
-  console.log("toolbar color " + toolbarColor);
   document.documentElement.style.setProperty(
     "--toolbar-color-" + index,
     document.documentElement.style.getPropertyValue(
@@ -84,26 +83,25 @@ function swapToolbarColor(index) {
 function hideToolbarIcon(index, target) {
   // hide/show toolbar icon from toolbar
 
-  console.log(session.settings.toolbarDisplayIcon[index]);
-  console.log(!session.settings.toolbarDisplayIcon[index]);
-  session.settings.toolbarDisplayIcon[index] = !session.settings.toolbarDisplayIcon[index];
+  session.settings.toolbarDisplayIcon[index] =
+    !session.settings.toolbarDisplayIcon[index];
   target.classList.toggle("hidden-toolbar-icon");
   drawToolbar();
+}
+
+function colorComplement(string) {
+  if (string.includes("complementary")) {
+    return string.replace("-complementary", "");
+  } else {
+    return string.replace(")","-complementary)");
+  }
 }
 
 function drawToolbarEditMode(target) {
   // init toolbar element in edit mode
 
   target.innerHTML = "";
-  let toolbarHiddenSwap = document.createElement("input");
-  toolbarHiddenSwap.type = "hidden";
-  toolbarHiddenSwap.id = "side-toolbar-swap";
-  let toolbarHiddenDelete = document.createElement("input");
-  toolbarHiddenDelete.type = "hidden";
-  toolbarHiddenDelete.id = "side-toolbar-delete";
-  target.append(toolbarHiddenSwap);
-  target.append(toolbarHiddenDelete);
-
+  
   for (let index = 0; index < toolbarIconCount; index++) {
     let indexReorder = session.settings.toolbarReorder[index];
     let toolbarIconDOM = document.createElement("div");
@@ -121,8 +119,9 @@ function drawToolbarEditMode(target) {
     toolbarIconOptionsSwapDOM.className = "side-toolbar-edit-swap";
     toolbarIconOptionsSwapDOM.addEventListener("click", () => {
       swapToolbarColor(index);
-
-      session.settings.toolbarColors[index] = session.settings.toolbarColors[index];
+      session.settings.toolbarColors[index] = colorComplement(
+        session.settings.toolbarColors[index]
+      );
     });
     toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
 
@@ -162,6 +161,7 @@ function drawToolbarEditMode(target) {
           "var(--theme-color-" + index2 + ")",
           "var(--theme-color-" + index2 + "-complementary)"
         );
+        session.settings.toolbarColors[index]="var(--theme-color-" + index2 + ")";
       });
       let toolbarIconColorOptionInputDOM = document.createElement("input");
       if (
