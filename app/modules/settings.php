@@ -99,4 +99,17 @@ function settingsToolbar($colors,$colorsComplementary,$delete,$reorder)
         add_global_error("Toolbar updated.", "var(--notifications-regular-color)");
     } 
 }
+
+function settingsPWANotifications()
+{
+    global $mysqli;
+    $notifications=(int)isset($_POST['pwa-notifications-on']);
+
+    $sql = "UPDATE users SET notifications='$notifications' WHERE id='$_SESSION[id]'";
+    if ($mysqli->query($sql) !== TRUE) {
+        add_global_error("Error updating settings: " . $mysqli->error, "var(--notifications-error-color)");
+    } else {
+        add_global_error("Settings updated.", "var(--notifications-regular-color)");
+    } 
+}
 ?>

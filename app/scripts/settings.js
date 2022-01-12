@@ -118,10 +118,11 @@ function drawToolbarEditMode(target) {
   target.append(toolbarHiddenColorsComplementary);
   target.append(toolbarHiddenDelete);
   target.append(toolbarHiddenReorder);
-  toolbarHiddenColors.value = '"' + session.settings.toolbarColors.join('", "') + '"';
-  toolbarHiddenColorsComplementary.value = '"' + session.settings.toolbarColorsComplementary.join('", "') + '"';
-  toolbarHiddenDelete.value = '"' + session.settings.toolbarDisplayIcon.join('", "') + '"';
-  toolbarHiddenReorder.value = '"' + session.settings.toolbarReorder.join('", "') + '"';
+  toolbarHiddenColors.value = session.settings.toolbarColors;
+  toolbarHiddenColorsComplementary.value =
+    session.settings.toolbarColorsComplementary;
+  toolbarHiddenDelete.value = session.settings.toolbarDisplayIcon;
+  toolbarHiddenReorder.value = session.settings.toolbarReorder;
 
   for (let index = 0; index < toolbarIconCount; index++) {
     let indexReorder = session.settings.toolbarReorder[index];
@@ -146,9 +147,8 @@ function drawToolbarEditMode(target) {
       session.settings.toolbarColorsComplementary[index] = colorComplement(
         session.settings.toolbarColorsComplementary[index]
       );
-      toolbarHiddenColors.value =
-        session.settings.toolbarColors;
-        toolbarHiddenColorsComplementary.value =
+      toolbarHiddenColors.value = session.settings.toolbarColors;
+      toolbarHiddenColorsComplementary.value =
         session.settings.toolbarColorsComplementary;
     });
     toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
@@ -160,8 +160,7 @@ function drawToolbarEditMode(target) {
         index,
         toolbarIconOptionsDeleteDOM.parentNode.parentNode.parentNode
       );
-      toolbarHiddenDelete.value =
-        session.settings.toolbarDisplayIcon;
+      toolbarHiddenDelete.value = session.settings.toolbarDisplayIcon;
     });
     toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
@@ -195,9 +194,8 @@ function drawToolbarEditMode(target) {
           "var(--theme-color-" + index2 + ")";
         session.settings.toolbarColorsComplementary[index] =
           "var(--theme-color-" + index2 + "-complementary)";
-          toolbarHiddenColors.value =
-          session.settings.toolbarColors;
-          toolbarHiddenColorsComplementary.value =
+        toolbarHiddenColors.value = session.settings.toolbarColors;
+        toolbarHiddenColorsComplementary.value =
           session.settings.toolbarColorsComplementary;
       });
       let toolbarIconColorOptionInputDOM = document.createElement("input");

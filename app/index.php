@@ -57,6 +57,10 @@ if(isset($_POST['side-toolbar-colors']) && isset($_POST['side-toolbar-colors-com
     settingsToolbar($_POST['side-toolbar-colors'], $_POST['side-toolbar-colors-complementary'], $_POST['side-toolbar-delete'], $_POST['side-toolbar-reorder']);
 }
 
+if(isset($_POST['pwa-notifications'])){
+    settingsPWANotifications();
+}
+
 if (isset($_POST['edit-file-id']) && isset($_POST['edit-file-name'])) {
     if (validate($_POST['edit-file-id'], 'numeric') && validate($_POST['edit-file-name'], 'label')) {
         file_edit(htmlspecialchars($_POST['edit-file-id']), htmlspecialchars($_POST['edit-file-name']));
@@ -150,8 +154,8 @@ if ($user = $user_result->fetch_assoc()) {
                         toolbarCustom: <?= ($user['toolbarCustom'] == 1) ? "true" : "false" ?>,
                         toolbarReorder: [<?= $user['toolbarReorder'] ?>],
                         toolbarDisplayIcon: [<?= $user['toolbarDisplayIcon'] ?>],
-                        toolbarColors: [<?= $user['toolbarColors'] ?>],
-                        toolbarColorsComplementary: [<?= $user['toolbarColorsComplementary'] ?>],
+                        toolbarColors: [<?= '"'.str_replace(',','","',$user['toolbarColors']).'"' ?>],
+                        toolbarColorsComplementary: [<?= '"'.str_replace(',','","',$user['toolbarColorsComplementary']).'"' ?>],
                         notifications: <?= ($user['notifications'] == 1) ? "true" : "false" ?>,
                         customNotificationsTimeout: <?= $user['customNotificationsTimeout'] ?>,
                     },
@@ -338,7 +342,8 @@ if ($user = $user_result->fetch_assoc()) {
                                 <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-notifications" method="POST" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
-                                            <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" class="side-form-switch" onchange="sideNotifications(this.checked)" <?= ($user['notifications'] == 1) ? " checked" : "" ?>>
+                                        <input type="hidden" name="pwa-notifications">
+                                            <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" name ="pwa-notifications-on" class="side-form-switch" onchange="sideNotifications(this.checked)" <?= ($user['notifications'] == 1) ? " checked" : "" ?>>
                                         </label>
                                         <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                                     </form>
