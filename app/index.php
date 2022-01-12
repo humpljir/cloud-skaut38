@@ -50,14 +50,14 @@ if (isset($_POST['password']) && isset($_POST['password-check'])) {
 }
 
 if (isset($_POST['palette']) && isset($_POST['color'])) {
-    settingsTheme($_POST['palette'],$_POST['color']);
+    settingsTheme($_POST['palette'], $_POST['color']);
 }
 
-if(isset($_POST['side-toolbar-colors']) && isset($_POST['side-toolbar-colors-complementary']) && isset($_POST['side-toolbar-delete']) && isset($_POST['side-toolbar-reorder'])) {
+if (isset($_POST['side-toolbar-colors']) && isset($_POST['side-toolbar-colors-complementary']) && isset($_POST['side-toolbar-delete']) && isset($_POST['side-toolbar-reorder'])) {
     settingsToolbar($_POST['side-toolbar-colors'], $_POST['side-toolbar-colors-complementary'], $_POST['side-toolbar-delete'], $_POST['side-toolbar-reorder']);
 }
 
-if(isset($_POST['pwa-notifications'])){
+if (isset($_POST['pwa-notifications'])) {
     settingsPWANotifications();
 }
 
@@ -154,8 +154,8 @@ if ($user = $user_result->fetch_assoc()) {
                         toolbarCustom: <?= ($user['toolbarCustom'] == 1) ? "true" : "false" ?>,
                         toolbarReorder: [<?= $user['toolbarReorder'] ?>],
                         toolbarDisplayIcon: [<?= $user['toolbarDisplayIcon'] ?>],
-                        toolbarColors: [<?= '"'.str_replace(',','","',$user['toolbarColors']).'"' ?>],
-                        toolbarColorsComplementary: [<?= '"'.str_replace(',','","',$user['toolbarColorsComplementary']).'"' ?>],
+                        toolbarColors: [<?= '"' . str_replace(',', '","', $user['toolbarColors']) . '"' ?>],
+                        toolbarColorsComplementary: [<?= '"' . str_replace(',', '","', $user['toolbarColorsComplementary']) . '"' ?>],
                         notifications: <?= ($user['notifications'] == 1) ? "true" : "false" ?>,
                         customNotificationsTimeout: <?= $user['customNotificationsTimeout'] ?>,
                     },
@@ -242,43 +242,21 @@ if ($user = $user_result->fetch_assoc()) {
                                             <span class="side-form-line"></span>
                                         </div>
                                         <div class="side-theme-selector">
-                                            <label class="resize-hover">
-                                                <input type="radio" id="theme-0" name="palette" data-palette-nr=0 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 0) ? " checked" : "" ?> value=0>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-1" name="palette" checked data-palette-nr=1 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 1) ? " checked" : "" ?> value=1>
-                                                <div style="--inner-color: #E63946;--theme-palette:#457B9D 0%, #457B9D 20%, #1D3557 20%, #1D3557 40%,#A8DADC 40%, #A8DADC 60%,#F1FAEE 60%, #F1FAEE 80%,#8b2c33 80%, #8b2c33 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-2" name="palette" data-palette-nr=2 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 2) ? " checked" : "" ?> value=2>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-3" name="palette" data-palette-nr=3 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 3) ? " checked" : "" ?> value=3>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-4" name="palette" data-palette-nr=4 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 4) ? " checked" : "" ?> value=4>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-5" name="palette" data-palette-nr=5 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 5) ? " checked" : "" ?> value=5>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label><label class="resize-hover">
-                                                <input type="radio" id="theme-6" name="palette" data-palette-nr=6 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 6) ? " checked" : "" ?> value=6>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-7" name="palette" data-palette-nr=7 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 7) ? " checked" : "" ?> value=7>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label> <label class="resize-hover">
-                                                <input type="radio" id="theme-8" name="palette" data-palette-nr=8 onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == 8) ? " checked" : "" ?> value=8>
-                                                <div style="--inner-color: #AB5530;--theme-palette:#6D4E62 0%, #6D4E62 20%, #8C9496 20%, #8C9496 40%,#40433F 40%, #40433F 60%,#537E49 60%, #537E49 80%,#1E1800 80%, #1E1800 100%;">
-                                                </div>
-                                            </label>
+                                            <?php
+                                            $palette_nr = 0;
+                                            $palette_sql = "SELECT * FROM palette";
+                                            $palette_result = $mysqli->query($palette_sql);
+                                            while ($palette = $palette_result->fetch_assoc()) {
+                                            ?>
+                                                <label class="resize-hover">
+                                                    <input type="radio" id="theme-0" name="palette" data-palette-nr=<?= $palette_nr ?> onclick="changePalette(this.getAttribute('data-palette-nr'))" <?= ($user['activePalette'] == $palette_nr) ? " checked" : "" ?> value=<?= $palette_nr ?>>
+                                                    <div style="--inner-color: #<?= $palette['color1'] ?>;--theme-palette:#<?= $palette['color3'] ?> 0%, #<?= $palette['color3'] ?> 20%, #<?= $palette['color5'] ?> 20%, #<?= $palette['color5'] ?> 40%,#<?= $palette['color7'] ?> 40%, #<?= $palette['color7'] ?> 60%,#<?= $palette['color9'] ?> 60%, #<?= $palette['color9'] ?> 80%,#<?= $palette['color11'] ?> 80%, #<?= $palette['color11'] ?> 100%;">
+                                                    </div>
+                                                </label>
+                                            <?php
+                                                $palette_nr++;
+                                            }
+                                            ?>
                                         </div>
                                         <div class="side-form-title-div">
                                             <span class="side-form-title">Select Primary Color</span>
@@ -342,8 +320,8 @@ if ($user = $user_result->fetch_assoc()) {
                                 <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-notifications" method="POST" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
-                                        <input type="hidden" name="pwa-notifications">
-                                            <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" name ="pwa-notifications-on" class="side-form-switch" onchange="sideNotifications(this.checked)" <?= ($user['notifications'] == 1) ? " checked" : "" ?>>
+                                            <input type="hidden" name="pwa-notifications">
+                                            <span class="side-form-switch-label">Turn On PWA Notifications</span><input type="checkbox" name="pwa-notifications-on" class="side-form-switch" onchange="sideNotifications(this.checked)" <?= ($user['notifications'] == 1) ? " checked" : "" ?>>
                                         </label>
                                         <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                                     </form>
@@ -410,7 +388,9 @@ if ($user = $user_result->fetch_assoc()) {
                             </div>
                         </div>
                     </div>
-                    <div class="submenu-wrapper" id="sort-submenu-div"><div class="submenu-box"><a onclick="sort(0)"><span>Name Ascending</span></a><a onclick="sort(1)"><span>Name Descending</span></a><a onclick="sort(2)"><span>Date Ascending</span></a><a onclick="sort(3)"><span>Date Descending</span></a><a onclick="sort(4)"><span>Size Ascending</span></a><a onclick="sort(5)"><span>Size Descending</span></a></div></div>
+                    <div class="submenu-wrapper" id="sort-submenu-div">
+                        <div class="submenu-box"><a onclick="sort(0)"><span>Name Ascending</span></a><a onclick="sort(1)"><span>Name Descending</span></a><a onclick="sort(2)"><span>Date Ascending</span></a><a onclick="sort(3)"><span>Date Descending</span></a><a onclick="sort(4)"><span>Size Ascending</span></a><a onclick="sort(5)"><span>Size Descending</span></a></div>
+                    </div>
                 </div>
                 <div class="menu-wrapper" id="menu-wrapper-div">
                     <div class="formbox-title" id="formbox-title-div"></div>
