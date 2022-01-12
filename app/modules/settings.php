@@ -85,10 +85,18 @@ function settingsTheme($palette,$color)
     }
 }
 
-function settingsToolbar()
+function settingsToolbar($colors,$colorsComplementary,$delete,$reorder)
 {
     global $mysqli;
-    $dark=(int)isset($_POST['switch-toolbar-enable']);
-    $topBar=(int)isset($_POST['switch-toolbar-autohide']);
+    $visible=(int)isset($_POST['switch-toolbar-enable']);
+    $autohide=(int)isset($_POST['switch-toolbar-autohide']);
+    $custom=(int)isset($_POST['switch-toolbar-custom']);
+
+    $sql = "UPDATE users SET toolbarVisible='$visible', toolbarAutoHeight='$autohide', toolbarCustom='$custom', toolbarColors='$colors', toolbarColorsComplementary='$colorsComplementary', toolbarDisplayIcon='$delete', toolbarReorder='$reorder' WHERE id='$_SESSION[id]'";
+    if ($mysqli->query($sql) !== TRUE) {
+        add_global_error("Error updating password: " . $mysqli->error, "var(--notifications-error-color)");
+    } else {
+        add_global_error("Toolbar updated.", "var(--notifications-regular-color)");
+    } 
 }
 ?>
