@@ -27,20 +27,16 @@ customNotifications.css
   z-index: -1;
 }
 .custom-notifications-box {
-  background: var(--notification-color) url(../img/noise.svg) !important;
+  background: var(--notification-color);
   width: calc(100% - 20px);
   position: relative;
-  border-radius: var(--menu-border-radius);
+  border-radius: var(--dir-border-radius);
   margin: 10px;
   box-sizing: border-box;
   padding: 16px 24px;
   font-size: var(--menu-font-size);
   font-weight: bold;
   color: var(--main-fg-color);
-  border-left: 1px solid var(--fluent-border-light);
-  border-top: 1px solid var(--fluent-border-light);
-  border-right: 1px solid var(--fluent-border-dark);
-  border-bottom: 1px solid var(--fluent-border-dark);
   transform: translateY(0);
   transition: all 0.4s;
   z-index: 0;

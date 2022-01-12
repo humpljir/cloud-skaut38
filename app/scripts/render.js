@@ -27,7 +27,7 @@ function generateSubmenu(scope, targettype, element, options) {
   submenu.className = "submenu-wrapper";
 
   let submenuInfoBox = document.createElement("div");
-  submenuInfoBox.className = "submenu-infobox fluent-bg";
+  submenuInfoBox.className = "submenu-infobox";
   if (targettype == "file") {
     let submenuInfoBoxExtension = document.createElement("div");
     submenuInfoBoxExtension.className = "infobox-extension";
@@ -65,10 +65,9 @@ function generateSubmenu(scope, targettype, element, options) {
     submenuInfoBox.append(submenuInfoBoxText);
     submenuInfoBox.append(submenuInfoBoxIcon);
     submenu.append(submenuInfoBox);
-
   } else if (targettype == "dir") {
     let submenuInfoBox = document.createElement("div");
-    submenuInfoBox.className = "submenu-infobox fluent-bg";
+    submenuInfoBox.className = "submenu-infobox";
     let submenuInfoBoxTitle = document.createElement("div");
     submenuInfoBoxTitle.className = "infobox-title";
     submenuInfoBoxTitle.innerHTML = element.name;
@@ -98,7 +97,7 @@ function generateSubmenu(scope, targettype, element, options) {
   }
 
   let submenuBox = document.createElement("div");
-  submenuBox.className = "submenu-box fluent-bg";
+  submenuBox.className = "submenu-box";
   options.forEach((option) => {
     let line = document.createElement("a");
     if (option.function == "default") {
@@ -110,14 +109,16 @@ function generateSubmenu(scope, targettype, element, options) {
         "&fileid=" +
         element.id;
     } else if (option.function == "download") {
-      line.href = linkToStorage+element.link;
+      line.href = linkToStorage + element.link;
       line.setAttribute("download", element.legacyLink);
     } else {
       /*      line.setAttribute("onclick", "(event)=>{event.stopPropagation();"+option.function+";}");*/
       line.setAttribute("onclick", option.function);
       // line.addEventListener("click", option.function);
     }
-    line.innerHTML = option.label;
+    let lineText = document.createElement("span");
+    lineText.innerHTML = option.label;
+    line.append(lineText);
     line.addEventListener("click", (event) => {
       event.stopPropagation();
       closeAllSubmenus();
@@ -225,72 +226,83 @@ function drawFiles(dirID) {
     if (post.id == dirID) return true;
   });
 
-  filesList.content.forEach((element) => {
-    let fileboxflex = document.createElement("div");
+  if (filesList.content.length == 0) {
+    canvas.innerHTML = "<div class='empty-folder-message'>This folder is empty.</div>"
+  } else {
+    filesList.content.forEach((element) => {
+      let fileboxflex = document.createElement("div");
 
-    let filelabel = document.createElement("div");
-    filelabel.className = "file-label";
-    filelabel.innerHTML = element.name;
+      let filelabel = document.createElement("div");
+      filelabel.className = "file-label";
+      filelabel.innerHTML = element.name;
 
-    let fileiconextension = document.createElement("div");
-    fileiconextension.innerHTML = "." + element.extension;
-    fileiconextension.className = "file-icon-extension";
+      let fileiconextension = document.createElement("div");
+      fileiconextension.innerHTML = "." + element.extension;
+      fileiconextension.className = "file-icon-extension";
 
-    let fileicon = document.createElement("div");
-    fileicon.className = "file-icon";
-    fileicon.append(fileiconextension);
+      let fileicon = document.createElement("div");
+      fileicon.className = "file-icon";
+      fileicon.append(fileiconextension);
 
-    let filebox = document.createElement("a");
-    filebox.id = "filehref"+element.id;
-    filebox.href = linkToStorage + element.link;
-    filebox.setAttribute("download", element.legacyLink);
-    fileboxflex.className = "file-box-flex resize-hover searchable";
-    fileboxflex.setAttribute("data-name", element.name);
-    fileboxflex.setAttribute("data-date", element.date);
-    fileboxflex.setAttribute("data-size", element.size);
-    fileboxflex.setAttribute("data-keyword", element.link);
-    fileboxflex.append(filebox);
-    // filebox.setAttribute("onclick","window.location.href='"+linkToStorage+element.link+"'");
+      let filebox = document.createElement("a");
+      filebox.id = "filehref" + element.id;
+      filebox.href = linkToStorage + element.link;
+      filebox.setAttribute("download", element.legacyLink);
+      fileboxflex.className = "file-box-flex resize-hover searchable";
+      fileboxflex.setAttribute("data-name", element.name);
+      fileboxflex.setAttribute("data-date", element.date);
+      fileboxflex.setAttribute("data-size", element.size);
+      fileboxflex.setAttribute("data-keyword", element.link);
+      fileboxflex.append(filebox);
+      // filebox.setAttribute("onclick","window.location.href='"+linkToStorage+element.link+"'");
 
-    if (element.type == "image") {
-      fileicon.style.background =
-        "url(" + linkToStorageThumbnails + element.link + ")";
-      fileicon.classList.add("icon-thumbnail");
-      filebox.setAttribute("data-image", linkToStorage + element.link);
-      filebox.setAttribute("data-name", element.name);
-      // filebox.setAttribute("onclick","openGallery(this)");
-      filebox.addEventListener("click", (e) => {
-        e.preventDefault();
-        openGallery(filebox);
-      });
-    }
-    filebox.className = "file-box";
-    filebox.append(fileicon);
-    filebox.append(filelabel);
-    fileboxflex.append(
-      generateSubmenu(fileboxflex, "file", element, [
-        {
-          label: "Open",
-          function: "openGallery(document.querySelector('#filehref"+element.id+"'));",
-        },
-        { label: "Download", function: "download" },
-        {
-          label: "Edit",
-          function:
-            "editFile('" + element.id + "','" + element.name + "',event)",
-        },
-        {
-          label: "Move",
-          function:
-            "editFile('" + element.id + "','" + element.name + "',event)",
-        },
-        { label: "Delete", function: "default" },
-      ])
+      if (element.type == "image") {
+        fileicon.style.background =
+          "url(" + linkToStorageThumbnails + element.link + ")";
+        fileicon.classList.add("icon-thumbnail");
+        filebox.setAttribute("data-image", linkToStorage + element.link);
+        filebox.setAttribute("data-name", element.name);
+        // filebox.setAttribute("onclick","openGallery(this)");
+        filebox.addEventListener("click", (e) => {
+          e.preventDefault();
+          openGallery(filebox);
+        });
+      }
+      filebox.className = "file-box";
+      filebox.append(fileicon);
+      filebox.append(filelabel);
+      fileboxflex.append(
+        generateSubmenu(fileboxflex, "file", element, [
+          {
+            label: "Open",
+            function:
+              "openGallery(document.querySelector('#filehref" +
+              element.id +
+              "'));",
+          },
+          { label: "Download", function: "download" },
+          {
+            label: "Edit",
+            function:
+              "editFile('" + element.id + "','" + element.name + "',event)",
+          },
+          {
+            label: "Move",
+            function:
+              "editFile('" + element.id + "','" + element.name + "',event)",
+          },
+          { label: "Delete", function: "default" },
+        ])
+      );
+
+      canvas.append(fileboxflex);
+    });
+    appendEmptyElements(
+      20,
+      document.getElementById("blank-canvas"),
+      "file-box"
     );
-
-    canvas.append(fileboxflex);
-  });
-  appendEmptyElements(20, document.getElementById("blank-canvas"), "file-box");
+  }
   drawSVGAll();
 }
 

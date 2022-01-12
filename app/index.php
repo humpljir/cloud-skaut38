@@ -410,7 +410,7 @@ if ($user = $user_result->fetch_assoc()) {
                             </div>
                         </div>
                     </div>
-                    <div class="submenu-wrapper fluent-bg" id="sort-submenu-div"><a onclick="sort(0)">Name Ascending</a><a onclick="sort(1)">Name Descending</a><a onclick="sort(2)">Date Ascending</a><a onclick="sort(3)">Date Descending</a><a onclick="sort(4)">Size Ascending</a><a onclick="sort(5)">Size Descending</a></div>
+                    <div class="submenu-wrapper" id="sort-submenu-div"><div class="submenu-box"><a onclick="sort(0)"><span>Name Ascending</span></a><a onclick="sort(1)"><span>Name Descending</span></a><a onclick="sort(2)"><span>Date Ascending</span></a><a onclick="sort(3)"><span>Date Descending</span></a><a onclick="sort(4)"><span>Size Ascending</span></a><a onclick="sort(5)"><span>Size Descending</span></a></div></div>
                 </div>
                 <div class="menu-wrapper" id="menu-wrapper-div">
                     <div class="formbox-title" id="formbox-title-div"></div>
