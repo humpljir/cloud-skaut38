@@ -79,9 +79,9 @@ function settingsTheme($palette,$color)
 
     $sql = "UPDATE users SET darktheme='$dark', activePalette='$palette', colorHighlight='$color', topbarAutoHeight='$topBar' WHERE id='$_SESSION[id]'";
     if ($mysqli->query($sql) !== TRUE) {
-        add_global_error("Error updating password: " . $mysqli->error, "var(--notifications-error-color)");
+        add_global_error("Error updating theme: " . $mysqli->error, "var(--notifications-error-color)");
     } else {
-        add_global_error("Password updated.", "var(--notifications-regular-color)");
+        add_global_error("Theme updated.", "var(--notifications-regular-color)");
     }
 }
 
@@ -94,7 +94,7 @@ function settingsToolbar($colors,$colorsComplementary,$delete,$reorder)
 
     $sql = "UPDATE users SET toolbarVisible='$visible', toolbarAutoHeight='$autohide', toolbarCustom='$custom', toolbarColors='$colors', toolbarColorsComplementary='$colorsComplementary', toolbarDisplayIcon='$delete', toolbarReorder='$reorder' WHERE id='$_SESSION[id]'";
     if ($mysqli->query($sql) !== TRUE) {
-        add_global_error("Error updating password: " . $mysqli->error, "var(--notifications-error-color)");
+        add_global_error("Error updating toolbar: " . $mysqli->error, "var(--notifications-error-color)");
     } else {
         add_global_error("Toolbar updated.", "var(--notifications-regular-color)");
     } 

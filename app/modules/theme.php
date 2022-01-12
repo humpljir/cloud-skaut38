@@ -6,6 +6,9 @@
         
         ?>
     :root {
+
+  --interactive-color: var(--theme-color-<?= $user['colorHighlight'] ?>);
+  --interactive-color-complementary: var(--theme-color-<?= $user['colorHighlight'] ?>-complementary);
         --theme-color-0: #<?= $active_palette['color0'] ?>;
         --theme-color-1: #<?= $active_palette['color1'] ?>;
         --theme-color-2: #<?= $active_palette['color2'] ?>;

@@ -37,11 +37,11 @@ if (isset($_POST['fullname']) && isset($_POST['nickname']) && isset($_POST['emai
         settingsAccount($_POST['fullname'], $_POST['nickname'], $_POST['email']);
     }
 }
-/*
+
 if (isset($_FILES['profile_pic'])) {
     if ($_FILES['profile_pic']['size'] != 0 && $_FILES['profile_pic']['error'] == 0)
         chaneProfilePic();
-}*/
+}
 
 if (isset($_POST['password']) && isset($_POST['password-check'])) {
     if (validate($_POST['password'], 'password') && ($_POST['password'] == $_POST['password-check'])) {
