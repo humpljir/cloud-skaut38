@@ -27,7 +27,7 @@ function pushCustomNotifications(content,color) {
 // var(--notifications-warning-color), var(--notifications-confirm-color)
 
   let customNotificationsBox = document.createElement("div");
-  customNotificationsBox.className = "custom-notifications-box notifications-hide fluent-bg";
+  customNotificationsBox.className = "custom-notifications-box notifications-hide";
   customNotificationsBox.setAttribute("style","--notification-color:"+color);
   customNotificationsBox.innerHTML=content;
   setTimeout(() => {
@@ -38,7 +38,7 @@ function pushCustomNotifications(content,color) {
     setTimeout(() => {
       customNotificationsBox.remove();
     }, 400);
-  }, customNotificationsTimeout);
+  }, session.settings.customNotificationsTimeout);
   document.getElementById("custom-notifications-wrapper-div").prepend(customNotificationsBox);
 
   console.log("Custom notfication pushed: "+content);

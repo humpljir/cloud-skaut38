@@ -38,15 +38,15 @@ function toggleDarkTheme() {
     document.documentElement.style.setProperty("--hyperlink-color", "#3e74ff");
     document.documentElement.style.setProperty(
       "--notifications-error-color",
-      "#700000cf"
+      "#700000"
     );
     document.documentElement.style.setProperty(
       "--notifications-warning-color",
-      "#9a7b00c7"
+      "#9a7b00"
     );
     document.documentElement.style.setProperty(
       "--notifications-confirm-color",
-      "#c8eabcb8"
+      "#568559"
     );
   } else {
     document.body.classList.remove("dark-theme");
@@ -71,15 +71,15 @@ function toggleDarkTheme() {
     document.documentElement.style.setProperty("--hyperlink-color", "#1a4ed2");
     document.documentElement.style.setProperty(
       "--notifications-error-color",
-      "#ff9e9ecf"
+      "#ff9e9e"
     );
     document.documentElement.style.setProperty(
       "--notifications-warning-color",
-      "#ffe16dbf"
+      "#ffe16d"
     );
     document.documentElement.style.setProperty(
       "--notifications-confirm-color",
-      "#9eff7ab8"
+      "#9eff7a"
     );
   }
 }

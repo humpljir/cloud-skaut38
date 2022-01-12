@@ -69,10 +69,10 @@ basic.css
   --toolbar-color-1-complementary: var(--theme-color-3-complementary);
   --toolbar-color-2-complementary: var(--theme-color-4-complementary);
   --toolbar-color-3-complementary: var(--theme-color-5-complementary);
-  --notifications-regular-color: var(--menu-bg-color);
-  --notifications-error-color: #ff9e9ecf;
-  --notifications-warning-color: #ffe16dbf;
-  --notifications-confirm-color: #c8eabcb8;
+  --notifications-regular-color: var(--side-bg-color-2);
+  --notifications-error-color: #ff9e9e;
+  --notifications-warning-color: #ffe16d;
+  --notifications-confirm-color: #c8eabc;
 }
 html,
 body {

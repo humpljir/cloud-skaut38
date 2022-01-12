@@ -45,9 +45,9 @@
         --fluent-border-light: #ffffff99;
         --fluent-border-dark: #00000020;
         --hyperlink-color: #1a4ed2;
-        --notifications-error-color: #ff9e9ecf;
-        --notifications-warning-color: #ffe16dbf;
-        --notifications-confirm-color: #9eff7ab8;
+        --notifications-error-color: #ff9e9e;
+        --notifications-warning-color: #ffe16d;
+        --notifications-confirm-color: #9eff7a;
     }
 
     <?php
@@ -63,9 +63,9 @@
         --fluent-border-light: #ffffff24;
         --fluent-border-dark: #00000084;
         --hyperlink-color: #1a4ed2;
-        --notifications-error-color: #700000cf;
-        --notifications-warning-color: #9a7b00c7;
-        --notifications-confirm-color: #c8eabcb8;
+        --notifications-error-color: #700000;
+        --notifications-warning-color: #9a7b00;
+        --notifications-confirm-color: #568559;
     }
 
     <?php

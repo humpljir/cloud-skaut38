@@ -22,6 +22,4 @@ const linkToProfilePic = "data/users/profile_img/";
 const linkToStorage = "data/storage/";
 const linkToStorageThumbnails = "data/storage/thumbnails/";
 
-let customNotificationsTimeout = 6000;
-
 console.log("✅ config.js successfully loaded!");

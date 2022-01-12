@@ -9,12 +9,12 @@ customNotifications.css
 */
 .custom-notifications-wrapper {
   position: fixed;
-  left: 0;
   right: 0;
   top: 0px;
   width: 100%;
   transition: top 0.2s;
   scroll-behavior: smooth;
+  max-width: 800px;
 }
 /*
 .top-bar-open .custom-notifications-wrapper {
