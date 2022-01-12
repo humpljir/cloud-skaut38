@@ -93,7 +93,7 @@ function colorComplement(string) {
   if (string.includes("complementary")) {
     return string.replace("-complementary", "");
   } else {
-    return string.replace(")","-complementary)");
+    return string.replace(")", "-complementary)");
   }
 }
 
@@ -101,7 +101,28 @@ function drawToolbarEditMode(target) {
   // init toolbar element in edit mode
 
   target.innerHTML = "";
-  
+  let toolbarHiddenColors = document.createElement("input");
+  toolbarHiddenColors.type = "hidden";
+  toolbarHiddenColors.name = "side-toolbar-colors";
+  let toolbarHiddenColorsComplementary = document.createElement("input");
+  toolbarHiddenColorsComplementary.type = "hidden";
+  toolbarHiddenColorsComplementary.name = "side-toolbar-colors-complementary";
+  let toolbarHiddenDelete = document.createElement("input");
+  toolbarHiddenDelete.type = "hidden";
+  toolbarHiddenDelete.name = "side-toolbar-delete";
+  let toolbarHiddenReorder = document.createElement("input");
+  toolbarHiddenReorder.type = "hidden";
+  toolbarHiddenReorder.name = "side-toolbar-reorder";
+
+  target.append(toolbarHiddenColors);
+  target.append(toolbarHiddenColorsComplementary);
+  target.append(toolbarHiddenDelete);
+  target.append(toolbarHiddenReorder);
+  toolbarHiddenColors.value = '"' + session.settings.toolbarColors.join('", "') + '"';
+  toolbarHiddenColorsComplementary.value = '"' + session.settings.toolbarColorsComplementary.join('", "') + '"';
+  toolbarHiddenDelete.value = '"' + session.settings.toolbarDisplayIcon.join('", "') + '"';
+  toolbarHiddenReorder.value = '"' + session.settings.toolbarReorder.join('", "') + '"';
+
   for (let index = 0; index < toolbarIconCount; index++) {
     let indexReorder = session.settings.toolbarReorder[index];
     let toolbarIconDOM = document.createElement("div");
@@ -122,6 +143,13 @@ function drawToolbarEditMode(target) {
       session.settings.toolbarColors[index] = colorComplement(
         session.settings.toolbarColors[index]
       );
+      session.settings.toolbarColorsComplementary[index] = colorComplement(
+        session.settings.toolbarColorsComplementary[index]
+      );
+      toolbarHiddenColors.value =
+        session.settings.toolbarColors;
+        toolbarHiddenColorsComplementary.value =
+        session.settings.toolbarColorsComplementary;
     });
     toolbarIconOptionsSwapDOM.src = "img/swap-icon.svg";
 
@@ -132,6 +160,8 @@ function drawToolbarEditMode(target) {
         index,
         toolbarIconOptionsDeleteDOM.parentNode.parentNode.parentNode
       );
+      toolbarHiddenDelete.value =
+        session.settings.toolbarDisplayIcon;
     });
     toolbarIconOptionsDeleteDOM.src = "img/delete-icon.svg";
 
@@ -161,7 +191,14 @@ function drawToolbarEditMode(target) {
           "var(--theme-color-" + index2 + ")",
           "var(--theme-color-" + index2 + "-complementary)"
         );
-        session.settings.toolbarColors[index]="var(--theme-color-" + index2 + ")";
+        session.settings.toolbarColors[index] =
+          "var(--theme-color-" + index2 + ")";
+        session.settings.toolbarColorsComplementary[index] =
+          "var(--theme-color-" + index2 + "-complementary)";
+          toolbarHiddenColors.value =
+          session.settings.toolbarColors;
+          toolbarHiddenColorsComplementary.value =
+          session.settings.toolbarColorsComplementary;
       });
       let toolbarIconColorOptionInputDOM = document.createElement("input");
       if (

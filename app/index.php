@@ -32,11 +32,16 @@ if (isset($_GET['fileaction']) && isset($_GET['typy']) && isset($_GET['fileid'])
     }
 }
 
-if (isset($_POST['fullname']) && (isset($_POST['nickname']))) {
+if (isset($_POST['fullname']) && isset($_POST['nickname']) && isset($_POST['email'])) {
     if (validate($_POST['fullname'], 'label') && validate($_POST['nickname'], 'label') && validate($_POST['email'], 'email')) {
         settingsAccount($_POST['fullname'], $_POST['nickname'], $_POST['email']);
     }
 }
+/*
+if (isset($_FILES['profile_pic'])) {
+    if ($_FILES['profile_pic']['size'] != 0 && $_FILES['profile_pic']['error'] == 0)
+        chaneProfilePic();
+}*/
 
 if (isset($_POST['password']) && isset($_POST['password-check'])) {
     if (validate($_POST['password'], 'password') && ($_POST['password'] == $_POST['password-check'])) {
