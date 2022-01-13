@@ -203,7 +203,7 @@ if ($user = $user_result->fetch_assoc()) {
                         </div>
                         <div class="side-box">
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-userchange" method="POST" data-submit-label="USERCHANGE">
                                         <input class="text-box" type="text" data-validate="label" id="fullname" name="fullname" value="<?= $user['fullname'] ?>" placeholder="Full Name">
@@ -218,7 +218,7 @@ if ($user = $user_result->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-changepass" method="POST" data-submit-label="CHANGEPASS">
                                         <input class="text-box" type="password" data-validate="password" id="change-password" name="password" placeholder="new password">
@@ -228,7 +228,7 @@ if ($user = $user_result->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Appearance & Colors <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-appearence" method="POST" data-submit-label="CREATE">
                                         <label class="side-form-switch-wrapper">
@@ -294,7 +294,7 @@ if ($user = $user_result->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Custom Toolbar <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
 
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-toolbar-edit" method="POST" data-submit-label="USERCHANGE">
@@ -317,7 +317,7 @@ if ($user = $user_result->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Notifications <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-notifications" method="POST" data-submit-label="USERCHANGE"><label class="side-form-switch-wrapper">
                                             <input type="hidden" name="pwa-notifications">
@@ -328,7 +328,7 @@ if ($user = $user_result->fetch_assoc()) {
                                 </div>
                             </div>
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Storage <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <div class="side-storage" id="side-storage-div">-- used of --</div>
                                 </div>
@@ -336,16 +336,15 @@ if ($user = $user_result->fetch_assoc()) {
                         </div>
                         <div class="side-box">
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Log Out</button>
-                                <div class="arrow-icon arrow-icon-generate side-category-label-arrow">
-                                </div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Log Out <span class="arrow-icon arrow-icon-generate side-category-label-arrow">
+                                        </span></button>
                                 <div class="side-category-content">
                                     <a href="modules/logout.php">Switch User</a>
                                     <a href="modules/logout.php">Log Out</a>
                                 </div>
                             </div>
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Help & Feedback <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <a href="mailto:humpljir@fel.cvut.cz">Send Feedback</a>
                                     <a href="">Terms and Conditions</a>
@@ -355,7 +354,7 @@ if ($user = $user_result->fetch_assoc()) {
 
                         <div class="side-box">
                             <div class="side-category">
-                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">About <div class="arrow-icon arrow-icon-generate side-category-label-arrow"></div></button>
+                                <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">About <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <a href="https://github.com/humpljir/cloud-skaut38/issues">Report a Bug</a>
                                     <a href="https://github.com/humpljir/cloud-skaut38">See GIT Repository</a>
