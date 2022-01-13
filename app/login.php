@@ -27,6 +27,18 @@ if (isset($_POST["register_username"])) {
     }
 }
 
+if(isset($_POST['forgot-username'])) {
+    $string = $_POST['forgot-username'];
+    $forgot_password = "SELECT * FROM users WHERE username='$string' OR email='$string' LIMIT 1";
+    $forgot_password_results = $mysqli->query($forgot_password);
+    if ((($forgot_password_results) && ($forgot_password_results->num_rows !== 0) && ($data = $forgot_password_results->fetch_assoc()))) {
+
+        add_global_error("Contact your scoutmaster to complete your password recovery. User ID: ".$data['id'], "var(--notifications-warning-color)");
+    } else {
+        add_global_error("This account doesn't exist.", "var(--notifications-error-color)");
+    }
+}
+
 if (isset($_GET['why'])) {
     if ($_GET['why'] == 'notlogin') {
         add_global_error("ERROR! You need to login first to open this link.", "var(--notifications-warning-color)");
