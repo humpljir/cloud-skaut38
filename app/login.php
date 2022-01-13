@@ -447,23 +447,21 @@ if (isset($_POST["register_username"])) {
         </div>
     </div>
 
-    <script type="text/javascript" src="scripts/config.js">
+    <script src="scripts/config.js">
     </script>
-    <script type="text/javascript" src="scripts/static.js">
+    <script src="scripts/static.js">
     </script>
-    <script type="text/javascript" src="scripts/data.js">
+    <script src="scripts/customNotifications.js">
     </script>
-    <script type="text/javascript" src="scripts/customNotifications.js">
+    <script src="scripts/theme.js">
     </script>
-    <script type="text/javascript" src="scripts/theme.js">
+    <script src="scripts/render.js">
     </script>
-    <script type="text/javascript" src="scripts/render.js">
+    <script src="scripts/init.js">
     </script>
-    <script type="text/javascript" src="scripts/init.js">
+    <script src="scripts/app.js">
     </script>
-    <script type="text/javascript" src="scripts/app.js">
-    </script>
-    <script type="text/javascript" src="scripts/script.js">
+    <script src="scripts/script.js">
     </script>
 </body>
 

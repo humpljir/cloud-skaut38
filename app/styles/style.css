@@ -1047,7 +1047,11 @@ input[type="checkbox"].side-form-switch:checked:after {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.side-theme-selector label div::before {
+.side-theme-selector span {
+position: relative;
+display: block;
+}
+.side-theme-selector label span::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -1059,7 +1063,7 @@ input[type="checkbox"].side-form-switch:checked:after {
   display: block;
   border-radius: 50%;
 }
-.side-theme-selector label div {
+.side-theme-selector label span {
   width: 30px;
   height: 30px;
   background-color: transparent;
@@ -1067,11 +1071,11 @@ input[type="checkbox"].side-form-switch:checked:after {
   position: relative;
   margin: 5px;
 }
-.side-theme-selector label input:checked ~ div {
+.side-theme-selector label input:checked ~ span {
   background-color: var(--white-color);
   box-shadow: 1px 3px 14px #00000090;
 }
-.side-theme-selector label div::after {
+.side-theme-selector label span::after {
   content: "";
   position: absolute;
   left: 50%;
