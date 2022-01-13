@@ -349,12 +349,12 @@ if (isset($_POST["register_username"])) {
                 <h1>Secure storage for your content!</h1>
                 <p>Store, share, and collaborate on files and folders from any mobile device, tablet, or computer.
                     Securely on our custom platform.</p>
-                <button onclick="openSide()">Discover Possibilities<div class="arrow-icon arrow-icon-generate"></div>
+                <button onclick="openSide()">Discover Possibilities<span class="arrow-icon arrow-icon-generate"></span>
                 </button>
             </div>
             <div id="window-side-div" class="window-side">
                 <button class="side-return" onclick="closeSide()">
-                    <div class="arrow-icon arrow-icon-generate rotated-return-icon"></div>return
+                    <span class="arrow-icon arrow-icon-generate rotated-return-icon"></span>return
                 </button>
                 <div class="side-title">About Us</div>
                 <div class="side-box">
@@ -440,7 +440,7 @@ if (isset($_POST["register_username"])) {
 
     <div class="screen-size-error">
         <div class="screen-size-error-box">
-            <img class="screen-size-error-icon" src="img/aspect-ratio.svg">
+            <img class="screen-size-error-icon" alt="Wrong aspect ratio icon" src="img/aspect-ratio.svg">
             <div class="screen-size-error-text">
                 This aspect ration or screen size is not allowed. Please, resize window or open app on other device.
             </div>
