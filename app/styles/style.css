@@ -1143,9 +1143,10 @@ display: block;
 .side-form .side-color-palette label input {
   display: none;
 }
-.side-form .side-color-palette label div {
+.side-form .side-color-palette label span {
   width: 24px;
   height: 24px;
+  display: block;
   background-color: transparent;
   display: block;
   border-radius: 50%;
@@ -1153,7 +1154,7 @@ display: block;
   margin: 5px;
   transition: box-shadow 0.2s, border 0.2s;
 }
-.side-form .side-color-palette label div::after {
+.side-form .side-color-palette label span::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1164,7 +1165,7 @@ display: block;
   background-color: var(--circle-color);
   border-radius: 50%;
 }
-.side-form .side-color-palette label input:checked ~ div {
+.side-form .side-color-palette label input:checked ~ span {
   background-color: var(--white-color);
   box-shadow: 3px 6px 14px #00000050;
 }
@@ -1302,12 +1303,13 @@ img.roated-return-icon svg {
 }
 .main-wrapper .menu-wrapper .menu-formbox form .file-upload {
   position: relative;
+  cursor: pointer;
 }
 .main-wrapper .menu-wrapper .menu-formbox form .file-upload input {
   position: absolute;
   opacity: 0;
 }
-.main-wrapper .menu-wrapper .menu-formbox form .file-upload div {
+.main-wrapper .menu-wrapper .menu-formbox form .file-upload span {
   text-decoration: underline;
   color: var(--hyperlink-color);
   margin: 20px;
@@ -1342,7 +1344,7 @@ input[data-valid-input="false"] {
   position: relative;
   color: var(--main-fg-color);
   padding: 30px 20px 10px 20px;
-  width: 100%;
+  width: 100%;  
   border: none;
   background: transparent;
   border-radius: 0;
@@ -1370,9 +1372,10 @@ input[data-valid-input="false"] {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.main-wrapper .menu-wrapper .menu-formbox .color-selector label div {
+.main-wrapper .menu-wrapper .menu-formbox .color-selector label span {
   width: 16px;
   height: 16px;
+  display: block;
   background-color: var(--circle-color);
   border: 4px solid var(--circle-color);
   display: block;
@@ -1389,7 +1392,7 @@ input[data-valid-input="false"] {
   .color-selector
   label
   input:checked
-  ~ div {
+  ~ span {
   border: 4px solid var(--white-color);
   box-shadow: 3px 6px 14px #00000038;
 }
