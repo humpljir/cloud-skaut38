@@ -78,7 +78,7 @@ if (isset($_POST["register_username"])) {
             },
             settings: {
                 darkTheme: false,
-                activePalette: 1,
+                activePalette: 0,
                 colorHighlight: 2,
                 topbarAutoHeight: true,
                 toolbarAutoHeight: true,

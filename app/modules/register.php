@@ -4,6 +4,10 @@
             $fullname = htmlspecialchars($_POST['register_fullname']);
             $email = htmlspecialchars($_POST['register_email']);
 
+            $username_check = " SELECT * FROM users WHERE username='$username'";
+            $username_check_results = $mysqli->query($username_check);
+            if (($username_check_results) && ($username_check_results->num_rows !== 0)) {
+
             $param_password = password_hash($password, PASSWORD_DEFAULT);
             $img = 'default.svg';
             $toolbarReorder = '[0,1,2,3]';
@@ -18,4 +22,7 @@
             } else {
                 add_global_error("Error requesting registration: " . $mysqli->error, "var(--notifications-warning-color)");
             }
+        }else {
+            add_global_error("This username already exists, try something else.", "var(--notifications-error-color)");
+        }
 ?>
