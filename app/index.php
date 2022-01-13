@@ -206,11 +206,23 @@ if ($user = $user_result->fetch_assoc()) {
                                 <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Account Settings <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-userchange" method="POST" data-submit-label="USERCHANGE">
+                                    <div class="side-form-title-div">
+                                            <span class="side-form-title">Full name</span>
+                                        </div>
                                         <input class="text-box" type="text" data-validate="label" id="fullname" name="fullname" value="<?= $user['fullname'] ?>" placeholder="Full Name">
+                                        <div class="side-form-title-div">
+                                            <span class="side-form-title">Username</span>
+                                        </div>
                                         <input class="text-box" type="text" data-validate="username" id="nick" name="nickname" value="<?= $user['username'] ?>" placeholder="Username">
+                                        <div class="side-form-title-div">
+                                            <span class="side-form-title">Your email</span>
+                                        </div>
                                         <input class="text-box" type="text" data-validate="email" id="email" name="email" value="<?= $user['email'] ?>" placeholder="Email">
+                                        <div class="side-form-title-div">
+                                            <span class="side-form-title">Profile picture</span>
+                                        </div>                                       
                                         <label class="side-form-img-upload">
-                                            <span class="img-upload-icon"></span>Profile Picture
+                                            <span class="img-upload-icon"></span>Upload image
                                             <input type="file" id="pic_upload" name="profile_pic">
                                         </label>
                                         <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
@@ -221,7 +233,13 @@ if ($user = $user_result->fetch_assoc()) {
                                 <button class="side-category-label bright-hover" onclick="this.parentNode.classList.toggle('side-category-open')">Change Password <span class="arrow-icon arrow-icon-generate side-category-label-arrow"></span></button>
                                 <div class="side-category-content">
                                     <form class="side-form" id="form-changepass" method="POST" data-submit-label="CHANGEPASS">
+                                    <div class="side-form-title-div">
+                                            <span class="side-form-title">New password</span>
+                                        </div>
                                         <input class="text-box" type="password" data-validate="password" id="change-password" name="password" placeholder="new password">
+                                        <div class="side-form-title-div">
+                                            <span class="side-form-title">New password confirm</span>
+                                        </div>
                                         <input class="text-box" type="password" data-validate="match" data-validate-match-id="change-password" id="change-password-check" name="password-check" placeholder="password again">
                                         <div class="side-form-buttons"><input type="reset" onclick="this.closest('.side-form').classList.remove('form-changed')" value="RESET"><input type="submit" class="side-form-submit" value="SAVE"></div>
                                     </form>

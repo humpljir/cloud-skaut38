@@ -26,6 +26,16 @@ if (isset($_POST["register_username"])) {
         add_global_error("All values are required.", "var(--notifications-warning-color)");
     }
 }
+
+if (isset($_GET['why'])) {
+    if ($_GET['why'] == 'notlogin') {
+        add_global_error("ERROR! You need to login first to open this link.", "var(--notifications-warning-color)");
+    } else if ($_GET['why'] == 'logout') {
+        add_global_error("You have been logged out!", "var(--notifications-regular-color)");
+    }
+    unset($_GET['why']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -94,20 +104,9 @@ if (isset($_POST["register_username"])) {
         };
 
         function onloadFromPHP() {
-            <?php
-
-            echo 'setTimeout(() => {';
-            echo $global_error;
-            if (isset($_GET['why'])) {
-                if ($_GET['why'] == 'notlogin') {
-                    echo 'pushCustomNotifications( "ERROR! You need to login first to open this link.", "var(--notifications-warning-color)");';
-                } else if ($_GET['why'] == 'logout') {
-                    echo 'pushCustomNotifications("You have been logged out!", "var(--notifications-reguar-color)");';
-                }
-                unset($_GET['why']);
-            }
-            echo '}, 2000);';
-            ?>
+            setTimeout(() => {
+                <?= $global_error ?>
+            }, 2000);
         }
     </script>
 </head>
@@ -376,7 +375,7 @@ if (isset($_POST["register_username"])) {
             <div class="formbox-title" id="formbox-title-div"></div>
             <div class="menu-formbox fluent-bg" id="menu-formbox-div">
                 <form method="post" class="form-visible" id="form-0" data-form-title="Login" data-submit-label="LOGIN">
-                    <input type="text" id="login-username" name="username" placeholder="username" required>
+                    <input type="text" id="login-username" name="username" placeholder="username"<?= isset($_POST['username']) ? ' value="'.htmlspecialchars($_POST['username']).'"' : "" ?> required>
                     <input type="password" id="login-password" name="password" placeholder="password" required>
                     <a onclick="openMenu('form-2',event)">Create New Account</a>
                     <a onclick="openMenu('form-1',event)">Forgot Password</a>
@@ -388,11 +387,11 @@ if (isset($_POST["register_username"])) {
                     <a href="mailto:jirihumpl@gmail.com">Haven't received mail?</a>
                 </form>
                 <form method="post" class="form-visible" id="form-2" data-form-title="Create account" data-submit-label="REGISTER">
-                    <input type="text" id="register_username" data-validate="username" name="register_username" placeholder="username" required>
-                    <input type="text" id="register_fullname" data-validate="label" name="register_fullname" placeholder="full name" required>
-                    <input type="email" id="register_email" data-validate="email" name="register_email" placeholder="email" required>
+                    <input type="text" id="register_username" data-validate="username" name="register_username" placeholder="username"<?= isset($_POST['register_username']) ? ' value="'.htmlspecialchars($_POST['register_username']).'"' : "" ?> required>
+                    <input type="text" id="register_fullname" data-validate="label" name="register_fullname" placeholder="full name"<?= isset($_POST['register_fullname']) ? ' value="'.htmlspecialchars($_POST['register_fullname']).'"' : "" ?> required>
+                    <input type="email" id="register_email" data-validate="email" name="register_email" placeholder="email" required<?= isset($_POST['register_email']) ? ' value="'.htmlspecialchars($_POST['register_email']).'"' : "" ?>>
                     <input type="password" id="register_password" data-validate="password" name="register_password" placeholder="password" required>
-                    <input type="password" id="register_password_confirm" data-validate="match" data-validate-match-id="register-password" name="register_password_confirm" placeholder="password again" required>
+                    <input type="password" id="register_password_confirm" data-validate="match" data-validate-match-id="register_password" name="register_password_confirm" placeholder="password again" required>
                     <label class="form-text">This is internal cloud storage, every registration has to be confirmed by contacting your scoutmaster.</label>
                     <a onclick="openMenu('form-0',event)">Already have an account?</a>
                 </form>

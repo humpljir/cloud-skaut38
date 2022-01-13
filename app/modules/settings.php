@@ -6,15 +6,17 @@ function settingsAccount($fullname, $nickname, $email)
 {
     global $mysqli;
 
-    $username_check = " SELECT * FROM users WHERE username='$nickname'";
+    $username_check = " SELECT * FROM users WHERE username='$nickname' AND id<>'$_SESSION[id]'";
     $username_check_results = $mysqli->query($username_check);
-    if (($username_check_results) && ($username_check_results->num_rows !== 0)) {
+    if (!(($username_check_results) && ($username_check_results->num_rows !== 0))) {
         $sql = "UPDATE users SET username='$nickname', fullname='$fullname', email='$email' WHERE id='$_SESSION[id]'";
         if ($mysqli->query($sql) !== TRUE) {
             add_global_error("Error updating user: " . $mysqli->error, "var(--notifications-error-color)");
         } else {
             add_global_error("User updated.", "var(--notifications-regular-color)");
         }
+    } else {
+        add_global_error("This username is already used. Try something else!", "var(--notifications-error-color)");
     }
 }
 
