@@ -1,9 +1,21 @@
 <?php
+/*
+
+************************************
+settings.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
 $profile_pix_maxsize = 10485760;
 $profile_pic_dir = 'data/users/profile_img/';
 
 function settingsAccount($fullname, $nickname, $email)
 {
+    // updating account informations
+
     global $mysqli;
 
     $username_check = " SELECT * FROM users WHERE username='$nickname' AND id<>'$_SESSION[id]'";
@@ -20,7 +32,10 @@ function settingsAccount($fullname, $nickname, $email)
     }
 }
 
-function chaneProfilePic() {
+function chaneProfilePic()
+{
+    // changing profile pic
+
     global $mysqli;
 
     global $user;
@@ -43,6 +58,7 @@ function chaneProfilePic() {
 
     if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $profile_pic_dir . $tmpname)) {
             createThumbnail($target_file, $target_file, 60, 60);
+            // trying to simply overwrite original file - cannot verify if that works
             
             $del_path = mysqli_query($mysqli, "SELECT img FROM users WHERE id='$_SESSION[id]' LIMIT 1");
             while ($path = mysqli_fetch_array($del_path)) {
@@ -62,6 +78,8 @@ function chaneProfilePic() {
 
 function settingsPassword($password)
 {
+    // updating password - maybe request old one before that?
+
     global $mysqli;
     $param_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -75,6 +93,8 @@ function settingsPassword($password)
 
 function settingsTheme($palette,$color)
 {
+    // updating theme settings
+
     global $mysqli;
     $dark=(int)isset($_POST['switch-dark']);
     $topBar=(int)isset($_POST['switch-top-bar']);
@@ -89,6 +109,8 @@ function settingsTheme($palette,$color)
 
 function settingsToolbar($colors,$colorsComplementary,$delete,$reorder)
 {
+    // update toolbar settings
+
     global $mysqli;
     $visible=(int)isset($_POST['switch-toolbar-enable']);
     $autohide=(int)isset($_POST['switch-toolbar-autohide']);
@@ -104,6 +126,8 @@ function settingsToolbar($colors,$colorsComplementary,$delete,$reorder)
 
 function settingsPWANotifications()
 {
+    // update pwa notifications settings
+
     global $mysqli;
     $notifications=(int)isset($_POST['pwa-notifications-on']);
 

@@ -7,6 +7,7 @@ style.css
 	- Project:  cloud.skaut38
 	- Author:   J. Humpl   
 */
+
 .main-wrapper {
   position: relative;
   width: 100vw;
@@ -579,10 +580,10 @@ style.css
   font-weight: bold;
 }
 .submenu-wrapper a span {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 /* .submenu-wrapper a + a {
   border-top: 1px solid var(--main-line-color);
@@ -1048,8 +1049,8 @@ input[type="checkbox"].side-form-switch:checked:after {
   justify-content: flex-start;
 }
 .side-theme-selector span {
-position: relative;
-display: block;
+  position: relative;
+  display: block;
 }
 .side-theme-selector label span::before {
   content: "";
@@ -1344,7 +1345,7 @@ input[data-valid-input="false"] {
   position: relative;
   color: var(--main-fg-color);
   padding: 30px 20px 10px 20px;
-  width: 100%;  
+  width: 100%;
   border: none;
   background: transparent;
   border-radius: 0;

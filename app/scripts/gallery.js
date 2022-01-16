@@ -14,6 +14,8 @@ gallery.js
 let galleryTarget = "";
 
 function openGallery(target) {
+  // open gallery for given target div
+
   galleryTarget = target;
 
   let galleryBg = document.createElement("div");
@@ -64,6 +66,8 @@ function openGallery(target) {
 }
 
 function closeGallery() {
+  // close gallery - delete all gallery divs
+
   document.querySelectorAll(".gallery-wrapper").forEach((element) => {
     element.classList.add("gallery-wrapper-packed");
     setTimeout(() => {
@@ -77,6 +81,8 @@ function closeGallery() {
 }
 
 function nextGallery(target, direction) {
+  // open next/previous image in gallery view
+
   let targetNext = target;
   if (direction) {
     targetNext = target

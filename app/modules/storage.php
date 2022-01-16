@@ -1,3 +1,13 @@
+<!--
+
+************************************
+storage.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+-->
+
 <script>
     var storage = [<?php
                     $dir_sql = "SELECT * FROM directories";

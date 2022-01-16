@@ -1,8 +1,20 @@
 <?php
+/*
+
+************************************
+calculate.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
 $max_size = -1;
 
 function calculateSize()
 {
+    // calculate size of folders, storage usage and write all into MySQL
+
     global $mysqli;
     global $max_size;
     $dir_size = $global_size = 0;
@@ -25,6 +37,9 @@ function calculateSize()
         $global_size += $dir_size;
         $dir_size = 0;
     }
+
+    // data table contains old logs as well, so a graph of usage could be generated
+
     $sql = "INSERT INTO data (size, sizeAll)
     VALUES ('$global_size', '$max_size')";
 

@@ -1,4 +1,14 @@
 <?php
+/*
+
+************************************
+logout.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
 // Initialize the session
 session_start();
  

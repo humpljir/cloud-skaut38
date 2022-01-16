@@ -1,10 +1,22 @@
 <?php
+/*
+
+************************************
+filesystem.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
 include_once("name_generator.php");
 include_once("image_resize.php");
 $target_dir = "data/storage/";
 
 function dir_delete($id)
 {
+    // delete all files from directory and the directory itself
+
     global $mysqli;
 
     $del_path = mysqli_query($mysqli, "SELECT id FROM files WHERE dirid='$id'");
@@ -22,6 +34,8 @@ function dir_delete($id)
 
 function file_delete($id)
 {
+    // delete file (file & mysql row) by given id
+
     global $mysqli;
     global $target_dir;
 
@@ -54,6 +68,8 @@ function file_delete($id)
 
 function file_new($name, $target)
 {
+    // upload new file
+
     global $mysqli;
     global $user;
     global $target_dir;
@@ -76,16 +92,10 @@ function file_new($name, $target)
             $fileExtension == "jpg" || $fileExtension == "png" || $fileExtension == "jpeg"
             || $fileExtension == "gif"
         ) {
+            // for images - create preview thumbnail
+
             createThumbnail($target_dir . $tmpname, $target_dir . "thumbnails/" . $tmpname, 120, 80);
             $fileType = "image";
-            /*
-                if(createThumbnail($target_file, $target_dir . "thumbnails/" . $tmpname, 80, 120)){
-                    $fileType = "image";
-                }
-                else {
-                    $fileType = "unknown";
-                    add_global_error("Error creating thumbnail, preview of this picture is disabled", "var(--notifications-error-color)");
-                }*/
         } else if ($fileExtension == "pdf" || $fileExtension == "docx" || $fileExtension == "odt") {
             $fileType = "document";
         } else {
@@ -107,6 +117,7 @@ function file_new($name, $target)
 
 function file_edit($id, $name)
 {
+    // edit file informations - needs to add folder selector as well
 
     global $mysqli;
 
@@ -121,6 +132,7 @@ function file_edit($id, $name)
 
 function dir_edit($id, $name, $color)
 {
+    // edit directory info
 
     global $mysqli;
 
@@ -135,6 +147,8 @@ function dir_edit($id, $name, $color)
 
 function directory_new($name, $color)
 {
+    // create a new directory - in the future, each dir should have own table of files
+
     global $mysqli;
     global $user;
 

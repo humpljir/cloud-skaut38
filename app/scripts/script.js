@@ -32,7 +32,7 @@ function errorHandler(code, crucial) {
         // when webapp doesn't load properly, try refresh the window without caching
         // - hopping problem was only with network - otherwise this will lead to app
         //   refreshing all the time - better handler for this error should be
-        //   created in the future
+        //   created in the futurey
 
         window.location.reload(true);
       }, customNotificationsTimeout);
@@ -43,6 +43,8 @@ function errorHandler(code, crucial) {
 }
 
 function formValidator(form, event) {
+  // client side form valdiator - prevent sending
+
   let isValid = true;
   form.querySelectorAll("[data-validate]").forEach((element) => {
     if (element.getAttribute("data-valid-input") == "false") {
@@ -63,6 +65,8 @@ function formValidator(form, event) {
 }
 
 function inputValidator(input, type) {
+  // client side input validator
+
   let value = input.value;
   let errorMessage = "";
 
@@ -138,6 +142,8 @@ function inputValidator(input, type) {
 }
 
 function normalizeValue(val, maxVal, offset) {
+  // function to normalize submenu coordinates
+
   if (val + offset > maxVal) {
     return val - offset;
   } else {

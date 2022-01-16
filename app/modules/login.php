@@ -1,4 +1,14 @@
 <?php
+/*
+
+************************************
+login.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
         $id = $username = $password = $authorized = "";
         $username = htmlspecialchars($_POST["username"]);
         $password = htmlspecialchars($_POST["password"]);
@@ -8,6 +18,8 @@
 
             if ($stmt = $mysqli->prepare($sql)) {
 
+                //try to find an account with the same username
+
                 if ($stmt->execute()) {
                     $stmt->store_result();
                     if ($stmt->num_rows == 1) {
@@ -16,6 +28,7 @@
 
                             if ($authorized == 1) {
                                 if (password_verify($password, $hashed_password)) {
+                                    // compare hashed password with the one in database
 
                                     session_start();
 

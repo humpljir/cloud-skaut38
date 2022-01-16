@@ -12,6 +12,7 @@ app.js
 */
 
 function initApp() {
+  // inicialize web app
 
   window.addEventListener('online',  updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);

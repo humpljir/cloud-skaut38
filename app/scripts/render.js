@@ -12,6 +12,8 @@ render.js
 */
 
 function convertFileSizeString(fileSizeInBytes) {
+  // convert sile size into human readable format
+
   var i = -1;
   var byteUnits = [" kB", " MB", " GB", " TB", "PB", "EB", "ZB", "YB"];
   do {
@@ -23,6 +25,8 @@ function convertFileSizeString(fileSizeInBytes) {
 }
 
 function generateSubmenu(scope, targettype, element, options) {
+  // generate and return submenu div
+
   let submenu = document.createElement("div");
   submenu.className = "submenu-wrapper";
 
@@ -169,10 +173,13 @@ function generateSubmenu(scope, targettype, element, options) {
     openSubmenu(x, y, submenu);
   });
   scope.append(submenuDots);
+
   return submenu;
 }
 
 function drawDirectories() {
+  // render directories list
+
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
   storage.forEach((element) => {
@@ -218,7 +225,10 @@ function drawDirectories() {
   drawSVGAll();
 }
 
-function drawFiles(dirID) {
+function drawFiles(dirID)
+{
+  // render content of an directory
+
   const canvas = document.getElementById("blank-canvas");
   canvas.innerHTML = "";
 
@@ -307,6 +317,8 @@ function drawFiles(dirID) {
 }
 
 function drawToolbar() {
+  // render toolbar
+
   target = document.getElementById("toolbar-div");
   target.innerHTML = "";
   // target.setAttribute("onclick", "openToolbar()");
@@ -343,6 +355,8 @@ function drawToolbar() {
 }
 
 function drawSVGAll() {
+  // add inline svgs into code
+
   static.svg.svgAll.forEach((svg) => {
     document.querySelectorAll("." + svg[0]).forEach((element) => {
       element.innerHTML = svg[1];

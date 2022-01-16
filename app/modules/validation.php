@@ -1,9 +1,21 @@
 <?php
+/*
+
+************************************
+validation.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
 
 use function PHPSTORM_META\type;
 
 function validate($value, $type)
 {
+    // validate string - same rules as in js client side
+
     if ($type == 'username') {
         if (!(preg_match(
             '/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/',

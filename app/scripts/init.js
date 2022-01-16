@@ -20,6 +20,8 @@ let loadingTimeout = setTimeout(() => {
 }, appLoadingTimeout);
 
 function loadingLoaded() {
+  // web app loaded
+
   clearTimeout(loadingTimeout);
   setTimeout(() => {
     document.getElementById("main-wrapper-div").classList.remove("loading");
@@ -117,6 +119,8 @@ function openDir(target) {
 }
 
 function appendEmptyElements(n, target, chameleonClass) {
+  // add some empty elements at the end - to prevent scalling last element
+
   for (let index = 0; index < n; index++) {
     emptyEl = document.createElement("div");
     emptyEl.className = chameleonClass + " empty-flex-element";
@@ -125,6 +129,8 @@ function appendEmptyElements(n, target, chameleonClass) {
 }
 
 function initInputValidator() {
+  // add data validator to each input
+
   document.querySelectorAll("[data-validate]").forEach((element) => {
     /*
     element.closest("form").setAttribute("data-valid", true);
@@ -144,6 +150,8 @@ function initInputValidator() {
 }
 
 function initialize() {
+  // main init function
+  
   loadThemeColors();
 
   if (document.getElementById("blank-canvas")) {

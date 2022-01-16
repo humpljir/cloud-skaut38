@@ -1,3 +1,13 @@
+<!--
+
+************************************
+theme.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+-->
+
 <style>        <?php
         $id = $user['activePalette'];
         $active_palette_sql = "SELECT * FROM palette WHERE id='$id' LIMIT 1";

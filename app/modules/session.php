@@ -1,4 +1,14 @@
 <?php
+/*
+
+************************************
+session.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
    include('config.php');
    session_start();
    

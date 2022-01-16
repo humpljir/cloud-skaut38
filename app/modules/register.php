@@ -1,4 +1,14 @@
 <?php
+/*
+
+************************************
+register.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+*/
+
             $username = htmlspecialchars($_POST['register_username']);
             $password = htmlspecialchars($_POST['register_password']);
             $fullname = htmlspecialchars($_POST['register_fullname']);

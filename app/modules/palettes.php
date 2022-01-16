@@ -1,3 +1,13 @@
+<!--
+
+************************************
+palettes.php
+************************************
+
+	- Project:  cloud.skaut38
+	- Author:   J. Humpl   
+-->
+
 <script>var palettes = [<?php
                             $palette_sql = "SELECT * FROM palette";
                             $palette_result = $mysqli->query($palette_sql);
