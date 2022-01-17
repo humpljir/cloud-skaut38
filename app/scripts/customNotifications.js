@@ -44,7 +44,16 @@ function pushCustomNotifications(content,color) {
   let touchendY = 0;
   
   customNotificationsBox.addEventListener('touchstart', e => {
-    touchstartY = e.changedTouches[0].screenY
+    touchstartY = e.changedTouches[0].screenY;
+    touchstartYglobal=0;
+    customNotificationsBox.addEventListener('mousemove',(mouse)=>{
+      if(touchstartYglobal==0) {
+        touchstartYglobal = mouse.clientY;
+      }
+      let touchdistance = (mouse.clientY-touchstartYglobal)/2;
+      customNotificationsBox.style.transform="translateY("+touchdistance + "px)";
+      console.log(touchdistance);
+    });
   })
   
   customNotificationsBox.addEventListener('touchend', e => {
@@ -52,9 +61,6 @@ function pushCustomNotifications(content,color) {
 
     if (touchendY > touchstartY){
       console.log("gesture a little bit...");
-      let touchdistance = (touchendY-touchstartY)/2;
-      customNotificationsBox.style.transform="translateY("+touchdistance + "px)";
-      console.log(touchdistance);
       if((touchendY-touchstartY)>100) {
         console.log("...a lot of it!");
       customNotificationsBox.remove();
