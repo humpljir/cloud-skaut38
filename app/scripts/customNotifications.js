@@ -42,28 +42,35 @@ function pushCustomNotifications(content,color) {
 
   let touchstartY = 0;
   let touchendY = 0;
+  let touchstartYmove = 0;
   
   customNotificationsBox.addEventListener('touchstart', e => {
     touchstartY = e.changedTouches[0].screenY;
-    touchstartYglobal=0;
-    customNotificationsBox.addEventListener('mousemove',(mouse)=>{
-      if(touchstartYglobal==0) {
-        touchstartYglobal = mouse.clientY;
+
+    customNotificationsBox.addEventListener("touchmove",t=>{
+      t.stopPropagation();
+
+      if(touchstartYmove == 0) {
+        touchstartYmove = t.changedTouches[0].pageY;
       }
-      let touchdistance = (mouse.clientY-touchstartYglobal)/2;
-      customNotificationsBox.style.transform="translateY("+touchdistance + "px)";
-      console.log(touchdistance);
-    });
+
+        let touchdistance = (t.changedTouches[0].pageY-touchstartY)/2;
+        customNotificationsBox.style.top=touchdistance + "px";
+        console.log(touchdistance,t.changedTouches[0].pageY,touchstartYmove);
+      });
   })
   
   customNotificationsBox.addEventListener('touchend', e => {
     touchendY = e.changedTouches[0].screenY;
 
-    if (touchendY > touchstartY){
+    if (touchendY < touchstartY){
       console.log("gesture a little bit...");
-      if((touchendY-touchstartY)>100) {
+      if((touchstartY-touchendY)>200) {
         console.log("...a lot of it!");
       customNotificationsBox.remove();
+      }
+      else {
+        
       }
     }
   })
