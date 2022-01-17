@@ -40,8 +40,8 @@ function pushCustomNotifications(content,color) {
     }, 400);
   }, session.settings.customNotificationsTimeout);
 
-  let touchstartY = 0
-  let touchendY = 0
+  let touchstartY = 0;
+  let touchendY = 0;
   
   customNotificationsBox.addEventListener('touchstart', e => {
     touchstartY = e.changedTouches[0].screenY
@@ -51,10 +51,16 @@ function pushCustomNotifications(content,color) {
     touchendY = e.changedTouches[0].screenY;
 
     if (touchendY > touchstartY){
+      console.log("gesture a little bit...");
+      let touchdistance = (touchendY-touchstartY)/2;
+      customNotificationsBox.style.transform="translateY("+touchdistance + "px)";
+      console.log(touchdistance);
+      if((touchendY-touchstartY)>100) {
+        console.log("...a lot of it!");
       customNotificationsBox.remove();
+      }
     }
   })
-
 
   document.getElementById("custom-notifications-wrapper-div").prepend(customNotificationsBox);
 
