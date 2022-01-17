@@ -19,6 +19,8 @@ function toggleDarkTheme() {
     document.body.classList.add("dark-theme");
     document.documentElement.style.setProperty("--main-bg-color", "#000");
     document.documentElement.style.setProperty("--main-fg-color", "#fff");
+    document.documentElement.style.setProperty("--body-bg-color", "#2c2c2c");
+    document.documentElement.style.setProperty("--body-bg-color-2", "#181818");
     document.documentElement.style.setProperty(
       "--main-line-color",
       "#ffffff20"
@@ -52,6 +54,8 @@ function toggleDarkTheme() {
     document.body.classList.remove("dark-theme");
     document.documentElement.style.setProperty("--main-bg-color", "#fff");
     document.documentElement.style.setProperty("--main-fg-color", "#000");
+    document.documentElement.style.setProperty("--body-bg-color", "var(--side-bg-color)");
+    document.documentElement.style.setProperty("--body-bg-color-2", "var(--main-bg-color)");
     document.documentElement.style.setProperty(
       "--main-line-color",
       "#00000020"

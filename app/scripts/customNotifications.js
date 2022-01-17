@@ -39,6 +39,23 @@ function pushCustomNotifications(content,color) {
       customNotificationsBox.remove();
     }, 400);
   }, session.settings.customNotificationsTimeout);
+
+  let touchstartY = 0
+  let touchendY = 0
+  
+  customNotificationsBox.addEventListener('touchstart', e => {
+    touchstartY = e.changedTouches[0].screenY
+  })
+  
+  customNotificationsBox.addEventListener('touchend', e => {
+    touchendY = e.changedTouches[0].screenY;
+
+    if (touchendY > touchstartY){
+      customNotificationsBox.remove();
+    }
+  })
+
+
   document.getElementById("custom-notifications-wrapper-div").prepend(customNotificationsBox);
 
   console.log("Custom notfication pushed: "+content);

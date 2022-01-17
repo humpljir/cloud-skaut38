@@ -152,8 +152,8 @@ function directory_new($name, $color)
     global $mysqli;
     global $user;
 
-    $sql = "INSERT INTO directories (name, date, color, author)
-    VALUES ('$name',UTC_TIMESTAMP(), '$color', '$user[username]')";
+    $sql = "INSERT INTO directories (name, date, color, size, author)
+    VALUES ('$name',UTC_TIMESTAMP(), '$color',0 , '$user[id]')";
     if ($mysqli->query($sql) == TRUE) {
         add_global_error("Directory created!", "var(--notifications-regular-color)");
     } else {

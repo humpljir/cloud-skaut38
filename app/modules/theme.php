@@ -50,6 +50,8 @@ theme.php
     ?>:root {
         --main-bg-color: #fff;
         --main-fg-color: #000;
+        --body-bg-color:var(--side-bg-color);
+        --body-bg-color-2:var(--main-bg-color);
         --main-line-color: #00000020;
         --menu-bg-color: #ffffffb8;
         --side-bg-color: #ededed;
@@ -68,6 +70,8 @@ theme.php
     ?>:root {
         --main-bg-color: #000;
         --main-fg-color: #fff;
+        --body-bg-color:#2c2c2c;
+        --body-bg-color-2:#181818;
         --main-line-color: #ffffff20;
         --menu-bg-color: #2d2d2dc7;
         --side-bg-color: #000;
