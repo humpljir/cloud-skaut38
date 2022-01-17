@@ -43,21 +43,23 @@ function pushCustomNotifications(content,color) {
   let touchstartY = 0;
   let touchendY = 0;
   let touchstartYmove = 0;
+  let touchdistance = 0;
+  let touchmovelistener;
   
   customNotificationsBox.addEventListener('touchstart', e => {
     touchstartY = e.changedTouches[0].screenY;
 
-    customNotificationsBox.addEventListener("touchmove",t=>{
+    if(touchstartYmove == 0) {
+      touchstartYmove = t.changedTouches[0].pageY;
+    document.addEventListener("touchmove",t=>{
+      console.log("adding new move listener");
       t.stopPropagation();
 
-      if(touchstartYmove == 0) {
-        touchstartYmove = t.changedTouches[0].pageY;
-      }
-
-        let touchdistance = (t.changedTouches[0].pageY-touchstartY)/2;
-        customNotificationsBox.style.top=touchdistance + "px";
+        touchdistance = (t.changedTouches[0].pageY-touchstartYmove)/2;
+        customNotificationsBox.style.transform="translateY("+touchdistance + "px)";
         console.log(touchdistance,t.changedTouches[0].pageY,touchstartYmove);
       });
+    }
   })
   
   customNotificationsBox.addEventListener('touchend', e => {
@@ -70,7 +72,12 @@ function pushCustomNotifications(content,color) {
       customNotificationsBox.remove();
       }
       else {
-        
+        console.log("failed, reset");
+        customNotificationsBox.style.transform="translateY(0px)";
+        touchstartY = 0;
+        touchendY = 0;
+        touchstartYmove = 0;
+        touchdistance = 0;
       }
     }
   })
