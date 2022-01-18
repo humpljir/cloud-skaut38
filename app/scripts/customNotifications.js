@@ -12,24 +12,25 @@ customNotifications.js
 */
 
 function initCustomNotifications() {
-// create main wrapper for appending custom notifications
+  // create main wrapper for appending custom notifications
 
   let customNotificationsWrapper = document.createElement("div");
-  customNotificationsWrapper.className="custom-notifications-wrapper";
-  customNotificationsWrapper.id="custom-notifications-wrapper-div";
+  customNotificationsWrapper.className = "custom-notifications-wrapper";
+  customNotificationsWrapper.id = "custom-notifications-wrapper-div";
   document.getElementById("window-div").after(customNotificationsWrapper);
 }
 
-function pushCustomNotifications(content,color) {
-// push custom in-app notification content - text of notification color - can be
-// any code, but preferably should be used one of predefined values:
-// var(--notifications-regular-color), var(--notifications-error-color),
-// var(--notifications-warning-color), var(--notifications-confirm-color)
+function pushCustomNotifications(content, color) {
+  // push custom in-app notification content - text of notification color - can be
+  // any code, but preferably should be used one of predefined values:
+  // var(--notifications-regular-color), var(--notifications-error-color),
+  // var(--notifications-warning-color), var(--notifications-confirm-color)
 
   let customNotificationsBox = document.createElement("div");
-  customNotificationsBox.className = "custom-notifications-box notifications-hide";
-  customNotificationsBox.setAttribute("style","--notification-color:"+color);
-  customNotificationsBox.innerHTML=content;
+  customNotificationsBox.className =
+    "custom-notifications-box notifications-hide";
+  customNotificationsBox.setAttribute("style", "--notification-color:" + color);
+  customNotificationsBox.innerHTML = content;
   setTimeout(() => {
     customNotificationsBox.classList.remove("notifications-hide");
   }, 10);
@@ -44,56 +45,71 @@ function pushCustomNotifications(content,color) {
   let touchendY = 0;
   let touchstartYmove = 0;
   let touchdistance = 0;
-  
-  customNotificationsBox.addEventListener('touchstart', e => {
-    touchstartY = e.touches[0].screenY;
+
+  customNotificationsBox.addEventListener("touchstart", (e) => {
+    touchstartY = e.changedTouches[0].screenY;
   });
+
+  function resetMoveHandler() {
+    customNotificationsBox.style.transform = "translateY(0px)";
+    touchstartY = 0;
+    touchendY = 0;
+    touchstartYmove = 0;
+    touchdistance = 0;
+  }
 
   function touchmoveHandler(t) {
     t.stopPropagation();
-
-    if(touchstartYmove == 0) {
+    if (touchstartYmove == 0) {
+      touchdistance = 0;
       touchstartYmove = t.touches[0].pageY;
     }
 
-      touchdistance += (t.changedTouches[0].pageY-touchstartYmove)/2;
-      customNotificationsBox.style.transform="translateY("+touchdistance + "px)";
-      console.log(touchdistance,t.touches[0].pageY,touchstartYmove);
+    touchdistance += (t.touches[0].pageY - touchstartYmove) / 2;
+    if (touchdistance > 0) {
+      resetMoveHandler();
+    }
+    customNotificationsBox.style.transform =
+      "translateY(" + touchdistance + "px)";
+    console.log(touchdistance, t.touches[0].pageY, touchstartYmove);
   }
 
-  customNotificationsBox.addEventListener("touchmove",touchmoveHandler(t));
-  
-  customNotificationsBox.addEventListener('touchend', e => {
+  customNotificationsBox.addEventListener("touchmove", touchmoveHandler);
+
+  customNotificationsBox.addEventListener("touchend", (e) => {
     touchendY = e.changedTouches[0].screenY;
 
-    if (touchendY < touchstartY){
+    if (touchendY < touchstartY) {
       console.log("gesture a little bit...");
-      if((touchstartY-touchendY)>200) {
+      if (touchstartY - touchendY > 80) {
         console.log("...a lot of it!");
-      customNotificationsBox.remove();
-      }
-      else {
+        customNotificationsBox.removeEventListener(
+          "touchmove",
+          touchmoveHandler
+        );
+        customNotificationsBox.classList.add("notifications-hide");
+        setTimeout(() => {
+          customNotificationsBox.remove();
+        }, 400);
+      } else {
         console.log("failed, reset");
-        customNotificationsBox.style.transform="translateY(0px)";
-        touchstartY = 0;
-        touchendY = 0;
-        touchstartYmove = 0;
-        touchdistance = 0;
-        customNotificationsBox.removeEventListener("touchmove",touchmoveHandler(t));
+        resetMoveHandler();
       }
     }
-  })
+  });
 
-  document.getElementById("custom-notifications-wrapper-div").prepend(customNotificationsBox);
+  document
+    .getElementById("custom-notifications-wrapper-div")
+    .prepend(customNotificationsBox);
 
-  console.log("Custom notfication pushed: "+content);
+  console.log("Custom notfication pushed: " + content);
 }
 
 function clearCustomNotifications() {
-// delete all existing notifications whithout waiting for timeout - when going
-// through UI, notifications could make the user experience worst
+  // delete all existing notifications whithout waiting for timeout - when going
+  // through UI, notifications could make the user experience worst
 
-  document.querySelectorAll(".custom-notifications-box").forEach(element => {
+  document.querySelectorAll(".custom-notifications-box").forEach((element) => {
     element.remove();
   });
 }

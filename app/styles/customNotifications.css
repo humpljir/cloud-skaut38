@@ -38,7 +38,7 @@ customNotifications.css
   font-weight: bold;
   color: var(--main-fg-color);
   transform: translateY(0);
-  /*transition: transform 0.4s;*/
+  transition: all 0.4s;
   z-index: 0;
   opacity: 1;
   -webkit-animation: flashHighlight 0.4s 0s;
